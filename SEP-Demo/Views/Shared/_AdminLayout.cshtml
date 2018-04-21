@@ -1,0 +1,485 @@
+﻿
+<!DOCTYPE html>
+<html class="smart-style-1">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Trading - Vanlang University</title>
+    <!-- Basic Styles -->
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- SmartAdmin Styles : Caution! DO NOT change the order -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/Content/Admin/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/Content/Admin/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/Content/Admin/smartadmin-skins.min.css">
+
+    <!-- SmartAdmin RTL Support  -->
+    <!-- We recommend you use "your_style.css" to override SmartAdmin
+             specific styles this will also ensure you retrain your customization with each SmartAdmin update. -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/Content/Admin/style.css">
+    <!-- Demo purpose only: goes with demo.js, you can delete this css when designing your own WebApp -->
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="~/Uploads/icon/download1.png" type="image/x-icon">
+    <link rel="icon" href="~/Uploads/icon/download1.png" type="image/x-icon">
+
+    <!-- GOOGLE FONT -->
+    <!-- Specifying a Webpage Icon for Web Clip
+         Ref: https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+    <link rel="apple-touch-icon" href="~/Uploads/icon/download1.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/Uploads/icon/download1.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/Uploads/icon/download1.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/Uploads/icon/download1.png">
+
+    <!-- iOS web-app metas : hides Safari UI Components and Changes Status Bar Appearance -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <!-- Startup image for web apps -->
+    <link rel="apple-touch-startup-image" href="~/Uploads/Gif/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+    <link rel="apple-touch-startup-image" href="~/Uploads/Gif/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+    <link rel="apple-touch-startup-image" href="~/Uploads/Gif/iphone.png" media="screen and (max-device-width: 320px)">
+
+    <!--Start of Zopim Live Chat Script-->
+    <script type="text/javascript">
+        window.$zopim || (function (d, s) {
+            var z = $zopim = function (c) {
+                z._.push(c)
+            }, $ = z.s =
+            d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                z.set.
+                _.push(o)
+            }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
+            $.src = '//v2.zopim.com/?3pP8pVV1WLgGjqTb48HsSqXiEJ33t8Nx'; z.t = +new Date; $.
+            type = 'text/javascript'; e.parentNode.insertBefore($, e)
+        })(document, 'script');
+    </script>
+    <!--End of Zopim Live Chat Script-->
+</head>
+<body class="fixed-header fixed-navigation smart-style-1">
+
+    <!-- HEADER -->
+    <header id="header">
+        <div id="logo-group">
+            <!-- PLACE YOUR LOGO HERE -->
+            <span id="logo"><a href="/admin#/home"> <img src="~/Uploads/backend-logo.png" alt="RUNTIME"> </a></span>
+            <!-- END LOGO PLACEHOLDER -->
+            <!-- Note: The activity badge color changes when clicked and resets the number to 0
+            Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+
+            <span id="view-site"> <a href="/" target="_blank"><i class="fa fa-external-link"></i></a> </span>
+        </div>
+        <div class="pull-left">
+            <!-- search mobile button (this is hidden till mobile view port) -->
+            <div id="search-mobile" class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+            </div>
+            <!-- end search mobile button -->
+            <!-- input: search field -->
+            <div class="header-search pull-right hidden">
+                <input id="search-fld" type="text" name="param" placeholder="Tìm kiếm" />
+                <button type="button">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+            </div>
+            <!-- end input: search field -->
+            <!-- fullscreen button -->
+            <div id="fullscreen" class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+            </div>
+            <!-- end fullscreen button -->
+            <!-- collapse menu button -->
+            <div id="hide-menu" class="btn-header pull-right no-margin">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+            </div>
+            <!-- end collapse menu -->
+        </div>
+        <!-- pulled right: nav area -->
+        <div class="pull-right">
+            <!-- #MOBILE -->
+            <!-- Top menu profile link : this shows only when top menu is active -->
+            <ul id="profile-img" class="header-dropdown-list hidden-xs padding-5">
+                <li class="">
+                    <a href="#" target="_self" class="dropdown-toggle  no-margin avatar" data-toggle="dropdown">
+                        <img src="~/Uploads/icon/user.png" alt="Trading" class="img-circle" />
+                        <span>Trading-Vanlang</span>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="/admin#/userlogin/changepassword" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Đổi mật khẩu</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/admin#/userlogin" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> Tài khoản quản trị</a>
+                        </li>
+                        <li class="divider"></li>
+
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full Screen</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/admin/account/login" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout" data-logout-msg="Bạn có muốn đăng xuất khỏi hệ thống không?"><i class="fa fa-sign-out fa-lg"></i> <strong>Đăng xuất</strong></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- logout button -->
+            <div id="logout" class="btn-header transparent pull-right hidden">
+                <span> <a href="/admin/account/login" title="Sign Out" data-action="userLogout" data-logout-msg="Bạn có muốn đăng xuất khỏi hệ thống không?"><i class="fa fa-sign-out"></i></a> </span>
+            </div>
+            <!-- end logout button -->
+            <!-- multiple lang dropdown : find all flags in the flags page -->
+            <ul class="header-dropdown-list hidden-xs">
+                <li>
+                    <a href="#" target="_self" class="dropdown-toggle" data-toggle="dropdown"> <img src="~/Uploads/icon/blank.gif" class="flag flag-vn" alt="Tiếng Việt"> <span>  Tiếng Việt </span> <i class="fa fa-caret-down"></i> </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li class="active">
+                            <a href="javascript:void(0);"><img src="~/Uploads/icon/blank.gif" class="flag flag-vn" alt="France"> Tiếng Việt</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"><img src="~/Uploads/icon/blank.gif" class="flag flag-us" alt="United States"> English</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- end multiple lang -->
+        </div>
+        <!-- end pulled right: nav area -->
+
+    </header>
+    <!-- END HEADER -->
+    <!-- Left panel : Navigation area -->
+    <!-- Note: This width of the aside area can be adjusted through LESS variables -->
+    <aside id="left-panel">
+
+        <!-- User info -->
+        <div class="login-info hidden">
+            <span>
+                <!-- User image size is adjusted inside CSS, it should stay as it -->
+
+                <a href="/" target="_blank">
+
+                    <i class="fa fa-fw fa-desktop"></i>
+                    <span>
+                        Xem website
+                    </span>
+                    <i class="fa fa-external-link "></i>
+                </a>
+
+            </span>
+        </div>
+        <!-- end user info -->
+        <!-- NAVIGATION : This navigation is also responsive-->
+        <nav>
+            <ul>
+                <li>
+                    <a href="/admin#/home" title="Tổng quan"><i class="fa fa-fw fa-dashboard"></i> <span class="menu-item-parent">Tổng quan</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> <span class="menu-item-parent">Sản phẩm</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/product">Sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/productgroup">Nh&#243;m sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/product/inventory">Tồn kho</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-table"></i> <span class="menu-item-parent">Tin tức</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/news/create">Th&#234;m mới tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/news">Danh s&#225;ch tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/newsgroup">Nh&#243;m tin tức</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-pencil-square-o"></i> <span class="menu-item-parent">Đơn h&#224;ng</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/order">Đơn h&#224;ng</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/order/shipping">Vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/order/draft">Đơn h&#224;ng nh&#225;p</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-windows"></i> <span class="menu-item-parent">Kh&#225;ch h&#224;ng</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/member">Danh s&#225;ch kh&#225;ch h&#224;ng</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/contact">Li&#234;n hệ từ kh&#225;ch h&#224;ng</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/newsletter">Danh s&#225;ch Email đăng k&#253;</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-calendar"></i> <span class="menu-item-parent">Nội dung</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/about">Giới thiệu</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/adv">Quảng c&#225;o</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/partner">Đối t&#225;c</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/support">Hỗ trợ trực tuyến</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-list-alt"></i> <span class="menu-item-parent">Website</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/storetemplate">Quản l&#253; mẫu giao diện</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/menu">Quản l&#253; menu</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/slideshow">Slideshow ảnh</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/banner">Thiết lập Banner</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/background">Thiết lập h&#236;nh nền</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/theme">Chỉnh sửa CSS</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/pagecontent">Trang nội dung</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/page">Trang hệ thống</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/admin#/pagesetting" title="Thiết kế trang"><i class="fa fa-fw fa-puzzle-piece"></i> <span class="menu-item-parent">Thiết kế trang</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-fw fa-map-marker"></i> <span class="menu-item-parent">Cấu h&#236;nh</span></a>
+                    <ul>
+                        <li>
+                            <a href="/admin#/config">Cấu h&#236;nh website</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/general">Cấu h&#236;nh chung</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/product">Cấu h&#236;nh sản phẩm</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/news">Cấu h&#236;nh tin tức</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/map">Bản đồ</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/domain">T&#234;n miền ri&#234;ng</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/checkout">Thanh to&#225;n</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/shipping">Vận chuyển</a>
+                        </li>
+                        <li>
+                            <a href="/admin#/config/account">T&#224;i khoản</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <span class="minifyme" data-action="minifyMenu">
+            <i class="fa fa-arrow-circle-left hit"></i>
+        </span>
+
+    </aside>
+    <!-- END NAVIGATION -->
+    <!-- MAIN PANEL -->
+    @RenderBody();
+    <!-- END MAIN PANEL -->
+    <!-- PAGE FOOTER -->
+    <div class="page-footer">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <span class="txt-color-white">RUNTIME 2.0 <span class="hidden-xs"> - Web Application Framework</span> © 2014-2015</span>
+            </div>
+
+            <div class="col-xs-6 col-sm-6 text-right hidden-xs hidden">
+                <div class="txt-color-white inline-block">
+                    <i class="txt-color-blueLight hidden-mobile">Last account activity <i class="fa fa-clock-o"></i> <strong>52 mins ago &nbsp;</strong> </i>
+                    <div class="btn-group dropup">
+                        <button class="btn btn-xs dropdown-toggle bg-color-blue txt-color-white" data-toggle="dropdown">
+                            <i class="fa fa-link"></i> <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right text-left">
+                            <li>
+                                <div class="padding-5">
+                                    <p class="txt-color-darken font-sm no-margin">Download Progress</p>
+                                    <div class="progress progress-micro no-margin">
+                                        <div class="progress-bar progress-bar-success" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="padding-5">
+                                    <p class="txt-color-darken font-sm no-margin">Server Load</p>
+                                    <div class="progress progress-micro no-margin">
+                                        <div class="progress-bar progress-bar-success" style="width: 20%;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="padding-5">
+                                    <p class="txt-color-darken font-sm no-margin">Memory Load <span class="text-danger">*critical*</span></p>
+                                    <div class="progress progress-micro no-margin">
+                                        <div class="progress-bar progress-bar-danger" style="width: 70%;"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="padding-5">
+                                    <button class="btn btn-block btn-default">refresh</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE FOOTER -->
+
+
+    <script src="~/Scripts/Admin/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/paging.js"></script>
+    <script src="~/Scripts/Admin/angular.min.js"></script>
+    <script src="~/Scripts/Admin/angular-route.min.js"></script>
+    <script src="~/Scripts/Admin/angular-sanitize.min.js"></script>
+    <link href="~/Scripts/Admin/angular-block-ui.css" rel="stylesheet" />
+    <script src="~/Scripts/Admin/angular-block-ui.js"></script>
+    <link href="~/Scripts/Admin/codemirror.css" rel="stylesheet" />
+    <link href="~/Scripts/Admin/show-hint.css" rel="stylesheet" />
+    <script src="~/Scripts/Admin/codemirror.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/javascript.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/show-hint.js" type="text/javascript"></script>
+
+    <script src="~/Scripts/Admin/ui-codemirror.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/ckfinder.js" type="text/javascript"></script>
+    <script src="~/Scripts/Admin/ng-ckeditor.js"></script>
+    <!-- IMPORTANT: APP CONFIG -->
+    <script src="~/Scripts/Admin/app.config.js"></script>
+
+    <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+    <script src="~/Scripts/Admin/jquery.ui.touch-punch.min.js"></script>
+
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="~/Scripts/Admin/SmartNotification.min.js"></script>
+
+    <!-- JARVIS WIDGETS -->
+    <script src="~/Scripts/Admin/jarvis.widget.min.js"></script>
+
+    <!-- EASY PIE CHARTS -->
+    <script src="~/Scripts/Admin/jquery.easy-pie-chart.min.js"></script>
+
+    <!-- SPARKLINES -->
+    <script src="~/Scripts/Admin/jquery.sparkline.min.js"></script>
+
+    <!-- JQUERY VALIDATE -->
+    <script src="~/Scripts/Admin/jquery.validate.min.js"></script>
+
+    <!-- JQUERY MASKED INPUT -->
+    <script src="~/Scripts/Admin/jquery.maskedinput.min.js"></script>
+
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="~/Scripts/Admin/select2.min.js"></script>
+
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <script src="~/Scripts/Admin/bootstrap-slider.min.js"></script>
+
+    <!-- browser msie issue fix -->
+    <script src="~/Scripts/Admin/jquery.mb.browser.min.js"></script>
+
+    <!-- FastClick: For mobile devices -->
+    <script src="~/Scripts/Admin/fastclick.min.js"></script>
+
+    <!--[if IE 8]>
+
+    <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+
+    <![endif]-->
+    <!-- Demo purpose only -->
+    <!-- MAIN APP JS FILE -->
+    <script src="~/Scripts/Admin/app.min.js"></script>
+
+    <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+    <!-- Voice command : plugin -->
+
+
+    <script src="~/Scripts/Admin/jquery.jqGrid.min.js"></script>
+    <script src="~/Scripts/Admin/grid.locale-en.min.js"></script>
+    <script src="~/Scripts/Admin/ckfinder.js" type="text/javascript"></script>
+
+    <!-- PAGE RELATED PLUGIN(S) -->
+
+    <script src="~/Scripts/Admin/bootstrap-colorpicker.min.js"></script>
+
+
+    <script src="~/Scripts/Admin/angular-summernote.js"></script>
+    <script src="~/Scripts/Admin/paging.js"></script>
+    <script src="~/Scripts/Admin/ng-sortable.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?key=AIzaSyBO93-_2pxx4UBTNduADxfoWpsFrHAFKsA"></script>
+    <script src="~/Scripts/Admin/ng-map.min.js"></script>
+
+
+    <script type="text/javascript">
+        function heartBeat() {
+            $.get("/KeepAlive.ashx", function (data) { });
+        }
+        $(function () {
+            setInterval("heartBeat()", 1000 * 30); // 30s gửi request một lần
+        });
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+        function closeBuyService() {
+            $('#toast-main').hide();
+        }
+    </script>
+</body>
+</html>
