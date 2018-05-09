@@ -7,13 +7,14 @@ using SEP_Demo.Models;
 using System.Net.Mail;
 using System.Net;
 using System.Web.Security;
+using System.Data.Entity.Validation;
 
 namespace SEP_Demo.Controllers
 {
     public class AccountController : Controller
     {
         // GET: Account
-       
+
         public ActionResult SignUp()
         {
             return View();
@@ -44,17 +45,34 @@ namespace SEP_Demo.Controllers
                 //
                 user.IsEmailVerified = false;
 
+                //
+                user.Role_ID = 3;
+
                 //Save to database
                 using (MyDataEntities db = new MyDataEntities())
                 {
-                    db.Users.Add(user);
-                    db.SaveChanges();
+                    try
+                    {
+                        db.Users.Add(user);
+                        db.SaveChanges();
+                    }
+                    catch (DbEntityValidationException dbEx)
+                    {
+                        foreach (var validationErrors in dbEx.EntityValidationErrors)
+                        {
+                            foreach (var validationError in validationErrors.ValidationErrors)
+                            {
+                                System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                            }
+                        }
+                    }
+
                 }
 
                 //Send Email to User
                 SendVerificationLinkEmail(user.EmailID, user.ActivationCode.ToString());
                 message = " Registration sucessfully done. Account activation link" +
-                    " has been sent to your email : " +user.EmailID;
+                    " has been sent to your email : " + user.EmailID;
                 Status = true;
             }
             else
@@ -102,12 +120,12 @@ namespace SEP_Demo.Controllers
         public ActionResult Login(UserLogin login)
         {
             string message = "";
-            using(MyDataEntities db = new MyDataEntities())
+            using (MyDataEntities db = new MyDataEntities())
             {
                 var v = db.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
                 if (v != null)
                 {
-                    if (string.Compare(Crypto.Hash(login.Password),v.Password) == 0)
+                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
                     {
                         //int timeout = login.RememberMe ? 525600 : 20; //525600 min = 1 year
                         //var ticket = new FormsAuthenticationTicket(login.EmailID,login.RememberMe,timeout);
@@ -172,7 +190,7 @@ namespace SEP_Demo.Controllers
                 {
                     //Send Email for reset password
                     string resetCode = Guid.NewGuid().ToString();
-                    SendVerificationLinkEmail(account.EmailID,resetCode, "ResetPassword");
+                    SendVerificationLinkEmail(account.EmailID, resetCode, "ResetPassword");
                     account.ResetPasswordCode = resetCode;
                     //
                     db.Configuration.ValidateOnSaveEnabled = false;
@@ -187,13 +205,13 @@ namespace SEP_Demo.Controllers
             ViewBag.Message = message;
             return View();
         }
-        
+
         public ActionResult ResetPassword(string id)
         {
             //Verify the reset password link
             //Find the account associated with this link
             //redirect to reset password page
-            using(MyDataEntities db = new MyDataEntities())
+            using (MyDataEntities db = new MyDataEntities())
             {
                 var user = db.Users.Where(a => a.ResetPasswordCode == id).FirstOrDefault();
                 if (user != null)
@@ -216,7 +234,7 @@ namespace SEP_Demo.Controllers
             var message = "";
             if (ModelState.IsValid)
             {
-                using(MyDataEntities db = new MyDataEntities())
+                using (MyDataEntities db = new MyDataEntities())
                 {
                     var user = db.Users.Where(a => a.ResetPasswordCode == model.ResetCode).FirstOrDefault();
                     if (user != null)
@@ -239,7 +257,7 @@ namespace SEP_Demo.Controllers
             return View(model);
         }
 
-        
+
         [NonAction]
         public bool IsEmailExist(string emailID)
         {
@@ -253,7 +271,7 @@ namespace SEP_Demo.Controllers
         [NonAction]
         public void SendVerificationLinkEmail(string emailID, string activationCode, string emailFor = "VerifyAccount")
         {
-            var verifyUrl = "/Account/"+emailFor+"/" + activationCode;
+            var verifyUrl = "/Account/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
             var fromEmail = new MailAddress("thienvq97@gmail.com", "Trading Vanlanguniversity");
@@ -264,20 +282,20 @@ namespace SEP_Demo.Controllers
             string body = "";
             if (emailFor == "VerifyAccount")
             {
-                 subject = "Your account is successfully created";
+                subject = "Your account is successfully created";
 
-                 body = "<br/><br/>We are excited to tell you that your Trading account is" +
-                    " successfully created. Please click on the below link to verify your account" +
-                    "<br/><br/><a href='" + link + "'>" + link + "</a>";
+                body = "<br/><br/>We are excited to tell you that your Trading account is" +
+                   " successfully created. Please click on the below link to verify your account" +
+                   "<br/><br/><a href='" + link + "'>" + link + "</a>";
             }
-            else if(emailFor == "ResetPassword")
+            else if (emailFor == "ResetPassword")
             {
                 subject = "Reset Password";
                 body = "Hi! <br/><br/>We got request for reset your account password. Please click on the below link to verify your account" +
                     "<br/><br/><a href=" + link + ">Reset Password Link</a>";
             }
-            
-           
+
+
 
             var smtp = new SmtpClient
             {
@@ -295,7 +313,7 @@ namespace SEP_Demo.Controllers
                 Body = body,
                 IsBodyHtml = true
             })
-            smtp.Send(message);
-        } 
+                smtp.Send(message);
+        }
     }
 }
