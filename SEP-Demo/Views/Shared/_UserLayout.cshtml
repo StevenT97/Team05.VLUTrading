@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Trading - Vanlang University</title>
+    <!----------------- CSS --------------------->
+    <link href="/Content/reset.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/style.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="/Content/responsive.css" rel="stylesheet" />
+    <link href="/Content/jquerybxslider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/select2min.css" rel="stylesheet" />
+    <link href="/Content/flexslider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/animate.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/jquery.fancybox.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    @*<link href="~/Content/smoothproduct.css" rel="stylesheet" type="text/css">*@
+    <!------------------- Scirpt ---------------->
+    @*<script src="~/Scripts/smoothproduct.js" type="text/javascript"></script>*@
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/Scripts/jquery.bxslider.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.flexslider-min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.touchSwipe.min.js"></script>
+    <script src="~/Scripts/select2.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/theme-script.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.cookie.js" type="text/javascript"></script>
+    <script src="~/Scripts/modernizr.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.plugin.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.actual.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/html5shiv.js"></script>
+    <script src="~/Scripts/jquery-migrate-1.2.0.min.js"></script>
+
+
+    <!-----------------------Angular-->
+    <script src="~/Scripts/Angular/angular.min.js"></script>
+    <script src="~/Scripts/Angular/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Angular/spin.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Angular/angular-spinner.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/Angular/angular-loading-spinner.js"></script>
+
+    @*<script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.uwOfzs-08oQ.O/m=auth/exm=plusone/rt=j/sv=1/d=1/ed=1/am=AQE/rs=AGLTcCOMIGR5ynR0mXJkMihnSlkygaAstw/cb=gapi.loaded_1" async=""></script>
+        <script src="https://apis.google.com/_/scs/apps-static/_/js/k=oz.gapi.en.uwOfzs-08oQ.O/m=plusone/rt=j/sv=1/d=1/ed=1/am=AQE/rs=AGLTcCOMIGR5ynR0mXJkMihnSlkygaAstw/cb=gapi.loaded_0" async=""></script>
+        <script type="text/javascript" src="//apis.google.com/js/plusone.js" gapi_processed="true"></script>
+        <script type="text/javascript" src="//m.addthis.com/live/red_lojson/300lo.json?si=5accc2c57b1b7978&amp;bkl=0&amp;bl=1&amp;sid=5accc2c57b1b7978&amp;pub=ra-5334d6387b03b532&amp;rev=v7.9.3-wp&amp;ln=vi&amp;pc=men&amp;cb=0&amp;ab=-&amp;dp=tradingvanlang.runtime.vn&amp;fp=san-pham%2Fdam-mac-nha-tay-lo-nitimo-2001.html&amp;fr=trang-chu.html&amp;of=0&amp;pd=1&amp;irt=1&amp;vcl=1&amp;md=0&amp;ct=1&amp;tct=0&amp;abt=0&amp;cdn=0&amp;pi=1&amp;rb=2&amp;gen=100&amp;chr=UTF-8&amp;mk=%C4%90%E1%BA%A7m%20m%E1%BA%B7c%20nh%C3%A0%20tay%20l%E1%BB%A1%20NITIMO%202001&amp;colc=1523368646855&amp;jsl=1&amp;uvs=5accc1e6f44501fe001&amp;skipb=1&amp;callback=addthis.cbs.oln9_413097151594516760"></script>
+        <script type="text/javascript" src="//m.addthisedge.com/live/boost/ra-5334d6387b03b532/_ate.track.config_resp"></script>*@
+
+</head>
+<body style="" class="home option2 ng-scope">
+
+    <div class="wrapper page-home">
+
+        <div id="header" class="header">
+            <section class="top-link clearfix">
+                <div class="container">
+                    <div class="row" style="height:50px">
+                        <div class="col-md-12">
+                            <ul class="nav navbar-nav topmenu-contact pull-left">
+                                <li><i class="fa fa-phone"></i> <span>Hotline:0185585935</span></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
+                                <li class="order-check"><a href="../Product/Cart"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                <li class="order-cart"><a href="../Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                                <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+                            </ul>
+                            <div class="show-mobile hidden-lg hidden-md">
+                                <div class="quick-user">
+                                    <div class="quickaccess-toggle">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="inner-toggle">
+                                        <ul class="login links">
+                                            <li>
+                                                <a href="../Account/SignUp"><i class="fa fa-sign-in"></i> Đăng ký</a>
+                                            </li>
+                                            <li>
+                                                <a href="../Account/Login"><i class="fa fa-key"></i> Đăng nhập</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="quick-access">
+                                    <div class="quickaccess-toggle">
+                                        <i class="fa fa-list"></i>
+                                    </div>
+                                    <div class="inner-toggle">
+                                        <ul class="links">
+                                            <li><a id="mobile-wishlist-total" href="../Product/Cart" class="wishlist"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                            <li><a href="../Product/Cart" class="shoppingcart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- MAIN HEADER -->
+            <div class="container main-header">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 logo">
+                        <a href="/" class="logo" title="Trading">
+                            <img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="Trading" title="Trading">
+                        </a>
+                        <h1 style="display: none;">
+                            Trading
+                        </h1>
+                    </div>
+                    <div class="col-xs-7 col-sm-7 header-search-box">
+                        <div class="search-box">
+                            <form class="search form-inline">
+                                <div class="form-group input-serach">
+                                    <input type="text" name="search" class="search_box" id="txtsearch" onblur="if(this.value=='')this.value='Nhập từ khóa tìm kiếm...'"
+                                           onfocus="if(this.value=='Nhập từ khóa tìm kiếm...')this.value=''" value="Nhập từ kh&#243;a t&#236;m kiếm..." />
+                                </div>
+                                <button id="btnsearch" class="pull-right btn-search">
+                                    <span class="hidden-400">Tìm kiếm</span>
+                                    <span class="show-400"><i class="fa fa-search" aria-hidden="true"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-5 col-sm-2 group-button-header new-login">
+                        <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
+                        <div class="btn-cart" id="cart-block">
+                            <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                            <span class="text-show">Giỏ hàng</span>
+                            <span class="notify notify-right">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- END MANIN HEADER -->
+            <script type="text/javascript">
+                $("#btnsearch").click(function () {
+                    SearchProduct();
+                });
+                $("#txtsearch").keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        SearchProduct();
+                    }
+                });
+                function SearchProduct() {
+                    var key = $('#txtsearch').val();
+                    if (key == '' || key == 'Tìm kiếm...') {
+                        $('#txtsearch').focus();
+                        return;
+                    }
+                    window.location = '/tim-kiem.html?key=' + key;
+                }
+            </script>
+            <!--Template--
+            --End-->
+
+            <div id="nav-top-menu" class="nav-top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3" id="box-vertical-megamenus">
+                            <div class="box-vertical-megamenus menu-quick-select">
+                                <h4 class="title click-menu">
+                                    <span class="title-menu">Danh mục sản phẩm</span>
+                                    <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
+                                </h4>
+                                <div class="vertical-menu-content is-home">
+                                    <ul class="vertical-menu-list">
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu">
+                                                <li class="level1"><a class="" href="/san-pham/ao-so-mi-40422"><span>Áo sơ mi</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-khoac-40423"><span>Áo khoác</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-thun-40424"><span>Áo thun</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-tay-cong-so-40425"><span>Quần tây công sở</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-jean-40426"><span>Quần jean</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/dam-vay-nu-40427"><span>Đầm, váy nữ</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/chan-vay-40428"><span>Chân váy</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-kaki-nam-40429"><span>Quần kaki nam</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-vest-blazer-nam-40430"><span>Áo vest, blazer nam</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-shorts-nam-40431"><span>Quần shorts nam</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/do-lot-do-ngu-40432"><span>Đồ lót, đồ ngủ</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-thoi-trang-40433"><span>Quần thời trang</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-legging-40434"><span>Quần legging</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-phuc-cuoi-40435"><span>Trang phục cưới</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/do-boi-40436"><span>Đồ bơi</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/phu-kien-40437"><span>Phụ kiện</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>Điện thoại &amp; Ipad</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu">
+                                                <li class="level1"><a class="" href="/san-pham/bong-da-40438"><span>Bóng đá</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bong-chuyen-40439"><span>Bòng chuyền</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bong-ban-40440"><span>Bóng bàn</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bong-chay-40441"><span>Bóng chày</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/tennis-40442"><span>Tennis</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/boi-loi-40443"><span>Bơi lội</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/cau-long-40444"><span>Cầu lông</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-the-thao-tap-gym-40445"><span>Áo thể thao tập gym</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/quan-tap-gym-40446"><span>Quần tập gym</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-tap-the-thao-40447"><span>Máy tập thể thao</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/giay-the-thao-40448"><span>Giày thể thao</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/mu-the-thao-40449"><span>Mũ thể thao</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-khoac-the-thao-40450"><span>Áo khoác thể thao</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ao-the-thao-40451"><span>Áo thể thao</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/tui-dung-do-40452"><span>Túi đựng đồ</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Mẹ và bé</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Phụ kiện công nghệ</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-vang-40486"><span>Trang sức vàng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-kim-cuong-40487"><span>Trang sức kim cương</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/nhan-dinh-hon-40488"><span>Nhẫn đính hôn</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/mat-da-quy-40489"><span>Mặt đá quý</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ngoc-trai-40490"><span>Ngọc trai</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-cz-40491"><span>Trang sức CZ</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-italy-40492"><span>Trang sức Italy</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/trang-suc-jemma-40493"><span>Trang sức Jemma</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/vong-tay-40494"><span>Vòng tay</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/vong-co-40495"><span>Vòng cổ</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bong-tai-40496"><span>Bông tai</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/lac-tay-chan-40497"><span>Lắc tay, chân</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/dien-lanh-40418"><img class="icon-menu" src="~/Uploads/icon/s1.png" alt="Điện lạnh"> <span>Điện lạnh</span></a><ul class="level1 drop-menu">
+                                                <li class="level1"><a class="" href="/san-pham/noi-com-dien-40453"><span>Nồi cơm điện</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/noi-ap-suat-40454"><span>Nồi áp suất</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/noi-da-nang-40455"><span>Nồi đa năng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bep-gas-40456"><span>Bếp gas</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/bep-dien-40457"><span>Bếp điện</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/lo-vi-song-40458"><span>Lò vi sóng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-lanh-40459"><span>Máy lạnh</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-giat-40460"><span>Máy giặt</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/tu-lanh-40461"><span>Tủ lạnh</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/tu-dong-40462"><span>Tủ đông</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-loc-nuoc-40463"><span>Máy lọc nước</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/lau-dien-da-nang-40464"><span>Lẩu điện đa năng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-xay-sinh-to-40465"><span>Máy xay sinh tố</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-ep-trai-cay-40466"><span>Máy ép trái cây</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/may-say-chen-40467"><span>Máy sấy chén</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/lo-nuong-vi-nuong-40468"><span>Lò nướng, vĩ nướng</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/noi-that-40419"><img class="icon-menu" src="~/Uploads/icon/s12.png" alt="Nội thất"> <span>Nội thất</span></a><ul class="level1 drop-menu">
+                                                <li class="level1"><a class="" href="/san-pham/ghe-nhan-vien-40469"><span>Ghế nhân viên</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-truong-phong-40470"><span>Ghế trưởng phòng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-giam-doc-40471"><span>Ghế giám đốc</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-bang-cho-40472"><span>Ghế băng chờ</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-phong-hop-40473"><span>Ghế phòng họp</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-sofa-40474"><span>Ghế sofa</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ghe-xep-ong-thep-40475"><span>Ghế xếp, ống thép</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-giam-doc-40476"><span>Bàn giám đốc</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-truong-phong-40477"><span>Bàn trưởng phòng</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-nhan-vien-40478"><span>Bàn nhân viên</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-tiep-tan-40479"><span>Bàn tiếp tân</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-chan-sat-40480"><span>Bàn chân sắt</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/module-ban-lam-viec-40481"><span>Module bàn làm việc</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-cao-cap-40482"><span>Bàn cao cấp</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-ghe-hoa-phat-40483"><span>Bàn ghế hòa phát</span></a></li>
+                                                <li class="level1"><a class="" href="/san-pham/ban-may-tinh-40484"><span>Bàn máy tính</span></a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="level0"><a class="" href="/san-pham/may-anh-40421"><img class="icon-menu" src="~/Uploads/icon/s11.png" alt="Máy ảnh"> <span>Máy ảnh</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="main-menu-new" class="col-sm-12 col-md-9 main-menu">
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#new-menu" aria-expanded="false" aria-controls="navbar">
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        <a class="navbar-brand" href="#">MENU</a>
+                                    </div>
+                                    <div id="new-menu" class="navbar-collapse collapse">
+                                        <ul class="menu t-menu nav">
+                                            <li class="level0 active"><a class="" href="../../Home/Index"><span>Trang chủ</span></a></li>
+                                            <li class="level0"><a class="" href="../Home/AboutUS"><span>Giới thiệu</span></a></li>
+                                            <li class="level0"><a class="" href="/Product/Product"><span>Sản phẩm</span></a></li>
+                                            <li class="level0"><a class="" href="/tin-tuc.html"><span>Tin tức</span></a></li>
+                                            <li class="level0"><a class="" href="/lien-he.html"><span>Liên hệ</span></a></li>
+                                        </ul>
+                                    </div><!--/.nav-collapse -->
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- CART ICON ON MMENU -->
+                    <div id="shopping-cart-box-ontop" style="display: block;">
+                        <a href="/gio-hang.html"></a>
+                        <span class="icon-cart-ontop"></span>
+                        <span class="cart-items-count">0</span>
+                        <span class="text">Giỏ hàng</span>
+                        <div class="shopping-cart-box-ontop-content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $("#btnsearch1").click(function () {
+                    SearchProduct1();
+                });
+                $("#txtsearch1").keydown(function (event) {
+                    if (event.keyCode == 13) {
+                        SearchProduct1();
+                    }
+                });
+                function SearchProduct1() {
+                    var key = $('#txtsearch1').val();
+                    if (key == '' || key == 'Tìm kiếm...') {
+                        $('#txtsearch1').focus();
+                        return;
+                    }
+                    window.location = '/tim-kiem.html?key=' + key;
+                }
+            </script>
+            <!--Template--
+            --End-->
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="menu-account">
+                            <h3>
+                                <span>
+                                    Tài khoản
+                                </span>
+                            </h3>
+                            <ul>
+                                <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
+                                <li><a href="../Account//ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+
+                        <div class="breadcrumb clearfix">
+                            <ul>
+                                <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home">
+                                    <a title="Đến trang chủ" href="/" itemprop="url"><span itemprop="title">Trang chủ</span></a>
+                                </li>
+                                <li class="icon-li"><strong>Đăng ký tài khoản</strong> </li>
+                            </ul>
+                        </div>
+                        <script type="text/javascript">
+                            $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
+                        </script>
+                        <div class="register-content clearfix ">
+                            <h1 class="page-heading"><span>Đăng ký tài khoản</span></h1>
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!---------Footer -->
+        <div class="footer">
+            <footer id="footer">
+                <div class="container">
+                    <!-- introduce-box -->
+                    <div id="introduce-box" class="row">
+                        <div class="col-md-3">
+                            <div id="address-box">
+                                <a href="/"><img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="logo"></a>
+                                <div id="address-list">
+                                    <div class="tit-name">Địa chỉ:</div>
+                                    <div class="tit-contain">1234/3443 đỗ dân lập</div>
+                                    <div class="tit-name">Điện thoại:</div>
+                                    <div class="tit-contain">0185585935</div>
+                                    <div class="tit-name">Email:</div>
+                                    <div class="tit-contain">thienvq97@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="introduce-title">Về chúng tôi</div>
+                                    <ul class="introduce-list">
+                                        <li class="item">
+                                            <a href="/gioi-thieu.html">
+                                                Giới thiệu
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="/content/giao-hang-doi-tra.html">
+                                                Giao hàng - Đổi trả
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="/content/chinh-sach-bao-mat.html">
+                                                Chính sách bảo mật
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="/lien-he.html">
+                                                Liên hệ
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="introduce-title">Trợ giúp</div>
+                                    <ul class="introduce-list">
+                                        <li class="item">
+                                            <a href="/content/huong-dan-mua-hang.html">
+                                                Hướng dẫn mua hàng
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="/content/huong-dan-thanh-toan.html">
+                                                Hướng dẫn thanh toán
+                                            </a>
+                                        </li>
+                                        <li class="item">
+                                            <a href="/content/tai-khoan-giao-dich.html">
+                                                Tài khoản giao dịch
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div id="contact-box" class="ng-scope">
+                                <div class="introduce-title">Liên kết</div>
+                                <div class="social-link">
+                                    <a><i class="fa fa-facebook"></i></a>
+                                    <a><i class="fa fa-youtube"></i></a>
+                                    <a><i class="fa fa-twitter"></i></a>
+                                    <a><i class="fa fa-google-plus"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <script type="text/javascript">
+            $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
+        </script>
+    </div>
+    <div style="display: none;" id="loading-mask">
+        <div id="loading_mask_loader" class="loader">
+            <img alt="Loading..." src="~/Uploads/Gif/ajax-loader-main.gif" />
+            <div>
+                Please wait...
+            </div>
+        </div>
+    </div>
+    @*<a href="#" class="scroll_top" title="Scroll to Top" style="display: none;">Scroll</a>*@
+    <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
+</body>
+</html>
+<script type="text/javascript">
+    $(".vertical-menu-content").addClass("no-home");
+    //$(document).ready(function () {
+    //    //$(".menu-quick-select ul").hide();
+    //    //$(".menu-quick-select").hover(function () { $(".menu-quick-select ul").show(); }, function () { $(".menu-quick-select ul").hide(); });
+    //});
+
+    $(document).ready(function () {
+        var str = location.href.toLowerCase();
+        $("ul.menu li a").each(function () {
+            if (str.indexOf(this.href.toLowerCase()) >= 0) {
+                $("ul.menu li").removeClass("active");
+                $(this).parent().addClass("active");
+            }
+        });
+    });
+    $(document).ready(function () {
+        $('.menu-product li.child .open-close').on('click', function () {
+            $(this).removeAttr('href');
+            var element = $(this).parent('li');
+            if (element.hasClass('open')) {
+                element.removeClass('open');
+                element.children('ul').slideUp();
+            }
+            else {
+                element.addClass('open');
+                element.children('ul').slideDown();
+            }
+        });
+    });
+</script>

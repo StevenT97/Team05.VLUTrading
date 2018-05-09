@@ -45,27 +45,30 @@ namespace SEP_Demo.Controllers
                 //
                 user.IsEmailVerified = false;
 
+                //Set Resset password
+                user.ResetPasswordCode = "";
+
                 //
                 user.Role_ID = 3;
 
                 //Save to database
                 using (MyDataEntities db = new MyDataEntities())
                 {
-                    try
-                    {
+                    //try
+                    //{
                         db.Users.Add(user);
                         db.SaveChanges();
-                    }
-                    catch (DbEntityValidationException dbEx)
-                    {
-                        foreach (var validationErrors in dbEx.EntityValidationErrors)
-                        {
-                            foreach (var validationError in validationErrors.ValidationErrors)
-                            {
-                                System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
-                            }
-                        }
-                    }
+                    //}
+                    //catch (DbEntityValidationException dbEx)
+                    //{
+                    //    foreach (var validationErrors in dbEx.EntityValidationErrors)
+                    //    {
+                    //        foreach (var validationError in validationErrors.ValidationErrors)
+                    //        {
+                    //            System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    //        }
+                    //    }
+                    //}
 
                 }
 
