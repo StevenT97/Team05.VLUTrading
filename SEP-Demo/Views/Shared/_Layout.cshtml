@@ -74,8 +74,17 @@
                             <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
                                 <li class="order-check"><a href="../Product/Cart"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
                                 <li class="order-cart"><a href="../Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                                <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+                                @if (Session["UserName"] == null)
+                                {
+                                    <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                                    <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+
+                                }
+                                else
+                                {
+                                    <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
+                                    <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
+                                }
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
                                 <div class="quick-user">

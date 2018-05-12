@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="af044f23e44445638b96729b6f3aaa5f" Name="Diagram1">
-        <EntityTypeShape EntityType="VLUTradingDBModel.Faculty" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDBModel.Role" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDBModel.RoleDefine" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDBModel.UserInfo" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDBModel.User" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+      <Diagram DiagramId="5fc9487138094057ba591ef2744d5655" Name="Diagram1">
+        <EntityTypeShape EntityType="VLUTradingDBModel.Faculty" Width="1.5" PointX="3" PointY="8.375" IsExpanded="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Role" Width="1.5" PointX="0.75" PointY="3" IsExpanded="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.RoleDefine" Width="1.5" PointX="3" PointY="1.125" IsExpanded="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.UserInfo" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.User" Width="1.5" PointX="3" PointY="3.5" IsExpanded="false" />
         <AssociationConnector Association="VLUTradingDBModel.FK_UserInfo_Faculty" ManuallyRouted="false" />
         <AssociationConnector Association="VLUTradingDBModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="VLUTradingDBModel.FK_UserInfo_User" ManuallyRouted="false" />

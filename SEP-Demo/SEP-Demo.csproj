@@ -443,6 +443,7 @@
     <Content Include="Views\Account\SignIn.cshtml" />
     <Content Include="Views\Account\VerifyAccount.cshtml" />
     <Content Include="Views\Shared\_UserLayout.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

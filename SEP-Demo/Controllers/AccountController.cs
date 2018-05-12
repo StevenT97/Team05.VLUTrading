@@ -120,63 +120,37 @@ namespace SEP_Demo.Controllers
         //Login Post
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(UserLogin login)
+        public ActionResult LogIn(string EmailID, string Password)
         {
-            string message = "";
-            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
+            if (user != null)
             {
-                var v = db.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
-                if (v != null)
+                if (user.Password.Equals(Crypto.Hash(Password)))
                 {
-                    if (string.Compare(Crypto.Hash(login.Password), v.Password) == 0)
-                    {
-                        //int timeout = login.RememberMe ? 525600 : 20; //525600 min = 1 year
-                        //var ticket = new FormsAuthenticationTicket(login.EmailID,login.RememberMe,timeout);
-                        //string encrypted = FormsAuthentication.Encrypt(ticket);
-                        //var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted);
-                        //cookie.Expires = DateTime.Now.AddMinutes(timeout);
-                        //cookie.HttpOnly = true;
-                        //Response.Cookies.Add(cookie);
-
-                        //if (Url.IsLocalUrl(ReturnUrl))
-                        //{
-                        //    return Redirect(ReturnUrl);
-                        //}
-                        //else
-                        //{
-                        //    return RedirectToAction("Index", "Home");
-                        //}
-                        return RedirectToAction("Index", "Home");
-                    }
-                    else
-                    {
-                        message = "Invalid credential provied";
-                    }
+                    Session["ID"] = user.Id;
+                    Session["UserName"] = user.FirstName.ToString();
+                    Session["EmailID"] = user.EmailID.ToString();
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
-                    message = "Invalid credential provied";
+                    return RedirectToAction("LogIn", "Account");
                 }
             }
-
-            ViewBag.Message = message;
-            return View(login);
-        }
-        //Logout
-        [Authorize]
-        [HttpPost]
-        public ActionResult SignOut()
-        {
-            //FormsAuthentication.SignOut();
-
-            return RedirectToAction("SignIn", "Account");
-        }
-
-        public ActionResult ForgetPassword()
-        {
+            else
+            {
+                ViewBag.mess = "* Account Invalid";
+            }
             return View();
         }
+        public ActionResult LogOut()
+        {
+            //FormsAuthentication.SignOut();
+            Session.Abandon(); // it will clear the session at the end of request
 
+            return RedirectToAction("Index", "Home");
+        }
         [HttpPost]
         public ActionResult ForgetPassword(string EmailID)
         {
@@ -317,6 +291,56 @@ namespace SEP_Demo.Controllers
                 IsBodyHtml = true
             })
                 smtp.Send(message);
+        }
+        public ActionResult ChangePassword()
+        {
+            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            string ss = Session["EmailID"].ToString();
+            var userdetail = db.Users.SingleOrDefault(x => x.EmailID == ss);
+            return View(userdetail);
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(string currentpassword, string newpassword, string confirmnewpassword)
+        {
+            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            int ss = (int)Session["ID"];
+            var userdetail = db.Users.SingleOrDefault(x => x.Id == ss);
+            if (Crypto.Hash(currentpassword) == userdetail.Password)
+            {
+                if (Crypto.Hash(confirmnewpassword) == Crypto.Hash(newpassword))
+                {
+                    if (ModelState.IsValid)
+                    {
+                        userdetail.Password = Crypto.Hash(newpassword);
+                        userdetail.EmailID = userdetail.EmailID;
+                        userdetail.Id = userdetail.Id;
+                        userdetail.IsEmailVerified = userdetail.IsEmailVerified;
+                        userdetail.FirstName = userdetail.FirstName;
+                        userdetail.LastName = userdetail.LastName;
+                        userdetail.ConfirmPassword = Crypto.Hash(newpassword);
+                        userdetail.Role = userdetail.Role;
+                        userdetail.Role_ID = userdetail.Role_ID;
+                        userdetail.ResetPasswordCode = userdetail.ResetPasswordCode;
+                        userdetail.ActivationCode = userdetail.ActivationCode;
+                        db.SaveChanges();
+                        TempData["changepassword"] = "Your password has been changed";
+                        return RedirectToAction("Index", "Home");
+                    }
+                    return RedirectToAction("ChangePassword", "Account");
+
+                }
+                else
+                {
+                    ModelState.AddModelError("confirmerror", "ConfirmPassword is wrong");
+                    return View(userdetail);
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("passworderror", "Password is wrong");
+                return View(userdetail);
+            }
+
         }
     }
 }
