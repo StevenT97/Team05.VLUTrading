@@ -14,7 +14,7 @@ namespace SEP_Demo.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-
+        
         public ActionResult SignUp()
         {
             return View();
@@ -52,7 +52,7 @@ namespace SEP_Demo.Controllers
                 user.Role_ID = 3;
 
                 //Save to database
-                using (MyDataEntities db = new MyDataEntities())
+                using (VLUTradingDBEntities db = new VLUTradingDBEntities())
                 {
                     //try
                     //{
@@ -91,7 +91,7 @@ namespace SEP_Demo.Controllers
         public ActionResult VerifyAccount(string id)
         {
             bool Status = false;
-            using (MyDataEntities db = new MyDataEntities())
+            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
             {
                 db.Configuration.ValidateOnSaveEnabled = false; // This line i have added to avoid
                                                                 // Confirm password does not match issue on save changes
@@ -123,7 +123,7 @@ namespace SEP_Demo.Controllers
         public ActionResult Login(UserLogin login)
         {
             string message = "";
-            using (MyDataEntities db = new MyDataEntities())
+            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
             {
                 var v = db.Users.Where(a => a.EmailID == login.EmailID).FirstOrDefault();
                 if (v != null)
@@ -186,7 +186,7 @@ namespace SEP_Demo.Controllers
             string message = "";
             bool Status = false;
 
-            using (MyDataEntities db = new MyDataEntities())
+            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
             {
                 var account = db.Users.Where(a => a.EmailID == EmailID).FirstOrDefault();
                 if (account != null)
@@ -214,7 +214,7 @@ namespace SEP_Demo.Controllers
             //Verify the reset password link
             //Find the account associated with this link
             //redirect to reset password page
-            using (MyDataEntities db = new MyDataEntities())
+            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
             {
                 var user = db.Users.Where(a => a.ResetPasswordCode == id).FirstOrDefault();
                 if (user != null)
@@ -237,7 +237,7 @@ namespace SEP_Demo.Controllers
             var message = "";
             if (ModelState.IsValid)
             {
-                using (MyDataEntities db = new MyDataEntities())
+                using (VLUTradingDBEntities db = new VLUTradingDBEntities())
                 {
                     var user = db.Users.Where(a => a.ResetPasswordCode == model.ResetCode).FirstOrDefault();
                     if (user != null)
@@ -264,7 +264,7 @@ namespace SEP_Demo.Controllers
         [NonAction]
         public bool IsEmailExist(string emailID)
         {
-            using (MyDataEntities db = new MyDataEntities())
+            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
             {
                 var v = db.Users.Where(u => u.EmailID == emailID).FirstOrDefault();
                 return v != null;

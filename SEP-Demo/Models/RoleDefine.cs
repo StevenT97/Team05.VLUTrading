@@ -12,21 +12,18 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class RoleDefine
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public RoleDefine()
         {
-            this.Users = new HashSet<User>();
-            this.RoleDefines = new HashSet<RoleDefine>();
+            this.Roles = new HashSet<Role>();
         }
     
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Role_Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoleDefine> RoleDefines { get; set; }
+        public virtual ICollection<Role> Roles { get; set; }
     }
 }

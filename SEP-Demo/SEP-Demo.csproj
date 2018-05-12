@@ -159,29 +159,41 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\User.cs" />
-    <Compile Include="Models\MyDataSEP.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataSEP.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyDataSEP.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataSEP.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyDataSEP.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyDataSEP.edmx</DependentUpon>
+    <Compile Include="Models\Faculty.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\Role.cs">
-      <DependentUpon>MyDataSEP.tt</DependentUpon>
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleDefine.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>MyDataSEP.tt</DependentUpon>
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserInfo.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\VLUTradingDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VLUTradingDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VLUTradingDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VLUTradingDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,15 +223,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\MyDataSEP.Context.tt">
+    <Content Include="Models\VLUTradingDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MyDataSEP.Context.cs</LastGenOutput>
-      <DependentUpon>MyDataSEP.edmx</DependentUpon>
+      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\MyDataSEP.tt">
+    <Content Include="Models\VLUTradingDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyDataSEP.edmx</DependentUpon>
-      <LastGenOutput>MyDataSEP.cs</LastGenOutput>
+      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDB.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Admin\angular-block-ui.css" />
     <Content Include="Scripts\Admin\angular-block-ui.js" />
@@ -269,12 +281,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\fontawesome-webfont.woff2" />
-    <EntityDeploy Include="Models\MyDataSEP.edmx">
+    <EntityDeploy Include="Models\VLUTradingDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyDataSEP.Designer.cs</LastGenOutput>
+      <LastGenOutput>VLUTradingDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\MyDataSEP.edmx.diagram">
-      <DependentUpon>MyDataSEP.edmx</DependentUpon>
+    <Content Include="Models\VLUTradingDB.edmx.diagram">
+      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fixheightproductv2.js" />

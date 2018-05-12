@@ -20,11 +20,12 @@ namespace SEP_Demo.Models
         public string EmailID { get; set; }
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public string Password { get; set; }
-        public bool IsEmailVerified { get; set; }
         public System.Guid ActivationCode { get; set; }
         public string ResetPasswordCode { get; set; }
+        public bool IsEmailVerified { get; set; }
         public int Role_ID { get; set; }
     
         public virtual Role Role { get; set; }
+        public virtual UserInfo UserInfo { get; set; }
     }
 }
