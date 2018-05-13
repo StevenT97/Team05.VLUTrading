@@ -23,17 +23,18 @@ namespace SEP_Demo.Models
 
         [Display(Name = "Email ID")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Email ID required")]
+        [RegularExpression("^[a-z0-9_\\+-]+(\\.[a-z0-9_\\+-]+)*@(vanlanguni\\.vn)|(vanlanguni\\.edu\\.vn)", ErrorMessage = "Invalid email format.  @Vanlanguni.edu.vn for Teacher @Vanlanguni.vn for Student.")]
         [DataType(DataType.EmailAddress)]
         public string EmailID { get; set; }
 
         [Display(Name = "Date of birth")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true , DataFormatString = "0:MM/dd/yyyy")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "0:MM/dd/yyyy")]
         public DateTime DateOfBirth { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Password required")]
         [DataType(DataType.Password)]
-        [MinLength(6,ErrorMessage = "Minium 6 characters required")]
+        [MinLength(6, ErrorMessage = "Minium 6 characters required")]
         public string Password { get; set; }
 
 
@@ -41,7 +42,7 @@ namespace SEP_Demo.Models
 
         [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="Confirm password and password do not match")]
+        [Compare("Password", ErrorMessage = "Confirm password and password do not match")]
         public string ConfirmPassword { get; set; }
     }
 }

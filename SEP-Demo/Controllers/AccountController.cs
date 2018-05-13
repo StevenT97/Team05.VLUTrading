@@ -14,7 +14,7 @@ namespace SEP_Demo.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-        
+
         public ActionResult SignUp()
         {
             return View();
@@ -52,12 +52,12 @@ namespace SEP_Demo.Controllers
                 user.Role_ID = 3;
 
                 //Save to database
-                using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+                using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
                 {
                     //try
                     //{
-                        db.Users.Add(user);
-                        db.SaveChanges();
+                    db.Users.Add(user);
+                    db.SaveChanges();
                     //}
                     //catch (DbEntityValidationException dbEx)
                     //{
@@ -91,7 +91,7 @@ namespace SEP_Demo.Controllers
         public ActionResult VerifyAccount(string id)
         {
             bool Status = false;
-            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+            using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
             {
                 db.Configuration.ValidateOnSaveEnabled = false; // This line i have added to avoid
                                                                 // Confirm password does not match issue on save changes
@@ -118,11 +118,12 @@ namespace SEP_Demo.Controllers
             return View();
         }
         //Login Post
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult LogIn(string EmailID, string Password)
+        public ActionResult Login(string EmailID, string Password)
         {
-            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            VLUTradingDBEntities1 db = new VLUTradingDBEntities1();
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             if (user != null)
             {
@@ -140,7 +141,7 @@ namespace SEP_Demo.Controllers
             }
             else
             {
-                ViewBag.mess = "* Account Invalid";
+                ViewBag.Message = "* Account Invalid";
             }
             return View();
         }
@@ -151,6 +152,10 @@ namespace SEP_Demo.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+        public ActionResult ForgetPassword()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult ForgetPassword(string EmailID)
         {
@@ -160,7 +165,7 @@ namespace SEP_Demo.Controllers
             string message = "";
             bool Status = false;
 
-            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+            using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
             {
                 var account = db.Users.Where(a => a.EmailID == EmailID).FirstOrDefault();
                 if (account != null)
@@ -188,7 +193,7 @@ namespace SEP_Demo.Controllers
             //Verify the reset password link
             //Find the account associated with this link
             //redirect to reset password page
-            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+            using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
             {
                 var user = db.Users.Where(a => a.ResetPasswordCode == id).FirstOrDefault();
                 if (user != null)
@@ -211,7 +216,7 @@ namespace SEP_Demo.Controllers
             var message = "";
             if (ModelState.IsValid)
             {
-                using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+                using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
                 {
                     var user = db.Users.Where(a => a.ResetPasswordCode == model.ResetCode).FirstOrDefault();
                     if (user != null)
@@ -238,7 +243,7 @@ namespace SEP_Demo.Controllers
         [NonAction]
         public bool IsEmailExist(string emailID)
         {
-            using (VLUTradingDBEntities db = new VLUTradingDBEntities())
+            using (VLUTradingDBEntities1 db = new VLUTradingDBEntities1())
             {
                 var v = db.Users.Where(u => u.EmailID == emailID).FirstOrDefault();
                 return v != null;
@@ -294,7 +299,7 @@ namespace SEP_Demo.Controllers
         }
         public ActionResult ChangePassword()
         {
-            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            VLUTradingDBEntities1 db = new VLUTradingDBEntities1();
             string ss = Session["EmailID"].ToString();
             var userdetail = db.Users.SingleOrDefault(x => x.EmailID == ss);
             return View(userdetail);
@@ -302,7 +307,7 @@ namespace SEP_Demo.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string currentpassword, string newpassword, string confirmnewpassword)
         {
-            VLUTradingDBEntities db = new VLUTradingDBEntities();
+            VLUTradingDBEntities1 db = new VLUTradingDBEntities1();
             int ss = (int)Session["ID"];
             var userdetail = db.Users.SingleOrDefault(x => x.Id == ss);
             if (Crypto.Hash(currentpassword) == userdetail.Password)

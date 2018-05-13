@@ -13,10 +13,10 @@ namespace SEP_Demo.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VLUTradingDBEntities : DbContext
+    public partial class VLUTradingDBEntities1 : DbContext
     {
-        public VLUTradingDBEntities()
-            : base("name=VLUTradingDBEntities")
+        public VLUTradingDBEntities1()
+            : base("name=VLUTradingDBEntities1")
         {
         }
     
@@ -28,7 +28,6 @@ namespace SEP_Demo.Models
         public virtual DbSet<Faculty> Faculties { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<RoleDefine> RoleDefines { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
