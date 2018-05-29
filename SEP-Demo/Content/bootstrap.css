@@ -1993,7 +1993,7 @@ textarea.input-lg {
   }
 }
 
-.btn {
+/*.btn {
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -2011,7 +2011,7 @@ textarea.input-lg {
       -ms-user-select: none;
        -o-user-select: none;
           user-select: none;
-}
+}*/
 
 .btn:focus {
   outline: thin dotted #333;
@@ -2044,11 +2044,11 @@ fieldset[disabled] .btn {
           box-shadow: none;
 }
 
-.btn-default {
+/*.btn-default {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
-}
+}*/
 
 .btn-default:hover,
 .btn-default:focus,
