@@ -84,6 +84,7 @@
                                 {
                                     <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
                                     <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
+                                    <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
                                 }
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
@@ -144,12 +145,24 @@
                         </div>
                     </div>
                     <div class="col-xs-5 col-sm-2 group-button-header new-login">
-                        <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
-                        <div class="btn-cart" id="cart-block">
-                            <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
-                            <span class="text-show">Giỏ hàng</span>
-                            <span class="notify notify-right">0</span>
-                        </div>
+                        @if (Session["ID"] == null)
+                        {
+                            <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
+                            <div class="btn-cart" id="cart-block">
+                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <span class="text-show">Giỏ hàng</span>
+                                <span class="notify notify-right">0</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <a title="Hồ Sơ" href="../Account/ViewProfile" class="btn-heart"></a>
+                            <div class="btn-cart" id="cart-block">
+                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <span class="text-show">Giỏ hàng</span>
+                                <span class="notify notify-right">0</span>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

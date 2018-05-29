@@ -110,7 +110,7 @@ code, kbd, pre, samp {
 }
 
 button, input, optgroup, select, textarea {
-    margin: 0;
+    margin: 0 300px;
     font: inherit;
     color: inherit
 }
@@ -1446,7 +1446,7 @@ hr {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
-    color: inherit
+    color: chocolate
 }
 
     .h1 .small, .h1 small, .h2 .small, .h2 small, .h3 .small, .h3 small, .h4 .small, .h4 small, .h5 .small, .h5 small, .h6 .small, .h6 small, h1 .small, h1 small, h2 .small, h2 small, h3 .small, h3 small, h4 .small, h4 small, h5 .small, h5 small, h6 .small, h6 small {
@@ -1486,7 +1486,7 @@ hr {
 }
 
 .h4, h4 {
-    font-size: 18px
+    font-size: 38px
 }
 
 .h5, h5 {
@@ -1500,6 +1500,10 @@ hr {
 p {
     margin: 0 0 10px
 }
+
+    p.buttonCreate {
+        margin-right: 70px;
+    }
 
 .lead {
     margin-bottom: 20px;
@@ -2925,16 +2929,16 @@ output {
 }
 
 .form-control {
-    display: block;
-    width: 100%;
+    display: inline-block;
+    width: 50%;
     height: 34px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;
     color: #555;
-    background-color: #fff;
+    background-color: #F8F8FF;
     background-image: none;
-    border: 1px solid #ccc;
+    border: 4px solid #ccc;
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -4513,9 +4517,9 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 }
 
 
-    .navbar-collapse.in {
-        overflow-y: auto
-    }
+.navbar-collapse.in {
+    overflow-y: auto
+}
 
 @media (min-width:768px) {
     .navbar-collapse {

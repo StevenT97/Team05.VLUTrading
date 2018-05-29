@@ -19,6 +19,10 @@
     <link href="/Content/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
     <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     @*<link href="~/Content/smoothproduct.css" rel="stylesheet" type="text/css">*@
+    @*CSS + Scripts for User Profile*@
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!------------------- Scirpt ---------------->
     @*<script src="~/Scripts/smoothproduct.js" type="text/javascript"></script>*@
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>
@@ -67,8 +71,18 @@
                             <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
                                 <li class="order-check"><a href="../Product/Cart"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
                                 <li class="order-cart"><a href="../Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-                                <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                                <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+                                @if (Session["UserName"] == null)
+                                {
+                                    <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                                    <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+
+                                }
+                                else
+                                {
+                                    <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
+                                    <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
+                                    <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                }
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
                                 <div class="quick-user">
@@ -128,12 +142,25 @@
                         </div>
                     </div>
                     <div class="col-xs-5 col-sm-2 group-button-header new-login">
-                        <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
-                        <div class="btn-cart" id="cart-block">
-                            <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
-                            <span class="text-show">Giỏ hàng</span>
-                            <span class="notify notify-right">0</span>
-                        </div>
+                        @if (Session["ID"] == null)
+                        {
+                            <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
+                            <div class="btn-cart" id="cart-block">
+                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <span class="text-show">Giỏ hàng</span>
+                                <span class="notify notify-right">0</span>
+                            </div>
+                        }
+                        else
+                        {
+                            <a title="Hồ Sơ" href="../Account/ViewProfile" class="btn-heart"></a>
+                            <div class="btn-cart" id="cart-block">
+                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <span class="text-show">Giỏ hàng</span>
+                                <span class="notify notify-right">0</span>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>
@@ -334,20 +361,104 @@
         <div class="main">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div class="menu-account">
-                            <h3>
-                                <span>
-                                    Tài khoản
-                                </span>
-                            </h3>
-                            <ul>
-                                <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                                <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
-                                <li><a href="../Account//ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
-                            </ul>
-                        </div>
-                    </div>
+                    @*<div class="col-md-3">
+            <div class="menu-account">
+                <h3>
+
+                        @if (Session["ID"] == null)
+                        {
+                            <span>Tài khoản</span>
+                        }
+                        else
+                        {
+
+                            var value = HttpContext.Current.Session["UserName"].ToString();
+                            <span>Xin chào, @value</span>
+                        }
+
+
+                </h3>
+                <ul>
+                    @if (Session["ID"] == null)
+                    {
+                        <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                        <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
+                        <li><a href="../Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#"><i class="fa fa-sign-in"></i> Hồ Sơ</a></li>
+                        <li><a href="#"><i class="fa fa-key"></i> Sản Phẩm</a></li>
+                        <li><a href="#"><i class="fa fa-key"></i> Đơn Mua</a></li>
+                        <li><a href="#"><i class="fa fa-key"></i> Thông báo</a></li>
+                    }
+
+                </ul>
+            </div>
+        </div>*@
+                    <div class="col-sm-3">
+                        <!--left col-->
+                        @if (Session["ID"] == null)
+                            {
+                                <div class="menu-account">
+                                    <h3>
+                                        <span>Xin chào, Khách!</span>
+                                    </h3>
+                                    <ul>
+                                        <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                        <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
+                                        <li><a href="../Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
+                                    </ul>
+                                </div>
+                            }
+                         else
+                            {
+                                @*var value = HttpContext.Current.Session["UserName"].ToString();
+                                <span>Xin chào, @value</span>*@
+                                var userName = HttpContext.Current.Session["UserName"].ToString();
+                                var Email = HttpContext.Current.Session["EmailID"].ToString();
+                                var RoleName = HttpContext.Current.Session["RoleName"].ToString();
+                                <div class="menu-account">
+                                    <h3>
+                                        <span>Xin chào, @userName</span>
+                                    </h3>
+                                </div>
+                                <div class="text-center">
+                                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    <h6>Upload a different photo...</h6>
+                                    <input type="file" class="text-center center-block file-upload">
+                                </div><br>
+                                <div class="panel panel-default">
+                                <div class="panel-heading">Email <i class="fa fa-link fa-1x"></i></div>
+                                <div class="panel-body"><a href="#">@Email</a></div>
+                                </div>
+
+
+                                <ul class="panel panel-default">
+                                    <li class="list-group-item text-muted">Tài Khoản <i class="fa fa-dashboard fa-1x"></i></li>
+                                    @*<li class="list-group-item text-center"><strong><a href="#"><i class="fa fa-key"></i> Hồ Sơ</a></strong></li>
+        <li class="list-group-item text-center"><strong><a href="#"><i class="fa fa-key"></i> Sản Phẩm</a></strong></li>
+        <li class="list-group-item text-center"><strong><a href="#"><i class="fa fa-key"></i> Đơn mua</a></strong></li>
+        <li class="list-group-item text-center"><strong><a href="#"><i class="fa fa-key"></i> Thông báo</a></strong></li>*@
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Tham Gia</strong></span> 125</li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>MSSV</strong></span> 13</li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Sản Phẩm</strong></span> 37</li>
+                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Role</strong></span> @RoleName</li>
+                                </ul>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Social Media</div>
+                                <div class="panel-body">
+                                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                                </div>
+                            </div>
+                            }
+
+                        
+
+                        
+
+                    </div><!--/col-3-->
                     @RenderBody()
                 </div>
             </div>

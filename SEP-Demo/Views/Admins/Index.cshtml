@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SEP_Demo.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2><b>List User</b></h2>
+
+        @using (Html.BeginForm())
+        {
+        <p>
+            Title: @Html.TextBox("SearchString") <br />
+            <input type="submit" value="Search"  />
+        </p>
+    }
+       
+
+<div class="content table-responsive table-full-width">
+    <table class="table table-hover table-striped" id="dataTable" style="font-size: 13px; border-radius:4px">
+        <tr>
+           
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>EmailID</th>
+            <th>DateOfBirth</th>
+            <th>IsEmailVerified</th>
+            <th>Role_Name</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEmailVerified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role.Role_Name)
+                </td>
+              
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
+<p>
+    <input type="button" value="Create New" class="buttonCreate" onclick="location.href='../Admins/Create'">
+</p>
+
