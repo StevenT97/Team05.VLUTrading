@@ -3,809 +3,161 @@
 }
 
 
-<div class="main">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <section class="product-content clearfix">
-                    <h1 class="title clearfix"><span>Sản phẩm</span></h1>
-                    <nav class="navbar navbar-default product-filter">
-                        <ul class="display">
-                            <li id="grid" class="active grid"><a href="#" title="Grid"><i class="fa fa-th-large"></i></a></li>
-                            <li id="list" class="list"><a href="#" title="List"><i class="fa fa-th-list"></i></a></li>
-                        </ul>
-                        <div class="limit">
-                            <span>Sản phẩm/trang</span>
-                            <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
-                                <option value="?limit=10">10</option>
-                                <option selected="selected" value="?limit=12">12</option>
-                                <option value="?limit=20">20</option>
-                                <option value="?limit=50">50</option>
-                                <option value="?limit=100">100</option>
-                                <option value="?limit=250">250</option>
-                                <option value="?limit=500">500</option>
-                            </select>
+<section class="product-content clearfix">
+    <h1 class="title clearfix"><span>Sản phẩm</span></h1>
+    <nav class="navbar navbar-default product-filter">
+        <ul class="display">
+            <li id="grid" class="active grid"><a href="#" title="Grid"><i class="fa fa-th-large"></i></a></li>
+            <li id="list" class="list"><a href="#" title="List"><i class="fa fa-th-list"></i></a></li>
+        </ul>
+        <div class="limit">
+            <span>Sản phẩm/trang</span>
+            <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
+                <option value="?limit=10">10</option>
+                <option selected="selected" value="?limit=12">12</option>
+                <option value="?limit=20">20</option>
+                <option value="?limit=50">50</option>
+                <option value="?limit=100">100</option>
+                <option value="?limit=250">250</option>
+                <option value="?limit=500">500</option>
+            </select>
+        </div>
+        <div class="sort">
+            <span>Sắp xếp</span>
+            <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
+                <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
+                <option value="?sort=price&amp;order=asc">Giá tăng dần</option>
+                <option value="?sort=price&amp;order=desc">Giá giảm dần</option>
+                <option value="?sort=name&amp;order=asc">Tên sản phẩm: A to Z</option>
+                <option value="?sort=name&amp;order=desc">Tên sản phẩm: Z to A</option>
+            </select>
+        </div>
+    </nav>
+    <div class="content">
+        <!-- content changes on each page -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">iPhone</h3>
+                            <h6 class="card-subtitle text-muted">$500.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
                         </div>
-                        <div class="sort">
-                            <span>Sắp xếp</span>
-                            <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
-                                <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
-                                <option value="?sort=price&amp;order=asc">Giá tăng dần</option>
-                                <option value="?sort=price&amp;order=desc">Giá giảm dần</option>
-                                <option value="?sort=name&amp;order=asc">Tên sản phẩm: A to Z</option>
-                                <option value="?sort=name&amp;order=desc">Tên sản phẩm: Z to A</option>
-                            </select>
-                        </div>
-                    </nav>
-                    <div class="product-block product-grid clearfix">
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-da-nam-automobi.html" title="Áo khoác da nam Automobi">
-                                        <img src="/Uploads/shop1/images/product/6.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-33%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu da bề đẹp. Thiết kế với cổ đứng thanh lịch kèm tay dài thời trang và hàng khóa kéo dài đầy tiện lợi giúp người mặc thêm phần nổi bật và thu hút.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-da-nam-automobi.html" title="Áo khoác da nam Automobi">Áo khoác da nam Automobi</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">250.000&nbsp;₫</span>
-                                        <span class="price-old">375.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(29,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-nam-pollo.html" title="Áo khoác dù nam Pollo">
-                                        <img src="/Uploads/shop1/images/product/4.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-42%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu vải dù dày dặn. Thiết kế cổ đứng, tay dài thật nam tính mang đến cho các bạn nam một phong cách thời trang thật mãnh mẽ và trẻ trung.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-nam-pollo.html" title="Áo khoác dù nam Pollo">Áo khoác dù nam Pollo</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">128.000&nbsp;₫</span>
-                                        <span class="price-old">222.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(36,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-nam-red-bird.html" title="Áo khoác dù nam Red Bird">
-                                        <img src="/Uploads/shop1/images/product/16.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="hot">Hot</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu dù mềm mại, bền chắc. Thiết kế cổ đứng, tay dài, form áo thể thao mang đến nét khỏe khoắn, nam tính cho các chàng trai.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-nam-red-bird.html" title="Áo khoác dù nam Red Bird">Áo khoác dù nam Red Bird</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">355.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(37,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-phao-nam-nu-phoi-day-keo-mau.html" title="Áo phao nam nữ phối dây kéo màu">
-                                        <img src="/Uploads/shop1/images/product/12.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-29%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu dù khó thấm nước. Thiết kế phù hợp cho cả nam lẫn nữ để bạn có thể có một mùa đông vừa ấm áp lại rất hợp thời trang.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-phao-nam-nu-phoi-day-keo-mau.html" title="Áo phao nam nữ phối dây kéo màu">Áo phao nam nữ phối dây kéo màu</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">352.000&nbsp;₫</span>
-                                        <span class="price-old">498.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(38,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-ni-nam-sailor.html" title="Áo khoác nỉ nam Sailor">
-                                        <img src="/Uploads/shop1/images/slideshow/3_18_215.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-43%</span>
-                                    <div class="content-mask">
-                                        <div>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chấ</span></span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">&nbsp;liệu nỉ mềm mịn,co giãn nhẹ.</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Thiết kế cổ trụ,</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">form áo body&nbsp;phối nút gài&nbsp;</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">đem&nbsp;lại vẻ ngoài lịch lãm&nbsp;mang&nbsp;</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">đậm&nbsp;phong&nbsp;</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">cách&nbsp;</span><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">thời trang Hàn Quốc trẻ trung cho bạn.</span>
-                                        </div>
-                                        <div>
-                                            <div class="product-attribute" style="margin: 5px 0px 0px; padding: 0px; width: 383px; color: rgb(0, 0, 0); font-family: arial, helvetica, sans-serif; line-height: 18.600000381469727px; background-color: rgb(249, 249, 249);">
-                                                <div class="attribute-text" style="margin: 0px; padding: 0px; float: left; max-width: 280px;">
-                                                    &nbsp;
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <p>
-                                            &nbsp;
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-ni-nam-sailor.html" title="Áo khoác nỉ nam Sailor">Áo khoác nỉ nam Sailor</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">159.000&nbsp;₫</span>
-                                        <span class="price-old">280.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(312,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-nam-lambor.html" title="Áo khoác dù nam Lambor">
-                                        <img src="/Uploads/shop1/images/product/1.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-41%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu dù mềm mịn. Thiết kế kiểu dáng thể thao năng động và cá tính với cổ trụ, tay dài, dây kéo chắc chắn cùng 2 túi hông tiện lợi.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-nam-lambor.html" title="Áo khoác dù nam Lambor">Áo khoác dù nam Lambor</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">219.000&nbsp;₫</span>
-                                        <span class="price-old">370.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(313,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-lambo.html" title="Áo khoác dù Lambo">
-                                        <img src="/Uploads/shop1/images/product/19.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-40%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu dù mềm mịn. Thiết kế bo thun nơi thân áo, tay áo và mặt trong cổ tạo cảm giác co giãn thoải mái, giúp bạn tự tin khi vận động.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-lambo.html" title="Áo khoác dù Lambo">Áo khoác dù Lambo</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">175.000&nbsp;₫</span>
-                                        <span class="price-old">290.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(314,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-nam-agon.html" title="Áo khoác dù nam Agon">
-                                        <img src="/Uploads/shop1/images/product/27.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-42%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu dù mềm mịn. Thiết kế form áo thể thao năng động, cổ đứng nam tính, kín đáo, tay dài lịch lãm.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-nam-agon.html" title="Áo khoác dù nam Agon">Áo khoác dù nam Agon</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">195.000&nbsp;₫</span>
-                                        <span class="price-old">335.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(316,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-khoac-du-nam-cs.html" title="Áo khoác dù nam CS">
-                                        <img src="/Uploads/shop1/images/product/29.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="hot">Hot</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="color: rgb(0, 0, 0); font-family: arial, helvetica, sans-serif; font-size: 16px; line-height: 24.18000030517578px; background-color: rgb(249, 249, 249);">&nbsp;Chất liệu dù bền đẹp. Thiết kế cổ đứng phối thun nam tính, form áo thể thao năng động, tay dài kín đáo, trước ngực in nổi logo C&amp;S sang trọng, mực thêu khó phai màu.</span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-khoac-du-nam-cs.html" title="Áo khoác dù nam CS">Áo khoác dù nam CS</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">380.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(317,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/quan-jeans-short-nam-lv523.html" title="Quần jeans short nam LV523">
-                                        <img src="/Uploads/shop1/images/product/35.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-37%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu jean bền đẹp. Thiết kế kiểu quần short thoáng mát cùng hai túi trước và sau đầy tiện lợi, đường wash nhẹ trên nền quần giúp bạn tự tin và phong cách hơn.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/quan-jeans-short-nam-lv523.html" title="Quần jeans short nam LV523">Quần jeans short nam LV523</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">205.000&nbsp;₫</span>
-                                        <span class="price-old">324.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(318,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-so-mi-nam-don-gian-mot-tre.html" title="Áo sơ mi nam đơn giản Mốt Trẻ">
-                                        <img src="/Uploads/shop1/images/product/75.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-3%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu kate thoáng mát. Thiết kế tay dài, cổ đứng lịch lãm, cổ nẹp, màu nhã nhặn, mang lại phong cách trẻ trung nhưng cũng không kém phần lịch lãm, rất phụ hợp với môi trường công sở.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-so-mi-nam-don-gian-mot-tre.html" title="Áo sơ mi nam đơn giản Mốt Trẻ">Áo sơ mi nam đơn giản Mốt Trẻ</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">281.000&nbsp;₫</span>
-                                        <span class="price-old">289.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(328,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-12 product-item-box">
-                            <div class="product-item product-resize fixheight" style="height: 366px;">
-                                <div class="image image-resize" style="height: 247px;">
-                                    <a href="/san-pham/ao-so-mi-nam-co-phoi-da-larvana.html" title="Áo sơ mi nam cổ phối da Larvana">
-                                        <img src="/Uploads/shop1/images/product/79.jpg" class="img-responsive">
-                                    </a>
-                                    <span class="promotion">-23%</span>
-                                    <div class="content-mask">
-                                        <p>
-                                            <span style="font-size:12px;"><span style="font-family: arial, helvetica, sans-serif; line-height: 24.18000030517578px;">Chất liệu kate thoáng mát. Thiết kế đơn giản tay dài, cài nút, cổ bẻ, form dáng chuẩn phối trên nền vải ka tê họa tiết ca rô khỏe khoắn mang đến cho bạn nam một phong cách thời trang trẻ trung, cá tính.</span></span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                                <div class="right-block">
-                                    <h2 class="name">
-                                        <a href="/san-pham/ao-so-mi-nam-co-phoi-da-larvana.html" title="Áo sơ mi nam cổ phối da Larvana">Áo sơ mi nam cổ phối da Larvana</a>
-                                    </h2>
-                                    <div class="rating">
-                                        <div class="rating-1">
-                                            <span class="rating-img">
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="price-new">231.000&nbsp;₫</span>
-                                        <span class="price-old">299.000&nbsp;₫</span>
-                                    </div>
-                                    <div class="button_buy">
-                                        <a class="btn btn-default btn-add-cart" href="javascript:void(0)" onclick="AddToCard(329,1)">Mua</a>
-                                    </div>
-                                </div>
-                                <div class="shadow">
-                                </div>
-                            </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="card-link productItem btn btn-primary" data-name="iPhone" data-s="black" data-price="50000" data-id="1">Add to Cart</a>
                         </div>
                     </div>
-                    <div class="navigation">
-                        <ul class="pagination">
-                            <li>
-                                <a href="?page=1" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                </a>
-                            </li>
-                            <li class="active"><a href="?page=1">1</a></li>
-                            <li><a href="?page=2">2</a></li>
-                            <li><a href="?page=3">3</a></li>
-                            <li><a href="?page=4">4</a></li>
-                            <li><a href="?page=5">5</a></li>
-                            <li><a href="?page=6">6</a></li>
-                            <li><a href="?page=7">7</a></li>
-                            <li><a href="?page=8">8</a></li>
-                            <li>
-                                <a href="?page=8" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                </a>
-                            </li>
-                        </ul>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">iPad</h3>
+                            <h6 class="card-subtitle text-muted">$300.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="iPad" data-s="white" data-price="30000" data-id="2">Add to Cart</a>
+                        </div>
                     </div>
-                </section>
-                <!--Template--
-                --End-->
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">Cable 3</h3>
+                            <h6 class="card-subtitle text-muted">$12.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="Cable" data-s="3" data-price="1200" data-id="3">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">SD Card 32GB</h3>
+                            <h6 class="card-subtitle text-muted">$30.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah</div>
+                            <a href="#" class="productItem btn btn-primary" data-name="SD Card" data-s="32GB" data-price="3000" data-id="4">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">SD Card 16GB</h3>
+                            <h6 class="card-subtitle text-muted">$20.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="SD Card" data-s="16GB" data-price="2000" data-id="5">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">SD Card 32GB</h3>
+                            <h6 class="card-subtitle text-muted">$10.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="SD Card" data-s="4GB" data-price="1000" data-id="6">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">Cable 4</h3>
+                            <h6 class="card-subtitle text-muted">$16.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah  </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="Cable" data-s="4" data-price="1600" data-id="7">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-block">
+                            <h3 class="card-title">Cable 1</h3>
+                            <h6 class="card-subtitle text-muted">$3.00</h6> <img src="http://placehold.it/350x150" class="img-fluid">
+                        </div>
+                        <div class="card-block">
+                            <div class="card-text">Product information description why its the best product ever blah blah </div>
+                            <a href="#" class="productItem btn btn-primary" data-name="Cable" data-s="1" data-price="300" data-id="8">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="partner">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                <!-- blog list -->
-                <div class="blog-list news-home">
-                    <h2 class="page-heading">
-                        <span class="page-heading-title">Tin tức nổi bật</span>
-                    </h2>
-                    <div class="blog-list-wapper">
-                        <ul class="owl-carousel owl-theme owl-loaded" data-dots="false" data-loop="true" data-nav="true" data-margin="30" data-autoplaytimeout="1000" data-autoplayhoverpause="true" data-responsive="{&quot;0&quot;:{&quot;items&quot;:1},&quot;600&quot;:{&quot;items&quot;:3},&quot;1000&quot;:{&quot;items&quot;:4}}">
-
-
-
-
-                            <div class="owl-stage-outer">
-                                <div class="owl-stage" style="transform: translate3d(-372px, 0px, 0px); transition: 0s; width: 1488px;">
-                                    <div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item active" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
-                                        <li>
-                                            <div class="post-thumb image-hover2">
-                                                <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
-                                            </div>
-                                            <div class="post-desc">
-                                                <h5 class="post-title">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
-                                                </h5>
-                                                <div class="post-meta">
-                                                    <span class="date">
-                                                        12/08/2017
-                                                    </span>
-                                                    <span class="comment">0<span> Bình luận</span></span>
-                                                </div>
-                                                <div class="readmore">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><i class="fa fa-angle-left"></i></div><div class="owl-next" style=""><i class="fa fa-angle-right"></i></div></div><div class="owl-dots" style="display: none;"></div></div>
-                        </ul>
-                    </div>
-                </div>
-                <!-- ./blog list -->
-                <!--Begin-->
-                <div class="row banner-bottom">
-                    <div class="col-sm-6 item-left">
-                        <div class="banner-boder-zoom">
-                            <a href="1"><img alt="ads" class="img-responsive" src="~/Uploads/banner/banner-botom1.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 item-right">
-                        <div class="banner-boder-zoom">
-                            <a href="2"><img alt="ads" class="img-responsive" src="~/Uploads/banner/banner-bottom2.jpg"></a>
-                        </div>
-                    </div>
-                </div>
-                <!--End-->
-                <!--Begin-->
-                <div class="services2">
-                    <ul>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s1.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="1">Giá trị lớn</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Chúng tôi cung cấp giá cả cạnh tranh nhất trên từng sản phẩm, phù hợp với mọi túi tiền.
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s2.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="3">Giao hàng</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Giao hàng tận nơi .
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s3.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="5">Sản phẩm</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Sản phẩm chính hãng , chân thực .
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s4.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="2">Hổ trợ</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Hổ trợ 24/7. <br>Phone: +84 908 77 00 95.<br>Emal: team5@vanlanguni.edu.vn
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s5.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="4">Ứng dụng</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Cài đặt ứng dụng tiện dụng khi mua hàng
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-xs-12 col-sm-6 col-md-4 services2-item">
-                            <div class="service-wapper">
-                                <div class="row">
-                                    <div class="col-sm-6 image">
-                                        <div class="icon">
-                                            <img src="~/Uploads/icon/icon-s6.png" alt="service">
-                                        </div>
-                                        <h3 class="title"><a href="6">Thanh toán</a></h3>
-                                    </div>
-                                    <div class="col-sm-6 text">
-                                        Thanh toán khi nhận hàng.
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!--End-->
-            </div>
-        </div>
+    <div class="navigation">
+        <ul class="pagination">
+            <li>
+                <a href="?page=1" aria-label="Previous">
+                    <span aria-hidden="true">«</span>
+                </a>
+            </li>
+            <li class="active"><a href="?page=1">1</a></li>
+            <li><a href="?page=2">2</a></li>
+            <li><a href="?page=3">3</a></li>
+            <li><a href="?page=4">4</a></li>
+            <li><a href="?page=5">5</a></li>
+            <li><a href="?page=6">6</a></li>
+            <li><a href="?page=7">7</a></li>
+            <li><a href="?page=8">8</a></li>
+            <li>
+                <a href="?page=8" aria-label="Next">
+                    <span aria-hidden="true">»</span>
+                </a>
+            </li>
+        </ul>
     </div>
-</div>
+</section>

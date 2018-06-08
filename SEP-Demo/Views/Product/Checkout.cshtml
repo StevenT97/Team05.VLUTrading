@@ -1,0 +1,625 @@
+﻿
+@{
+    ViewBag.Title = "History Trade";
+    Layout = "~/Views/Shared/_DetailLayout.cshtml";
+}
+<style>
+    @@media screen and (max-width: 480px) {
+        .profile-user .block-control {
+            margin-bottom: 20px;
+        }
+    }
+
+    @@media screen and (max-width: 480px) {
+        .wrapper-profile .right-profile {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        .wrapper-profile .right-profile {
+            float: none;
+            width: 98%;
+            margin-left: 0;
+            margin: 5px auto 0;
+            border: none;
+            padding: 5px 0;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        .profile-user .order-tabs {
+            margin-top: 0;
+        }
+    }
+
+    @@media (max-width: 1024px) and (min-width: 768px) {
+        .order-tabs {
+            margin-top: 0;
+            overflow: auto;
+            white-space: nowrap;
+            width: calc(100% - 235px) !important;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        .profile-user .order-tabs li:hover, .profile-user .order-tabs li.active {
+            background: none;
+            border-radius: 0;
+        }
+    }
+
+    @@media screen and (max-width: 767px) {
+        .profile-user .order-tabs li a {
+            /* border-radius: 2px; */
+            /* border: 1px solid #ddd; */
+            margin-top: 10px;
+        }
+    }
+
+    .wrapper-profile {
+    }
+
+    .wrapper-profile {
+    }
+
+    /**, *:before, *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }*/
+    *:before {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        border: 0;
+    }
+
+    .wrapper-profile .left-profile {
+        width: 220px;
+        float: left;
+        padding-top: 15px;
+        border-right: 1px solid #eee;
+        background-color: #fff;
+    }
+
+    .left-profile .user-inf-top {
+        overflow: hidden;
+        /* border-bottom: 1px solid #dcdcdc; */
+    }
+
+    .left-profile .menu-quanly {
+        display: none;
+    }
+
+    .left-profile .ttl-box {
+        font-size: 14px;
+        color: #666666;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 15px;
+        font-weight: bold;
+        background-color: #f5f5f5;
+        padding: 0 10px;
+        border-left: 3px solid #e5101d;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    .left-profile .action-list {
+        padding-bottom: 8px;
+    }
+        /*ul, menu, dir {
+            display: block;
+            list-style-type: disc;
+            -webkit-margin-before: 1em;
+            -webkit-margin-after: 1em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 40px;
+        }*/
+        .left-profile .action-list li a {
+            display: block;
+            position: relative;
+            color: #666;
+            height: 32px;
+            line-height: 32px;
+            padding-left: 30px;
+        }
+
+    li.voucher-wallet .icon {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0px;
+        fill: #999999;
+    }
+
+    svg:not(:root) {
+        overflow: hidden;
+    }
+
+    .left-profile .action-list li:last-child {
+        border-bottom: none;
+    }
+
+    .left-profile .action-list li {
+        padding: 2px 0;
+    }
+
+        .left-profile .action-list li a:hover, .left-profile .action-list li a.active {
+            background-color: #fff;
+            color: #e5101d;
+            font-weight: bold;
+        }
+
+    .left-profile .block-launch-app {
+        padding: 10px;
+        border: none;
+        position: relative;
+    }
+
+    .left-profile .user-inf-top .avatar {
+        display: block;
+        width: 40px;
+        height: 40px;
+        float: left;
+        margin-right: 10px;
+        border-radius: 20px;
+        border: 1px solid #e7e7e7;
+        padding: 2px;
+    }
+
+    img {
+        border: 0;
+        max-width: 100%;
+    }
+
+    .left-profile .user-inf-top .shopname {
+        color: #333333;
+        font-weight: bold;
+        line-height: 16px;
+        display: block;
+        font-size: 13px;
+    }
+
+    a {
+        background-color: transparent;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .left-profile .user-inf-top .edit-account {
+        color: #999;
+        font-size: 11px;
+        margin-top: 5px;
+        display: block;
+    }
+
+    .voucher-wallet {
+        position: relative;
+    }
+    /*Icon*/
+    .left-profile .action-list li a:before {
+        content: '';
+        background: url(//checkout.scdn.vn/images/ecom/icPriteProfile.png) 0 0 no-repeat;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+    /*Right profile*/
+    .wrapper-profile .right-profile {
+        margin-left: 220px;
+        padding: 0 10px 10px 20px;
+        background-color: #fff;
+        min-height: 600px;
+        transition: all 0.2s ease-out;
+        -moz-transition: all 0.2s ease-out;
+        -webkit-transition: all 0.2s ease-out;
+    }
+
+    .ttl-box-profile {
+        color: #333;
+        font-size: 16px;
+        font-weight: bold;
+        height: 32px;
+        line-height: 32px;
+        border-bottom: 1px solid #ededed;
+        /* text-transform: uppercase; */
+    }
+
+    .profile-user .ttl-box-profile {
+        border-bottom: none;
+        text-transform: none;
+    }
+
+    .profile-user .block-control {
+        border-bottom: 1px solid #e7e7e7;
+    }
+
+    .profile-user .sort-block {
+        width: 220px;
+        display: inline-block;
+        float: right;
+        position: relative;
+    }
+
+    .order-tabs {
+        white-space: nowrap;
+        overflow: auto;
+    }
+
+    .profile-user .order-tabs {
+        display: inline-block;
+    }
+
+        .profile-user .order-tabs li {
+            display: inline-block;
+            /* margin-left: 10px; */
+            margin-right: 20px;
+        }
+
+        .profile-user .order-tabs li {
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+            .profile-user .order-tabs li a {
+                display: block;
+                padding: 10px 0;
+                border-bottom: none;
+                /* border-radius: 2px 2px 0 0; */
+                white-space: nowrap;
+                margin-left: 2px;
+                display: inline-block;
+                /* margin-left: 10px; */
+                margin-right: 20px;
+            }
+
+    .sort-block .options-sort .option-selected {
+        padding: 0 24px 0 10px;
+        position: relative;
+        border: 1px solid #c6c6c6;
+        background: #f5f5f5;
+        cursor: pointer;
+        color: #666666;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 2px;
+    }
+
+    .options-sort .option-selected:after {
+        content: '';
+        display: block;
+        float: right;
+        background: url(//checkout.scdn.vn/images/ecom/arr_down.svg) no-repeat 0 0;
+        position: absolute;
+        width: 32px;
+        height: 32px;
+        top: 9px;
+        right: -19px;
+        background-size: 30%;
+    }
+
+    .profile-user .order-tabs li:hover, .profile-user .order-tabs li.active {
+        border-bottom: 2px solid #e5101d;
+    }
+
+    .left-profile .block-launch-app {
+        padding: 10px;
+        border: none;
+        position: relative;
+    }
+
+        .left-profile .block-launch-app p {
+            display: block;
+            font-size: 13px;
+            text-align: left;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+        .left-profile .block-launch-app .apple {
+            cursor: pointer;
+            background: url(//checkout.scdn.vn/images/ecom/ic-sprites.png) no-repeat 0 -350px;
+            height: 30px;
+            width: 97px;
+            display: inline-block;
+        }
+
+        .left-profile .block-launch-app .adriod {
+            cursor: pointer;
+            background: url(//checkout.scdn.vn/images/ecom/ic-sprites.png) no-repeat -122px -350px;
+            width: 97px;
+            height: 30px;
+            display: inline-block;
+        }
+
+    .sort-block .options-sort .sub-options-sort {
+        width: 100%;
+        position: absolute;
+        top: 30px;
+        border: 1px solid #c6c6c6;
+        background: #fff;
+        display: none;
+        z-index: 1;
+    }
+
+        .sort-block .options-sort .sub-options-sort span {
+            display: block;
+            line-height: 17px;
+            padding: 5px;
+            cursor: pointer;
+        }
+</style>
+<div class="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="breadcrumb clearfix">
+                    <ul>
+                        <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home">
+                            <a title="Đến trang chủ" href="/" itemprop="url"><span itemprop="title">Trang chủ</span></a>
+                        </li>
+                        <li class="icon-li"><strong>Lịch sử giao dịch</strong> </li>
+                    </ul>
+                </div>
+
+                <div class="wrapper-profile profile-user">
+                    <!--left-profile-->
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            $('.box-fb-top').hide();
+                            $('.left-profile .menu-quanly').on('click', function () {
+                                $(this).toggleClass('down');
+                                $('.left-profile .box-quanly').slideToggle(100);
+                            });
+                        });
+                    </script>
+                    <div class="left-profile">
+                        <div class="box-profile-top">
+                            <div class="user-inf-top">
+                                <img src="https://media3.scdn.vn/img2/2018/4_4/x4d8Dw_simg_8b3ef4_40x40_maxb.jpg" alt="" class="avatar">
+                                <a href="https://www.sendo.vn/thong-tin-tai-khoan/" title="Võ Thiện" class="shopname" cid="2014288751">Võ Thiện</a>
+                                <a href="https://www.sendo.vn/thong-tin-tai-khoan/" title="Chỉnh sửa tài khoản" class="edit-account">Chỉnh sửa tài khoản</a>
+                            </div>
+                            <div class="menu-quanly">
+                                <svg class="icon-quickmenu2"><use xlink:href="#icon-quickmenu2"></use></svg>
+                            </div>
+                            <div class="box-quanly">
+                                <div class="ttl-box">Quản lý giao dịch</div>
+                                <ul class="action-list">
+                                    <li class="order"><a href="https://www.sendo.vn/sales/order/history/" title="Đơn hàng" class="active">Đơn hàng <i>&nbsp;</i></a></li>
+                                    <li class="account-senpay"><a href="https://www.sendo.vn/thong-tin-tai-khoan/tai-khoan-senpay/" title="Tài khoản VLU">Tài khoản VLU<i>&nbsp;</i></a></li>
+                                    <li class="address"><a href="https://www.sendo.vn/thong-tin-tai-khoan/dia-chi-nhan-hang/" title="Địa chỉ nhận hàng">Địa chỉ nhận hàng<i>&nbsp;</i></a></li>
+                                    <li class="products"><a href="https://www.sendo.vn/thong-tin-tai-khoan/san-pham-quan-tam/" title="Sản phẩm yêu thích">Sản phẩm yêu thích<i>&nbsp;</i></a></li>
+                                </ul>
+                                <div class="ttl-box">Quản lý tài khoản</div>
+                                <ul class="action-list">
+                                    <li class="user-inf"><a href="https://www.sendo.vn/thong-tin-tai-khoan/" title="Thông tin tài khoản">Thông tin tài khoản <i>&nbsp;</i></a></li>
+
+                                    <li class="bag"><a href="https://www.sendo.vn/thong-tin-tai-khoan/vi-sen/" title="Ví điểm SEN">Ví điểm VLU <i>&nbsp;</i></a></li>
+
+                                    <li class="mailbox"><a href="https://www.sendo.vn/thong-tin-tai-khoan/hop-thu/" title="Hộp thư">Hộp thư<i>&nbsp;</i></a></li>
+                                    <li class="love-shop"><a href="https://www.sendo.vn/customer/favorites/shop/" title="Shop yêu thích">Shop yêu thích<i>&nbsp;</i></a></li>
+                                    <li class="voucher-wallet">
+                                        <a href="https://www.sendo.vn/thong-tin-tai-khoan/ma-giam-gia/" title="Mã giảm giá của bạn">Mã giảm giá của bạn<i>&nbsp;</i></a>
+                                        <svg class="icon"><use xlink:href="#icon-profile-voucher"></use></svg>
+                                    </li>
+                                    <li class="qa"><a href="https://www.sendo.vn/thong-tin-tai-khoan/hoi-dap/" title="Hỏi đáp">Hỏi đáp<i>&nbsp;</i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="block-launch-app">
+                            <div>
+                                <p>Cài đặt <strong>Trading App</strong> trên smartphone để <br><b>“nhận thông báo Trạng thái đơn hàng”</b><br> mọi lúc mọi nơi</p>
+                                <span class="qr-bg"></span>
+                                <a target="_blank" href="https://www.sendo.vn/apps/ios/?pt=107933802&amp;ct=profile&amp;mt=8&amp;utm_source=SendoDesktop&amp;utm_medium=profile&amp;utm_campaign=installment" title="App Sendo dành cho IOS" class="apple">&nbsp;</a>
+                                <a target="_blank" href="https://www.sendo.vn/apps/android/?utm_source=SendoDesktop&amp;utm_medium=profile&amp;utm_term=installment" title="App Sendo dành cho android" class="adriod">&nbsp;</a>
+                            </div>
+                        </div>
+                    </div>        <!--right-profile-->
+                    <div class="right-profile">
+                        <div class="ttl-box-profile">Lịch sử giao dịch</div>
+                        <div class="block-control">
+                            <div class="sort-block">
+                                <!-- <span class="lbl">Lọc theo</span> -->
+                                <div class="options-sort">
+                                    <p class="option-selected">
+                                        Trong 30 ngày
+                                    </p>
+                                    <div class="sub-options-sort">
+                                        <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=0"><span>Tất cả</span></a>
+                                        <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=7"><span>Trong 7 ngày</span></a>
+                                        <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=90"><span>Trong 3 tháng</span></a>
+                                        <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=180"><span>Trong 6 tháng</span></a>
+                                        <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=365"><span>Trong 1 năm</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul class="order-tabs">
+                                <li class="active"><a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=30" title="">Hàng mua </a></li>
+                                <li><a href="http://www.sendo.vn/sales/order/history/?tab=confirmed&amp;limit_day=30" title="">Hàng bán </a></li>
+                                @*<li><a href="http://www.sendo.vn/sales/order/history/?tab=delivering&amp;limit_day=30" title="">Đang vận chuyển </a></li>
+                                    <li><a href="http://www.sendo.vn/sales/order/history/?tab=pod&amp;limit_day=30" title="">Đã giao hàng </a></li>
+                                    <li><a href="http://www.sendo.vn/sales/order/history/?tab=cancel&amp;limit_day=30" title="">Đã hủy </a></li>*@
+                            </ul>
+                        </div>
+
+                        <div class="cont-order-tabs">
+                            <div class="order-tabs-b">
+                                @*<div class="order-tabs-sm">
+                                        <span class="sel">Tất cả đơn hàng <svg class="icon-Navigationdownhome"><use xlink:href="#icon-Navigationdownhome"></use></svg></span>
+                                        <div class="order-tabs-sm-sub">
+                                            <a href="http://www.sendo.vn/sales/order/history/" title="">Tất cả đơn hàng</a>
+                                            <a href="?status=ecom_delay" title="">Xác nhận hoãn</a>
+                                            <a href="?status=ecom_delivery_confirm" title="">Xác nhận giao hàng</a>
+                                            <a href="?status=ecom_disputed" title="">Khiếu nại  </a>
+                                            <a href="?status=ecom_rating_await" title="">Chờ đánh giá</a>
+                                            <a href="?status=ecom_rated" title="">Đã đánh giá</a>
+                                        </div>
+                                    </div>*@
+                                <div class="cart">
+                                    <ul class="cartWrap" id="outputtest"></ul>
+                                </div>
+                            </div>
+                            <p class="note-order">Bạn chưa có đơn hàng trong 30 ngày gần đây. <a href="http://www.sendo.vn/sales/order/history/?tab=wait_confirm&amp;limit_day=0"><span>Xem tất cả đơn hàng của bạn</span></a></p>
+                        </div>
+                    </div>
+                </div>
+                <script type="text/javascript">
+                    $(document).ready(function (e) {
+                        $('.option-selected').on('click', function () {
+                            $(this).siblings('.sub-options-sort').show();
+                        });
+                        $('.sub-options-sort span').on('click', function () {
+                            $('.option-selected').html($(this).html());
+                            $('.sub-options-sort').hide();
+                        });
+                        $('.order-tabs-sm .sel').on('click', function () {
+                            $(this).siblings('.order-tabs-sm-sub').show();
+                        });
+                        $('.order-tabs-sm-sub a').on('click', function () {
+                            $('.order-tabs-sm .sel').html($(this).html());
+                            $('.order-tabs-sm-sub').hide();
+                        });
+                        jQuery(document).on('click', function (event) {
+                            var target = jQuery(event.target);
+                            if (target.parents('div.options-sort').length == 0) { jQuery("div.sub-options-sort").hide(); }
+                            if (target.parents('div.order-tabs-sm').length == 0) { jQuery("div.order-tabs-sm-sub").hide(); }
+                        });
+                        /*order-tabs*/
+                        // $('.order-tabs').click(function(){});
+                        $("#gotopage").keypress(function (e) {
+                            //if the letter is not digit then display error and don't type anything
+                            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                                alert("Chỉ được nhập ký tự số");
+                                return false;
+                            }
+                        });
+                    });
+                    function goToPage() {
+                        var page = $('#gotopage').val();
+                        var page_int = parseInt(page);
+                        var url = 'https://www.sendo.vn/sales/order/history/?page=';
+                        var page_count = 0;
+                        if (!isNaN(page_int) && page_int <= page_count) {
+                            url = url + page_int;
+                        }
+                        else {
+                            url = url + page_count;
+                        }
+                        window.location = url;
+                    }
+
+                    var loading_ajax_history_order = 1;
+                    var page_history_order = 1;
+                    var total_page_history_order = 0;
+                    var tab_history_order = 'wait_confirm';
+                    var limit_day = '180';
+
+                    $(document).ready(function () {
+                        $(window).scroll(function () {
+                            var rate_on_screen = ($(window).scrollTop() + $(window).height()) / $(document).height();
+                            if (loading_ajax_history_order == 1 && (page_history_order < total_page_history_order) && (rate_on_screen > 0.75) && (window.location.href.split('/sales/order/').length > 1)) {
+                                seeMoreHistoryOrder();
+                            }
+                        });
+                    });
+
+                    function seeMoreHistoryOrder() {
+                        loading_ajax_history_order = 0;
+                        page_history_order++;
+                        $('.loading_.allpage').addClass('show');
+                        jQuery.ajax({
+                            url: 'https://www.sendo.vn/sales/order/history/?tab=' + tab_history_order + '&page=' + page_history_order + '&limit_day=' + limit_day,
+                            type: "POST",
+                            data: { "page": page_history_order, "tab": tab_history_order, "limit_day": limit_day },
+                            success: function (data) {
+
+                                if (data != '') {
+                                    var container = $(".cont-order-tabs");
+                                    container.append(data);
+                                    loading_ajax_history_order = 1;
+                                }
+                                $('.loading_.allpage').removeClass('show');
+
+                            }
+                        });
+                    }
+                    var shopcart = [];
+                    $(document).ready(function () {
+                        outputCart();
+                        $('#outputtest').on('change keyup', '.dynqua', function () {
+                            var iteminfo = $(this.dataset)[0];
+                            var itemincart = false;
+                            console.log(shopcart);
+                            var qty = $(this).val();
+                            if (qty < 0) {
+                                qty = 0;
+                                $(this).val(0);
+                            }
+                            $.each(shopcart, function (index, value) {
+                                if (value.id == iteminfo.id) {
+                                    shopcart[index].qty = qty;
+                                    itemincart = true;
+                                }
+                            })
+                            sessionStorage["sca"] = JSON.stringify(shopcart);
+                            outputCart();
+                        })
+                        $('a.remove').click(function () {
+                            event.preventDefault();
+                            $(this).parent().parent().parent().hide(400);
+
+                        })
+                        function outputCart() {
+                            if (sessionStorage["sca"] != null) {
+                                shopcart = JSON.parse(sessionStorage["sca"].toString());
+                            }
+                            console.log(sessionStorage["sca"]);
+                            console.log(shopcart);
+                            var holderHTML = '';
+                            var SubholderHTML = '';
+                            var holdertest = '';
+                            var holderHTMLmodal = '';
+                            var total = 0;
+                            var itemCnt = 0;
+                            $.each(shopcart, function (index, value) {
+                                var stotal = value.qty * value.price;
+                                var a = (index + 1);
+                                total += stotal;
+                                itemCnt += parseInt(value.qty);
+                                holderHTML += '<tr><td><input type="hidden" name="item_name_' + a + '" value="' + value.name + ' ' + value.s + '">' + value.name + '(' + value.s + ')</td><td><input size="5"  type="number" class="dynqua" name="quantity_' + a + '" value="' + value.qty + '" data-id="' + value.id + '"></td><td><input type="hidden" name="amount_' + a + '" value="' + formatMoney(value.price) + '"> $' + formatMoney(value.price) + ' </td><td class="text-xs-right"> ' + formatMoney(stotal) + '</td></tr>';
+                                holdertest += '<li class="items odd"><div class="infoWrap"><div class="cartSection"><img src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg" alt="" class="itemImg" /><p class="itemNumber">#QUE-007544-002</p><h3 name="item_name_' + a + '" value="' + value.name + ' ' + value.s + '">' + value.name + '(' + value.s + ')</h3><p><input size="5"  type="number" class="dynqua" name="quantity_' + a + '" value="' + value.qty + '" data-id="' + value.id + '"> x <input type="hidden" name="amount_' + a + '" value="' + formatMoney(value.price) + '"> $' + formatMoney(value.price) + '</p><p class="stockStatus" > In Stock</p></div><div class="prodTotal cartSection text-xs-right"><p>' + formatMoney(stotal) + '</p></div> <div class="cartSection removeWrap">  <a href="#" class="remove">x</a></div></li>';
+                            })
+                            holderHTML += '<tr><td colspan="3" class="text-xs-right">Total</td><td class="text-xs-right">$' + formatMoney(total) + '</td></tr>';
+                            SubholderHTML += '<li class="totalRow final"><span class="label">SubTotal</span><span class="value">' + formatMoney(total) + '</span></li>          <li class="totalRow"><span class="label">Shipping</span><span class="value">$5.00</span></li><li class="totalRow" > <span class="label">Tax</span> <span class="value">$4.00</span></li><li class="totalRow final"><span class="label">Total</span><span class="value">' + formatMoney(total + 900) + '</span></li>';
+                            holdertest += '<li class="items even"><div class="special"><div class="specialContent">Xem Tat ca don hang</div></div></li>';
+                            $('#suboutput').html(SubholderHTML);
+                            $('#outputtest').html(holdertest);
+                        }
+                    
+
+                        function formatMoney(n) {
+                            return (n / 100).toFixed(2);
+                        }
+                    })
+                </script>
+            </div>
+        </div>
+
+    </div>
+</div>
+
