@@ -21,7 +21,7 @@ namespace SEP_Demo.Controllers
         {
             return View();
         }
-        public ActionResult Checkout()
+        public ActionResult History()
         {
             return View();
         }

@@ -23,6 +23,17 @@
         <AssociationConnector Association="VLUTradingDBModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="VLUTradingDBModel.FK_UserInfo_User" ManuallyRouted="false" />
         <AssociationConnector Association="VLUTradingDBModel.Permission" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Comment" Width="1.5" PointX="10.875" PointY="7" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Note" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Order" Width="1.5" PointX="10.875" PointY="10.5" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.OrderStatu" Width="1.5" PointX="8.625" PointY="14.25" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Rating" Width="1.5" PointX="11.875" PointY="2.875" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Comment_Product" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Comment_Users" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Order_OrderStatus" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Order_Product" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Rating_Product" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Rating_Users" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

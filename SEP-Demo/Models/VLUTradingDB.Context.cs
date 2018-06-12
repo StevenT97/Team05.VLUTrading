@@ -35,5 +35,10 @@ namespace SEP_Demo.Models
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Note> Notes { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderStatu> OrderStatus { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
     }
 }

@@ -41,6 +41,9 @@
     <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="ProductCategory" />
     <NavigationProperty Name="ProductStatu" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
     <NavigationProperty Name="User" Relationship="Self.FK_Product_Users" FromRole="Product" ToRole="Users" />
+    <NavigationProperty Name="Comments" Relationship="VLUTradingDBModel.FK_Comment_Product" FromRole="Product" ToRole="Comment" />
+    <NavigationProperty Name="Orders" Relationship="VLUTradingDBModel.FK_Order_Product" FromRole="Product" ToRole="Order" />
+    <NavigationProperty Name="Ratings" Relationship="VLUTradingDBModel.FK_Rating_Product" FromRole="Product" ToRole="Rating" />
   </EntityType>
   <EntityType Name="ProductCategory">
     <Key>
@@ -115,6 +118,8 @@
     <NavigationProperty Name="Products" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="Users" ToRole="Role" />
     <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserInfo_User" FromRole="Users" ToRole="UserInfo" />
+    <NavigationProperty Name="Comments" Relationship="VLUTradingDBModel.FK_Comment_Users" FromRole="User" ToRole="Comment" />
+    <NavigationProperty Name="Ratings" Relationship="VLUTradingDBModel.FK_Rating_Users" FromRole="User" ToRole="Rating" />
   </EntityType>
   <Association Name="FK_UserInfo_Faculty">
     <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
@@ -247,5 +252,166 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="RoleDefine" EntitySet="RoleDefines" />
     </AssociationSet>
+    <EntitySet Name="Comments" EntityType="VLUTradingDBModel.Comment" />
+    <EntitySet Name="Notes" EntityType="VLUTradingDBModel.Note" />
+    <EntitySet Name="Orders" EntityType="VLUTradingDBModel.Order" />
+    <EntitySet Name="OrderStatus" EntityType="VLUTradingDBModel.OrderStatu" />
+    <EntitySet Name="Ratings" EntityType="VLUTradingDBModel.Rating" />
+    <AssociationSet Name="FK_Comment_Product" Association="VLUTradingDBModel.FK_Comment_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Users" Association="VLUTradingDBModel.FK_Comment_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus" Association="VLUTradingDBModel.FK_Order_OrderStatus">
+      <End Role="OrderStatu" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Product" Association="VLUTradingDBModel.FK_Order_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rating_Product" Association="VLUTradingDBModel.FK_Rating_Product">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="Rating" EntitySet="Ratings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rating_Users" Association="VLUTradingDBModel.FK_Rating_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Rating" EntitySet="Ratings" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UserComment" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comments" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="VLUTradingDBModel.FK_Comment_Product" FromRole="Comment" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="VLUTradingDBModel.FK_Comment_Users" FromRole="Comment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Note">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserTrade" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UserTrade" Type="Int32" Nullable="false" />
+    <Property Name="UserOrder" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="Int32" Nullable="false" />
+    <Property Name="SubPrice" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="OrderStatu" Relationship="VLUTradingDBModel.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatu" />
+    <NavigationProperty Name="Product" Relationship="VLUTradingDBModel.FK_Order_Product" FromRole="Order" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="OrderStatu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Orders" Relationship="VLUTradingDBModel.FK_Order_OrderStatus" FromRole="OrderStatu" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="UserRating" Type="Int32" Nullable="false" />
+    <Property Name="RateValue" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Product" Relationship="VLUTradingDBModel.FK_Rating_Product" FromRole="Rating" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="VLUTradingDBModel.FK_Rating_Users" FromRole="Rating" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Comment_Product">
+    <End Type="VLUTradingDBModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Users">
+    <End Type="VLUTradingDBModel.User" Role="User" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserComment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus">
+    <End Type="VLUTradingDBModel.OrderStatu" Role="OrderStatu" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Product">
+    <End Type="VLUTradingDBModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rating_Product">
+    <End Type="VLUTradingDBModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Rating" Role="Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rating_Users">
+    <End Type="VLUTradingDBModel.User" Role="User" Multiplicity="1" />
+    <End Type="VLUTradingDBModel.Rating" Role="Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="UserRating" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

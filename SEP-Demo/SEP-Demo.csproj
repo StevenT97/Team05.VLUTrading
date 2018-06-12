@@ -159,8 +159,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Comment.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Extended\User.cs" />
     <Compile Include="Models\Faculty.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Note.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderStatu.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Price.cs">
@@ -173,6 +185,9 @@
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductStatu.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Rating.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
@@ -223,6 +238,7 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
+    <Content Include="Content\profileDashboard.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\responsive.css" />
@@ -328,6 +344,7 @@
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\smoothproduct.js" />
     <Content Include="Scripts\theme-script.js" />
+    <Content Include="Scripts\User\profileDashboard.js" />
     <Content Include="Scripts\User\user.js" />
     <Content Include="Uploads\backend-logo.png" />
     <Content Include="Uploads\banner\banner-botom1.jpg" />
@@ -462,7 +479,7 @@
     <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Account\ViewProfile.cshtml" />
     <Content Include="Views\Shared\_CartLayout.cshtml" />
-    <Content Include="Views\Product\Checkout.cshtml" />
+    <Content Include="Views\Product\History.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

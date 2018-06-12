@@ -1,0 +1,987 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    @*<link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+    <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />*@
+    <title>CodePen - Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link href="/Content/profileDashboard.css" rel="stylesheet" />
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css'>
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css'>
+</head>
+
+<body translate="no">
+
+    <section>
+        <header>
+            <nav class="rad-navigation">
+                <div class="rad-logo-container rad-nav-min">
+                    <a href="#" class="rad-logo"><i class=" fa fa-recycle"></i> Radar</a>
+                    <a href="#" class="rad-toggle-btn pull-right"><i class="fa fa-bars"></i></a>
+                </div>
+                <a href="#" class="rad-logo-hidden">Radar</a>
+                <div class="rad-top-nav-container">
+                    <a href="" class="brand-icon"><i class="fa fa-recycle"></i></a>
+                    <ul class="pull-right links">
+                        <li class="rad-dropdown no-color">
+                            <a class="rad-menu-item" href="#"><img class="rad-list-img sm-img" src="https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg" alt="me" /></a>
+                            <ul class="rad-dropmenu-item sm-menu">
+                                <li class="rad-notification-item">
+                                    <a class="rad-notification-content lg-text" href="#"><i class="fa fa-edit"></i> My Profile</a>
+                                </li>
+                                <li class="rad-notification-item">
+                                    <a class="rad-notification-content lg-text" href="#"><i class="fa fa-power-off"></i> Sign out</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-cog"></i></a>
+                            <ul class="rad-dropmenu-item rad-settings">
+                                <li class="rad-dropmenu-header"><a href="#">Settings</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <div class="pull-left"><i class="fa fa-link"></i></div>
+                                    <div class="pull-right">
+                                        <label class="rad-chk-pin pull-right">
+                                            <input type="checkbox" /><span></span>
+                                        </label>
+                                    </div>
+                                    <div class="rad-notification-body">
+                                        <div class="lg-text">Change to Flat Theme</div>
+                                        <div class="sm-text">Flattify it</div>
+                                    </div>
+                                </li>
+                                <li id="rad-color-opts" class="rad-notification-item text-left hide">
+                                    <div class="pull-left"><i class="fa fa-puzzle-piece"></i></div>
+                                    <div class="pull-right">
+                                        <div class="rad-color-swatch">
+                                            <label class="colors rad-bg-crimson rad-option-selected">
+                                                <input type="radio" checked name="color" value="crimson" />
+                                            </label>
+                                            <label class="colors rad-bg-teal">
+                                                <input type="radio" name="color" value="teal" />
+                                            </label>
+                                            <label class="colors rad-bg-purple">
+                                                <input type="radio" name="color" value="purple">
+                                            </label>
+                                            <label class="colors rad-bg-orange">
+                                                <input type="radio" name="color" value="orange" />
+                                            </label>
+                                            <label class="colors rad-bg-twitter">
+                                                <input type="radio" name="color" value="twitter" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="rad-notification-body">
+                                        <div class="lg-text">Choose a color</div>
+                                        <div class="sm-text">Make it colorful</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="pull-right links">
+                        <li>
+                            <a class="rad-menu-item" href="#"><i class="fa fa-comment-o"><span class="rad-menu-badge rad-bg-success">0</span></i></a>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-envelope-o"><span class="rad-menu-badge rad-bg-primary">23</span></i></a>
+                            <ul class="rad-dropmenu-item">
+                                <li class="rad-dropmenu-header"><a href="#">Your Notifications</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-html5 fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Introduction to fetch()</div>
+                                            <div class="sm-text">The fetch API</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-bitbucket fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Check your BitBucket</div>
+                                            <div class="sm-text">Last Chance</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-google fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Google Account</div>
+                                            <div class="sm-text">sathishlxg@gmail.com</div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-dropmenu-footer"><a href="#">See all notifications</a></li>
+                            </ul>
+                        </li>
+                        <li class="rad-dropdown">
+                            <a class="rad-menu-item" href="#"><i class="fa fa-bell-o"><span class="rad-menu-badge">49</span></i></a>
+                            <ul class="rad-dropmenu-item">
+                                <li class="rad-dropmenu-header"><a href="#">Your Alerts</a></li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-html5 fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Introduction to fetch()</div>
+                                            <div class="sm-text">The fetch API</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 2 sec ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-bitbucket fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Check your BitBucket</div>
+                                            <div class="sm-text">Last Chance</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 49 mins ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-notification-item text-left">
+                                    <a class="rad-notification-content" href="#">
+                                        <div class="pull-left">
+                                            <i class="fa fa-google fa-2x"></i>
+                                        </div>
+                                        <div class="rad-notification-body">
+                                            <div class="lg-text">Google Account</div>
+                                            <div class="sm-text">sathishlxg@gmail.com</div>
+                                            <em class="pull-right sm-text"><i class="fa fa-clock-o"></i> 2 days ago</em>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="rad-dropmenu-footer"><a href="#">See all alerts</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </section>
+    <main>
+        <section>
+            <div class="rad-body-wrapper rad-nav-min">
+                <div class="container-fluid">
+                    <header class="rad-page-title">
+                        <span>Dashboard</span>
+                        <small class="md-txt">Welcome Sathish, <i class="fa fa-map-marker rad-txt-danger"></i> California</a></small>
+                    </header>
+                    <div class="row">
+                        <div class="col-lg-3 col-xs-6">
+                            <div class="rad-info-box rad-txt-success">
+                                <i class="fa fa-windows"></i>
+                                <span class="heading">Microsoft</span>
+                                <span class="value"><span>4949</span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6">
+                            <div class="rad-info-box rad-txt-primary">
+                                <i class="fa fa-facebook"></i>
+                                <span class="heading">Facebook</span>
+                                <span class="value"><span>23K</span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6">
+                            <div class="rad-info-box rad-txt-danger">
+                                <i class="fa fa-google-plus"></i>
+                                <span class="heading">Google</span>
+                                <span class="value"><span>49M</span></span>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-xs-6">
+                            <div class="rad-info-box">
+                                <i class="fa fa-apple"></i>
+                                <span class="heading">Apple</span>
+                                <span class="value"><span>10.9K</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Area Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="areaChart" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Area Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="areaChart2" class="rad-chart"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Activity
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="rad-activity-body">
+                                        <div class="rad-list-group group">
+                                            <div class="rad-list-group-item">
+                                                <div class="rad-list-icon icon-shadow rad-bg-danger pull-left"><i class="fa fa-phone"></i></div>
+                                                <div class="rad-list-content">
+                                                    <strong>Client meeting</strong>
+                                                    <div class="md-text">Meeting at 10:00 AM</div>
+                                                </div>
+                                            </div>
+                                            <div class="rad-list-group-item">
+                                                <div class="rad-list-icon icon-shadow rad-bg-primary pull-left"><i class="fa fa-refresh"></i></div>
+                                                <div class="rad-list-content">
+                                                    <strong>Created ticket</strong>
+                                                    <div class="md-text">Ticket assigned to Dev team</div>
+                                                </div>
+                                            </div>
+                                            <div class="rad-list-group-item">
+                                                <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-check"></i></div>
+                                                <div class="rad-list-content">
+                                                    <strong>Activity completed</strong>
+                                                    <div class="md-text">Completed the dashboard html demo</div>
+                                                </div>
+                                            </div>
+                                            <div class="rad-list-group-item">
+                                                <div class="rad-list-icon icon-shadow rad-bg-violet pull-left"><i class="fa fa-envelope"></i></div>
+                                                <div class="rad-list-content">
+                                                    <strong>New Invitation</strong>
+                                                    <div class="md-text">Max has invited you to join Inbox</div>
+                                                </div>
+                                            </div>
+                                            <div class="rad-list-group-item">
+                                                <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-pencil"></i></div>
+                                                <div class="rad-list-content">
+                                                    <strong>New post</strong>
+                                                    <div class="md-text">Created new post</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-8 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Donut Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="donutChart" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Line Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="lineChart" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Bar Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="barChart3" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Bar Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="barChart2" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        Bar Chart
+                                        <ul class="rad-panel-action">
+                                            <li><i class="fa fa-chevron-down"></i></li>
+                                            <li><i class="fa fa-rotate-right"></i></li>
+                                            <li><i class="fa fa-cog"></i>
+                                            <li>
+                                                <i class="fa fa-close"></i>
+                                            </li>
+                                        </ul>
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div id="barChart" class="rad-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
+    <script src='//code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.3/jquery-jvectormap.js'></script>
+    <script src="https://jvectormap.com/js/jquery-jvectormap-1.2.2.min.js"></script>
+
+
+
+    <script>
+        ///Last modified 02/06/2016
+        //Sathish kumar
+        //Added theming
+
+        $(function () {
+
+            var mapSeries = {
+                "AF": 16.63,
+                "AL": 11.58,
+                "DZ": 158.97,
+                "AO": 85.81,
+                "AG": 1.1,
+                "AR": 351.02,
+                "AM": 8.83,
+                "AU": 1219.72,
+                "AT": 366.26,
+                "AZ": 52.17,
+                "BS": 7.54,
+                "IN": 4949,
+                "US": 852
+            };
+
+            var settings = {
+                map: 'world_mill_en',
+                container: $('#world-map'),
+                backgroundColor: 'transparent',
+                colors: '#3377CC',
+                zoomOnScroll: false,
+                regionStyle: {
+                    initial: {
+                        fill: "#c6c6c6"
+                    }
+                },
+                series: {
+                    regions: [{
+                        values: mapSeries,
+                        scale: ['#C8EEFF', '#0071A4'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                }
+            };
+
+            var world;
+
+            $(window).on("scroll", function (e) {
+                if ($(window).scrollTop() > 50) {
+                    $("body").addClass("sticky");
+                } else {
+                    $("body").removeClass("sticky");
+                }
+            });
+
+            $(document).on("click", function (e) {
+                e.preventDefault();
+                var $item = $(".rad-dropmenu-item");
+                if ($item.hasClass("active")) {
+                    $item.removeClass("active");
+                }
+            });
+
+            $('.rad-sidebar a').on("click", function (e) {
+                e.stopPropagation();
+            });
+
+            $('.rad-chat-body').slimScroll({
+                height: '450px',
+                color: "#c6c6c6"
+            });
+
+            $('.rad-timeline-body').slimScroll({
+                height: '450px',
+                color: '#c6c6c6'
+            });
+
+            $('.rad-activity-body').slimScroll({
+                height: '250px',
+                color: '#c6c6c6'
+            });
+
+            $(".rad-toggle-btn").on('click', function () {
+                $(".rad-logo-container").toggleClass("rad-nav-min");
+                $(".rad-sidebar").toggleClass("rad-nav-min");
+                $(".rad-body-wrapper").toggleClass("rad-nav-min");
+                setTimeout(function () {
+                    initializeCharts();
+                }, 200);
+            });
+
+            $("li.rad-dropdown > a.rad-menu-item").on('click', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                $(".rad-dropmenu-item").removeClass("active");
+                $(this).next(".rad-dropmenu-item").toggleClass("active");
+            });
+
+            $(".fa-chevron-down").on("click", function () {
+                var $ele = $(this).parents('.panel-heading');
+                $ele.siblings('.panel-footer').toggleClass("rad-collapse");
+                $ele.siblings('.panel-body').toggleClass("rad-collapse", function () {
+                    setTimeout(function () {
+                        initializeCharts();
+                    }, 200);
+                });
+            });
+
+            $(".fa-close").on("click", function () {
+                var $ele = $(this).parents('.panel');
+                $ele.addClass('panel-close');
+                setTimeout(function () {
+                    $ele.parent().remove();
+                }, 210);
+            });
+
+            $(".fa-rotate-right").on("click", function () {
+                var $ele = $(this).parents('.panel-heading').siblings('.panel-body');
+                $ele.append('<div class="overlay"><div class="overlay-content"><i class="fa fa-refresh fa-2x fa-spin"></i></div></div>');
+                setTimeout(function () {
+                    $ele.find('.overlay').remove();
+                }, 2000);
+            });
+
+            $("#rad-chat-send").on("click", function () {
+                var value = $("#rad-chat-txt").val();
+                var $ele = $(".rad-chat-body");
+                var img = "https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg";
+                if (value) {
+                    $("#rad-chat-txt").val('');
+                    $ele.append(getTempl(img, value, 'left'));
+                    setTimeout(function () {
+                        img = "http://www.gravatar.com/avatar/9099c2946891970eb4739e6455400913.png";
+                        $ele.append(getTempl(img, "Cool!!!", 'right'));
+                        $ele.slimScroll({
+                            scrollTo: $ele[0].scrollHeight
+                        });
+                    }, 2000);
+
+                    $ele.slimScroll({
+                        scrollTo: $ele[0].scrollHeight
+                    });
+
+                }
+
+            });
+
+            $('.rad-chk-pin input[type=checkbox]').change(function (e) {
+                $('body').toggleClass("flat-theme");
+                $("#rad-color-opts").toggleClass("hide");
+            });
+
+            var colorMap = {
+                crimson: "crimson",
+                teal: "#1fb5ad",
+                orange: "#ff503f",
+                purple: "rebeccapurple",
+                twitter: "#55acee"
+            };
+
+            $('.rad-color-swatch input[type=radio]').change(function (e) {
+                if ($('.rad-chk-pin input[type=checkbox]').is(":checked")) {
+                    $('body').removeClass().addClass("flat-theme").addClass(this.value);
+                    $('.rad-color-swatch label').removeClass("rad-option-selected");
+                    $(this).parent().addClass("rad-option-selected");
+                    $(window).scrollTop(0);
+                    // world.remove();
+                    settings.regionStyle.initial.fill = colorMap[this.value];
+                    settings.series.regions[0].scale = ['#A8ECFF', '#FA71D4'];
+                    // world = new jvm.Map(settings);
+
+                } else {
+                    return false;
+                }
+            });
+
+
+            $(".rad-notification-item").on("click", function (e) {
+                e.stopPropagation();
+            });
+
+            $(window).resize(function () {
+                setTimeout(function () {
+                    initializeCharts();
+                }, 200);
+            });
+
+            var colors = [
+                '#E94B3B',
+                '#39C7AA',
+                '#1C7EBB',
+                '#F98E33'
+            ],
+
+                data = [{
+                    y: 'Jan',
+                    a: 50,
+                    b: 90
+                }, {
+                    y: 'Feb',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: 'Mar',
+                    a: 50,
+                    b: 40
+                }, {
+                    y: 'Apr',
+                    a: 10,
+                    b: 20
+                }, {
+                    y: 'May',
+                    a: 95,
+                    b: 65
+                }, {
+                    y: 'Jun',
+                    a: 50,
+                    b: 40
+                }, {
+                    y: 'Jul',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: 'Aug',
+                    a: 100,
+                    b: 90
+                }, {
+                    y: 'Sep',
+                    a: 15,
+                    b: 65
+                }, {
+                    y: 'Oct',
+                    a: 75,
+                    b: 65
+                }, {
+                    y: 'Nov',
+                    a: 15,
+                    b: 65
+                }, {
+                    y: 'Dec',
+                    a: 95,
+                    b: 65
+                },];
+
+            function initializeCharts() {
+
+                $(".rad-chart").empty();
+                $(".d3-*").empty();
+
+                Morris.Line({
+                    lineColors: ['#E67A77', '#D9DD81', '#79D1CF', '#95D7BB'],
+                    element: 'lineChart',
+                    data: [{
+                        year: '2008',
+                        value: 45,
+                        value2: 15,
+                        value3: 95
+                    }, {
+                        year: '2009',
+                        value: 10,
+                        value2: 40,
+                        value3: 80
+                    }, {
+                        year: '2010',
+                        value: 45,
+                        value2: 95,
+                        value3: 5
+                    }, {
+                        year: '2011',
+                        value: 20,
+                        value2: 60,
+                        value3: 40
+                    }, {
+                        year: '2012',
+                        value: 45,
+                        value2: 0,
+                        value3: 90
+                    }],
+                    xkey: 'year',
+                    ykeys: ['value', 'value2', 'value3'],
+                    labels: ['Value', 'value2', 'value3'],
+                    pointSize: 0,
+                    hideHover: 'auto'
+                });
+
+                Morris.Donut({
+                    element: 'donutChart',
+                    data: getDonutData("Sector", "Country"),
+                    labelColor: '#23AE89',
+                    colors: ['#E67A77', '#D9DD81', '#79D1CF', '#95D7BB']
+                });
+
+                Morris.Bar({
+                    element: 'barChart',
+                    data: data,
+                    xkey: 'y',
+                    ykeys: ['a', 'b'],
+                    barColors: ['#95D7BB', '#79D1CF'],
+                    labels: ['Series A', 'Series B']
+                });
+
+                Morris.Bar({
+                    element: 'barChart2',
+                    data: getDonutData("Sector", "Volume"),
+                    xkey: 'label',
+                    ykeys: ['value'],
+                    barColors: ['#D9DD81', '#79D1CF', '#95D7BB'],
+                    labels: ['Sector by Volume']
+                });
+
+                Morris.Bar({
+                    element: 'barChart3',
+                    data: data,
+                    xkey: 'y',
+                    ykeys: ['a', 'b'],
+                    barColors: ['#E67A77', '#79D1CF'],
+                    labels: ['Series A', 'Series B']
+                });
+
+                Morris.Area({
+                    element: 'areaChart2',
+                    behaveLikeLine: true,
+                    padding: 10,
+                    fillOpacity: .7,
+                    lineColors: ['#ED5D5D', '#D6D23A'],
+                    gridEnabled: false,
+                    gridLineColor: '#dddddd',
+                    axes: true,
+                    data: [{
+                        y: '2006',
+                        a: 0,
+                        c: 0
+                    }, {
+                        y: '2007',
+                        a: 75,
+                        c: 112
+                    }, {
+                        y: '2008',
+                        a: 50,
+                        c: 72
+                    }, {
+                        y: '2009',
+                        a: 75,
+                        c: 2
+                    }, {
+                        y: '2010',
+                        a: 150,
+                        c: 92
+                    }, {
+                        y: '2011',
+                        a: 75,
+                        c: 22
+                    }, {
+                        y: '2012',
+                        a: 3,
+                        c: 0
+                    }],
+                    xkey: 'y',
+                    ykeys: ['a', 'c'],
+                    labels: ['Open', 'Closed'],
+                    pointSize: 0,
+                    lineWidth: 0,
+                    hideHover: 'auto'
+                });
+
+                Morris.Area({
+                    element: 'areaChart',
+                    padding: 10,
+                    behaveLikeLine: true,
+                    gridEnabled: false,
+                    gridLineColor: '#dddddd',
+                    axes: true,
+                    fillOpacity: .7,
+                    data: [{
+                        period: '2010 Q1',
+                        iphone: 10,
+                        ipad: 10,
+                        itouch: 10
+                    }, {
+                        period: '2010 Q2',
+                        iphone: 1778,
+                        ipad: 7294,
+                        itouch: 18441
+                    }, {
+                        period: '2010 Q3',
+                        iphone: 4912,
+                        ipad: 12969,
+                        itouch: 3501
+                    }, {
+                        period: '2010 Q4',
+                        iphone: 3767,
+                        ipad: 3597,
+                        itouch: 5689
+                    }, {
+                        period: '2011 Q1',
+                        iphone: 6810,
+                        ipad: 1914,
+                        itouch: 2293
+                    }, {
+                        period: '2011 Q2',
+                        iphone: 5670,
+                        ipad: 4293,
+                        itouch: 1881
+                    }, {
+                        period: '2011 Q3',
+                        iphone: 4820,
+                        ipad: 3795,
+                        itouch: 1588
+                    }, {
+                        period: '2011 Q4',
+                        iphone: 25073,
+                        ipad: 5967,
+                        itouch: 5175
+                    }, {
+                        period: '2012 Q1',
+                        iphone: 10687,
+                        ipad: 34460,
+                        itouch: 22028
+                    }, {
+                        period: '2012 Q2',
+                        iphone: 1000,
+                        ipad: 5713,
+                        itouch: 1791
+                    }],
+                    lineColors: ['#ED5D5D', '#D6D23A', '#32D2C9'],
+                    xkey: 'period',
+                    ykeys: ['iphone', 'ipad', 'itouch'],
+                    labels: ['iPhone', 'iPad', 'iPod Touch'],
+                    pointSize: 0,
+                    lineWidth: 0,
+                    hideHover: 'auto'
+                });
+            }
+
+            function getTempl(img, text, position) {
+                return '<div class="rad-list-group-item ' + position + '"><span class="rad-list-icon pull-' + position + '"><img class="rad-list-img" src=' + img + ' alt="me" /></span><div class="rad-list-content rad-chat"><span class="lg-text">Me</span><span class="sm-text"><i class="fa fa-clock-o"></i> ' + formatTime(new Date()) + '</span><div class="rad-chat-msg">' + text + '</div>';
+            }
+
+            function formatTime(date) {
+                var hours = date.getHours();
+                var minutes = date.getMinutes();
+                var ampm = hours >= 12 ? 'pm' : 'am';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                minutes = minutes < 10 ? '0' + minutes : minutes;
+                return hours + ':' + minutes + ' ' + ampm;
+            }
+
+            initializeCharts();
+
+
+            $('#world-map').vectorMap(settings);
+
+        });
+
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ],
+            data = [{
+                "label": "Technology",
+                "value": 20
+            }, {
+                "label": "Financial",
+                "value": 45
+            }, {
+                "label": "Industrial Goods",
+                "value": 30
+            }, {
+                "label": "Consumer Goods",
+                "value": 10
+            }, {
+                "label": "Basic Materials",
+                "value": 5
+            }];
+
+        function getDonutData(group, column) {
+            function sum(numbers) {
+                return _.reduce(numbers, function (result, current) {
+                    return result + 1;
+                }, 0);
+            }
+            var result = _.chain(getChartData())
+                .groupBy(group)
+                .map(function (value, key) {
+                    return {
+                        label: key,
+                        value: sum(_.pluck(value, column))
+                    }
+                })
+                .value();
+
+            return result;
+        }
+
+        function getChartData() {
+            return [
+                {
+                    "Sector": "Healthcare",
+                },
+                {
+                    "Sector": "Basic Materials",
+                },
+                {
+                    "Sector": "Basic Materials",
+                },
+                {
+                    "Sector": "Basic Materials",
+                },
+                {
+                    "Sector": "Healthcare",
+                },
+                {
+                    "Sector": "Healthcare",
+                },
+                {
+                    "Sector": "Healthcare",
+                },
+                {
+                    "Sector": "Technology",
+                },
+                {
+                    "Sector": "Financial",
+                },
+                {
+                    "Sector": "Industrial Goods",
+                },
+                {
+                    "Sector": "Consumer Goods",
+                },
+                {
+                    "Sector": "Consumer Goods",
+                },
+                {
+                    "Sector": "Consumer Goods",
+                }
+            ];
+        }
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

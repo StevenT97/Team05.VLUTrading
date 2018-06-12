@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Trading - Vanlang University</title>
+    <!----------------- CSS --------------------->
+    <script src="/Scripts/User/profileDashboard.js"></script>
+    <link href="/Content/profileDashboard.css" rel="stylesheet" />
+</head>
+<body style="" class="home option2 ng-scope">
+
+                        
+
+                        
+
+                    @RenderBody()
+
+
+        <!---------Footer -->
+     
+</body>
+</html>
+<script type="text/javascript">
+    $(".vertical-menu-content").addClass("no-home");
+    //$(document).ready(function () {
+    //    //$(".menu-quick-select ul").hide();
+    //    //$(".menu-quick-select").hover(function () { $(".menu-quick-select ul").show(); }, function () { $(".menu-quick-select ul").hide(); });
+    //});
+
+    $(document).ready(function () {
+        var str = location.href.toLowerCase();
+        $("ul.menu li a").each(function () {
+            if (str.indexOf(this.href.toLowerCase()) >= 0) {
+                $("ul.menu li").removeClass("active");
+                $(this).parent().addClass("active");
+            }
+        });
+    });
+    $(document).ready(function () {
+        $('.menu-product li.child .open-close').on('click', function () {
+            $(this).removeAttr('href');
+            var element = $(this).parent('li');
+            if (element.hasClass('open')) {
+                element.removeClass('open');
+                element.children('ul').slideUp();
+            }
+            else {
+                element.addClass('open');
+                element.children('ul').slideDown();
+            }
+        });
+    });
+</script>

@@ -18,6 +18,8 @@ namespace SEP_Demo.Models
         public User()
         {
             this.Products = new HashSet<Product>();
+            this.Comments = new HashSet<Comment>();
+            this.Ratings = new HashSet<Rating>();
         }
     
         public int Id { get; set; }
@@ -35,5 +37,9 @@ namespace SEP_Demo.Models
         public virtual ICollection<Product> Products { get; set; }
         public virtual Role Role { get; set; }
         public virtual UserInfo UserInfo { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Comment> Comments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rating> Ratings { get; set; }
     }
 }
