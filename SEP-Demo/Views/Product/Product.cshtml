@@ -1,6 +1,12 @@
-﻿
+﻿@using SEP_Demo.Models;
 @{
     Layout = "~/Views/Shared/_DetailLayout.cshtml";
+
+    VLUTradingDBEntities db = new VLUTradingDBEntities();
+    var lstProduct = db.Products.Where(t => t.StatusID == 2);
+    var lstPrice = db.Prices.Where(t => t.Status == true);
+    int i = 0;
+    int j = 0;
 }
 
 <div id="collection">
@@ -49,276 +55,42 @@
                         </div>
                         <!-- PRODUCT LIST -->
                         <ul class="row product-list grid filter">
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p35_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81474,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
+                            @foreach (var item in lstProduct)
+                            {
+                                foreach (var price in lstPrice)
+                                {
+                                    if (price.ProductID == item.ID)
+                                    {
+                                        <li class="col-md-3 col-sm-6 col-xs-12">
+                                            <div class="product-container product-resize fixheight" style="height: 378px;">
+                                                <div class="left-block image-resize" style="height: 300px;">
+                                                    <a href="./@item.ID"><img class="img-responsive" alt="product" src="@item.Picture01"></a>
+                                                    <div class="quick-view">
+                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
+                                                        <a title="Xem chi tiết" class="compare" href="./@item.ID"></a>
+                                                        <a href="" class="qv-e-button btn-quickview-1 search" title="Xem nhanh"></a>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <a class="productItem add-to-car" href="" onclick="AddToCard()" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-price="@price.Price1" data-id="@item.ID"> Thêm vào giỏ</a>
+                                                    </div>
+                                                </div>
 
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">400.000₫</span>
-                                            <span class="price old-price">620.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p49_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81475,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
+                                                <div class="right-block">
+                                                    <h5 class="product-name"><a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a></h5>
+                                                    <div class="content_price">
 
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html">Đầm maxi dự tiệc hoa hồng - NH028</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">190.000₫</span>
-                                            <span class="price old-price">240.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-body-lap-the-tay-dai.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p50_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-body-lap-the-tay-dai.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-body-lap-the-tay-dai.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81476,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
+                                                        <span class="price product-price">@price.Price1</span>
+                                                        <span class="price old-price">620.000₫</span>
 
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-body-lap-the-tay-dai.html">Đầm body lập thể tay dài</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">310.000₫</span>
-                                            <span class="price old-price">560.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p51_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81477,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                }
 
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html">Đầm mặc nhà tay lỡ NITIMO 2001</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">190.000₫</span>
-                                            <span class="price old-price">280.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p52_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81478,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
+                        }
 
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html">Đầm mặc nhà phối nơ xinh xắn Twins</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">2.400.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/dam-dao-pho-hoa-tiet-style-a1.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p53_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/dam-dao-pho-hoa-tiet-style-a1.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-dao-pho-hoa-tiet-style-a1.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81479,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/dam-dao-pho-hoa-tiet-style-a1.html">Đầm dạo phố họa tiết style - A1</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">220.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/giay-tennis-t19-xanh.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p55_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/giay-tennis-t19-xanh.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/giay-tennis-t19-xanh.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81468,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/giay-tennis-t19-xanh.html">Giày Tennis T19 xanh</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">790.000₫</span>
-                                            <span class="price old-price">900.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/mu-tennis-puma-ws-cat-performance-visor-908279-04.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p56_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/mu-tennis-puma-ws-cat-performance-visor-908279-04.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/mu-tennis-puma-ws-cat-performance-visor-908279-04.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81469,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/mu-tennis-puma-ws-cat-performance-visor-908279-04.html">Mũ Tennis Puma w's cat performance visor 908279 04</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">520.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/ao-tennis-nam-donexpro-mc-8882-x-xanh-.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p57_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/ao-tennis-nam-donexpro-mc-8882-x-xanh-.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ao-tennis-nam-donexpro-mc-8882-x-xanh-.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81470,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/ao-tennis-nam-donexpro-mc-8882-x-xanh-.html">Áo tennis nam Donexpro MC-8882-X (Xanh)</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">299.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p58_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81471,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html">Vợt tennis Wilson Pro Staff 97 LS WRT7250102</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">4.150.000₫</span>
-                                            <span class="price old-price">6.400.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/ao-tennis-nudonexpro-mc-8882-x-den-.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p59_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/ao-tennis-nudonexpro-mc-8882-x-den-.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ao-tennis-nudonexpro-mc-8882-x-den-.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81472,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/ao-tennis-nudonexpro-mc-8882-x-den-.html">Áo tennis nữDonexpro MC-8882-X (Đen)</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">199.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-container product-resize fixheight" style="height: 378px;">
-                                    <div class="left-block image-resize" style="height: 300px;">
-                                        <a href="/san-pham/tui-dung-do-dung-cung-the-thao-k300.html"><img class="img-responsive" alt="product" src="~/Uploads/Product/p60_large.jpg"></a>
-                                        <div class="quick-view">
-                                            <a title="Add to my wishlist" class="heart" href="#"></a>
-                                            <a title="Xem chi tiết" class="compare" href="/san-pham/tui-dung-do-dung-cung-the-thao-k300.html"></a>
-                                            <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/tui-dung-do-dung-cung-the-thao-k300.html"></a>
-                                        </div>
-                                        <div class="add-to-cart">
-                                            <a class="add-to-car" href="javascript:void(0);" onclick="AddToCard(81473,1)">Thêm vào giỏ</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="right-block">
-                                        <h5 class="product-name"><a href="/san-pham/tui-dung-do-dung-cung-the-thao-k300.html">Túi đựng đồ, dụng cụng thể thao K300</a></h5>
-                                        <div class="content_price">
-                                            <span class="price product-price">120.000₫</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                         <div class="col-md-12 content_sortPagiBar pagi">
                             <div id="pagination" class="clearfix">
@@ -350,7 +122,7 @@
                                 Sản phẩm
                             </span>
                         </h3>
-                        <ul class="level_0">
+                        @*<ul class="level_0">
                             <li class="child">
                                 <span><a href="/san-pham/thoi-trang-40412"><i class="fa fa-arrow-circle-right"></i> Thời trang</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
                                     <li><span><a href="/san-pham/ao-so-mi-40422"><i class="fa fa-check"></i> Áo sơ mi</a></span></li>
@@ -453,7 +225,7 @@
                                 </ul>
                             </li>
                             <li><span><a href="/san-pham/may-anh-40421"><i class="fa fa-arrow-circle-right"></i> Máy ảnh</a></span></li>
-                        </ul>
+                        </ul>*@
                     </div>
                     <script type="text/javascript">
                         $(document).ready(function () {

@@ -358,7 +358,15 @@ namespace SEP_Demo.Controllers
         }
         public ActionResult ViewProfile()
         {
-            return View();
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            
         }
   
     }
