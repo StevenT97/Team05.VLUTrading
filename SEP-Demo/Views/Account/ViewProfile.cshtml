@@ -39,30 +39,30 @@
                 <div class="row">
                     <div class="col-lg-3 col-xs-6">
                         <div class="rad-info-box rad-txt-success">
-                            <i class="fa fa-windows"></i>
-                            <span class="heading">Microsoft</span>
+                            <i class="fa fa-building-o"></i>
+                            <span class="heading">Bindding</span>
                             <span class="value"><span>4949</span></span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-xs-6">
                         <div class="rad-info-box rad-txt-primary">
-                            <i class="fa fa-facebook"></i>
-                            <span class="heading">Facebook</span>
+                            <i class="fa fa-calendar-check-o"></i>
+                            <span class="heading">Active</span>
                             <span class="value"><span>23K</span></span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-xs-6">
                         <div class="rad-info-box rad-txt-danger">
-                            <i class="fa fa-google-plus"></i>
-                            <span class="heading">Google</span>
+                            <i class="fa fa-edit"></i>
+                            <span class="heading">Edit</span>
                             <span class="value"><span>49M</span></span>
                         </div>
                     </div>
                     <div class="col-lg-3 col-xs-6">
                         <div class="rad-info-box">
-                            <i class="fa fa-apple"></i>
-                            <span class="heading">Apple</span>
-                            <span class="value"><span>10.9K</span></span>
+                            <i class="fa fa-money"></i>
+                            <span class="heading">Order</span>
+                            <span class="value"><span>8.9K</span></span>
                         </div>
                     </div>
                 </div>
@@ -570,16 +570,6 @@
                 e.stopPropagation();
             });
 
-            $('.rad-chat-body').slimScroll({
-                height: '450px',
-                color: "#c6c6c6"
-            });
-
-            $('.rad-timeline-body').slimScroll({
-                height: '450px',
-                color: '#c6c6c6'
-            });
-
             $('.rad-activity-body').slimScroll({
                 height: '250px',
                 color: '#c6c6c6'
@@ -627,28 +617,6 @@
                 }, 2000);
             });
 
-            $("#rad-chat-send").on("click", function () {
-                var value = $("#rad-chat-txt").val();
-                var $ele = $(".rad-chat-body");
-                var img = "https://lh4.googleusercontent.com/-GXmmnYTuWkg/AAAAAAAAAAI/AAAAAAAAAAA/oK6DEDS7grM/w56-h56/photo.jpg";
-                if (value) {
-                    $("#rad-chat-txt").val('');
-                    $ele.append(getTempl(img, value, 'left'));
-                    setTimeout(function () {
-                        img = "http://www.gravatar.com/avatar/9099c2946891970eb4739e6455400913.png";
-                        $ele.append(getTempl(img, "Cool!!!", 'right'));
-                        $ele.slimScroll({
-                            scrollTo: $ele[0].scrollHeight
-                        });
-                    }, 2000);
-
-                    $ele.slimScroll({
-                        scrollTo: $ele[0].scrollHeight
-                    });
-
-                }
-
-            });
 
             $('.rad-chk-pin input[type=checkbox]').change(function (e) {
                 $('body').toggleClass("flat-theme");

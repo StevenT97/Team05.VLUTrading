@@ -1,6 +1,14 @@
-﻿
+﻿@model SEP_Demo.Models.Product
+@using SEP_Demo.Models
 @{
     Layout = "~/Views/Shared/_DetailLayout.cshtml";
+    ViewBag.Title = "Details";
+
+    VLUTradingDBEntities db = new VLUTradingDBEntities();
+    var im = db.Products.FirstOrDefault(m => m.ID == Model.ID);
+    var lstPrice = db.Prices.FirstOrDefault(t => t.Status == true && t.ProductID == im.ID);
+    
+    
 }
 
 
@@ -21,31 +29,31 @@
                                     </a>
                                 </div>
                             </li>
-                            <li class="productname icon-li"><strong>Đầm maxi dự tiệc hoa hồng - NH028</strong> </li>
+                            <li class="productname icon-li"><strong>@im.Name</strong> </li>
                         </ul>
                     </div>
                     <script type="text/javascript">
                         $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
                     </script>
-                
-                   
+
+
                     <div class="product-detail clearfix relative ng-scope">
                         @*<span us-spinner="{radius:5, width:3, length: 3}" class="ng-scope ng-hide"><div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 50%;"><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-0-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(0deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-1-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(30deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-2-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(60deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-3-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(90deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-4-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(120deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-5-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(150deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-6-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(180deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-7-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(210deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-8-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(240deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-9-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(270deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-10-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(300deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-11-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(330deg) translate(5px, 0px); border-radius: 1px;"></div></div></div></span>*@
                         <!--Begin-->
                         <div class="product-block clearfix">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6 col-xs-12 product-image clearfix">
-                                    <div class="sp-loading" style="display: none;"><img src="~/Uploads/Gif/sp-loading.gif" alt=""><br>LOADING IMAGES</div>
+                                    <div class="sp-loading" style="display: none;"><img src="@im.Picture01" alt=""><br>LOADING IMAGES</div>
                                     <div class="sp-wrap sp-non-touch" style="display: inline-block;">
                                         <!-- ngRepeat: item in ProductImages --><!-- end ngRepeat: item in ProductImages -->
-                                        <div class="sp-large"><a href="/Uploads/Product/p49_large.jpg" class="ng-scope .sp-current-big"><img src="~/Uploads/Product/p49_large.jpg"></a></div>
+                                        <div class="sp-large"><a href="/Uploads/Product/p49_large.jpg" class="ng-scope .sp-current-big"><img src="@im.Picture01"></a></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-12 clearfix">
-                                    <h2 class="ng-binding">Đầm maxi dự tiệc hoa hồng - NH028</h2>
+                                    <h2 class="ng-binding">@im.Name - @im.ID</h2>
                                     <!-- ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) --><div class="price ng-scope">
                                         <!-- ngIf: IsPromotion==true --><div class="ng-scope">
-                                            <span class="price-new ng-binding">190,000đ</span>
+                                            <span class="price-new ng-binding">@lstPrice.Price1</span>
                                             <span class="price-old ng-binding">240,000đ</span>
                                         </div><!-- end ngIf: IsPromotion==true -->
                                         <!-- ngIf: IsPromotion==false -->
@@ -58,10 +66,10 @@
                                     <div class="social">
                                         <!-- AddThis Button BEGIN -->
                                         <div class="addthis_toolbox addthis_default_style">
-                                            <a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like fb_iframe_widget" data-layout="button_count" data-show_faces="false" data-share="true" data-action="like" data-width="90" data-height="25" data-font="arial" data-href="http://tradingvanlang.runtime.vn/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html" data-send="false" style="height: 25px;" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=227481454296289&amp;container_width=106&amp;font=arial&amp;height=25&amp;href=http%3A%2F%2Ftradingvanlang.runtime.vn%2Fsan-pham%2Fdam-maxi-du-tiec-hoa-hong-nh028.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=true&amp;show_faces=false&amp;width=90"><span style="vertical-align: bottom; width: 106px; height: 20px;"><iframe name="fc64ae68905534" width="90px" height="25px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/v2.6/plugins/like.php?action=like&amp;app_id=227481454296289&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FFdM1l_dpErI.js%3Fversion%3D42%23cb%3Df115e4a24c965cc%26domain%3Dtradingvanlang.runtime.vn%26origin%3Dhttp%253A%252F%252Ftradingvanlang.runtime.vn%252Ff88ed6a8b736c4%26relation%3Dparent.parent&amp;container_width=106&amp;font=arial&amp;height=25&amp;href=http%3A%2F%2Ftradingvanlang.runtime.vn%2Fsan-pham%2Fdam-maxi-du-tiec-hoa-hong-nh028.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=true&amp;show_faces=false&amp;width=90" style="border: none; visibility: visible; width: 106px; height: 20px;" class=""></iframe></span></div></a>
-                                            <a class="addthis_button_google_plusone at300b" g:plusone:size="medium"><div class="google_plusone_iframe_widget" style="width: 90px; height: 25px;"><span><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1523366440166" name="I0_1523366440166" data-gapiattached="true" title="G+"></iframe></div></span></div></a>
+                                            <a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like fb_iframe_widget" style="height: 25px;"><span style="vertical-align: bottom; width: 106px; height: 20px;"><iframe name="fc64ae68905534" width="90px" height="25px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/v2.6/plugins/like.php?action=like&amp;app_id=227481454296289&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FFdM1l_dpErI.js%3Fversion%3D42%23cb%3Df115e4a24c965cc%26domain%3Dtradingvanlang.runtime.vn%26origin%3Dhttp%253A%252F%252Ftradingvanlang.runtime.vn%252Ff88ed6a8b736c4%26relation%3Dparent.parent&amp;container_width=106&amp;font=arial&amp;height=25&amp;href=http%3A%2F%2Ftradingvanlang.runtime.vn%2Fsan-pham%2Fdam-maxi-du-tiec-hoa-hong-nh028.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=true&amp;show_faces=false&amp;width=90" style="border: none; visibility: visible; width: 106px; height: 20px;" class=""></iframe></span></div></a>
+                                            <a class="addthis_button_google_plusone at300b" g:plusone:size="medium"><div class="google_plusone_iframe_widget" style="width: 90px; height: 25px;"><span><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1523366440166" name="I0_1523366440166"  title="G+"></iframe></div></span></div></a>
                                             @*<a class="addthis_counter addthis_pill_style " href="#" style="display: inline-block;"><a class="atc_s addthis_button_compact">Chia sẻ<span></span></a>
-                                            <a class="addthis_button_expanded" target="_blank" title="Thêm..." href="#"></a></a>*@
+                                                <a class="addthis_button_expanded" target="_blank" title="Thêm..." href="#"></a></a>*@
                                             <div class="atclear"></div>
                                         </div>
                                         @*<script type="text/javascript" src="/scripts/addthis/addthis_widget.js#pubid=ra-5334d6387b03b532"></script>*@
@@ -71,12 +79,12 @@
                                     <div class="quantity clearfix">
                                         <label>Số lượng</label>
                                         <div class="quantity-input">
-                                            <input type="number" value="1" class="text ng-pristine ng-untouched ng-valid">
+                                            <input type="number" value="@im.Quantity" class="text ng-pristine ng-untouched ng-valid">
                                         </div>
                                     </div>
                                     <!-- ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) --><div class="action-cart ng-scope">
-                                        <a href="" class="btn btn-default"><i class="glyphicon glyphicon-shopping-cart"></i> Thêm giỏ hàng</a>
-                                        <a href="" class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Mua ngay</a>
+                                        <a href="" class="productItem btn btn-default" data-name="@im.Name" data-s="@im.Picture01" data-usertrade="@im.UserID" data-price="@lstPrice.Price1" data-id="@im.ID"><i class="glyphicon glyphicon-shopping-cart"></i> Thêm giỏ hàng</a>
+                                        <a href="../Cart" class="btn btn-primary" ><i class="glyphicon glyphicon-ok"></i> Mua ngay</a>
                                     </div><!-- end ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) -->
                                     <!-- ngIf: IsTrackingInventory==true&&AllowPurchaseWhenSoldOut==false&&Quantity<=0 -->
                                     <div class="call">
@@ -97,12 +105,14 @@
                             <ul class="nav nav-tabs">
                                 <!-- ngRepeat: item in ProductTabs -->
                                 <li role="presentation" class="ng-scope active">
-                                    <a data-toggle="tab" href="#tab1" class="ng-binding">Chi tiết sản phẩm</a>
+                                    <a data-toggle="tab" href="#tab1" class="ng-binding">Chi tiết sản phẩm </a>
                                 </li><!-- end ngRepeat: item in ProductTabs -->
                             </ul>
                             <div class="tab-content">
                                 <!-- ngRepeat: item in ProductTabs --><div class="tab-pane fade in ng-scope active" id="tab1">
                                     <div class="ng-binding">
+                                        <h3>Chi tiet</h3>
+                                        <p>@im.Description</p>
                                         <h3>Phí vận chuyển &amp; thời gian nhận hàng</h3>
 
                                         <p>- Thời&nbsp; gian giao sản phẩm :</p>
@@ -311,143 +321,143 @@
                             </ul>
                         </div>
                         <div class="buy-guide">
-                                    <h3>Hướng Dẫn Mua Hàng</h3>
-                                    <ul>
-                                        <li>
-                                            Mua hàng trực tiếp tại website
-                                            <b class="ng-binding"> http://www.trading.vanlanguni.vn</b>
-                                        </li>
-                                        <li>
-                                            Gọi điện thoại <strong class="ng-binding">
-                                                0185585935
-                                            </strong> để mua hàng
-                                        </li>
-                                        <li>
-                                            Mua sỉ/buôn xin gọi <strong class="ng-binding">
-                                                0185585935
-                                            </strong> để được
-                                            hỗ trợ.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        <!--End-->
-                        <div id="left_column">
-                            <div class="block left-module">
-                                <p class="title_block">Sản phẩm Hot</p>
-                                <div class="block_content">
-                                    <ul class="products-block best-sell">
-                                        <li class="clearfix">
-                                            <div class="products-block-left">
-                                                <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" src="~/Uploads/Product/p35_large.jpg"></a>
-                                            </div>
-                                            <div class="products-block-right">
-                                                <p class="product-name">
-                                                    <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a>
-                                                </p>
-                                                <p class="product-price">
-                                                    <span class="">620.000₫</span>
-                                                    <span class="price old-price">400.000₫</span>
-                                                </p>
-                                                <p class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="products-block-left">
-                                                <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="Đầm maxi dự tiệc hoa hồng - NH028" src="~/Uploads/Product/p49_large.jpg"></a>
-                                            </div>
-                                            <div class="products-block-right">
-                                                <p class="product-name">
-                                                    <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html">Đầm maxi dự tiệc hoa hồng - NH028</a>
-                                                </p>
-                                                <p class="product-price">
-                                                    <span class="">240.000₫</span>
-                                                    <span class="price old-price">190.000₫</span>
-                                                </p>
-                                                <p class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="products-block-left">
-                                                <a href="/san-pham/dam-body-lap-the-tay-dai.html"><img class="img-responsive" alt="Đầm body lập thể tay dài" src="~/Uploads/Product/p50_large.jpg"></a>
-                                            </div>
-                                            <div class="products-block-right">
-                                                <p class="product-name">
-                                                    <a href="/san-pham/dam-body-lap-the-tay-dai.html">Đầm body lập thể tay dài</a>
-                                                </p>
-                                                <p class="product-price">
-                                                    <span class="">560.000₫</span>
-                                                    <span class="price old-price">310.000₫</span>
-                                                </p>
-                                                <p class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="products-block-left">
-                                                <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"><img class="img-responsive" alt="Đầm mặc nhà tay lỡ NITIMO 2001" src="~/Uploads/Product/p51_large.jpg"></a>
-                                            </div>
-                                            <div class="products-block-right">
-                                                <p class="product-name">
-                                                    <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html">Đầm mặc nhà tay lỡ NITIMO 2001</a>
-                                                </p>
-                                                <p class="product-price">
-                                                    <span class="">280.000₫</span>
-                                                    <span class="price old-price">190.000₫</span>
-                                                </p>
-                                                <p class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </p>
-                                            </div>
-                                        </li>
-                                        <li class="clearfix">
-                                            <div class="products-block-left">
-                                                <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"><img class="img-responsive" alt="Đầm mặc nhà phối nơ xinh xắn Twins" src="~/Uploads/Product/p52_large.jpg"></a>
-                                            </div>
-                                            <div class="products-block-right">
-                                                <p class="product-name">
-                                                    <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html">Đầm mặc nhà phối nơ xinh xắn Twins</a>
-                                                </p>
-                                                <p class="product-price">
-                                                    <span class="">0₫</span>
-                                                </p>
-                                                <p class="product-star">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            <h3>Hướng Dẫn Mua Hàng</h3>
+                            <ul>
+                                <li>
+                                    Mua hàng trực tiếp tại website
+                                    <b class="ng-binding"> http://www.trading.vanlanguni.vn</b>
+                                </li>
+                                <li>
+                                    Gọi điện thoại <strong class="ng-binding">
+                                        0185585935
+                                    </strong> để mua hàng
+                                </li>
+                                <li>
+                                    Mua sỉ/buôn xin gọi <strong class="ng-binding">
+                                        0185585935
+                                    </strong> để được
+                                    hỗ trợ.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End-->
+                    <div id="left_column">
+                        <div class="block left-module">
+                            <p class="title_block">Sản phẩm Hot</p>
+                            <div class="block_content">
+                                <ul class="products-block best-sell">
+                                    <li class="clearfix">
+                                        <div class="products-block-left">
+                                            <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" src="~/Uploads/Product/p35_large.jpg"></a>
+                                        </div>
+                                        <div class="products-block-right">
+                                            <p class="product-name">
+                                                <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a>
+                                            </p>
+                                            <p class="product-price">
+                                                <span class="">620.000₫</span>
+                                                <span class="price old-price">400.000₫</span>
+                                            </p>
+                                            <p class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="products-block-left">
+                                            <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="Đầm maxi dự tiệc hoa hồng - NH028" src="~/Uploads/Product/p49_large.jpg"></a>
+                                        </div>
+                                        <div class="products-block-right">
+                                            <p class="product-name">
+                                                <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html">Đầm maxi dự tiệc hoa hồng - NH028</a>
+                                            </p>
+                                            <p class="product-price">
+                                                <span class="">240.000₫</span>
+                                                <span class="price old-price">190.000₫</span>
+                                            </p>
+                                            <p class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="products-block-left">
+                                            <a href="/san-pham/dam-body-lap-the-tay-dai.html"><img class="img-responsive" alt="Đầm body lập thể tay dài" src="~/Uploads/Product/p50_large.jpg"></a>
+                                        </div>
+                                        <div class="products-block-right">
+                                            <p class="product-name">
+                                                <a href="/san-pham/dam-body-lap-the-tay-dai.html">Đầm body lập thể tay dài</a>
+                                            </p>
+                                            <p class="product-price">
+                                                <span class="">560.000₫</span>
+                                                <span class="price old-price">310.000₫</span>
+                                            </p>
+                                            <p class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="products-block-left">
+                                            <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"><img class="img-responsive" alt="Đầm mặc nhà tay lỡ NITIMO 2001" src="~/Uploads/Product/p51_large.jpg"></a>
+                                        </div>
+                                        <div class="products-block-right">
+                                            <p class="product-name">
+                                                <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html">Đầm mặc nhà tay lỡ NITIMO 2001</a>
+                                            </p>
+                                            <p class="product-price">
+                                                <span class="">280.000₫</span>
+                                                <span class="price old-price">190.000₫</span>
+                                            </p>
+                                            <p class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="clearfix">
+                                        <div class="products-block-left">
+                                            <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"><img class="img-responsive" alt="Đầm mặc nhà phối nơ xinh xắn Twins" src="~/Uploads/Product/p52_large.jpg"></a>
+                                        </div>
+                                        <div class="products-block-right">
+                                            <p class="product-name">
+                                                <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html">Đầm mặc nhà phối nơ xinh xắn Twins</a>
+                                            </p>
+                                            <p class="product-price">
+                                                <span class="">0₫</span>
+                                            </p>
+                                            <p class="product-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star-half-o"></i>
+                                            </p>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
+</div>

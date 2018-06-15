@@ -46,6 +46,493 @@
             background-color: darkgrey;
             color: white;
         }*/
+        #slider {
+            width: 100%;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @@keyframes load {
+            from {
+                left: -100%;
+            }
+
+            to {
+                left: 0;
+            }
+        }
+
+        .slides {
+            width: 400%;
+            height: 100%;
+            position: relative;
+            -webkit-animation: slide 30s infinite;
+            -moz-animation: slide 30s infinite;
+            animation: slide 30s infinite;
+        }
+
+        .slider {
+            width: 25%;
+            height: 90%;
+            float: left;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /*.image {
+            width: 100%;
+            height: 100%;
+        }
+
+            .image img {
+                width: 100%;
+                height: 100%;
+            }*/
+        /* Legend */
+        .legend {
+            border: 500px solid transparent;
+            border-left: 800px solid rgba(52, 73, 94, .7);
+            border-bottom: 0;
+            position: absolute;
+            bottom: 0;
+        }
+
+        /* Contents */
+        .content {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        .content-txt {
+            width: 400px;
+            height: 150px;
+            float: left;
+            position: relative;
+            top: 300px;
+            -webkit-animation: content-s 7.5s infinite;
+            -moz-animation: content-s 7.5s infinite;
+            animation: content-s 7.5s infinite;
+        }
+
+            .content-txt h1 {
+                font-family: Arial;
+                text-transform: uppercase;
+                font-size: 24px;
+                color: #fff;
+                text-align: left;
+                margin-left: 30px;
+                padding-bottom: 10px;
+            }
+
+            .content-txt h2 {
+                font-family: arial;
+                font-weight: normal;
+                font-size: 14px;
+                font-style: italic;
+                color: #fff;
+                text-align: left;
+                margin-left: 30px;
+            }
+
+        /* Switch */
+        .switch {
+            width: 120px;
+            height: 10px;
+            position: absolute;
+            bottom: 60px;
+            z-index: 99;
+            left: 30px;
+        }
+
+            .switch > ul {
+                list-style: none;
+            }
+
+                .switch > ul > li {
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    background: #333;
+                    float: left;
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+
+            .switch ul {
+                overflow: hidden;
+            }
+
+        .on {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #f39c12;
+            position: relative;
+            -webkit-animation: on 30s infinite;
+            -moz-animation: on 30s infinite;
+            animation: on 30s infinite;
+        }
+
+        /* Animation */
+        @@-webkit-keyframes slide {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: -100%;
+            }
+
+            46% {
+                margin-left: -100%;
+            }
+
+            50% {
+                margin-left: -200%;
+            }
+
+            71% {
+                margin-left: -200%;
+            }
+
+            75% {
+                margin-left: -300%;
+            }
+
+            96% {
+                margin-left: -300%;
+            }
+        }
+
+        @@-moz-keyframes slide {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: -100%;
+            }
+
+            46% {
+                margin-left: -100%;
+            }
+
+            50% {
+                margin-left: -200%;
+            }
+
+            71% {
+                margin-left: -200%;
+            }
+
+            75% {
+                margin-left: -300%;
+            }
+
+            96% {
+                margin-left: -300%;
+            }
+        }
+
+        @@keyframes slide {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: -100%;
+            }
+
+            46% {
+                margin-left: -100%;
+            }
+
+            50% {
+                margin-left: -200%;
+            }
+
+            71% {
+                margin-left: -200%;
+            }
+
+            75% {
+                margin-left: -300%;
+            }
+
+            96% {
+                margin-left: -300%;
+            }
+        }
+
+        @@-webkit-keyframes content-s {
+            0% {
+                left: -420px;
+            }
+
+            10% {
+                left: 0px;
+            }
+
+            30% {
+                left: 0px;
+            }
+
+            40% {
+                left: 0px;
+            }
+
+            50% {
+                left: 0px;
+            }
+
+            60% {
+                left: 0px;
+            }
+
+            70% {
+                left: 0;
+            }
+
+            80% {
+                left: -420px;
+            }
+
+            90% {
+                left: -420px;
+            }
+
+            100% {
+                left: -420px;
+            }
+        }
+
+        @@-moz-keyframes content-s {
+            0% {
+                left: -420px;
+            }
+
+            10% {
+                left: 0px;
+            }
+
+            30% {
+                left: 0px;
+            }
+
+            40% {
+                left: 0px;
+            }
+
+            50% {
+                left: 0px;
+            }
+
+            60% {
+                left: 0px;
+            }
+
+            70% {
+                left: 0;
+            }
+
+            80% {
+                left: -420px;
+            }
+
+            90% {
+                left: -420px;
+            }
+
+            100% {
+                left: -420px;
+            }
+        }
+
+        @@keyframes content-s {
+            0% {
+                left: -420px;
+            }
+
+            10% {
+                left: 20px;
+            }
+
+            15% {
+                left: 0px;
+            }
+
+            30% {
+                left: 0px;
+            }
+
+            40% {
+                left: 0px;
+            }
+
+            50% {
+                left: 0px;
+            }
+
+            60% {
+                left: 0px;
+            }
+
+            70% {
+                left: 0;
+            }
+
+            80% {
+                left: -420px;
+            }
+
+            90% {
+                left: -420px;
+            }
+
+            100% {
+                left: -420px;
+            }
+        }
+
+        @@-webkit-keyframes on {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: 15px;
+            }
+
+            46% {
+                margin-left: 15px;
+            }
+
+            50% {
+                margin-left: 30px;
+            }
+
+            71% {
+                margin-left: 30px;
+            }
+
+            75% {
+                margin-left: 45px;
+            }
+
+            96% {
+                margin-left: 45px;
+            }
+        }
+
+        @@-moz-keyframes on {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: 15px;
+            }
+
+            46% {
+                margin-left: 15px;
+            }
+
+            50% {
+                margin-left: 30px;
+            }
+
+            71% {
+                margin-left: 30px;
+            }
+
+            75% {
+                margin-left: 45px;
+            }
+
+            96% {
+                margin-left: 45px;
+            }
+        }
+
+        @@keyframes on {
+            0%, 100% {
+                margin-left: 0%;
+            }
+
+            21% {
+                margin-left: 0%;
+            }
+
+            25% {
+                margin-left: 15px;
+            }
+
+            46% {
+                margin-left: 15px;
+            }
+
+            50% {
+                margin-left: 30px;
+            }
+
+            71% {
+                margin-left: 30px;
+            }
+
+            75% {
+                margin-left: 45px;
+            }
+
+            96% {
+                margin-left: 45px;
+            }
+        }
+
+        /* main */
+        /* Reset */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -76,7 +563,7 @@
                             {
                                 <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
                                 <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
-                                <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                <li><a href="../Service/Inde    x"><i class="fa fa-list"></i>CMS </a></li>
                             }
                         </ul>
                         <div class="show-mobile hidden-lg hidden-md">
@@ -153,7 +640,7 @@
                         <div class="btn-cart" id="cart-block">
                             <a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>
                             <span class="text-show">Giỏ hàng</span>
-                            <span class="notify notify-right">0</span>
+                            <span style="color:#fff!important" class="items text-muted notify notify-right">0</span>
                         </div>
                     }
                 </div>
@@ -175,109 +662,21 @@
                             <div class="vertical-menu-content is-home">
                                 <ul class="vertical-menu-list">
                                     <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu">
-                                            @*<li class="level1"><a class="" href="/san-pham/ao-so-mi-40422"><span>Áo sơ mi</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-khoac-40423"><span>Áo khoác</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-thun-40424"><span>Áo thun</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-tay-cong-so-40425"><span>Quần tây công sở</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-jean-40426"><span>Quần jean</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/dam-vay-nu-40427"><span>Đầm, váy nữ</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/chan-vay-40428"><span>Chân váy</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-kaki-nam-40429"><span>Quần kaki nam</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-vest-blazer-nam-40430"><span>Áo vest, blazer nam</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-shorts-nam-40431"><span>Quần shorts nam</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/do-lot-do-ngu-40432"><span>Đồ lót, đồ ngủ</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-thoi-trang-40433"><span>Quần thời trang</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-legging-40434"><span>Quần legging</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-phuc-cuoi-40435"><span>Trang phục cưới</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/do-boi-40436"><span>Đồ bơi</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/phu-kien-40437"><span>Phụ kiện</span></a></li>*@
-                                        </ul>
+                                        <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
                                     </li>
                                     <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
                                     <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
                                     <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
                                     <li class="has-child level0">
                                         <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
-                                            @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-suc-vang-40486"><span>Trang sức vàng</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-suc-kim-cuong-40487"><span>Trang sức kim cương</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/nhan-dinh-hon-40488"><span>Nhẫn đính hôn</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/mat-da-quy-40489"><span>Mặt đá quý</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ngoc-trai-40490"><span>Ngọc trai</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-suc-cz-40491"><span>Trang sức CZ</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-suc-italy-40492"><span>Trang sức Italy</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/trang-suc-jemma-40493"><span>Trang sức Jemma</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/vong-tay-40494"><span>Vòng tay</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/vong-co-40495"><span>Vòng cổ</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/bong-tai-40496"><span>Bông tai</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/lac-tay-chan-40497"><span>Lắc tay, chân</span></a></li>*@
+                                            @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
                                         </ul>
                                     </li>
                                     <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu">
-                                            @*<li class="level1"><a class="" href="/san-pham/bong-da-40438"><span>Bóng đá</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/bong-chuyen-40439"><span>Bòng chuyền</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/bong-ban-40440"><span>Bóng bàn</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/bong-chay-40441"><span>Bóng chày</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/tennis-40442"><span>Tennis</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/boi-loi-40443"><span>Bơi lội</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/cau-long-40444"><span>Cầu lông</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-the-thao-tap-gym-40445"><span>Áo thể thao tập gym</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/quan-tap-gym-40446"><span>Quần tập gym</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/may-tap-the-thao-40447"><span>Máy tập thể thao</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/giay-the-thao-40448"><span>Giày thể thao</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/mu-the-thao-40449"><span>Mũ thể thao</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-khoac-the-thao-40450"><span>Áo khoác thể thao</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/ao-the-thao-40451"><span>Áo thể thao</span></a></li>
-                <li class="level1"><a class="" href="/san-pham/tui-dung-do-40452"><span>Túi đựng đồ</span></a></li>*@
-                                        </ul>
+                                        <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
                                     </li>
                                     <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
                                     <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
-
-
-                                    @*<li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/dien-lanh-40418"><img class="icon-menu" src="~/Uploads/icon/s1.png" alt="Điện lạnh"> <span>Điện lạnh</span></a><ul class="level1 drop-menu">
-                                            <li class="level1"><a class="" href="/san-pham/noi-com-dien-40453"><span>Nồi cơm điện</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/noi-ap-suat-40454"><span>Nồi áp suất</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/noi-da-nang-40455"><span>Nồi đa năng</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/bep-gas-40456"><span>Bếp gas</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/bep-dien-40457"><span>Bếp điện</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/lo-vi-song-40458"><span>Lò vi sóng</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-lanh-40459"><span>Máy lạnh</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-giat-40460"><span>Máy giặt</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/tu-lanh-40461"><span>Tủ lạnh</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/tu-dong-40462"><span>Tủ đông</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-loc-nuoc-40463"><span>Máy lọc nước</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/lau-dien-da-nang-40464"><span>Lẩu điện đa năng</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-xay-sinh-to-40465"><span>Máy xay sinh tố</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-ep-trai-cay-40466"><span>Máy ép trái cây</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/may-say-chen-40467"><span>Máy sấy chén</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/lo-nuong-vi-nuong-40468"><span>Lò nướng, vĩ nướng</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/noi-that-40419"><img class="icon-menu" src="~/Uploads/icon/s12.png" alt="Nội thất"> <span>Nội thất</span></a><ul class="level1 drop-menu">
-                                            <li class="level1"><a class="" href="/san-pham/ghe-nhan-vien-40469"><span>Ghế nhân viên</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-truong-phong-40470"><span>Ghế trưởng phòng</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-giam-doc-40471"><span>Ghế giám đốc</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-bang-cho-40472"><span>Ghế băng chờ</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-phong-hop-40473"><span>Ghế phòng họp</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-sofa-40474"><span>Ghế sofa</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ghe-xep-ong-thep-40475"><span>Ghế xếp, ống thép</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-giam-doc-40476"><span>Bàn giám đốc</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-truong-phong-40477"><span>Bàn trưởng phòng</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-nhan-vien-40478"><span>Bàn nhân viên</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-tiep-tan-40479"><span>Bàn tiếp tân</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-chan-sat-40480"><span>Bàn chân sắt</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/module-ban-lam-viec-40481"><span>Module bàn làm việc</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-cao-cap-40482"><span>Bàn cao cấp</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-ghe-hoa-phat-40483"><span>Bàn ghế hòa phát</span></a></li>
-                                            <li class="level1"><a class="" href="/san-pham/ban-may-tinh-40484"><span>Bàn máy tính</span></a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="level0"><a class="" href="/san-pham/may-anh-40421"><img class="icon-menu" src="~/Uploads/icon/s11.png" alt="Máy ảnh"> <span>Máy ảnh</span></a></li>*@
                                 </ul>
                             </div>
                         </div>
@@ -320,9 +719,9 @@
         --End-->
     </div>
 
-    <div class="slideshow">
-        <div class="container">
-            <div class="row">
+    @*<div class="slideshow">
+            <div class="container">
+                <div class="row">
                 <div class="col-md-3">
                 </div>
                 <div class="col-md-9 ">
@@ -354,495 +753,81 @@
                             </div>
                         </div>
                     </div>
-                    <!--Begin-->
-                    <!--End-->
                 </div>
             </div>
-        </div>
-    </div>
+            </div>
+        </div>*@
 
-    <div class="adv">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--Begin-->
-                    <div class="product-content ng-scope">
-                        <h2 class="page-heading">
-                            <span class="page-heading-title">
-                                Sản phẩm khuyến mãi
-                            </span>
-                        </h2>
-                        <div class="latest-deals-product">
-                            <ul class="product-list owl-carousel owl-theme owl-loaded" data-dots="false" data-loop="true" data-nav="true" data-margin="10" data-autoplaytimeout="1000" data-autoplayhoverpause="true" data-responsive="{&quot;0&quot;:{&quot;items&quot;:1},&quot;600&quot;:{&quot;items&quot;:3},&quot;1000&quot;:{&quot;items&quot;:5}}">
-                                <!-- ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides --><!-- end ngRepeat: item in ProductPromotionSlides -->
-                                <div class="owl-stage-outer">
-                                    <div class="owl-stage" style="transform: translate3d(-332px, 0px, 0px); transition: 0s; width: 2656px;">
-                                        <div class="owl-item cloned" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-cao-cap-gt3300.html"><img class="img-responsive" alt="Ghê cao cấp GT3300" title="Ghê cao cấp GT3300" src="~/Uploads/Product/p79_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-cao-cap-gt3300.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-cao-cap-gt3300.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-9<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-cao-cap-gt3300.html" class="ng-binding">Ghê cao cấp GT3300</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,450,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,600,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item cloned" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-cao-cap-tg9930.html"><img class="img-responsive" n alt="Ghế cao cấp TG9930" title="Ghế cao cấp TG9930" src="~/Uploads/Product/p80_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-cao-cap-tg9930.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-cao-cap-tg9930.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-12<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-cao-cap-tg9930.html" class="ng-binding">Ghế cao cấp TG9930</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,350,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item active" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" title="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" src="~/Uploads/Product/p35_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-35<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html" class="ng-binding">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">400,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">620,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="Đầm maxi dự tiệc hoa hồng - NH028" title="Đầm maxi dự tiệc hoa hồng - NH028" src="~/Uploads/Product/p49_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-21<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html" class="ng-binding">Đầm maxi dự tiệc hoa hồng - NH028</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">240,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-body-lap-the-tay-dai.html"><img class="img-responsive" alt="Đầm body lập thể tay dài" title="Đầm body lập thể tay dài" src="~/Uploads/Product/p50_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-body-lap-the-tay-dai.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-body-lap-the-tay-dai.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-45<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-body-lap-the-tay-dai.html" class="ng-binding">Đầm body lập thể tay dài</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">310,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">560,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"><img class="img-responsive" alt="Đầm mặc nhà tay lỡ NITIMO 2001" title="Đầm mặc nhà tay lỡ NITIMO 2001" src="~/Uploads/Product/p51_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-32<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html" class="ng-binding">Đầm mặc nhà tay lỡ NITIMO 2001</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">280,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/giay-tennis-t19-xanh.html"><img class="img-responsive" alt="Giày Tennis T19 xanh" title="Giày Tennis T19 xanh" src="~/Uploads/Product/p55_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/giay-tennis-t19-xanh.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/giay-tennis-t19-xanh.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-12<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/giay-tennis-t19-xanh.html" class="ng-binding">Giày Tennis T19 xanh</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">790,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">900,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"><img class="img-responsive" alt="Vợt tennis Wilson Pro Staff 97 LS WRT7250102" title="Vợt tennis Wilson Pro Staff 97 LS WRT7250102" src="~/Uploads/Product/p58_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-35<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/vot-tennis-wilson-pro-staff-97-ls-wrt7250102.html" class="ng-binding">Vợt tennis Wilson Pro Staff 97 LS WRT7250102</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">4,150,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">6,400,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/noi-com-dien-tu-philips-hd3130.html"><img class="img-responsive" alt="Nồi Cơm Điện Tử PHILIPS HD3130" title="Nồi Cơm Điện Tử PHILIPS HD3130" src="~/Uploads/Product/p61_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/noi-com-dien-tu-philips-hd3130.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/noi-com-dien-tu-philips-hd3130.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-10<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/noi-com-dien-tu-philips-hd3130.html" class="ng-binding">Nồi Cơm Điện Tử PHILIPS HD3130</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,705,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,900,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/noi-com-dien-panasonic-sr-ga721wra.html"><img class="img-responsive" alt="Nồi Cơm Điện PANASONIC SR-GA721WRA" title="Nồi Cơm Điện PANASONIC SR-GA721WRA" src="~/Uploads/Product/p62_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/noi-com-dien-panasonic-sr-ga721wra.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/noi-com-dien-panasonic-sr-ga721wra.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-19<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/noi-com-dien-panasonic-sr-ga721wra.html" class="ng-binding">Nồi Cơm Điện PANASONIC SR-GA721WRA</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,250,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,545,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-kieu-cho-nhan-vien-van-phong.html"><img class="img-responsive" alt="Ghê kiểu cho nhân viên văn phòng" title="Ghê kiểu cho nhân viên văn phòng" src="~/Uploads/Product/p77_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-kieu-cho-nhan-vien-van-phong.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-kieu-cho-nhan-vien-van-phong.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-8<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-kieu-cho-nhan-vien-van-phong.html" class="ng-binding">Ghê kiểu cho nhân viên văn phòng</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,300,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-nhua-chan-cao-tien-nghi.html"><img class="-responsive" alt="Ghế nhựa chân cao, tiện nghi" title="Ghế nhựa chân cao, tiện nghi" src="~/Uploads/Product/p78_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-nhua-chan-cao-tien-nghi.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-nhua-chan-cao-tien-nghi.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-16<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-nhua-chan-cao-tien-nghi.html" class="ng-binding">Ghế nhựa chân cao, tiện nghi</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope" ">210,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">250,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-cao-cap-gt3300.html"><img class="img-responsive" alt="Ghê cao cấp GT3300" title="Ghê cao cấp GT3300" src="~/Uploads/Product/p79_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-cao-cap-gt3300.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-cao-cap-gt3300.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-9<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-cao-cap-gt3300.html" class="ng-binding">Ghê cao cấp GT3300</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,450,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,600,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/ghe-cao-cap-tg9930.html"><img class="img-responsive" alt="Ghế cao cấp TG9930" title="Ghế cao cấp TG9930" src="~/Uploads/Product/p80_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/ghe-cao-cap-tg9930.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/ghe-cao-cap-tg9930.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-12<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/ghe-cao-cap-tg9930.html" class="ng-binding">Ghế cao cấp TG9930</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">1,190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">1,350,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item cloned" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" title="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" src="~/Uploads/Product/p35_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-35<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html" class="ng-binding">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">400,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">620,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div><div class="owl-item cloned" style="width: 156px; margin-right: 10px;">
-                                            <li class="ng-scope">
-                                                <div class="left-block">
-                                                    <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="Đầm maxi dự tiệc hoa hồng - NH028" title="Đầm maxi dự tiệc hoa hồng - NH028" src="~/Uploads/Product/p49_large.jpg"></a>
-                                                    <div class="quick-view">
-                                                        <a title="Add to my wishlist" class="heart" href="#"></a>
-                                                        <a title="Xem chi tiết" class="compare" href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                                        <a href="javascript:void(0);" class="qv-e-button btn-quickview-1 search" title="Xem nhanh" data-handle="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"></a>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <a class="add-to-car" href="javascript:void(0);">Thêm vào giỏ</a>
-                                                    </div>
-                                                    <div class="price-percent-reduction2 ng-binding">
-                                                        Sale
-                                                        <br>-21<strong>%</strong>
-                                                    </div>
-                                                </div>
-                                                <div class="right-block">
-                                                    <h5 class="product-name"><a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html" class="ng-binding">Đầm maxi dự tiệc hoa hồng - NH028</a></h5>
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==true --><div class="content_price ng-scope">
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price product-price ng-binding ng-scope">190,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==true&&item.Price>0 --><span class="price old-price ng-binding ng-scope">240,000&nbsp;₫</span><!-- end ngIf: item.IsPromotion==true&&item.Price>0 -->
-                                                        <!-- ngIf: item.IsPromotion==false&&item.Price>0 -->
-                                                        <!-- ngIf: item.Price<=0 -->
-                                                    </div><!-- end ngIf: ConfigProduct.ShowPrice==true -->
-                                                    <!-- ngIf: ConfigProduct.ShowPrice==false -->
-                                                </div>
-                                            </li>
-                                        </div>
-                                    </div>
-                                </div>
-                            </ul>
-                            <div class="owl-controls"><div class="owl-nav"><div class="owl-prev" style=""><i class="fa fa-angle-left"></i></div><div class="owl-next" style=""><i class="fa fa-angle-right"></i></div></div><div class="owl-dots" style="display: none;"></div></div>
-                        </div>
+
+    <!----Slider-->
+    <div id="slider">
+        <div class="slides">
+            <div class="slider">
+                <div class="legend"></div>
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Lorem ipsum dolor</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
                     </div>
-                    <!--End-->
-                    <script type="text/javascript">
-                        window.ProductPromotionSlides = [{ "Id": 81474, "ShopId": 12999, "ProductGroupId": 79741, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung", "Serial": "", "Name": "Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung", "CreatedDate": "2017-08-12T15:32:00", "UpdatedDate": "2017-08-12T15:32:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p35_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p35_large.jpg", "Summary": "<p>Tên Sản PhẩmĐầm noel đuôi cáChất LiệuCát HànMàu SắcĐỏSize+ size M: Chiều dài đầm: 85cm, Ngực 80-84cm, Eo 68-72cm, Mông 88-92cm+ size L: Chiều dài đầm: 86cm, Ngực 84-88cm, Eo 72-76cm, Mông 92-96cm+ ...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 620000.0000, "StrPrice": "620.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 400000.0000, "StrDiscountPrice": "400.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 35.0, "StrPercent": "35", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 1, "Inactive": false, "Timestamp": "AAAAAAAyIOE=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81475, "ShopId": 12999, "ProductGroupId": 79741, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "dam-maxi-du-tiec-hoa-hong-nh028", "Serial": "", "Name": "Đầm maxi dự tiệc hoa hồng - NH028", "CreatedDate": "2017-08-12T23:13:00", "UpdatedDate": "2017-08-12T23:14:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p49_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p49_large.jpg", "Summary": "<p>Phí vận chuyển & thời gian nhận hàngPhí vận chuyển toàn : + Đối với khu vực nội thành TPHCM : Miễn phí vận chuyển+ Đối với khu vực ngoại thành TPHCM  ( Q9, Q12, Thủ Đức, Bình Tân ) : ...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 240000.0000, "StrPrice": "240.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 190000.0000, "StrDiscountPrice": "190.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 21.0, "StrPercent": "21", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 2, "Inactive": false, "Timestamp": "AAAAAAAyIOM=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81476, "ShopId": 12999, "ProductGroupId": 79741, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "dam-body-lap-the-tay-dai", "Serial": "", "Name": "Đầm body lập thể tay dài", "CreatedDate": "2017-08-12T23:20:00", "UpdatedDate": "2017-08-12T23:20:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p50_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p50_large.jpg", "Summary": "<p>ĐIỂM NỔI BẬTĐầm body lập thể tay dài có kiểu dáng đơn giản, đầm body cổ tròn, tay dài mang đến phong cách năng động, hiện đại  Họa tiết kẻ ô vuông đen trên nền trắng nổi bật, tạo điểm nhấn cho sản ...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 560000.0000, "StrPrice": "560.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 310000.0000, "StrDiscountPrice": "310.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 45.0, "StrPercent": "45", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 3, "Inactive": false, "Timestamp": "AAAAAAAyIOU=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81477, "ShopId": 12999, "ProductGroupId": 79741, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "dam-mac-nha-tay-lo-nitimo-2001", "Serial": "", "Name": "Đầm mặc nhà tay lỡ NITIMO 2001", "CreatedDate": "2017-08-12T23:39:00", "UpdatedDate": "2017-08-12T23:39:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p51_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p51_large.jpg", "Summary": "<p>ĐIỂM NỔI BẬTĐầm mặc nhà tay lỡ NITIMO 2001 có thiết kế đơn giản, đầm suông cổ tròn, tay lững mang đến nét duyên dáng cho người mặc                       Cổ cách điệu phối nút ở trước xinh xắn giúp ...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 280000.0000, "StrPrice": "280.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 190000.0000, "StrDiscountPrice": "190.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 32.0, "StrPercent": "32", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 4, "Inactive": false, "Timestamp": "AAAAAAAyIOc=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81468, "ShopId": 12999, "ProductGroupId": 79738, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "giay-tennis-t19-xanh", "Serial": "", "Name": "Giày Tennis T19 xanh", "CreatedDate": "2017-08-13T00:05:00", "UpdatedDate": "2017-08-13T00:05:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p55_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p55_large.jpg", "Summary": "<p>Phần trên: da đan kết bởi chất liệu sợi tổng hợp siêu nhỏ tạo sự thẩm mỹ, nhẹ, êm và chắc chắn chịu sự ma sát cao kết hợp tấm lưới thông thoáng, không giữ mồ hôi, mát chân.• Miếng lót trong: bằng...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 900000.0000, "StrPrice": "900.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 790000.0000, "StrDiscountPrice": "790.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 12.0, "StrPercent": "12", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 7, "Inactive": false, "Timestamp": "AAAAAAAyINI=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81471, "ShopId": 12999, "ProductGroupId": 79738, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "vot-tennis-wilson-pro-staff-97-ls-wrt7250102", "Serial": "", "Name": "Vợt tennis Wilson Pro Staff 97 LS WRT7250102", "CreatedDate": "2017-08-13T18:55:00", "UpdatedDate": "2017-08-13T18:55:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p58_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p58_large.jpg", "Summary": "<p>Vợt tennis Wilson Pro Staff 97 LS WRT7250102Vợt tennis Wilson Pro Staff 97 LS WRT7250102 là một trong những mẫu vợt tennis mới trong năm 2015 của Wilson. Vợt được sản xuất trên công nghê...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 6400000.0000, "StrPrice": "6.400.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 4150000.0000, "StrDiscountPrice": "4.150.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 35.0, "StrPercent": "35", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 10, "Inactive": false, "Timestamp": "AAAAAAAyINg=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81480, "ShopId": 12999, "ProductGroupId": 79747, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "noi-com-dien-tu-philips-hd3130", "Serial": "", "Name": "Nồi Cơm Điện Tử PHILIPS HD3130", "CreatedDate": "2017-08-13T19:05:00", "UpdatedDate": "2017-08-13T19:05:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p61_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p61_large.jpg", "Summary": "<p>Tính năng sản phẩmThông Tin ChungLoại Sản PhẩmNồi Cơm Điện TửModelHD3130Dung tích1.8 LítChế độ nấu7 chế độ nấu : Hầm, Nấu nhanh, Hâm nóng, Nấu cơm, Làm bánh, Giữ ấm, Nấu cháo.Chức năng giữ ấmCóChức...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 1900000.0000, "StrPrice": "1.900.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 1705000.0000, "StrDiscountPrice": "1.705.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 10.0, "StrPercent": "10", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 13, "Inactive": false, "Timestamp": "AAAAAAAyIPM=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81481, "ShopId": 12999, "ProductGroupId": 79747, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "noi-com-dien-panasonic-sr-ga721wra", "Serial": "", "Name": "Nồi Cơm Điện PANASONIC SR-GA721WRA", "CreatedDate": "2017-08-13T19:10:00", "UpdatedDate": "2017-08-13T19:10:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p62_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p62_large.jpg", "Summary": "<p>Tính năng sản phẩmThông Tin ChungLoại Sản PhẩmNồi Cơm Điện - Nắp RờiModelSR-GA721WRADung tích7.2 LítChế độ nấuNấu / Giữ ấm.Chức năng giữ ấmTối đa 5 giờ.Chống dínhLòng nồi bằng nhôm / Không chống dí...</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 1545000.0000, "StrPrice": "1.545.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 1250000.0000, "StrDiscountPrice": "1.250.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 19.0, "StrPercent": "19", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 14, "Inactive": false, "Timestamp": "AAAAAAAyIPU=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81488, "ShopId": 12999, "ProductGroupId": 79748, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "ghe-kieu-cho-nhan-vien-van-phong", "Serial": "", "Name": "Ghê kiểu cho nhân viên văn phòng", "CreatedDate": "2017-08-13T19:31:00", "UpdatedDate": "2017-08-13T19:31:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p77_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p77_large.jpg", "Summary": "<p>Chưa có mô tả cho sản phẩm này</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 1300000.0000, "StrPrice": "1.300.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 1190000.0000, "StrDiscountPrice": "1.190.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 8.0, "StrPercent": "8", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 21, "Inactive": false, "Timestamp": "AAAAAAAyIQU=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81489, "ShopId": 12999, "ProductGroupId": 79748, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "ghe-nhua-chan-cao-tien-nghi", "Serial": "", "Name": "Ghế nhựa chân cao, tiện nghi", "CreatedDate": "2017-08-13T19:32:00", "UpdatedDate": "2017-08-13T19:32:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p78_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p78_large.jpg", "Summary": "<p>Chưa có mô tả cho sản phẩm này</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 250000.0000, "StrPrice": "250.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 210000.0000, "StrDiscountPrice": "210.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 16.0, "StrPercent": "16", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 22, "Inactive": false, "Timestamp": "AAAAAAAyIQc=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81490, "ShopId": 12999, "ProductGroupId": 79748, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "ghe-cao-cap-gt3300", "Serial": "", "Name": "Ghê cao cấp GT3300", "CreatedDate": "2017-08-13T19:34:00", "UpdatedDate": "2017-08-13T19:34:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p79_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p79_large.jpg", "Summary": "<p>Chưa có mô tả cho sản phẩm này</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 1600000.0000, "StrPrice": "1.600.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 1450000.0000, "StrDiscountPrice": "1.450.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 9.0, "StrPercent": "9", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 23, "Inactive": false, "Timestamp": "AAAAAAAyIQk=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }, { "Id": 81491, "ShopId": 12999, "ProductGroupId": 79748, "ProductGroupCode": null, "ProductGroupName": null, "ProductTypeId": null, "ProductTypeName": null, "UnitId": null, "UnitName": null, "Code": "ghe-cao-cap-tg9930", "Serial": "", "Name": "Ghế cao cấp TG9930", "CreatedDate": "2017-08-13T19:35:00", "UpdatedDate": "2017-08-13T19:35:00", "DealDate": "0001-01-01T00:00:00", "SKU": "", "Barcode": "", "Image": "/Uploads/shop2198/images/product/p80_large.jpg", "ImageThumbnai": "/Uploads/shop2198/images/product/p80_large.jpg", "Summary": "<p>Chưa có mô tả cho sản phẩm này</p>\n", "Content": null, "MetaTitle": "", "MetaKeyword": "", "MetaDescription": "", "Price": 1350000.0000, "StrPrice": "1.350.000", "PriceOld": 0.0000, "StrPriceOld": "0", "PriceDiscount": 1190000.0000, "StrDiscountPrice": "1.190.000", "PricePriority": 0.0000, "StrPricePriority": "0", "PriceHasVAT": false, "Percent": 12.0, "StrPercent": "12", "IsTrackingInventory": false, "Quantity": 0, "VariantQuantity": 0, "VariantCount": 0, "TrackingInventoryText": "---", "Weight": 0, "IsShipping": true, "AllowPurchaseWhenSoldOut": false, "IsVariant": false, "IsBest": true, "IsHot": true, "IsNew": true, "IsPromotion": true, "PromotionContent": null, "Warranty": null, "AllowOrder": false, "ShowHome": false, "CountView": 0, "Index": 24, "Inactive": false, "Timestamp": "AAAAAAAyIQs=", "ModelShared_ProductImage": null, "ModelShared_ProductTab": null, "ModelShared_ProductTag": null, "ModelShared_ProductOption": null, "ModelShared_ProductVariant": null, "ModelShared_ProductOtherGroup": null }];
-                        window.ConfigProduct = { "Id": 0, "PageSize": 12, "Sort": "index", "Order": "asc", "ColumnProduct": 4, "ColumnProductGroup": 4, "ColumnProductHome": 4, "QuantitySlide": 12, "QuantityHot": 5, "QuantityNew": 5, "QuantityPromotion": 5, "QuantityBest": 5, "AutoQuantityOrder": true, "AllowOrder": true, "ShowControlSortBy": true, "ShowPrice": true, "TextNotPrice": "Liên hệ", "TextPriceZero": "0", "AllowComment": false, "ApproveCommentPost": true, "ReceiveEmailComment": true, "AllowCommentFacebook": false, "ShowSerial": false, "ShowWarranty": false, "ShowLikeShareFacebook": true, "ShowRate": true, "WidthRatio": 1, "HeightRatio": 1, "IsInventory": false, "Sys_Shop": null };
-                    </script>
+                </div>
+                <div class="image">
+                    <img src="http://img11.hostingpics.net/pics/767361311.jpg">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="legend"></div>
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Lorem ipsum dolor</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="http://img11.hostingpics.net/pics/412998972.jpg">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="legend"></div>
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Lorem ipsum dolor</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="http://img11.hostingpics.net/pics/990696943.jpg">
+                </div>
+            </div>
+            <div class="slider">
+                <div class="legend"></div>
+                <div class="content">
+                    <div class="content-txt">
+                        <h1>Lorem ipsum dolor</h1>
+                        <h2>Nam ultrices pellentesque facilisis. In semper tellus mollis nisl pulvinar vitae vulputate lorem consequat. Fusce odio tortor, pretium sit amet auctor ut, ultrices vel nibh.</h2>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="http://img11.hostingpics.net/pics/601549194.jpg">
                 </div>
             </div>
         </div>
+        <div class="switch">
+            <ul>
+                <li>
+                    <div class="on"></div>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
     </div>
 
-    @RenderBody()
+
+    <div class="main">
+            @RenderBody()
+    </div>
+
 
     <div class="partner">
         <div class="container">
@@ -1295,7 +1280,7 @@
                     var stotal = value.qty * value.price;
                     total += stotal;
                     itemCnt += parseInt(value.qty);
-                    holderHTML += '<tr><td>' + value.qty + '</td><td>#' + value.id + ' ' + value.name + '(' + value.s + ')</td><td> ' + formatMoney(value.price) + ' </td><td class="text-xs-right"> ' + formatMoney(stotal) + '</td></tr>';
+                    holderHTML += '<tr><td>' + value.qty + '</td><td>#' + value.id + ' ' + value.name + '</td><td> ' + formatMoney(value.price) + ' </td><td class="text-xs-right"> ' + formatMoney(stotal) + '</td></tr>';
                 })
                 holderHTML += '<tr><td colspan="3" class="text-xs-right">Total</td><td class="text-xs-right">' + formatMoney(total) + '</td></tr>';
                 $('#output').html(holderHTML);
@@ -1307,32 +1292,29 @@
                 return '$' + (n / 100).toFixed(2);
             }
         })
+        $(document).ready(function () {
+            var str = location.href.toLowerCase();
+            $("ul.menu li a").each(function () {
+                if (str.indexOf(this.href.toLowerCase()) >= 0) {
+                    $("ul.menu li").removeClass("active");
+                    $(this).parent().addClass("active");
+                }
+            });
+        });
+        $(document).ready(function () {
+            $('.menu-product li.child .open-close').on('click', function () {
+                $(this).removeAttr('href');
+                var element = $(this).parent('li');
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                    element.children('ul').slideUp();
+                }
+                else {
+                    element.addClass('open');
+                    element.children('ul').slideDown();
+                }
+            });
+        });
     </script>
 </body>
 </html>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var str = location.href.toLowerCase();
-        $("ul.menu li a").each(function () {
-            if (str.indexOf(this.href.toLowerCase()) >= 0) {
-                $("ul.menu li").removeClass("active");
-                $(this).parent().addClass("active");
-            }
-        });
-    });
-
-    $(document).ready(function () {
-        $('.menu-product li.child .open-close').on('click', function () {
-            $(this).removeAttr('href');
-            var element = $(this).parent('li');
-            if (element.hasClass('open')) {
-                element.removeClass('open');
-                element.children('ul').slideUp();
-            }
-            else {
-                element.addClass('open');
-                element.children('ul').slideDown();
-            }
-        });
-    });
-</script>
