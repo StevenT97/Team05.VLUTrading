@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Recordset.Net</name>
+    </assembly>
+    <members>
+        <member name="T:RecordsetNet.DataTypes">
+            <summary>
+            Converts CLR types to ADODB types.
+            </summary>
+        </member>
+        <member name="M:RecordsetNet.DataTypes.TryGetAdoTypeForClrType(System.Type,ADODB.DataTypeEnum@)">
+            <summary>
+            Get the appropriate ADODB type for a given CLR type.
+            </summary>
+            <param name="clrType">The CLR type to look for.</param>
+            <param name="adoType">The ADODB type that matches the CLR type, if any.</param>
+            <returns>True if an ADODB type was found.</returns>
+        </member>
+        <member name="T:RecordsetNet.IEnumerableToRecordset">
+            <summary>
+            extension methods for IEnumerable
+            </summary>
+        </member>
+        <member name="M:RecordsetNet.IEnumerableToRecordset.ToRecordset``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Creates an ADODB.Recordset from an System.Collections.Generic.IEnumerable(T).
+            </summary>
+            <typeparam name="T">The type of the elements of input.</typeparam>
+            <param name="input">The System.Collections.Generic.IEnumerable(T) to create an ADODB.Recordset from.</param>
+            <returns>An ADODB.Recordset that contains elements from the input sequence.</returns>
+        </member>
+    </members>
+</doc>

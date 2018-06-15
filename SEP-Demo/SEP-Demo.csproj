@@ -197,9 +197,6 @@
     <Compile Include="Models\RoleDefine.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\User.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>

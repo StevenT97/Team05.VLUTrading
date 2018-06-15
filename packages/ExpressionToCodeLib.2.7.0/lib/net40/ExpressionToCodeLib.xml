@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExpressionToCodeLib</name>
+    </assembly>
+    <members>
+        <member name="F:ExpressionToCodeLib.CodeAnnotators.ValuesOnStalksCodeAnnotator">
+            <summary>
+            This code annotator places sub-expression values below the stringified expression and connects the value to the appropriate
+            place in the expression with an ascii-art line. It works reasonably well for short expression, but large expressions are unwieldy and hard to read.
+            This works best in monospace fonts.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.CodeAnnotators.SubExpressionPerLineCodeAnnotator">
+            <summary>
+            This code annotator summarizes sub-expression values on separate lines below the stringified expression.  
+            This works reasonably well even for large expressions because the sub-expressions are represented compactly and there's no need for overal alignment.
+            </summary>
+        </member>
+        <member name="T:ExpressionToCodeLib.ExpressionExpectations">
+            <summary>
+            Intended to be used as a static import; i.e. via "using static ExpressionToCodeLib.ExpressionExpectations;"
+            </summary>
+        </member>
+        <member name="M:ExpressionToCodeLib.ExpressionExpectations.Expect(System.Linq.Expressions.Expression{System.Func{System.Boolean}},System.String)">
+            <summary>
+            Evaluates an assertion and throws an exception the assertion it returns false or throws an exception.
+            The exception includes the code of the assertion annotated with runtime values for its sub-expressions.
+            
+            This is identical to PAssert.That(()=>...).
+            
+            If you want to change the layout of the value annotations, see ExpressionToCodeConfiguration.GlobalAssertionConfiguration
+            </summary>
+        </member>
+        <member name="T:ExpressionToCodeLib.ExpressionToCode">
+            <summary>
+            If you wish to override some formatting aspects of these methods, set ExpressionToCodeConfiguration.GlobalCodeGetConfiguration.
+            </summary>
+        </member>
+        <member name="M:ExpressionToCodeLib.ExpressionToCode.ToValuedCode``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+             Converts expression to variable/property/method C# like representation adding it's string value.
+            </summary>
+             <example>
+             string toNameValueRepresentation = "Value";
+             ToRepr(() => toNameValueRepresentation); // "toNameValueRepresentation = Value"
+             </example>
+             <remarks>
+             Unlike <see cref="M:ExpressionToCodeLib.ExpressionToCode.ToCode(System.Linq.Expressions.Expression)"/>(which targets compilable output), this method is geared towards dumping simple objects into text, so may skip some C# issues for sake of readability.
+             </remarks>
+        </member>
+        <member name="M:ExpressionToCodeLib.ExpressionToCode.GetNameIn``1(System.Linq.Expressions.Expression{System.Func{``0}})">
+            <summary>
+            Gets property, variable or method name from lambda expression.
+            </summary>
+            <param name="expression">Simple expression to obtain name from.</param>
+            <returns>The `name` of expression.</returns>
+            <example>
+            var example = "some text";
+            var name = ExpressionToCode.GetNameIn(() => example);  // "example"
+            </example>
+            <exception cref="T:System.ArgumentException">Unsupported or unknown or complex expression to get `name` of it.</exception>
+        </member>
+        <member name="T:ExpressionToCodeLib.ExpressionToCodeConfiguration">
+            <summary>
+            Specifies details of how expressions and their values are to be formatted.  This object is immutable; all instance methods are thread safe.
+            Changes to configuration return new configuration instances.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionToCodeConfiguration.DefaultCodeGenConfiguration">
+            <summary>
+            The default formatter for converting an expression to code. Defaults are:
+            <para>- Avoid generic type parameters in output where they can be inferred.</para>
+            <para>- Omit namespaces from type names (as opposed to fully qualifying type names)</para>
+            <para>- Use the default .net expression compiler (as opposed to the experimental optimized compiler).</para>
+            <para>- Annotate values using "stalks" hanging under expressions.</para>
+            <para>- Print all elements in an enumerable (this will cause crashes on infinite or very large enumerables).</para>
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionToCodeConfiguration.DefaultAssertionConfiguration">
+            <summary>
+            The default formatter for formatting an assertion violation.
+            This is identical to DefaultCodeGenConfiguration, except that enumerable contents after the first 10 elements are elided.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionToCodeConfiguration.GlobalAssertionConfiguration">
+            <summary>
+            This configuration is used for PAssert.That(()=>...) and Expect(()=>...).  Initially ExpressionToCodeConfiguration.DefaultAssertionConfiguration.
+            
+            <para>This field is globally mutable to allow consumers to configure the library.  If you wish to use multiple configurations, it is recommended
+            to use the instance methods on a configuration instance instead of the static methods in PAssert, ExpressionToCode and ExpressionAssertions.</para>
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionToCodeConfiguration.GlobalCodeGenConfiguration">
+            <summary>
+            This configuration is used for Expression.ToCode(() => ...) and other code-generation methods. Initially ExpressionToCodeConfiguration.DefaultCodeGenConfiguration.
+            
+            <para>This field is globally mutable to allow consumers to configure the library.  If you wish to use multiple configurations, it is recommended
+            to use the instance methods on a configuration instance instead of the static methods in PAssert, ExpressionToCode and ExpressionAssertions.</para>
+            </summary>
+        </member>
+        <member name="M:ExpressionToCodeLib.ExpressionToCodeConfiguration.WithOmitImplicitCasts(System.Boolean)">
+            <summary>
+            Omits builtin implicit casts.  This can cause the code to select another overload, so it's off by default for the code-gen config.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionTreeCompilers.DotnetExpressionCompiler">
+            <summary>
+            This compiler uses the .net built-in Expression.Compile() method to compile an expression tree.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.ExpressionTreeCompilers.FastExpressionCompiler">
+            <summary>
+            This expression tree compiler should have the same semantics as the .net built-in Expression.Compile() method, but it's faster.
+            It only supports a subset of parameterless lambdas.  
+            Unsupported expressions fall-back to the builtin Expression.Compile methods.
+            This compiler is relatively new, so if anything breaks, consider using the DotnetExpressionCompiler.
+            </summary>
+        </member>
+        <member name="F:ExpressionToCodeLib.Internal.StringifiedExpression.IsConceptualChild">
+            <summary>
+            The expression tree contains many symbols that are not themselves "real" expressions, e.g. the "." in "obj.field".
+            This field is true for parts that aren't just implemenation details, but proper sub-expressions; e.g. the "x" in "x &amp;&amp; y"
+            </summary>
+        </member>
+        <member name="T:ExpressionToCodeLib.ObjectToCode">
+            <summary>
+            If you wish to override some formatting aspects of these methods, set ExpressionToCodeConfiguration.GlobalCodeGetConfiguration.
+            </summary>
+        </member>
+        <member name="M:ExpressionToCodeLib.PAssert.That(System.Linq.Expressions.Expression{System.Func{System.Boolean}},System.String)">
+            <summary>
+            Evaluates an assertion and throws an exception the assertion it returns false or throws an exception.
+            The exception includes the code of the assertion annotated with runtime values for its sub-expressions.
+            
+            Identical functionality is available via Expect(()=>...); this can be accessed via "using static ExpressionToCodeLib.ExpressionExpectations;".
+            
+            If you want to change the layout of the value annotations, see ExpressionToCodeConfiguration.GlobalAssertionConfiguration
+            </summary>
+        </member>
+    </members>
+</doc>

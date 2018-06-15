@@ -112,7 +112,7 @@ namespace SEP_Demo.Controllers
             return View();
         }
 
-        //Login
+        // Login
         public ActionResult Login()
         {
             return View();
