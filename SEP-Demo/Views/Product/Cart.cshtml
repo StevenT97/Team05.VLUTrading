@@ -4,59 +4,59 @@
     Layout = "~/Views/Shared/_CartLayout.cshtml";
     //Layout = null;
 }
-    <div class="wrap cf">
-        @*<h1 class="projTitle">Responsive Table<span>-Less</span> Shopping Cart</h1>*@
-        <div class="heading cf">
-            <h1>My Cart</h1>
-            <a href="#" class="continue">Continue Shopping</a>
-        </div>
-        <div class="cart">
-            <ul class="cartWrap" id="outputtest"></ul>
-
-        </div>
-
-        <!-----------------Billing Method -->
-        <section>
-            <div class="billing-methods">
-                <div class="billing-method active">
-                    <img src="http://hddfhm.com/images/accept-all-credit-cards-clipart-8.png" alt="Accepted Credit Cards">
-                    <label for="credit-card">
-                        <input type="radio" name="billing-type" class="billing-radio" checked />
-                        Use Credit Card
-                    </label>
-                </div>
-                <div class="billing-method">
-                    <img src="data:image/png;base64,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" alt="PayPal">
-                    <label for="paypal">
-                        <input type="radio" name="billing-type" class="billing-radio" />
-                        Use PayPal
-                    </label>
-                </div>
-                <div class="billing-method active">
-                    <img src="/Uploads/icon/icon-s6.png" alt="COD">
-                    <label for="paypal">
-                        <input type="radio" name="billing-type" class="billing-radio" />
-                        Use COD
-                    </label>
-                </div>
-            </div>
-        </section>
-        <div class="promoCode">
-            <label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
-            <a href="#" class="btn"></a>
-        </div>
-        <div class="subtotal cf">
-            <ul id="suboutput"></ul>
-            <ul>
-                <li class="totalRow">
-                    <a href="../Home/Index"   class="checkout btn continue" style="border-radius:6px;height: 45px;">Checkout</a>
-                    @*<button type="submit" class="btn btn-success btn-block" data-checkout="shopcart">Checkout</button>*@
-                    @*<input type="submit" class="btn btn-primary continue" value="Checkout with PayPal">*@
-                    <a href="../Home/Index" class="btn btn-default btn-block" style="background-color:#337ab7;border-radius:6px;font-family: inherit;font-size: 14px;">Continue Shopping</a>
-                </li>
-            </ul>
-        </div>
+<div class="wrap cf">
+    @*<h1 class="projTitle">Responsive Table<span>-Less</span> Shopping Cart</h1>*@
+    <div class="heading cf">
+        <h1>My Cart</h1>
+        <a href="#" class="continue">Continue Shopping</a>
     </div>
+    <div class="cart">
+        <ul class="cartWrap" id="outputtest"></ul>
+
+    </div>
+
+    <!-----------------Billing Method -->
+    <section>
+        <div class="billing-methods">
+            <div class="billing-method active">
+                <img src="http://hddfhm.com/images/accept-all-credit-cards-clipart-8.png" alt="Accepted Credit Cards">
+                <label for="credit-card">
+                    <input type="radio" name="billing-type" class="billing-radio" checked />
+                    Use Credit Card
+                </label>
+            </div>
+            <div class="billing-method">
+                <img src="data:image/png;base64,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" alt="PayPal">
+                <label for="paypal">
+                    <input type="radio" name="billing-type" class="billing-radio" />
+                    Use PayPal
+                </label>
+            </div>
+            <div class="billing-method active">
+                <img src="/Uploads/icon/icon-s6.png" alt="COD">
+                <label for="paypal">
+                    <input type="radio" name="billing-type" class="billing-radio" />
+                    Use COD
+                </label>
+            </div>
+        </div>
+    </section>
+    <div class="promoCode">
+        <label for="promo">Have A Promo Code?</label><input type="text" name="promo" placholder="Enter Code" />
+        <a href="#" class="btn"></a>
+    </div>
+    <div class="subtotal cf">
+        <ul id="suboutput"></ul>
+        <ul>
+            <li class="totalRow">
+                <a href="../Home/Index" class="checkout btn continue" style="border-radius:6px;height: 45px;">Checkout</a>
+                @*<button type="submit" class="btn btn-success btn-block" data-checkout="shopcart">Checkout</button>*@
+                @*<input type="submit" class="btn btn-primary continue" value="Checkout with PayPal">*@
+                <a href="../Home/Index" class="btn btn-default btn-block" style="background-color:#337ab7;border-radius:6px;font-family: inherit;font-size: 14px;">Continue Shopping</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 
 @*http://lorempixel.com/output/technics-q-c-300-300-4.jpg*@
@@ -106,16 +106,25 @@
             var itemCnt = 0;
             var listuser = [];
             var temp = [];
+            var namE = [];
+            var subtotalforeachfrom = 0;
+            var displaysubtotalforeachfrom;
             listuser = formatUser();
             for (var i = 0; i < listuser.length; i++) {
+                namE = shopcart.find(t => t.usertrade == listuser[i]);
+                holdertest += '<a> ' + namE.username + '</a>'
                 $.each(shopcart, function (index, value) {
                     var stotal = value.qty * value.price;
                     var a = (index + 1);
                     if (value.usertrade == listuser[i]) {
-                        holdertest += '<a> ' + value.usertrade + '</a>'
                         holdertest += '<li class="items odd"><div class="infoWrap"><div class="cartSection"><img src="' + value.s + '" alt="" class="itemImg" /><p class="itemNumber">#QUE-007544-002</p><h3 name="item_name_' + a + '" value="' + value.name + '">' + value.name + '</h3><p><input size="5"  type="number" class="dynqua" name="quantity_' + a + '" value="' + value.qty + '" data-id="' + value.id + '"> x <input type="hidden" name="amount_' + a + '" value="' + formatMoney(value.price) + '"> $' + formatMoney(value.price) + '</p><p class="stockStatus" > In Stock</p></div><div class="prodTotal cartSection text-xs-right"><p>' + formatMoney(stotal) + '</p></div> <div class="cartSection removeWrap">  <a href="#" class="remove">x</a></div></li>';
+                        subtotalforeachfrom = stotal + subtotalforeachfrom;
                     }
+                    displaysubtotalforeachfrom = subtotalforeachfrom;
                 })
+                subtotalforeachfrom = 0;
+                holdertest += '<li class="items odd"><div class="prodTotal cartSection text-xs-right"><label style="margin-left:700px;">Subtotal: </label><p style="margin-left:700px">' + formatMoney(displaysubtotalforeachfrom) + '</p></div></li>'
+                holdertest += '<li><div class="items even"><label>Note to Shop</label><textarea class="form-control" style="height: 100px;"></textarea></div></li>';
             }
             $.each(shopcart, function (index, value) {
                 var stotal = value.qty * value.price;
@@ -168,7 +177,7 @@
             if (sessionStorage["sca"] != null) {
                 shopcart = JSON.parse(sessionStorage["sca"].toString());
             }
-              // Push the prepared data into localStorage
+            // Push the prepared data into localStorage
             console.log('Saving cart data...');
             localStorage.setItem("shoppingCart", JSON.stringify(shopcart));
             sessionStorage["sca"] = " ";

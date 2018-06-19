@@ -6,9 +6,10 @@
 
     var lstProduct = db.Products.Where(t => t.StatusID == 2);
     var lstPrice = db.Prices.Where(t => t.Status == true);
+    var lstUser = db.Users;
     int i = 0;
     int j = 0;
-    
+
 }
 
 
@@ -50,7 +51,7 @@
                 @foreach (var item in lstProduct)
                 {
                     i++;
-
+                    var userName = lstUser.FirstOrDefault(t => t.Id == item.UserID);
                     if (i <= 4)
                     {
                         <div class="col-md-3">
@@ -65,7 +66,7 @@
                                         </div>
                                         <div class="card-block">
                                             <div class="card-text">@item.Description</div>
-                                            <a href="#" class="card-link productItem btn btn-primary" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-price="@price.Price1" data-id="@item.ID">Add to Cart</a>
+                                            <a href="#" class="card-link productItem btn btn-primary" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-username="@userName.FirstName @userName.LastName" data-price="@price.Price1" data-id="@item.ID">Add to Cart</a>
                                         </div>
                                     }
                                 }
