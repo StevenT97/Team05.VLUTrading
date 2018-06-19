@@ -40,7 +40,7 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -61,7 +61,7 @@ namespace SEP_Demo.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Exclude = "IsEmailVerified,ActivationCode")] User user)
+        public ActionResult Create([Bind(Exclude = "IsEmailVerified,ActivationCode")] Users user)
         {
             bool Status = false;
             string message = "";
@@ -192,13 +192,13 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Role_ID = new SelectList(db.Roles, "Id", "Role_Name", user.Role_ID);
-            ViewBag.Id = new SelectList(db.UserInfoes, "ID", "Phone", user.Id);
+            ViewBag.Role_ID = new SelectList(db.Role, "Id", "Role_Name", user.Role_ID);
+            ViewBag.Id = new SelectList(db.UserInfo, "ID", "Phone", user.Id);
             return View(user);
         }
 
@@ -207,7 +207,7 @@ namespace SEP_Demo.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailID,DateOfBirth,Role_ID")] User user)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailID,DateOfBirth,Role_ID")] Users user)
         {
             if (ModelState.IsValid)
             {
@@ -226,7 +226,7 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            Users user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -239,7 +239,7 @@ namespace SEP_Demo.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
+            Users user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,5 +1,5 @@
-﻿@model IEnumerable<SEP_Demo.Models.User>
-
+﻿@model IEnumerable<SEP_Demo.Models.Users>
+@using SEP_Demo.Models
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -48,7 +48,7 @@
                     @Html.DisplayFor(modelItem => item.IsEmailVerified)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Role.Role_Name)
+                    
                 </td>
               
                 <td>

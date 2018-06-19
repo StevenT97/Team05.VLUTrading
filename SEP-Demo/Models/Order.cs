@@ -25,7 +25,8 @@ namespace SEP_Demo.Models
         public int SubPrice { get; set; }
         public int Status { get; set; }
     
-        public virtual OrderStatu OrderStatu { get; set; }
+        public virtual OrderList OrderList { get; set; }
+        public virtual OrderStatus OrderStatus { get; set; }
         public virtual Product Product { get; set; }
     }
 }

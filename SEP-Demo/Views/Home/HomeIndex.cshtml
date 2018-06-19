@@ -1,0 +1,169 @@
+﻿
+
+@model IEnumerable<SEP_Demo.Models.ProductCategory>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script>
+        $(window).scroll(function () {
+
+            if ($(this).scrollTop() > 0) {
+                $('.three').fadeOut();
+            }
+            else {
+                $('.three').fadeIn();
+            }
+        });
+    </script>
+
+    <title>Home</title>
+    <link href="~/Content/Home/animate.min.css" rel="stylesheet" />
+    <link href="~/Content/Home/bootstrap-theme.css" rel="stylesheet" />
+    <link href="~/Content/Home/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/Home/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Home/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Home/Home.css" rel="stylesheet" />
+    <style>
+        div.three {
+            position: relative;
+            left: 380px;
+            top: -650px;
+            width: 600px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="vdiv">
+        <video autoplay muted loop>
+            <source src="~/Uploads/Home/background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="div2 absolute">
+        <nav class="animated fadeInDown">
+            <a href=""><img src="~/Uploads/logopage.png" style="width:90px; height: 40px;" class="logo" /></a>
+            <a class="link-3" href="~/Home/HomeIndex">Trang chủ</a>
+            <a class="link-3" href="">Giới thiệu</a>
+            <a class="link-3" href="">Liên hệ</a>
+            <a class="link-3" href="~/Account/Login">Đăng nhập</a>
+
+            @if (Session["EmailID"] != null)
+             {
+             if ((int)(Session["RoleID"]) == 1)
+            {
+            <a class="link-3" href="~/Admins/Index">Quản trị</a>
+
+            }
+
+            else if ((int)(Session["RoleID"]) == 2)
+            {
+            <a class="link-3" href="~/Admins/Index">Quản trị</a>
+            <a class="link-3" href="~/Account/Logout">Đăng tin</a>
+            }
+            else if ((int)(Session["RoleID"]) == 3)
+            {
+            <a class="link-3" href="~/Account/Logout">Đăng tin</a>
+            <a class="link-3" href="~/Account/Logout">Đăng xuất <span style="font-size:20px;">(@Session["UserName"])</span></a>
+
+            }
+            }
+
+        </nav>
+    </div>
+    <div class="three">
+        <div style="width: 700px; position: relative; left: -40px">
+            <h1 style="font-family: 'Baloo Tammudu', cursive;
+  			text-transform: uppercase;
+  			text-align: center;
+ 			font-size: 50px;
+  			color: #ffff55;
+  			">
+                KÊNH BÁN HÀNG VĂN LANG
+            </h1>
+        </div>
+        <div>
+            <table style="width: 100%; position:relative; top:50px;">
+                <tr></tr>
+                <tr>
+                    <th>
+                        <ul class="ch-grid">
+                            <li>
+                                <div class="ch-item ch-img-1">
+                                    <div class="ch-info-wrap">
+                                        <div class="ch-info">
+                                            <div class="ch-info-front ch-img-1"></div>
+                                            <div class="ch-info-back">
+                                                <a href="~/Home/Index" style="text-decoration: none;">
+                                                    <h3>Mua liền ngay</h3>
+                                                    <p>Chúc bạn mua may</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </th>
+                    <th>
+                        <ul class="ch-grid">
+                            <li>
+                                <div class="ch-item ch-img-2">
+                                    <div class="ch-info-wrap">
+                                        <div class="ch-info">
+                                            <div class="ch-info-front ch-img-2"></div>
+                                            <div class="ch-info-back">
+                                                <a href="" style="text-decoration: none;">
+                                                    <h3>Bán liền tay</h3>
+                                                    <p>Chúc bạn bán đắt</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <div class="arrow bounce" id="arrow" style="position: relative; top:150px;">
+        </div>
+    </div>
+    <div style="position: relative; top:-50px;">
+        @foreach (var item in Model)
+    {
+        <figure class="snip1206">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg" alt="sample74" />
+            <figcaption>
+                <h2>@item.Name</h2>
+            </figcaption>
+            <a href="#"></a>
+        </figure>
+    }
+    </div>
+    <script>
+        $(".hover").mouseleave(
+            function () {
+                $(this).removeClass("hover");
+    }
+        );
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Fira+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Tammudu|Bangers" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans+Condensed:300" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Lobster" rel="stylesheet">
+</body>
+</html>

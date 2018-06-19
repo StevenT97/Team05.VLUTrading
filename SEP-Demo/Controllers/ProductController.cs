@@ -23,7 +23,7 @@ namespace SEP_Demo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product productDetail = db.Products.Find(id);
+            Product productDetail = db.Product.Find(id);
             if (productDetail == null)
             {
                 return HttpNotFound();

@@ -21,7 +21,7 @@ namespace SEP_Demo.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp([Bind(Exclude = "IsEmailVerified,ActivationCode")] User user)
+        public ActionResult SignUp([Bind(Exclude = "IsEmailVerified,ActivationCode")] Users user)
         {
             bool Status = false;
             string message = "";
@@ -126,7 +126,7 @@ namespace SEP_Demo.Controllers
             VLUTradingDBEntities db = new VLUTradingDBEntities();
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             //ThuanNguyen - Start
-            var userInfor = db.UserInfoes.SingleOrDefault(x => x.ID == user.Id);
+            var userInfor = db.UserInfo.SingleOrDefault(x => x.ID == user.Id);
             
             //ThuanNguyen - End
             if (user != null)
@@ -137,11 +137,11 @@ namespace SEP_Demo.Controllers
                     Session["UserName"] = user.FirstName.ToString();
                     Session["EmailID"] = user.EmailID.ToString();
                     //ThuanNguyen - Start
-                    var userRole = db.Roles.SingleOrDefault(x => x.Id == user.Role_ID);
-                    Session["RoleID"] = user.Role_ID.ToString();
+                    var userRole = db.Role.SingleOrDefault(x => x.Id == user.Role_ID);
+                    Session["RoleID"] = Convert.ToInt32(user.Role_ID);
                     Session["RoleName"] = userRole.Role_Name.ToString();
                     //ThuanNguyen - End
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("HomeIndex", "Home");
                 }
                 else
                 {
@@ -159,7 +159,7 @@ namespace SEP_Demo.Controllers
             //FormsAuthentication.SignOut();
             Session.Abandon(); // it will clear the session at the end of request
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("HomeIndex", "Home");
         }
         public ActionResult ForgetPassword()
         {

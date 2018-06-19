@@ -21,6 +21,6 @@ namespace SEP_Demo.Models
         public string Comments { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

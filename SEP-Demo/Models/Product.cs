@@ -17,10 +17,10 @@ namespace SEP_Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Comments = new HashSet<Comment>();
-            this.Orders = new HashSet<Order>();
-            this.Prices = new HashSet<Price>();
-            this.Ratings = new HashSet<Rating>();
+            this.Comment = new HashSet<Comment>();
+            this.Order = new HashSet<Order>();
+            this.Price = new HashSet<Price>();
+            this.Rating = new HashSet<Rating>();
         }
     
         public int ID { get; set; }
@@ -34,20 +34,19 @@ namespace SEP_Demo.Models
         public string Picture04 { get; set; }
         public string Picture05 { get; set; }
         public System.DateTime DateCreate { get; set; }
-        public string UnitPrice { get; set; }
         public int Quantity { get; set; }
         public int StatusID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment> Comment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Price> Prices { get; set; }
+        public virtual ICollection<Price> Price { get; set; }
         public virtual ProductCategory ProductCategory { get; set; }
-        public virtual ProductStatu ProductStatu { get; set; }
-        public virtual User User { get; set; }
+        public virtual ProductStatus ProductStatus { get; set; }
+        public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Rating> Rating { get; set; }
     }
 }

@@ -162,17 +162,20 @@
     <Compile Include="Models\Comment.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extended\User.cs" />
+    <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\Faculty.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Note.cs">
+    <Compile Include="Models\Notes.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderStatu.cs">
+    <Compile Include="Models\OrderList.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OrderStatus.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Price.cs">
@@ -184,7 +187,7 @@
     <Compile Include="Models\ProductCategory.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductStatu.cs">
+    <Compile Include="Models\ProductStatus.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rating.cs">
@@ -197,13 +200,16 @@
     <Compile Include="Models\RoleDefine.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\User.cs">
+    <Compile Include="Models\sysdiagrams.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
       <DependentUpon>VLUTradingDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\Users.cs">
+      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VLUTradingDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -222,16 +228,20 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Admin\font-awesome.min.css" />
-    <Content Include="Content\Admin\smartadmin-production-plugins.min.css" />
-    <Content Include="Content\Admin\smartadmin-production.min.css" />
-    <Content Include="Content\Admin\smartadmin-skins.min.css" />
-    <Content Include="Content\Admin\style.css" />
+    <Content Include="Content\Admin\demo.css" />
+    <Content Include="Content\Admin\material-dashboard.css" />
+    <Content Include="Content\Admin\material-dashboard.min.css" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\flexslider.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Home\animate.min.css" />
+    <Content Include="Content\Home\bootstrap-theme.css" />
+    <Content Include="Content\Home\bootstrap-theme.min.css" />
+    <Content Include="Content\Home\bootstrap.css" />
+    <Content Include="Content\Home\bootstrap.min.css" />
+    <Content Include="Content\Home\Home.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
@@ -256,43 +266,15 @@
       <DependentUpon>VLUTradingDB.edmx</DependentUpon>
       <LastGenOutput>VLUTradingDB.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\Admin\angular-block-ui.css" />
-    <Content Include="Scripts\Admin\angular-block-ui.js" />
-    <Content Include="Scripts\Admin\angular-route.min.js" />
-    <Content Include="Scripts\Admin\angular-sanitize.min.js" />
-    <Content Include="Scripts\Admin\angular-summernote.js" />
-    <Content Include="Scripts\Admin\angular.min.js" />
-    <Content Include="Scripts\Admin\app.config.js" />
-    <Content Include="Scripts\Admin\app.min.js" />
-    <Content Include="Scripts\Admin\bootstrap-colorpicker.min.js" />
-    <Content Include="Scripts\Admin\bootstrap-slider.min.js" />
-    <Content Include="Scripts\Admin\bootstrap.min.js" />
-    <Content Include="Scripts\Admin\ckfinder.js" />
-    <Content Include="Scripts\Admin\codemirror.css" />
-    <Content Include="Scripts\Admin\codemirror.js" />
-    <Content Include="Scripts\Admin\fastclick.min.js" />
-    <Content Include="Scripts\Admin\grid.locale-en.min.js" />
-    <Content Include="Scripts\Admin\jarvis.widget.min.js" />
-    <Content Include="Scripts\Admin\javascript.js" />
-    <Content Include="Scripts\Admin\jquery-2.1.4.min.js" />
-    <Content Include="Scripts\Admin\jquery-migrate-1.2.1.min.js" />
-    <Content Include="Scripts\Admin\jquery-ui.min.js" />
-    <Content Include="Scripts\Admin\jquery.easy-pie-chart.min.js" />
-    <Content Include="Scripts\Admin\jquery.jqGrid.min.js" />
-    <Content Include="Scripts\Admin\jquery.maskedinput.min.js" />
-    <Content Include="Scripts\Admin\jquery.mb.browser.min.js" />
-    <Content Include="Scripts\Admin\jquery.sparkline.min.js" />
-    <Content Include="Scripts\Admin\jquery.ui.touch-punch.min.js" />
-    <Content Include="Scripts\Admin\jquery.validate.min.js" />
-    <Content Include="Scripts\Admin\ng-ckeditor.js" />
-    <Content Include="Scripts\Admin\ng-map.min.js" />
-    <Content Include="Scripts\Admin\ng-sortable.min.js" />
-    <Content Include="Scripts\Admin\paging.js" />
-    <Content Include="Scripts\Admin\select2.min.js" />
-    <Content Include="Scripts\Admin\show-hint.css" />
-    <Content Include="Scripts\Admin\show-hint.js" />
-    <Content Include="Scripts\Admin\SmartNotification.min.js" />
-    <Content Include="Scripts\Admin\ui-codemirror.js" />
+    <Content Include="Scripts\Admin\bootstrap-material-design.min.js" />
+    <Content Include="Scripts\Admin\bootstrap-notify.js" />
+    <Content Include="Scripts\Admin\chartist.min.js" />
+    <Content Include="Scripts\Admin\demo.js" />
+    <Content Include="Scripts\Admin\jquery.min.js" />
+    <Content Include="Scripts\Admin\material-dashboard.js" />
+    <Content Include="Scripts\Admin\material-dashboard.min.js" />
+    <Content Include="Scripts\Admin\perfect-scrollbar.jquery.min.js" />
+    <Content Include="Scripts\Admin\popper.min.js" />
     <Content Include="Scripts\Angular\angular-loading-spinner.js" />
     <Content Include="Scripts\Angular\angular-sanitize.min.js" />
     <Content Include="Scripts\Angular\angular-spinner.min.js" />
@@ -304,6 +286,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\Home\bootstrap-theme.css.map" />
+    <Content Include="Content\Home\bootstrap-theme.min.css.map" />
+    <Content Include="Content\Home\bootstrap.css.map" />
+    <Content Include="Content\Home\bootstrap.min.css.map" />
     <EntityDeploy Include="Models\VLUTradingDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VLUTradingDB.Designer.cs</LastGenOutput>
@@ -311,6 +297,8 @@
     <Content Include="Models\VLUTradingDB.edmx.diagram">
       <DependentUpon>VLUTradingDB.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Admin\material-dashboard.css.map" />
+    <Content Include="Scripts\Admin\material-dashboard.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fixheightproductv2.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -358,6 +346,11 @@
     <Content Include="Uploads\Gif\ipad-portrait.png" />
     <Content Include="Uploads\Gif\iphone.png" />
     <Content Include="Uploads\Gif\sp-loading.gif" />
+    <Content Include="Uploads\Home\10.png" />
+    <Content Include="Uploads\Home\11.png" />
+    <Content Include="Uploads\Home\arrow.png" />
+    <Content Include="Uploads\Home\background1.mp4" />
+    <Content Include="Uploads\Home\background.mp4" />
     <Content Include="Uploads\icon\blank.gif" />
     <Content Include="Uploads\icon\bx_loader.gif" />
     <Content Include="Uploads\icon\download.png" />
@@ -391,12 +384,12 @@
     <Content Include="Uploads\icon\s9.png" />
     <Content Include="Uploads\icon\scroll.png" />
     <Content Include="Uploads\icon\user.png" />
+    <Content Include="Uploads\logopage.png" />
     <Content Include="Uploads\vanlangunilogodarkblue.png" />
     <Content Include="Uploads\logo-trading.jpg" />
     <Content Include="Uploads\logo.png" />
     <Content Include="Uploads\logo2.png" />
     <Content Include="Uploads\LogoSample_ByTailorBrands %281%29.jpg" />
-    <Content Include="Uploads\LogoSample_ByTailorBrands %282%29.jpg" />
     <Content Include="Uploads\LogoSample_ByTailorBrands.jpg" />
     <Content Include="Uploads\logoVL002x2X.png" />
     <Content Include="Uploads\New\blog1.jpg" />
@@ -440,6 +433,7 @@
     <Content Include="Uploads\slider\banner_silder_2.jpg" />
     <Content Include="Uploads\slider\banner_silder_3.jpg" />
     <Content Include="Uploads\slider\banner_silder_4.jpg" />
+    <Content Include="Uploads\WebLOGO01.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -477,6 +471,7 @@
     <Content Include="Views\Account\ViewProfile.cshtml" />
     <Content Include="Views\Shared\_CartLayout.cshtml" />
     <Content Include="Views\Product\History.cshtml" />
+    <Content Include="Views\Home\HomeIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="VLUTradingDBModelStoreContainer" CdmEntityContainer="VLUTradingDBEntities">
-    <EntitySetMapping Name="Comments">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Comment">
+  <EntityContainerMapping StorageEntityContainer="VLUTradingDBStoreContainer" CdmEntityContainer="VLUTradingDBEntities">
+    <EntitySetMapping Name="Comment">
+      <EntityTypeMapping TypeName="VLUTradingDB.Comment">
         <MappingFragment StoreEntitySet="Comment">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -12,8 +12,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Faculties">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Faculty">
+    <EntitySetMapping Name="Faculty">
+      <EntityTypeMapping TypeName="VLUTradingDB.Faculty">
         <MappingFragment StoreEntitySet="Faculty">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
@@ -21,17 +21,17 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Notes">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Note">
+      <EntityTypeMapping TypeName="VLUTradingDB.Notes">
         <MappingFragment StoreEntitySet="Notes">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
-          <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="Notes1" ColumnName="Notes" />
           <ScalarProperty Name="UserTrade" ColumnName="UserTrade" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Orders">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Order">
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="VLUTradingDB.Order">
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -46,8 +46,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="OrderList">
+      <EntityTypeMapping TypeName="VLUTradingDB.OrderList">
+        <MappingFragment StoreEntitySet="OrderList">
+          <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
+          <ScalarProperty Name="UserOrder" ColumnName="UserOrder" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="NoteID" ColumnName="NoteID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="OrderStatus">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.OrderStatu">
+      <EntityTypeMapping TypeName="VLUTradingDB.OrderStatus">
         <MappingFragment StoreEntitySet="OrderStatus">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -55,8 +65,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Prices">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Price">
+    <EntitySetMapping Name="Price">
+      <EntityTypeMapping TypeName="VLUTradingDB.Price">
         <MappingFragment StoreEntitySet="Price">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
@@ -66,8 +76,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Products">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Product">
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="VLUTradingDB.Product">
         <MappingFragment StoreEntitySet="Product">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
@@ -80,22 +90,22 @@
           <ScalarProperty Name="Picture04" ColumnName="Picture04" />
           <ScalarProperty Name="Picture05" ColumnName="Picture05" />
           <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
-          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="StatusID" ColumnName="StatusID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ProductCategories">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.ProductCategory">
+    <EntitySetMapping Name="ProductCategory">
+      <EntityTypeMapping TypeName="VLUTradingDB.ProductCategory">
         <MappingFragment StoreEntitySet="ProductCategory">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="ProductStatus">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.ProductStatu">
+      <EntityTypeMapping TypeName="VLUTradingDB.ProductStatus">
         <MappingFragment StoreEntitySet="ProductStatus">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Status" ColumnName="Status" />
@@ -103,8 +113,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ratings">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Rating">
+    <EntitySetMapping Name="Rating">
+      <EntityTypeMapping TypeName="VLUTradingDB.Rating">
         <MappingFragment StoreEntitySet="Rating">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -115,24 +125,35 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.Role">
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="VLUTradingDB.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RoleDefines">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.RoleDefine">
+    <EntitySetMapping Name="RoleDefine">
+      <EntityTypeMapping TypeName="VLUTradingDB.RoleDefine">
         <MappingFragment StoreEntitySet="RoleDefine">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UserInfoes">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.UserInfo">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="VLUTradingDB.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserInfo">
+      <EntityTypeMapping TypeName="VLUTradingDB.UserInfo">
         <MappingFragment StoreEntitySet="UserInfo">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Gender" ColumnName="Gender" />
@@ -143,7 +164,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.User">
+      <EntityTypeMapping TypeName="VLUTradingDB.Users">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -158,7 +179,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="Permission" TypeName="VLUTradingDBModel.Permission" StoreEntitySet="Permission">
+    <AssociationSetMapping Name="Permission" TypeName="VLUTradingDB.Permission" StoreEntitySet="Permission">
       <EndProperty Name="Role">
         <ScalarProperty Name="Id" ColumnName="RoleID" />
       </EndProperty>

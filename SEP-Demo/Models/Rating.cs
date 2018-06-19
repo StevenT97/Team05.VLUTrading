@@ -22,6 +22,6 @@ namespace SEP_Demo.Models
         public System.DateTime Date { get; set; }
     
         public virtual Product Product { get; set; }
-        public virtual User User { get; set; }
+        public virtual Users Users { get; set; }
     }
 }
