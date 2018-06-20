@@ -124,6 +124,7 @@ namespace SEP_Demo.Controllers
         public ActionResult Login(string EmailID, string Password)
         {
             VLUTradingDBEntities db = new VLUTradingDBEntities();
+            
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             //ThuanNguyen - Start
             var userInfor = db.UserInfo.SingleOrDefault(x => x.ID == user.Id);
@@ -141,7 +142,7 @@ namespace SEP_Demo.Controllers
                     Session["RoleID"] = Convert.ToInt32(user.Role_ID);
                     Session["RoleName"] = userRole.Role_Name.ToString();
                     //ThuanNguyen - End
-                    return RedirectToAction("HomeIndex", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {
