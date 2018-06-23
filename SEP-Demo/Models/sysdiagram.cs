@@ -12,15 +12,12 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Comment
+    public partial class sysdiagram
     {
-        public int ID { get; set; }
-        public int ProductID { get; set; }
-        public int UserComment { get; set; }
-        public System.DateTime Date { get; set; }
-        public string Comments { get; set; }
-    
-        public virtual Product Product { get; set; }
-        public virtual Users User { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

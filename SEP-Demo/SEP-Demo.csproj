@@ -160,70 +160,70 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\Faculty.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Notes.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    <Compile Include="Models\Note.cs">
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderList.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\OrderStatus.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    <Compile Include="Models\OrderStatu.cs">
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Price.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductCategory.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ProductStatus.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    <Compile Include="Models\ProductStatu.cs">
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rating.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\Role.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleDefine.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\Users.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VLUTradingDB.Context.cs">
+    <Compile Include="Models\VLUTradingDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.Context.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VLUTradingDB.cs">
+    <Compile Include="Models\VLUTradingDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VLUTradingDB.Designer.cs">
+    <Compile Include="Models\VLUTradingDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,15 +275,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\VLUTradingDB.Context.tt">
+    <Content Include="Models\VLUTradingDBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
-      <LastGenOutput>VLUTradingDB.Context.cs</LastGenOutput>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDBEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\VLUTradingDB.tt">
+    <Content Include="Models\VLUTradingDBEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
-      <LastGenOutput>VLUTradingDB.cs</LastGenOutput>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDBEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Admin\bootstrap-material-design.min.js" />
     <Content Include="Scripts\Admin\bootstrap-notify.js" />
@@ -310,13 +310,6 @@
     <Content Include="Content\Home\bootstrap-theme.min.css.map" />
     <Content Include="Content\Home\bootstrap.css.map" />
     <Content Include="Content\Home\bootstrap.min.css.map" />
-    <EntityDeploy Include="Models\VLUTradingDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VLUTradingDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\VLUTradingDB.edmx.diagram">
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\Admin\material-dashboard.css.map" />
     <Content Include="Scripts\Admin\material-dashboard.js.map" />
     <Content Include="assets\scss\material-dashboard.scss" />
@@ -484,6 +477,13 @@
     <Content Include="assets\scss\material-dashboard\_variables.scss" />
     <Content Include="assets\css\.DS_Store" />
     <Content Include="assets\js\.DS_Store" />
+    <EntityDeploy Include="Models\VLUTradingDBEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VLUTradingDBEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\VLUTradingDBEntities.edmx.diagram">
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fixheightproductv2.js" />
     <Content Include="Scripts\html5shiv.js" />

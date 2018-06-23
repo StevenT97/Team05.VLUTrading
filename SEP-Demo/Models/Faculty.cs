@@ -17,13 +17,13 @@ namespace SEP_Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Faculty()
         {
-            this.UserInfo = new HashSet<UserInfo>();
+            this.UserInfoes = new HashSet<UserInfo>();
         }
     
         public string ID { get; set; }
         public string FacultyName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserInfo> UserInfo { get; set; }
+        public virtual ICollection<UserInfo> UserInfoes { get; set; }
     }
 }

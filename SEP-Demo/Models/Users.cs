@@ -17,9 +17,9 @@ namespace SEP_Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
-            this.Comment = new HashSet<Comment>();
-            this.Product = new HashSet<Product>();
-            this.Rating = new HashSet<Rating>();
+            this.Comments = new HashSet<Comment>();
+            this.Products = new HashSet<Product>();
+            this.Ratings = new HashSet<Rating>();
         }
     
         public int Id { get; set; }
@@ -34,11 +34,11 @@ namespace SEP_Demo.Models
         public int Role_ID { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Comment> Comment { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Product> Product { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rating> Rating { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
         public virtual Role Role { get; set; }
         public virtual UserInfo UserInfo { get; set; }
     }
