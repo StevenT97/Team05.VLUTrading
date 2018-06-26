@@ -5,8 +5,8 @@
     ViewBag.Title = "Details";
 
     VLUTradingDBEntities db = new VLUTradingDBEntities();
-    var im = db.Products.FirstOrDefault(m => m.ID == Model.ID);
-    var lstPrice = db.Prices.FirstOrDefault(t => t.Status == true && t.ProductID == im.ID);
+    var im = db.Product.FirstOrDefault(m => m.ID == Model.ID);
+    var lstPrice = db.Price.FirstOrDefault(t => t.Status == true && t.ProductID == im.ID);
     
     
 }

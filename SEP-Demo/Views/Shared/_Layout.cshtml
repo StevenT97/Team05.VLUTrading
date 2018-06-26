@@ -562,7 +562,7 @@
                             else
                             {
                                 <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
-                                <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
+                                <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
                                 <li><a href="../Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
                             }
                         </ul>
@@ -825,7 +825,7 @@
 
 
     <div class="main">
-            @RenderBody()
+        @RenderBody()
     </div>
 
 
@@ -1215,32 +1215,33 @@
     </div>
 
     <!-- Modals -->
+    
     <div class="modal fade" id="cart" tabindex="-1">
-        <div class="modal-dialog" style="position:initial">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Shopping Cart</h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-hover">
-                        <thead class="thead-inverse">
-                            <tr>
-                                <th>Qty</th>
-                                <th>Item Name</th>
-                                <th>Cost</th>
-                                <th class="text-xs-right">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output"> </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
+            <div class="modal-dialog" style="position:initial">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Shopping Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Qty</th>
+                                    <th>Item Name</th>
+                                    <th>Cost</th>
+                                    <th class="text-xs-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="output"> </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <script>
         var shopcart = [];

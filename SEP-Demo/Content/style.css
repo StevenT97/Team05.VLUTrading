@@ -4770,7 +4770,7 @@ span.notify-left {
 
     .owl-controls .owl-prev,
     .owl-controls .owl-next {
-        background: #958457;
+        background: #337ab7;
         width: 24px;
         height: 24px;
         color: #ffffff;
@@ -8657,7 +8657,7 @@ span.notify-left {
     }
 
     .option2 .box-vertical-megamenus .vertical-menu-list > li:hover {
-        background: #958457;
+        background: #8613cc;
     }
 
         .option2 .box-vertical-megamenus .vertical-menu-list > li:hover > a {

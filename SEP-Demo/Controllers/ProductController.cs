@@ -45,7 +45,27 @@ namespace SEP_Demo.Controllers
 
         public ActionResult History()
         {
-            return View();
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
+            
+        }
+        public ActionResult HistoryTrading()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("LogIn", "Account");
+            }
+
         }
 
         //public JsonResult SaveCart(string[] cart)

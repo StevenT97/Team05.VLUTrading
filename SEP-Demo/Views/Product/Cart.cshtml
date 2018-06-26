@@ -117,7 +117,7 @@
                     var stotal = value.qty * value.price;
                     var a = (index + 1);
                     if (value.usertrade == listuser[i]) {
-                        holdertest += '<li class="items odd"><div class="infoWrap"><div class="cartSection"><img src="' + value.s + '" alt="" class="itemImg" /><p class="itemNumber">#QUE-007544-002</p><h3 name="item_name_' + a + '" value="' + value.name + '">' + value.name + '</h3><p><input size="5"  type="number" class="dynqua" name="quantity_' + a + '" value="' + value.qty + '" data-id="' + value.id + '"> x <input type="hidden" name="amount_' + a + '" value="' + formatMoney(value.price) + '"> $' + formatMoney(value.price) + '</p><p class="stockStatus" > In Stock</p></div><div class="prodTotal cartSection text-xs-right"><p>' + formatMoney(stotal) + '</p></div> <div class="cartSection removeWrap">  <a href="#" class="remove">x</a></div></li>';
+                        holdertest += '<li class="items odd"><div class="infoWrap"><div class="cartSection"><img src="' + value.s + '" alt="" class="itemImg" /><p class="itemNumber">#QUE-007544-002</p><h3 name="item_name_' + a + '" value="' + value.name + '">' + value.name + '</h3><p><input size="5"  type="number" class="dynqua" name="quantity_' + a + '" value="' + value.qty + '" data-id="' + value.id + '"> x <input type="hidden" name="amount_' + a + '" value="' + formatMoney(value.price) + '"> $' + formatMoney(value.price) + '</p><p class="stockStatus" > In Stock</p></div><div class="prodTotal cartSection text-xs-right"><p>' + formatMoney(stotal) + '</p></div> <div class="cartSection removeWrap">  <a href="#" class="remove" onclick="delElement(' + index + ');">x</a></div></li>';
                         subtotalforeachfrom = stotal + subtotalforeachfrom;
                     }
                     displaysubtotalforeachfrom = subtotalforeachfrom;
@@ -170,7 +170,7 @@
 
         }
         function delElement(a) {
-            shopcart.slice(a, 1);
+            shopcart.splice(a, 1);
             return shopcart;
         }
         function saveCart() {
@@ -180,7 +180,8 @@
             // Push the prepared data into localStorage
             console.log('Saving cart data...');
             localStorage.setItem("shoppingCart", JSON.stringify(shopcart));
-            sessionStorage["sca"] = " ";
+            shopcart = [];
+            sessionStorage["sca"] = JSON.stringify(shopcart);
             console.log('Cart data saved.');
         }
     })
