@@ -5,11 +5,11 @@
 
     VLUTradingDBEntities db = new VLUTradingDBEntities();
     int id = (int)Session["ID"];
-    var orderlst = db.OrderList.Where(t => t.UserOrder == id);
+    var orderlst = db.OrderLists.Where(t => t.UserOrder == id);
     var name = db.Users.FirstOrDefault(t => t.Id == id);
     var Username = name.FirstName + " " + name.LastName;
 
-    var itemoforder = db.Order;
+    var itemoforder = db.Orders;
 }
 <style>
     @@media screen and (max-width: 480px) {

@@ -5,7 +5,7 @@
 
     VLUTradingDBEntities db = new VLUTradingDBEntities();
     int id = (int)Session["ID"];
-    var orderitem = db.Order.Where(t => t.UserTrade == id);
+    var orderitem = db.Orders.Where(t => t.UserTrade == id);
     var name = db.Users;
 
 
