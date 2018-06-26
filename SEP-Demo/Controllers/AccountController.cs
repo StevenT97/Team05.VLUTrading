@@ -127,7 +127,7 @@ namespace SEP_Demo.Controllers
             
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             //ThuanNguyen - Start
-            var userInfor = db.UserInfo.SingleOrDefault(x => x.ID == user.Id);
+            var userInfor = db.UserInfoes.SingleOrDefault(x => x.ID == user.Id);
             
             //ThuanNguyen - End
             if (user != null)
@@ -138,7 +138,7 @@ namespace SEP_Demo.Controllers
                     Session["UserName"] = user.FirstName.ToString();
                     Session["EmailID"] = user.EmailID.ToString();
                     //ThuanNguyen - Start
-                    var userRole = db.Role.SingleOrDefault(x => x.Id == user.Role_ID);
+                    var userRole = db.Roles.SingleOrDefault(x => x.Id == user.Role_ID);
                     Session["RoleID"] = Convert.ToInt32(user.Role_ID);
                     Session["RoleName"] = userRole.Role_Name.ToString();
                     //ThuanNguyen - End

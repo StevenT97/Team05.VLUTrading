@@ -18,7 +18,7 @@ namespace SEP_Demo.Models
         public Role()
         {
             this.Users = new HashSet<Users>();
-            this.RoleDefine = new HashSet<RoleDefine>();
+            this.RoleDefines = new HashSet<RoleDefine>();
         }
     
         public int Id { get; set; }
@@ -27,6 +27,6 @@ namespace SEP_Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Users> Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RoleDefine> RoleDefine { get; set; }
+        public virtual ICollection<RoleDefine> RoleDefines { get; set; }
     }
 }

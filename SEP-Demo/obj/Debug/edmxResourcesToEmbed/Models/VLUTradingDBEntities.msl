@@ -163,8 +163,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="VLUTradingDBModel.User">
+    <EntitySetMapping Name="Users1">
+      <EntityTypeMapping TypeName="VLUTradingDBModel.Users">
         <MappingFragment StoreEntitySet="Users">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />

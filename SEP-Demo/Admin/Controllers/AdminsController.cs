@@ -204,8 +204,8 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.Role_ID = new SelectList(db.Role, "Id", "Role_Name", user.Role_ID);
-            ViewBag.Id = new SelectList(db.UserInfo, "ID", "Phone", user.Id);
+            ViewBag.Role_ID = new SelectList(db.Roles, "Id", "Role_Name", user.Role_ID);
+            ViewBag.Id = new SelectList(db.UserInfoes, "ID", "Phone", user.Id);
             return View(user);
         }
 

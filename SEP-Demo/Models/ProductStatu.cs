@@ -12,21 +12,19 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderList
+    public partial class ProductStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderList()
+        public ProductStatu()
         {
-            this.Orders = new HashSet<Order>();
+            this.Products = new HashSet<Product>();
         }
     
-        public string OrderCode { get; set; }
-        public int UserOrder { get; set; }
-        public System.DateTime Date { get; set; }
-        public Nullable<int> NoteID { get; set; }
+        public int ID { get; set; }
+        public string Status { get; set; }
+        public string Description { get; set; }
     
-        public virtual Note Note { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

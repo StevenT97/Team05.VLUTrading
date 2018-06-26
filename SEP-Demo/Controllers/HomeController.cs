@@ -13,7 +13,7 @@ namespace SEP_Demo.Controllers
         public ActionResult HomeIndex()
         {
             var model = new VLUTradingDBEntities();
-            var listCategory = model.ProductCategory.ToList();
+            var listCategory = model.ProductCategories.ToList();
 
             return View(listCategory);
         }

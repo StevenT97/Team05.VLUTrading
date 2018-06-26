@@ -10,6 +10,7 @@ namespace SEP_Demo.Controllers
 {
     public class ProductController : Controller
     {
+        
         private VLUTradingDBEntities db = new VLUTradingDBEntities();
 
         // GET: Product
@@ -23,7 +24,7 @@ namespace SEP_Demo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product productDetail = db.Product.Find(id);
+            Product productDetail = db.Products.Find(id);
             if (productDetail == null)
             {
                 return HttpNotFound();
