@@ -33,12 +33,9 @@
     <script src="~/Scripts/jquery-ui.min.js" type="text/javascript"></script>
     <script src="~/Scripts/html5shiv.js"></script>
     <script src="~/Scripts/jquery-migrate-1.2.0.min.js"></script>
-
 </head>
 <body style="" class="home option2 ng-scope">
-
     <div class="wrapper page-home">
-
         <div id="header" class="header">
             <section class="top-link clearfix">
                 <div class="container">
@@ -60,7 +57,11 @@
                                 {
                                     <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
                                     <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
-                                    <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                    if ((int)Session["RoleID"] == 2)
+                                    {
+                                        <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                    }
+
                                 }
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
@@ -139,11 +140,9 @@
                                 <span class="notify notify-right">0</span>
                             </div>
                         }
-
                     </div>
                 </div>
             </div>
-
             <!-- END MANIN HEADER -->
             <script type="text/javascript">
                 $("#btnsearch").click(function () {
@@ -165,74 +164,71 @@
             </script>
             <!--Template--
             --End-->
-
-       <div id="nav-top-menu" class="nav-top-menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3" id="box-vertical-megamenus">
-                        <div class="box-vertical-megamenus menu-quick-select">
-                            <h4 class="title click-menu">
-                                <span class="title-menu">Danh mục sản phẩm</span>
-                                <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
-                            </h4>
-                            <div class="vertical-menu-content is-home">
-                                <ul class="vertical-menu-list">
-                                    <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu">
-                                        </ul>
-                                    </li>
-                                    <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
-                                    <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
-                                            @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
-                                        </ul>
-                                    </li>
-                                    <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu">
-                                        </ul>
-                                    </li>
-                                    <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
-                                </ul>
+            <div id="nav-top-menu" class="nav-top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3" id="box-vertical-megamenus">
+                            <div class="box-vertical-megamenus menu-quick-select">
+                                <h4 class="title click-menu">
+                                    <span class="title-menu">Danh mục sản phẩm</span>
+                                    <span class="btn-open-mobile pull-right home-page"><i class="fa fa-bars"></i></span>
+                                </h4>
+                                <div class="vertical-menu-content is-home">
+                                    <ul class="vertical-menu-list">
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
+                                        </li>
+                                        <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
+                                                @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
+                                            </ul>
+                                        </li>
+                                        <li class="has-child level0">
+                                            <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
+                                        </li>
+                                        <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
+                                        <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="main-menu-new" class="col-sm-12 col-md-9 main-menu">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" @*data-toggle="collapse" data-target="#new-menu" aria-expanded="false" aria-controls="navbar"*@>
-                                        <i class="fa fa-bars"></i>
-                                    </button>
-                                    <a class="navbar-brand" href="#">MENU</a>
+                        <div id="main-menu-new" class="col-sm-12 col-md-9 main-menu">
+                            <nav class="navbar navbar-default">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" @*data-toggle="collapse" data-target="#new-menu" aria-expanded="false" aria-controls="navbar"*@>
+                                            <i class="fa fa-bars"></i>
+                                        </button>
+                                        <a class="navbar-brand" href="#">MENU</a>
+                                    </div>
+                                    <div id="new-menu" class="navbar-collapse collapse">
+                                        <ul class="menu t-menu nav">
+                                            <li class="level0 active"><a class="" href="~/Home/Index"><span>Trang chủ</span></a></li>
+                                            <li class="level0"><a class="" href="~/Home/AboutUS"><span>Giới thiệu</span></a></li>
+                                            <li class="level0"><a class="" href="~/Product/Product"><span>Sản phẩm</span></a></li>
+                                            <li class="level0"><a class="" href="/tin-tuc.html"><span>Tin tức</span></a></li>
+                                            <li class="level0"><a class="" href="/lien-he.html"><span>Liên hệ</span></a></li>
+                                        </ul>
+                                    </div><!--/.nav-collapse -->
                                 </div>
-                                <div id="new-menu" class="navbar-collapse collapse">
-                                    <ul class="menu t-menu nav">
-                                        <li class="level0 active"><a class="" href="../Home/Index"><span>Trang chủ</span></a></li>
-                                        <li class="level0"><a class="" href="../Home/AboutUS"><span>Giới thiệu</span></a></li>
-                                        <li class="level0"><a class="" href="/Product/Product"><span>Sản phẩm</span></a></li>
-                                        <li class="level0"><a class="" href="/tin-tuc.html"><span>Tin tức</span></a></li>
-                                        <li class="level0"><a class="" href="/lien-he.html"><span>Liên hệ</span></a></li>
-                                    </ul>
-                                </div><!--/.nav-collapse -->
-                            </div>
-                        </nav>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-                <!-- CART ICON ON MMENU -->
-                @*<a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>*@
-                <div id="shopping-cart-box-ontop" style="display: block;" title="My cart" data-toggle="modal" data-target="#cart">
-                    <a @*href="/gio-hang.html"*@ data-toggle="modal" data-target="#cart"></a>
-                    <span class="icon-cart-ontop"></span>
-                    <span style="color:#fff!important" class="items text-muted cart-items-count">0</span>
-                    <span class="text">Giỏ hàng</span>
-                    <div class="shopping-cart-box-ontop-content">
+                    <!-- CART ICON ON MMENU -->
+                    @*<a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>*@
+                    <div id="shopping-cart-box-ontop" style="display: block;" title="My cart" data-toggle="modal" data-target="#cart">
+                        <a @*href="/gio-hang.html"*@ data-toggle="modal" data-target="#cart"></a>
+                        <span class="icon-cart-ontop"></span>
+                        <span style="color:#fff!important" class="items text-muted cart-items-count">0</span>
+                        <span class="text">Giỏ hàng</span>
+                        <div class="shopping-cart-box-ontop-content">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div class="main">
             <div class="container">
@@ -240,48 +236,59 @@
                     <div class="col-sm-3">
                         <!--left col-->
                         @if (Session["ID"] == null)
-                            {
-                                <div class="menu-account">
-                                    <h3 style="background-color:  #f5f5f5;border-left: 3px solid #e5101d;color: #666666;">
-                                        <span>Xin chào, Khách!</span>
-                                    </h3>
-                                    <ul>
-                                        <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                                        <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
-                                        <li><a href="../Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
-                                    </ul>
-                                </div>
-                            }
-                         else
-                            {
-                                @*var value = HttpContext.Current.Session["UserName"].ToString();
-                                <span>Xin chào, @value</span>*@
-                                var userName = HttpContext.Current.Session["UserName"].ToString();
-                                var Email = HttpContext.Current.Session["EmailID"].ToString();
-                                var RoleName = HttpContext.Current.Session["RoleName"].ToString();
-                                <div class="menu-account">
-                                    <h3 style="background-color:  #f5f5f5;border-left: 3px solid #e5101d;color: #666666;">
-                                        <span>Xin chào, @userName</span>
-                                    </h3>
-                                </div>
-                                <div class="text-center">
-                                    <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-                                    <h6>Upload a different photo...</h6>
-                                    <input type="file" class="text-center center-block file-upload">
-                                </div><br>
-                                <div class="panel panel-default">
-                                <div class="panel-heading">Email <i class="fa fa-link fa-1x"></i></div>
-                                <div class="panel-body"><a href="#">@Email</a></div>
-                                </div>
-
-
-                                <ul class="panel panel-default">
-                                    <li class="list-group-item text-muted">Dashboard <i class="fa fa-dashboard fa-1x"></i></li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Lượt Xem</strong></span> 125</li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Số lượt Đặt hàng</strong></span> 13</li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Sản Phẩm</strong></span> 37</li>
-                                    <li class="list-group-item text-right"><span class="pull-left"><strong>Role</strong></span> @RoleName</li>
+                        {
+                            <div class="menu-account">
+                                <h3 style="background-color:  #f5f5f5;border-left: 3px solid #e5101d;color: #666666;">
+                                    <span>Xin chào, Khách!</span>
+                                </h3>
+                                <ul>
+                                    <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                    <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
+                                    <li><a href="../Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
                                 </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            @*var value = HttpContext.Current.Session["UserName"].ToString();
+                                <span>Xin chào, @value</span>*@
+                            var userName = HttpContext.Current.Session["UserName"].ToString();
+                            var Email = HttpContext.Current.Session["EmailID"].ToString();
+                            var RoleName = HttpContext.Current.Session["RoleName"].ToString();
+                            <div class="menu-account">
+                                <h3 style="background-color:  #f5f5f5;border-left: 3px solid #e5101d;color: #666666;">
+                                    <span>Xin chào, @userName</span>
+                                </h3>
+                            </div>
+                            <div class="text-center">
+                                @*<img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+                                    <h6>Upload a different photo...</h6>
+                                    <input type="file" class="text-center center-block file-upload">*@
+                                <!--New-->
+                                <div class="avatar-upload">
+                                    <div class="avatar-edit">
+                                        <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                    <div class="avatar-preview">
+                                        <div id="imagePreview" style="background-image: url(https://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg);">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><br>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Email <i class="fa fa-link fa-1x"></i></div>
+                                <div class="panel-body"><a href="~/Account/ViewProfile">@Email</a></div>
+                            </div>
+
+
+                            <ul class="panel panel-default">
+                                <li class="list-group-item text-muted">Dashboard <i class="fa fa-dashboard fa-1x"></i></li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Lượt Xem</strong></span> 125</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Số lượt Đặt hàng</strong></span> 13</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Sản Phẩm</strong></span> 37</li>
+                                <li class="list-group-item text-right"><span class="pull-left"><strong>Role</strong></span> @RoleName</li>
+                            </ul>
 
                             <div class="panel panel-default">
                                 <div class="panel-heading">Social Media</div>
@@ -289,15 +296,13 @@
                                     <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
                                 </div>
                             </div>
-                            }
-
+                        }
 
                     </div><!--/col-3-->
                     @RenderBody()
                 </div>
             </div>
         </div>
-
 
         <!---------Footer -->
         <div class="footer">
@@ -384,6 +389,7 @@
         </div>
     </div>
     <a href="#" class="scroll_top" title="Scroll to Top" style="display: inline;">Scroll</a>
+    @RenderSection("scripts", required: false)
 </body>
 </html>
 <script type="text/javascript">
@@ -415,5 +421,24 @@
                 element.children('ul').slideDown();
             }
         });
+    });
+</script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                $('#imagePreview').hide();
+                $('#imagePreview').fadeIn(650);
+                alert(e.target.result);
+            }
+            reader.readAsDataURL(input.files[0]);
+
+        }
+    }
+    $("#imageUpload").change(function () {
+
+        readURL(this);
     });
 </script>

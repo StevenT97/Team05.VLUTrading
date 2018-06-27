@@ -264,6 +264,7 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
+    <Content Include="Content\Product\modalCreate.css" />
     <Content Include="Content\profileDashboard.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\reset.css" />
@@ -484,6 +485,7 @@
     <Content Include="Models\VLUTradingDBEntities.edmx.diagram">
       <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Product\bootstrap.min.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fixheightproductv2.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -509,6 +511,7 @@
     <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\mycard.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\Product\uploadImage.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -666,6 +669,7 @@
     <Content Include="Views\Admins\User.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Product\HistoryTrading.cshtml" />
+    <Content Include="Views\Product\CreatePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

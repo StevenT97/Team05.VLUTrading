@@ -56,6 +56,7 @@ namespace SEP_Demo.Controllers
                 {
                     //try
                     //{
+
                     db.Users.Add(user);
                     db.SaveChanges();
                     //}
@@ -124,11 +125,11 @@ namespace SEP_Demo.Controllers
         public ActionResult Login(string EmailID, string Password)
         {
             VLUTradingDBEntities db = new VLUTradingDBEntities();
-            
+
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             //ThuanNguyen - Start
             var userInfor = db.UserInfoes.SingleOrDefault(x => x.ID == user.Id);
-            
+
             //ThuanNguyen - End
             if (user != null)
             {
@@ -367,8 +368,8 @@ namespace SEP_Demo.Controllers
             {
                 return RedirectToAction("Login");
             }
-            
+
         }
-  
+
     }
 }
