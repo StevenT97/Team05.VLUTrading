@@ -29,8 +29,15 @@ namespace SEP_Demo.Admin.Controllers
             {
                 movies = movies.Where(s => s.LastName.Contains(searchString));
             }
-
-            return View(movies);
+            if (Session["ID"] != null)
+            {
+                return View(movies);
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            
         }
 
         // GET: Admins/Details/5
@@ -267,5 +274,37 @@ namespace SEP_Demo.Admin.Controllers
         //    }
         //    return View(search);
         //}
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+        public ActionResult Icons()
+        {
+            return View();
+        }
+        public ActionResult Map()
+        {
+            return View();
+        }
+        public ActionResult Notifications()
+        {
+            return View();
+        }
+        public ActionResult Tables()
+        {
+            return View();
+        }
+        public ActionResult Typography()
+        {
+            return View();
+        }
+        public ActionResult Update()
+        {
+            return View();
+        }
+        public ActionResult User()
+        {
+            return View();
+        }
     }
 }

@@ -47,14 +47,13 @@
         <!-- content changes on each page -->
 
         <div class="container">
-            <div class="row">
+            @*<div class="row">*@
                 @foreach (var item in lstProduct)
                 {
                     i++;
                     var userName = lstUser.FirstOrDefault(t => t.Id == item.UserID);
-                    if (i <= 4)
-                    {
-                        <div class="col-md-3">
+                    
+                        <div class="col-xs-2">
                             <div class="card">
                                 @foreach (var price in lstPrice)
                                 {
@@ -72,10 +71,9 @@
                                 }
                             </div>
                         </div>
-                    }
                 }
-            </div>
-            <div class="row">
+            @*</div>*@
+            @*<div class="row">
                 @foreach (var item in lstProduct)
                 {
                     j++;
@@ -102,7 +100,7 @@
                         </div>
                     }
                 }
-            </div>
+            </div>*@
         </div>
         <div class="navigation">
             <ul class="pagination">

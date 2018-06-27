@@ -1,1014 +1,551 @@
-﻿
+﻿@model SEP_Demo.Models.Product
+@using SEP_Demo.Models;
 @{
-                /**/
-
-                ViewBag.Title = "ViewProfile";
-                Layout = "~/Views/Shared/_UserLayout.cshtml";
+    VLUTradingDBEntities db = new VLUTradingDBEntities();
+    var sess = (int)Session["ID"];
+    //var product = db.Products.Where(p => p.UserID == sess);
+    var product = db.Prices.Where(x => x.Product.UserID == sess && x.Status == true);
+    //var price = db.Prices.Where(p => p.Status == true);
+    var productCate = db.ProductCategories.ToList();
+    //
+    ViewBag.Title = "ViewProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link href="/Content/profileDashboard.css" rel="stylesheet" />
+<link href="~/Content/profileDashboard.css" rel="stylesheet" />
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css'>
-<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
-<link rel='stylesheet prefetch' href='//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css'>
-<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.4/jquery-jvectormap.min.css'>
-@if (Session["ID"] != null)
-{
-    @*var userRole = HttpContext.Current.Session["RoleName"].ToString();
-        <h2>Role hiện tại là @userRole</h2>*@
-    @*<div class="breadcrumb clearfix">
-            <ul>
-                <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home">
-                    <a title="Đến trang chủ" href="/" itemprop="url"><span itemprop="title">Trang chủ</span></a>
-                </li>
-                <li class="icon-li" style="width: 150px;"><strong>Thông tin Tài khoản</strong> </li>
-            </ul>
-        </div>*@
-    <div class="col-sm-9" style="margin-top: 50px;padding-left: 50px;">
-        <ul class="nav nav-tabs">
+<link href="~/Content/Product/bootstrap.min.css" rel="stylesheet" />
+@*<link href="~/Content/Product/modalCreate.css" rel="stylesheet" />*@
+<!--For Upload Image-->
+<!--End Style for Image-->
+<div class="col-sm-9" style="margin-top: 50px;padding-left: 50px;">
+    <ul class="nav nav-tabs">
 
-            <li class="active"><a data-toggle="tab" href="#hose">Dashboard</a></li>
-            <li><a data-toggle="tab" href="#hose">Hồ Sơ</a></li>
-            <li><a data-toggle="tab" href="#messages">Sản Phẩm</a></li>
-            <li><a data-toggle="tab" href="#settings">Đơn Mua</a></li>
-        </ul>
+        <li class="active"><a data-toggle="tab" href="#Dashboard">Dashboard</a></li>
+        <li><a data-toggle="tab" href="#hoso">Hồ Sơ</a></li>
+        <li ><a data-toggle="tab" href="#sanpham">Sản Phẩm</a></li>
+        <li><a data-toggle="tab" href="#donmua">Đơn Mua</a></li>
+    </ul>
 
-        <div class="tab-content">
-            <div class="tab-pane active" id="Dashboard">
-                <hr>
-                <div class="row">
-                    <div class="col-lg-3 col-xs-6">
-                        <div class="rad-info-box rad-txt-success">
-                            <i class="fa fa-building-o"></i>
-                            <span class="heading">Bindding</span>
-                            <span class="value"><span>4949</span></span>
-                        </div>
+    <div class="tab-content">
+
+        <div class="tab-pane active" id="Dashboard">
+            <hr>
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <div class="rad-info-box rad-txt-success">
+                        <i class="fa fa-building-o"></i>
+                        <span class="heading">Bindding</span>
+                        <span class="value"><span>4949</span></span>
                     </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <div class="rad-info-box rad-txt-primary">
-                            <i class="fa fa-calendar-check-o"></i>
-                            <span class="heading">Active</span>
-                            <span class="value"><span>23K</span></span>
-                        </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <div class="rad-info-box rad-txt-primary">
+                        <i class="fa fa-calendar-check-o"></i>
+                        <span class="heading">Active</span>
+                        <span class="value"><span>23K</span></span>
                     </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <div class="rad-info-box rad-txt-danger">
-                            <i class="fa fa-edit"></i>
-                            <span class="heading">Edit</span>
-                            <span class="value"><span>49M</span></span>
-                        </div>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <div class="rad-info-box rad-txt-danger">
+                        <i class="fa fa-edit"></i>
+                        <span class="heading">Edit</span>
+                        <span class="value"><span>49M</span></span>
                     </div>
-                    <div class="col-lg-3 col-xs-6">
-                        <div class="rad-info-box">
-                            <i class="fa fa-money"></i>
-                            <span class="heading">Order</span>
-                            <span class="value"><span>8.9K</span></span>
+                </div>
+                <div class="col-lg-3 col-xs-6">
+                    <div class="rad-info-box">
+                        <i class="fa fa-money"></i>
+                        <span class="heading">Order</span>
+                        <span class="value"><span>8.9K</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Area Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="areaChart" class="rad-chart"></div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Area Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="areaChart" class="rad-chart"></div>
-                            </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Area Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Area Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="areaChart2" class="rad-chart"></div>
-                            </div>
+                        <div class="panel-body">
+                            <div id="areaChart2" class="rad-chart"></div>
+                        </div>
 
-                        </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Activity
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div class="rad-activity-body">
-                                    <div class="rad-list-group group">
-                                        <div class="rad-list-group-item">
-                                            <div class="rad-list-icon icon-shadow rad-bg-danger pull-left"><i class="fa fa-phone"></i></div>
-                                            <div class="rad-list-content">
-                                                <strong>Client meeting</strong>
-                                                <div class="md-text">Meeting at 10:00 AM</div>
-                                            </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Activity
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="rad-activity-body">
+                                <div class="rad-list-group group">
+                                    <div class="rad-list-group-item">
+                                        <div class="rad-list-icon icon-shadow rad-bg-danger pull-left"><i class="fa fa-phone"></i></div>
+                                        <div class="rad-list-content">
+                                            <strong>Client meeting</strong>
+                                            <div class="md-text">Meeting at 10:00 AM</div>
                                         </div>
-                                        <div class="rad-list-group-item">
-                                            <div class="rad-list-icon icon-shadow rad-bg-primary pull-left"><i class="fa fa-refresh"></i></div>
-                                            <div class="rad-list-content">
-                                                <strong>Created ticket</strong>
-                                                <div class="md-text">Ticket assigned to Dev team</div>
-                                            </div>
+                                    </div>
+                                    <div class="rad-list-group-item">
+                                        <div class="rad-list-icon icon-shadow rad-bg-primary pull-left"><i class="fa fa-refresh"></i></div>
+                                        <div class="rad-list-content">
+                                            <strong>Created ticket</strong>
+                                            <div class="md-text">Ticket assigned to Dev team</div>
                                         </div>
-                                        <div class="rad-list-group-item">
-                                            <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-check"></i></div>
-                                            <div class="rad-list-content">
-                                                <strong>Activity completed</strong>
-                                                <div class="md-text">Completed the dashboard html demo</div>
-                                            </div>
+                                    </div>
+                                    <div class="rad-list-group-item">
+                                        <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-check"></i></div>
+                                        <div class="rad-list-content">
+                                            <strong>Activity completed</strong>
+                                            <div class="md-text">Completed the dashboard html demo</div>
                                         </div>
-                                        <div class="rad-list-group-item">
-                                            <div class="rad-list-icon icon-shadow rad-bg-violet pull-left"><i class="fa fa-envelope"></i></div>
-                                            <div class="rad-list-content">
-                                                <strong>New Invitation</strong>
-                                                <div class="md-text">Max has invited you to join Inbox</div>
-                                            </div>
+                                    </div>
+                                    <div class="rad-list-group-item">
+                                        <div class="rad-list-icon icon-shadow rad-bg-violet pull-left"><i class="fa fa-envelope"></i></div>
+                                        <div class="rad-list-content">
+                                            <strong>New Invitation</strong>
+                                            <div class="md-text">Max has invited you to join Inbox</div>
                                         </div>
-                                        <div class="rad-list-group-item">
-                                            <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-pencil"></i></div>
-                                            <div class="rad-list-content">
-                                                <strong>New post</strong>
-                                                <div class="md-text">Created new post</div>
-                                            </div>
+                                    </div>
+                                    <div class="rad-list-group-item">
+                                        <div class="rad-list-icon icon-shadow rad-bg-success pull-left"><i class="fa fa-pencil"></i></div>
+                                        <div class="rad-list-content">
+                                            <strong>New post</strong>
+                                            <div class="md-text">Created new post</div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-8 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Donut Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="donutChart" class="rad-chart"></div>
-                            </div>
+                </div>
+                <div class="col-lg-3 col-md-8 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Donut Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
                         </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Line Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="lineChart" class="rad-chart"></div>
-                            </div>
+                        <div class="panel-body">
+                            <div id="donutChart" class="rad-chart"></div>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Bar Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="barChart3" class="rad-chart"></div>
-                            </div>
+                <div class="col-lg-6 col-md-12 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Line Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
                         </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Bar Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="barChart2" class="rad-chart"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">
-                                    Bar Chart
-                                    <ul class="rad-panel-action">
-                                        <li><i class="fa fa-chevron-down"></i></li>
-                                        <li><i class="fa fa-rotate-right"></i></li>
-                                        <li><i class="fa fa-cog"></i>
-                                        <li>
-                                            <i class="fa fa-close"></i>
-                                        </li>
-                                    </ul>
-                                </h3>
-                            </div>
-                            <div class="panel-body">
-                                <div id="barChart" class="rad-chart"></div>
-                            </div>
+                        <div class="panel-body">
+                            <div id="lineChart" class="rad-chart"></div>
                         </div>
                     </div>
                 </div>
-
-                <hr>
-
-            </div><!--/tab-pane-->
-            <div class="tab-pane " id="hoso">
-                <hr>
-                <form class="form" action="##" method="post" id="registrationForm">
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="first_name"><h4>First name</h4></label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Bar Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="barChart3" class="rad-chart"></div>
                         </div>
                     </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Bar Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="barChart2" class="rad-chart"></div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="phone"><h4>Phone</h4></label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                Bar Chart
+                                <ul class="rad-panel-action">
+                                    <li><i class="fa fa-chevron-down"></i></li>
+                                    <li><i class="fa fa-rotate-right"></i></li>
+                                    <li><i class="fa fa-cog"></i>
+                                    <li>
+                                        <i class="fa fa-close"></i>
+                                    </li>
+                                </ul>
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            <div id="barChart" class="rad-chart"></div>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <label for="mobile"><h4>Mobile</h4></label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Email</h4></label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Location</h4></label>
-                            <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password"><h4>Password</h4></label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password2"><h4>Verify</h4></label>
-                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <br>
-                            <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                            <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                        </div>
-                    </div>
-                </form>
-
-                <hr>
-
-            </div><!--/tab-pane-->
-            <div class="tab-pane" id="messages">
-
-                <h2></h2>
-
-                <hr>
-                <form class="form" action="##" method="post" id="registrationForm">
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="first_name"><h4>First name</h4></label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="phone"><h4>Phone</h4></label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <label for="mobile"><h4>Mobile</h4></label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Email</h4></label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Location</h4></label>
-                            <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password"><h4>Password</h4></label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password2"><h4>Verify</h4></label>
-                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <br>
-                            <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                            <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
-                        </div>
-                    </div>
-                </form>
-
-            </div><!--/tab-pane-->
-            <div class="tab-pane" id="settings">
-
-
-                <hr>
-                <form class="form" action="##" method="post" id="registrationForm">
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="first_name"><h4>First name</h4></label>
-                            <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="last_name"><h4>Last name</h4></label>
-                            <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="phone"><h4>Phone</h4></label>
-                            <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-xs-6">
-                            <label for="mobile"><h4>Mobile</h4></label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Email</h4></label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="email"><h4>Location</h4></label>
-                            <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password"><h4>Password</h4></label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-
-                        <div class="col-xs-6">
-                            <label for="password2"><h4>Verify</h4></label>
-                            <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-xs-12">
-                            <br>
-                            <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
-                            <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
-                        </div>
-                    </div>
-                </form>
+                </div>
             </div>
 
+            <hr>
+
         </div><!--/tab-pane-->
-    </div><!--/tab-content-->
-    <script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
+        <div class="tab-pane " id="hoso">
+            <hr>
+            <form class="form" action="##" method="post" id="registrationForm">
+                <div class="form-group">
 
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
-    <script src='//code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.3/jquery-jvectormap.js'></script>
-    <script src="https://jvectormap.com/js/jquery-jvectormap-1.2.2.min.js"></script>
+                    <div class="col-xs-6">
+                        <label for="first_name"><h4>First name</h4></label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="last_name"><h4>Last name</h4></label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="phone"><h4>Phone</h4></label>
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="mobile"><h4>Mobile</h4></label>
+                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="email"><h4>Email</h4></label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="email"><h4>Location</h4></label>
+                        <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="password"><h4>Password</h4></label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-xs-6">
+                        <label for="password2"><h4>Verify</h4></label>
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                        <button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>
+                    </div>
+                </div>
+            </form>
+
+            <hr>
+
+        </div><!--/tab-pane-->
+        <div class="tab-pane" id="sanpham">
+
+            <!--Thuan's Code- Create New Product----------------------------------------->
+            <button type="button" onclick="Edit()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Tạo Sản Phẩm</button>
+
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog" style="width:700px">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Thông tin sản phẩm mới</h4>
+                        </div>
+                        <div class="modal-body" id="myModalBodyNote">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!------End Thuan's Code----------------------------------------------------->
+            <hr>
+            @*<p>
+                    @Html.ActionLink("Đăng Sản Phẩm", "Create", "Product")
+                </p>*@
+            <table class="table">
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Picture
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in product)
+                {
+                    <tr>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.Quantity)
+                        </td>
+                        <td>
+                            <img src="~/Avatar/@item.Product.Picture01" width="100" height="100">
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product.ProductStatu.Status)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @*@Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
+                        </td>
 
 
-
-    <script>
-        ///Last modified 02/06/2016
-        //Sathish kumar
-        //Added theming
-
-        $(function () {
-
-            var mapSeries = {
-                "AF": 16.63,
-                "AL": 11.58,
-                "DZ": 158.97,
-                "AO": 85.81,
-                "AG": 1.1,
-                "AR": 351.02,
-                "AM": 8.83,
-                "AU": 1219.72,
-                "AT": 366.26,
-                "AZ": 52.17,
-                "BS": 7.54,
-                "IN": 4949,
-                "US": 852
-            };
-
-            var settings = {
-                map: 'world_mill_en',
-                container: $('#world-map'),
-                backgroundColor: 'transparent',
-                colors: '#3377CC',
-                zoomOnScroll: false,
-                regionStyle: {
-                    initial: {
-                        fill: "#c6c6c6"
-                    }
-                },
-                series: {
-                    regions: [{
-                        values: mapSeries,
-                        scale: ['#C8EEFF', '#0071A4'],
-                        normalizeFunction: 'polynomial'
-                    }]
+                    </tr>
                 }
-            };
 
-            var world;
+            </table>
 
-            $(window).on("scroll", function (e) {
-                if ($(window).scrollTop() > 50) {
-                    $("body").addClass("sticky");
-                } else {
-                    $("body").removeClass("sticky");
-                }
-            });
-
-            $(document).on("click", function (e) {
-                e.preventDefault();
-                var $item = $(".rad-dropmenu-item");
-                if ($item.hasClass("active")) {
-                    $item.removeClass("active");
-                }
-            });
-
-            $('.rad-sidebar a').on("click", function (e) {
-                e.stopPropagation();
-            });
-
-            $('.rad-activity-body').slimScroll({
-                height: '250px',
-                color: '#c6c6c6'
-            });
-
-            $(".rad-toggle-btn").on('click', function () {
-                $(".rad-logo-container").toggleClass("rad-nav-min");
-                $(".rad-sidebar").toggleClass("rad-nav-min");
-                $(".rad-body-wrapper").toggleClass("rad-nav-min");
-                setTimeout(function () {
-                    initializeCharts();
-                }, 200);
-            });
-
-            $("li.rad-dropdown > a.rad-menu-item").on('click', function (e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $(".rad-dropmenu-item").removeClass("active");
-                $(this).next(".rad-dropmenu-item").toggleClass("active");
-            });
-
-            $(".fa-chevron-down").on("click", function () {
-                var $ele = $(this).parents('.panel-heading');
-                $ele.siblings('.panel-footer').toggleClass("rad-collapse");
-                $ele.siblings('.panel-body').toggleClass("rad-collapse", function () {
-                    setTimeout(function () {
-                        initializeCharts();
-                    }, 200);
-                });
-            });
-
-            $(".fa-close").on("click", function () {
-                var $ele = $(this).parents('.panel');
-                $ele.addClass('panel-close');
-                setTimeout(function () {
-                    $ele.parent().remove();
-                }, 210);
-            });
-
-            $(".fa-rotate-right").on("click", function () {
-                var $ele = $(this).parents('.panel-heading').siblings('.panel-body');
-                $ele.append('<div class="overlay"><div class="overlay-content"><i class="fa fa-refresh fa-2x fa-spin"></i></div></div>');
-                setTimeout(function () {
-                    $ele.find('.overlay').remove();
-                }, 2000);
-            });
+        </div><!--/tab-pane-->
+        <div class="tab-pane" id="donmua">
 
 
-            $('.rad-chk-pin input[type=checkbox]').change(function (e) {
-                $('body').toggleClass("flat-theme");
-                $("#rad-color-opts").toggleClass("hide");
-            });
+            <hr>
+            <form class="form" action="##" method="post" id="registrationForm">
+                <div class="form-group">
 
-            var colorMap = {
-                crimson: "crimson",
-                teal: "#1fb5ad",
-                orange: "#ff503f",
-                purple: "rebeccapurple",
-                twitter: "#55acee"
-            };
+                    <div class="col-xs-6">
+                        <label for="first_name"><h4>First name</h4></label>
+                        <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any.">
+                    </div>
+                </div>
+                <div class="form-group">
 
-            $('.rad-color-swatch input[type=radio]').change(function (e) {
-                if ($('.rad-chk-pin input[type=checkbox]').is(":checked")) {
-                    $('body').removeClass().addClass("flat-theme").addClass(this.value);
-                    $('.rad-color-swatch label').removeClass("rad-option-selected");
-                    $(this).parent().addClass("rad-option-selected");
-                    $(window).scrollTop(0);
-                    // world.remove();
-                    settings.regionStyle.initial.fill = colorMap[this.value];
-                    settings.series.regions[0].scale = ['#A8ECFF', '#FA71D4'];
-                    // world = new jvm.Map(settings);
+                    <div class="col-xs-6">
+                        <label for="last_name"><h4>Last name</h4></label>
+                        <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any.">
+                    </div>
+                </div>
 
-                } else {
-                    return false;
-                }
-            });
+                <div class="form-group">
 
+                    <div class="col-xs-6">
+                        <label for="phone"><h4>Phone</h4></label>
+                        <input type="text" class="form-control" name="phone" id="phone" placeholder="enter phone" title="enter your phone number if any.">
+                    </div>
+                </div>
 
-            $(".rad-notification-item").on("click", function (e) {
-                e.stopPropagation();
-            });
+                <div class="form-group">
+                    <div class="col-xs-6">
+                        <label for="mobile"><h4>Mobile</h4></label>
+                        <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any.">
+                    </div>
+                </div>
+                <div class="form-group">
 
-            $(window).resize(function () {
-                setTimeout(function () {
-                    initializeCharts();
-                }, 200);
-            });
+                    <div class="col-xs-6">
+                        <label for="email"><h4>Email</h4></label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email.">
+                    </div>
+                </div>
+                <div class="form-group">
 
-            var colors = [
-                '#E94B3B',
-                '#39C7AA',
-                '#1C7EBB',
-                '#F98E33'
-            ],
+                    <div class="col-xs-6">
+                        <label for="email"><h4>Location</h4></label>
+                        <input type="email" class="form-control" id="location" placeholder="somewhere" title="enter a location">
+                    </div>
+                </div>
+                <div class="form-group">
 
-                data = [{
-                    y: 'Jan',
-                    a: 50,
-                    b: 90
-                }, {
-                    y: 'Feb',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: 'Mar',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: 'Apr',
-                    a: 10,
-                    b: 20
-                }, {
-                    y: 'May',
-                    a: 95,
-                    b: 65
-                }, {
-                    y: 'Jun',
-                    a: 50,
-                    b: 40
-                }, {
-                    y: 'Jul',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: 'Aug',
-                    a: 100,
-                    b: 90
-                }, {
-                    y: 'Sep',
-                    a: 15,
-                    b: 65
-                }, {
-                    y: 'Oct',
-                    a: 75,
-                    b: 65
-                }, {
-                    y: 'Nov',
-                    a: 15,
-                    b: 65
-                }, {
-                    y: 'Dec',
-                    a: 95,
-                    b: 65
-                },];
+                    <div class="col-xs-6">
+                        <label for="password"><h4>Password</h4></label>
+                        <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password.">
+                    </div>
+                </div>
+                <div class="form-group">
 
-            function initializeCharts() {
+                    <div class="col-xs-6">
+                        <label for="password2"><h4>Verify</h4></label>
+                        <input type="password" class="form-control" name="password2" id="password2" placeholder="password2" title="enter your password2.">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12">
+                        <br>
+                        <button class="btn btn-lg btn-success pull-right" type="submit"><i class="glyphicon glyphicon-ok-sign"></i> Save</button>
+                        <!--<button class="btn btn-lg" type="reset"><i class="glyphicon glyphicon-repeat"></i> Reset</button>-->
+                    </div>
+                </div>
+            </form>
+        </div>
 
-                $(".rad-chart").empty();
-                $(".d3-*").empty();
+    </div><!--/tab-pane-->
+</div><!--/tab-content-->
+<script>
+    function Edit() {
+        var url = "/Product/Create";
+        $("#myModalBodyNote").load(url, function () {
+            $("#myModal").modal("show");
+        })
+    }
+</script>
+<script src="//static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
 
-                Morris.Line({
-                    lineColors: ['#E67A77', '#D9DD81', '#79D1CF', '#95D7BB'],
-                    element: 'lineChart',
-                    data: [{
-                        year: '2008',
-                        value: 45,
-                        value2: 15,
-                        value3: 95
-                    }, {
-                        year: '2009',
-                        value: 10,
-                        value2: 40,
-                        value3: 80
-                    }, {
-                        year: '2010',
-                        value: 45,
-                        value2: 95,
-                        value3: 5
-                    }, {
-                        year: '2011',
-                        value: 20,
-                        value2: 60,
-                        value3: 40
-                    }, {
-                        year: '2012',
-                        value: 45,
-                        value2: 0,
-                        value3: 90
-                    }],
-                    xkey: 'year',
-                    ykeys: ['value', 'value2', 'value3'],
-                    labels: ['Value', 'value2', 'value3'],
-                    pointSize: 0,
-                    hideHover: 'auto'
-                });
-
-                Morris.Donut({
-                    element: 'donutChart',
-                    data: getDonutData("Sector", "Country"),
-                    labelColor: '#23AE89',
-                    colors: ['#E67A77', '#D9DD81', '#79D1CF', '#95D7BB']
-                });
-
-                Morris.Bar({
-                    element: 'barChart',
-                    data: data,
-                    xkey: 'y',
-                    ykeys: ['a', 'b'],
-                    barColors: ['#95D7BB', '#79D1CF'],
-                    labels: ['Series A', 'Series B']
-                });
-
-                Morris.Bar({
-                    element: 'barChart2',
-                    data: getDonutData("Sector", "Volume"),
-                    xkey: 'label',
-                    ykeys: ['value'],
-                    barColors: ['#D9DD81', '#79D1CF', '#95D7BB'],
-                    labels: ['Sector by Volume']
-                });
-
-                Morris.Bar({
-                    element: 'barChart3',
-                    data: data,
-                    xkey: 'y',
-                    ykeys: ['a', 'b'],
-                    barColors: ['#E67A77', '#79D1CF'],
-                    labels: ['Series A', 'Series B']
-                });
-
-                Morris.Area({
-                    element: 'areaChart2',
-                    behaveLikeLine: true,
-                    padding: 10,
-                    fillOpacity: .7,
-                    lineColors: ['#ED5D5D', '#D6D23A'],
-                    gridEnabled: false,
-                    gridLineColor: '#dddddd',
-                    axes: true,
-                    data: [{
-                        y: '2006',
-                        a: 0,
-                        c: 0
-                    }, {
-                        y: '2007',
-                        a: 75,
-                        c: 112
-                    }, {
-                        y: '2008',
-                        a: 50,
-                        c: 72
-                    }, {
-                        y: '2009',
-                        a: 75,
-                        c: 2
-                    }, {
-                        y: '2010',
-                        a: 150,
-                        c: 92
-                    }, {
-                        y: '2011',
-                        a: 75,
-                        c: 22
-                    }, {
-                        y: '2012',
-                        a: 3,
-                        c: 0
-                    }],
-                    xkey: 'y',
-                    ykeys: ['a', 'c'],
-                    labels: ['Open', 'Closed'],
-                    pointSize: 0,
-                    lineWidth: 0,
-                    hideHover: 'auto'
-                });
-
-                Morris.Area({
-                    element: 'areaChart',
-                    padding: 10,
-                    behaveLikeLine: true,
-                    gridEnabled: false,
-                    gridLineColor: '#dddddd',
-                    axes: true,
-                    fillOpacity: .7,
-                    data: [{
-                        period: '2010 Q1',
-                        iphone: 10,
-                        ipad: 10,
-                        itouch: 10
-                    }, {
-                        period: '2010 Q2',
-                        iphone: 1778,
-                        ipad: 7294,
-                        itouch: 18441
-                    }, {
-                        period: '2010 Q3',
-                        iphone: 4912,
-                        ipad: 12969,
-                        itouch: 3501
-                    }, {
-                        period: '2010 Q4',
-                        iphone: 3767,
-                        ipad: 3597,
-                        itouch: 5689
-                    }, {
-                        period: '2011 Q1',
-                        iphone: 6810,
-                        ipad: 1914,
-                        itouch: 2293
-                    }, {
-                        period: '2011 Q2',
-                        iphone: 5670,
-                        ipad: 4293,
-                        itouch: 1881
-                    }, {
-                        period: '2011 Q3',
-                        iphone: 4820,
-                        ipad: 3795,
-                        itouch: 1588
-                    }, {
-                        period: '2011 Q4',
-                        iphone: 25073,
-                        ipad: 5967,
-                        itouch: 5175
-                    }, {
-                        period: '2012 Q1',
-                        iphone: 10687,
-                        ipad: 34460,
-                        itouch: 22028
-                    }, {
-                        period: '2012 Q2',
-                        iphone: 1000,
-                        ipad: 5713,
-                        itouch: 1791
-                    }],
-                    lineColors: ['#ED5D5D', '#D6D23A', '#32D2C9'],
-                    xkey: 'period',
-                    ykeys: ['iphone', 'ipad', 'itouch'],
-                    labels: ['iPhone', 'iPad', 'iPod Touch'],
-                    pointSize: 0,
-                    lineWidth: 0,
-                    hideHover: 'auto'
-                });
-            }
-
-            function getTempl(img, text, position) {
-                return '<div class="rad-list-group-item ' + position + '"><span class="rad-list-icon pull-' + position + '"><img class="rad-list-img" src=' + img + ' alt="me" /></span><div class="rad-list-content rad-chat"><span class="lg-text">Me</span><span class="sm-text"><i class="fa fa-clock-o"></i> ' + formatTime(new Date()) + '</span><div class="rad-chat-msg">' + text + '</div>';
-            }
-
-            function formatTime(date) {
-                var hours = date.getHours();
-                var minutes = date.getMinutes();
-                var ampm = hours >= 12 ? 'pm' : 'am';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                return hours + ':' + minutes + ' ' + ampm;
-            }
-
-            initializeCharts();
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js'></script>
+<script src='https://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jQuery-slimScroll/1.3.3/jquery.slimscroll.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.8.0/lodash.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jvectormap/2.0.3/jquery-jvectormap.js'></script>
+<script src="https://jvectormap.com/js/jquery-jvectormap-1.2.2.min.js"></script>
 
 
-            $('#world-map').vectorMap(settings);
 
+
+<script>
+    function setModalMaxHeight(element) {
+        this.$element = $(element);
+        this.$content = this.$element.find('.modal-content');
+        var borderWidth = this.$content.outerHeight() - this.$content.innerHeight();
+        var dialogMargin = $(window).width() < 768 ? 20 : 60;
+        var contentHeight = $(window).height() - (dialogMargin + borderWidth);
+        var headerHeight = this.$element.find('.modal-header').outerHeight() || 0;
+        var footerHeight = this.$element.find('.modal-footer').outerHeight() || 0;
+        var maxHeight = contentHeight - (headerHeight + footerHeight);
+
+        this.$content.css({
+            'overflow': 'hidden'
         });
 
-        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-        ],
-            data = [{
-                "label": "Technology",
-                "value": 20
-            }, {
-                "label": "Financial",
-                "value": 45
-            }, {
-                "label": "Industrial Goods",
-                "value": 30
-            }, {
-                "label": "Consumer Goods",
-                "value": 10
-            }, {
-                "label": "Basic Materials",
-                "value": 5
-            }];
+        this.$element
+            .find('.modal-body').css({
+                'max-height': maxHeight,
+                'overflow-y': 'auto'
+            });
+    }
 
-        function getDonutData(group, column) {
-            function sum(numbers) {
-                return _.reduce(numbers, function (result, current) {
-                    return result + 1;
-                }, 0);
-            }
-            var result = _.chain(getChartData())
-                .groupBy(group)
-                .map(function (value, key) {
-                    return {
-                        label: key,
-                        value: sum(_.pluck(value, column))
-                    }
-                })
-                .value();
+    $('.modal').on('show.bs.modal', function () {
+        $(this).show();
+        setModalMaxHeight(this);
+    });
 
-            return result;
+    $(window).resize(function () {
+        if ($('.modal.in').length != 0) {
+            setModalMaxHeight($('.modal.in'));
         }
-
-        function getChartData() {
-            return [
-                {
-                    "Sector": "Healthcare",
-                },
-                {
-                    "Sector": "Basic Materials",
-                },
-                {
-                    "Sector": "Basic Materials",
-                },
-                {
-                    "Sector": "Basic Materials",
-                },
-                {
-                    "Sector": "Healthcare",
-                },
-                {
-                    "Sector": "Healthcare",
-                },
-                {
-                    "Sector": "Healthcare",
-                },
-                {
-                    "Sector": "Technology",
-                },
-                {
-                    "Sector": "Financial",
-                },
-                {
-                    "Sector": "Industrial Goods",
-                },
-                {
-                    "Sector": "Consumer Goods",
-                },
-                {
-                    "Sector": "Consumer Goods",
-                },
-                {
-                    "Sector": "Consumer Goods",
-                }
-            ];
-        }
-    </script>
-
+    });
+</script>
 
 }

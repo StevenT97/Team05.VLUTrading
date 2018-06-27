@@ -1,0 +1,79 @@
+﻿.modal {
+    text-align: center;
+    /*padding: 0 !important;*/
+}
+
+    .modal:before {
+        content: '';
+        position:relative;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -4px;
+    }
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    position: relative;
+    left: 30px;
+    top: auto;
+    bottom:180px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+#img-upload {
+    width: 50%;
+    padding-top:5px;
+}
+.btnSubmit {
+    background-color: #a42727;
+    border-color: #0f0707;
+    color: #333;
+    height: 34px;
+}
+/*.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+    .btn-file input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        font-size: 100px;
+        text-align: right;
+        filter: alpha(opacity=0);
+        opacity: 0;
+        outline: none;
+        background: white;
+        cursor: inherit;
+        display: block;
+    }
+
+#img-upload {
+    width: 30%;
+
+}*/

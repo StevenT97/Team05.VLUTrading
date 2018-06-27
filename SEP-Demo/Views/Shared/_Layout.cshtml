@@ -6,20 +6,26 @@
     @*<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">*@
     <title>Shopping Cart </title>
-    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">*@
-    <link href="/Content/reset.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Content/style.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/font-awesome.min.css" rel="stylesheet" />
-    <link href="/Content/responsive.css" rel="stylesheet" />
-    <link href="/Content/jquerybxslider.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Content/select2min.css" rel="stylesheet" />
-    <link href="/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="/Content/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Content/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/animate.css" rel="stylesheet" type="text/css" media="all" />
+    <!--Style CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link href="~/Content/reset.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/Content/jquerybxslider.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/select2min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/animate.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
+    <!--Script-->
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/jquery-1.11.3.min.js"></script>
     <script src="~/Scripts/jquery.touchSwipe.min.js"></script>
     <script src="~/Scripts/select2.min.js" type="text/javascript"></script>
@@ -562,8 +568,8 @@
                             else
                             {
                                 <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
-                                <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
-                                <li><a href="../Service/Inde    x"><i class="fa fa-list"></i>CMS </a></li>
+                                <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
+                                <li><a href="../Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
                             }
                         </ul>
                         <div class="show-mobile hidden-lg hidden-md">
@@ -603,7 +609,8 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-3 logo">
                     <a href="/" class="logo" title="Trading">
-                        <img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="Trading" title="Trading">
+                        @*<img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="Trading" title="Trading">*@
+                        <img src="https://preview.ibb.co/c0QQn8/Web_LOGO01.jpg" alt="VLUTrading" border="0" />
                     </a>
                     <h1 style="display: none;">
                         Trading
@@ -825,7 +832,7 @@
 
 
     <div class="main">
-            @RenderBody()
+        @RenderBody()
     </div>
 
 
@@ -1215,32 +1222,33 @@
     </div>
 
     <!-- Modals -->
+    
     <div class="modal fade" id="cart" tabindex="-1">
-        <div class="modal-dialog" style="position:initial">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Shopping Cart</h4>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-hover">
-                        <thead class="thead-inverse">
-                            <tr>
-                                <th>Qty</th>
-                                <th>Item Name</th>
-                                <th>Cost</th>
-                                <th class="text-xs-right">Subtotal</th>
-                            </tr>
-                        </thead>
-                        <tbody id="output"> </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
+            <div class="modal-dialog" style="position:initial">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h4 class="modal-title">Shopping Cart</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Qty</th>
+                                    <th>Item Name</th>
+                                    <th>Cost</th>
+                                    <th class="text-xs-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody id="output"> </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
     <script>
         var shopcart = [];

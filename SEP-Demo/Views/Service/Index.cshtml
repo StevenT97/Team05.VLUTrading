@@ -1,54 +1,67 @@
-﻿@{
+﻿@model IEnumerable<SEP_Demo.Models.Users>
+@using SEP_Demo.Models
+@{
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div data-ng-view="" class="ng-scope">
-    <div id="main" role="main" class="ng-scope">
-        <!-- RIBBON -->
-        <div id="ribbon">
+<br />
+<h2><b>List User</b></h2>
 
-            <span class="ribbon-button-alignment">
-                <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh" rel="tooltip" data-placement="bottom" data-original-title="
-                    <i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
-                    <i class="fa fa-refresh"></i>
-                </span>
-            </span>
+        @using (Html.BeginForm())
+        {
+        <p>
+            Title: @Html.TextBox("SearchString") <br />
+            <input type="submit" value="Search"  />
+        </p>
+    }
+       
 
-            <!-- breadcrumb -->
-            <ol class="breadcrumb">
-                <li>Home</li>
-                <li>Tổng quan</li>
-            </ol>
-            <!-- end breadcrumb -->
-            <!-- You can also add more buttons to the
-            ribbon for further usability
+<div class="content table-responsive table-full-width">
+    <table class="table table-hover table-striped" id="dataTable" style="font-size: 13px; border-radius:4px">
+        <tr>
+           
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>EmailID</th>
+            <th>DateOfBirth</th>
+            <th>IsEmailVerified</th>
+            <th>Role_Name</th>
+        </tr>
 
-            Example below:
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsEmailVerified)
+                </td>
+                <td>
+                    
+                </td>
+              
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-            <span class="ribbon-button-alignment pull-right">
-            <span id="search" class="btn btn-ribbon hidden-xs" data-title="search"><i class="fa-grid"></i> Change Grid</span>
-            <span id="add" class="btn btn-ribbon hidden-xs" data-title="add"><i class="fa-plus"></i> Add</span>
-            <span id="search" class="btn btn-ribbon" data-title="search"><i class="fa-search"></i> <span class="hidden-mobile">Search</span></span>
-            </span> -->
-
-        </div>
-        <!-- END RIBBON -->
-        <!-- MAIN CONTENT -->
-        <div id="content">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="well">
-                        <div class="text-center">
-                            <h1>Chào mừng bạn đến với Trang Quản Trị, <span>Trading vanlang</span></h1>
-                            <img src="~/Uploads/Depositphotos_55897257_s-2015-1.jpg">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- widget grid -->
-            <!-- end widget grid -->
-
-        </div>
-        <!-- END MAIN CONTENT -->
-
-    </div>
+    </table>
 </div>
+<p>
+    <input type="button" value="Create New" class="buttonCreate" onclick="location.href='../Admins/Create'">
+</p>
+
