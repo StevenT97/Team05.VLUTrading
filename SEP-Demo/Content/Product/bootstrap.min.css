@@ -6128,7 +6128,7 @@ button.close {
 
 .modal {
 	position: fixed;
-	top: 0;
+	top: -20px;
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -6163,7 +6163,7 @@ button.close {
 
 .modal-dialog {
 	position: relative;
-	width: auto;
+	width: 700px;
 	margin: 10px
 }
 

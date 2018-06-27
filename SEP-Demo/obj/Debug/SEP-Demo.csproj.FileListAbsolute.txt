@@ -688,7 +688,7 @@ D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\bin\Microsoft.AI.Dep
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\bin\Microsoft.AI.WindowsServer.xml
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\bin\Microsoft.AI.Web.xml
-D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\obj\Debug\SEP-Demo.csprojResolveAssemblyReference.cache
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\obj\Debug\SEP-Demo.csproj.CoreCompileInputs.cache
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\obj\Debug\SEP-Demo.dll
 D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\obj\Debug\SEP-Demo.pdb
+D:\CMU\SEP\Sprint 02\ThuanCoding\Team05.VLUTrading\SEP-Demo\obj\Debug\SEP-Demo.csprojResolveAssemblyReference.cache

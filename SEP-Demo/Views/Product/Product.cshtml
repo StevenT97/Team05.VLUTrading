@@ -3,8 +3,8 @@
     Layout = "~/Views/Shared/_DetailLayout.cshtml";
 
     VLUTradingDBEntities db = new VLUTradingDBEntities();
-    var lstProduct = db.Product.Where(t => t.StatusID == 2);
-    var lstPrice = db.Price.Where(t => t.Status == true);
+    var lstProduct = db.Products.Where(t => t.StatusID == 2);
+    var lstPrice = db.Prices.Where(t => t.Status == true);
     int i = 0;
     int j = 0;
 }
