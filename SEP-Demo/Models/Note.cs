@@ -12,20 +12,20 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Notes
+    public partial class Note
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Notes()
+        public Note()
         {
-            this.OrderList = new HashSet<OrderList>();
+            this.OrderLists = new HashSet<OrderList>();
         }
     
         public int ID { get; set; }
         public string OrderCode { get; set; }
-        public string Notes1 { get; set; }
+        public string Notes { get; set; }
         public int UserTrade { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderList> OrderList { get; set; }
+        public virtual ICollection<OrderList> OrderLists { get; set; }
     }
 }

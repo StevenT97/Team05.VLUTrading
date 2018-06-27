@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP-Demo", "SEP-Demo\SEP-Demo.csproj", "{71544CA0-9489-49F3-AEFF-14EC71CA973E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP-Demo.Tests", "SEP-Demo.Tests\SEP-Demo.Tests.csproj", "{E1E73C8A-DEBB-4382-A13F-616BA722349F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SEP-Demo.UnitTests", "SEP-Demo.Tests\SEP-Demo.UnitTests.csproj", "{E1E73C8A-DEBB-4382-A13F-616BA722349F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

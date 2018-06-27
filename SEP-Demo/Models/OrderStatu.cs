@@ -12,12 +12,12 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class OrderStatus
+    public partial class OrderStatu
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public OrderStatus()
+        public OrderStatu()
         {
-            this.Order = new HashSet<Order>();
+            this.Orders = new HashSet<Order>();
         }
     
         public int ID { get; set; }
@@ -25,6 +25,6 @@ namespace SEP_Demo.Models
         public string StatusName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -12,16 +12,16 @@ namespace SEP_Demo.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Users()
+        public User()
         {
             this.Comments = new HashSet<Comment>();
             this.Products = new HashSet<Product>();
             this.Ratings = new HashSet<Rating>();
         }
-
+    
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -32,7 +32,7 @@ namespace SEP_Demo.Models
         public string ResetPasswordCode { get; set; }
         public bool IsEmailVerified { get; set; }
         public int Role_ID { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

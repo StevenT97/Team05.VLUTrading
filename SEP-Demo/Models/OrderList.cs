@@ -17,7 +17,7 @@ namespace SEP_Demo.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public OrderList()
         {
-            this.Order = new HashSet<Order>();
+            this.Orders = new HashSet<Order>();
         }
     
         public string OrderCode { get; set; }
@@ -25,8 +25,8 @@ namespace SEP_Demo.Models
         public System.DateTime Date { get; set; }
         public Nullable<int> NoteID { get; set; }
     
-        public virtual Notes Notes { get; set; }
+        public virtual Note Note { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }
