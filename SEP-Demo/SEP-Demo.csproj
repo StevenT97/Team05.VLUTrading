@@ -203,13 +203,13 @@
     <Compile Include="Models\sysdiagram.cs">
       <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserInfo.cs">
       <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\Users.cs">
-      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\VLUTradingDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -514,6 +514,8 @@
     <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\mycard.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\Product\bootstrap-table.js" />
+    <Content Include="Scripts\Product\bootstrap3.min.js" />
     <Content Include="Scripts\Product\uploadImage.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -673,7 +675,6 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Product\CreatePartial.cshtml" />
-    <Content Include="Views\Product\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

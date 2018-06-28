@@ -70,6 +70,7 @@ namespace SEP_Demo.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "IsEmailVerified,ActivationCode")] User user)
         {
+            
             bool Status = false;
             string message = "";
             //Model Validation

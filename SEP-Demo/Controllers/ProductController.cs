@@ -124,11 +124,11 @@ namespace SEP_Demo.Controllers
                 db.SaveChanges();
 
             }
-            return RedirectToAction("Create", "Product");
+            return RedirectToAction("ViewProfile", "Account");
         }
         private string ImagesU(Product p)
         {
-
+            
             string filename;
             string extension;
             string b;
@@ -163,6 +163,7 @@ namespace SEP_Demo.Controllers
             p.Image.SaveAs(filename);
             return s;
         }
+        
         
     }
 }

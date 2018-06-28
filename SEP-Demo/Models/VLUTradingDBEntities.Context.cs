@@ -40,6 +40,6 @@ namespace SEP_Demo.Models
         public virtual DbSet<RoleDefine> RoleDefines { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<UserInfo> UserInfoes { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
