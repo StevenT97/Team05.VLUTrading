@@ -140,9 +140,9 @@ namespace SEP_Demo.Controllers
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
                     filename = filename + DateTime.Now.ToString("yymmssff") + extension;
-                    b = "~/Avatar/" + filename;
+                    b = "/Images/" + filename;
                     s = string.Concat(s, b, " ");
-                    filename = Path.Combine(Server.MapPath("~/Avatar"), filename);
+                    filename = Path.Combine(Server.MapPath("/Images/"), filename);
                     file.SaveAs(filename);
                 }
 
@@ -158,10 +158,11 @@ namespace SEP_Demo.Controllers
             filename = Path.GetFileNameWithoutExtension(p.Image.FileName);
             extension = Path.GetExtension(p.Image.FileName);
             filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-            s = "~/Avatar/" + filename;
-            filename = Path.Combine(Server.MapPath("~/Avatar"), filename);
+            s = "/Images/ProductAvatar/" + filename;
+            filename = Path.Combine(Server.MapPath("/Images/ProductAvatar/"), filename);
             p.Image.SaveAs(filename);
             return s;
         }
+        
     }
 }

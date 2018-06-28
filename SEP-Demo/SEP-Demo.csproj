@@ -264,7 +264,10 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
+    <Content Include="Content\Product\bootstrap-table.css" />
+    <Content Include="Content\Product\itemPerPage.css" />
     <Content Include="Content\Product\modalCreate.css" />
+    <Content Include="Content\Product\reset.min.css" />
     <Content Include="Content\profileDashboard.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\reset.css" />
@@ -670,9 +673,12 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Product\CreatePartial.cshtml" />
+    <Content Include="Views\Product\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\ProductAvatar\" />
+    <Folder Include="Images\UserAvatar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
