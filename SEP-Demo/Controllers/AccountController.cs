@@ -14,14 +14,14 @@ namespace SEP_Demo.Controllers
     public class AccountController : Controller
     {
         // GET: Account
-
+        
         public ActionResult SignUp()
         {
             return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SignUp([Bind(Exclude = "IsEmailVerified,ActivationCode")] Users user)
+        public ActionResult SignUp([Bind(Exclude = "IsEmailVerified,ActivationCode")] User user)
         {
             bool Status = false;
             string message = "";
@@ -56,7 +56,6 @@ namespace SEP_Demo.Controllers
                 {
                     //try
                     //{
-
                     db.Users.Add(user);
                     db.SaveChanges();
                     //}
@@ -125,11 +124,10 @@ namespace SEP_Demo.Controllers
         public ActionResult Login(string EmailID, string Password)
         {
             VLUTradingDBEntities db = new VLUTradingDBEntities();
-
             var user = db.Users.SingleOrDefault(x => x.EmailID == EmailID);
             //ThuanNguyen - Start
-            var userInfor = db.UserInfoes.SingleOrDefault(x => x.ID == user.Id);
-
+           // var userInfor = db.UserInfoes.SingleOrDefault(x => x.ID == user.Id);
+            
             //ThuanNguyen - End
             if (user != null)
             {
@@ -143,7 +141,7 @@ namespace SEP_Demo.Controllers
                     Session["RoleID"] = Convert.ToInt32(user.Role_ID);
                     Session["RoleName"] = userRole.Role_Name.ToString();
                     //ThuanNguyen - End
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("HomeIndex", "Home");
                 }
                 else
                 {
@@ -266,7 +264,6 @@ namespace SEP_Demo.Controllers
         {
             var verifyUrl = "/Account/" + emailFor + "/" + activationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
-
             var fromEmail = new MailAddress("thienvq97@gmail.com", "Trading Vanlanguniversity");
             var toEmail = new MailAddress(emailID);
             var fromEmailPassword = "Gmailqu4ngthien"; //Replace with actual password
@@ -318,8 +315,8 @@ namespace SEP_Demo.Controllers
         [HttpPost]
         public ActionResult ChangePassword(string currentpassword, string newpassword, string confirmnewpassword)
         {
-            VLUTradingDBEntities db = new VLUTradingDBEntities();
-            int ss = (int)Session["ID"];
+             VLUTradingDBEntities db = new VLUTradingDBEntities();
+                       int ss = (int)Session["ID"];
             var userdetail = db.Users.SingleOrDefault(x => x.Id == ss);
             if (Crypto.Hash(currentpassword) == userdetail.Password)
             {
@@ -368,8 +365,8 @@ namespace SEP_Demo.Controllers
             {
                 return RedirectToAction("Login");
             }
-
+            
         }
-
+  
     }
 }

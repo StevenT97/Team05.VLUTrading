@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VLUTradingDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="VLUTradingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="ID" />
@@ -379,7 +379,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="VLUTradingDBStoreContainer">
+        <EntityContainer Name="VLUTradingDBModelStoreContainer">
           <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Notes" EntityType="Self.Notes" Schema="dbo" store:Type="Tables" />
@@ -466,10 +466,11 @@
             <End Role="UserInfo" EntitySet="UserInfo" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="VLUTradingDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="VLUTradingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Comment">
           <Key>
             <PropertyRef Name="ID" />
@@ -480,7 +481,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Comment_Product" FromRole="Comment" ToRole="Product" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Comment_Users" FromRole="Comment" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Comment_Users" FromRole="Comment" ToRole="Users" />
         </EntityType>
         <EntityType Name="Faculty">
           <Key>
@@ -488,17 +489,17 @@
           </Key>
           <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FacultyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserInfo_Faculty" FromRole="Faculty" ToRole="UserInfo" />
+          <NavigationProperty Name="UserInfoes" Relationship="Self.FK_UserInfo_Faculty" FromRole="Faculty" ToRole="UserInfo" />
         </EntityType>
-        <EntityType Name="Notes">
+        <EntityType Name="Note">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="OrderCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Notes1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="UserTrade" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="OrderList" Relationship="Self.FK_OrderList_Notes" FromRole="Notes" ToRole="OrderList" />
+          <NavigationProperty Name="OrderLists" Relationship="Self.FK_OrderList_Notes" FromRole="Notes" ToRole="OrderList" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -515,7 +516,7 @@
           <Property Name="SubPrice" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <NavigationProperty Name="OrderList" Relationship="Self.FK_Order_OrderList" FromRole="Order" ToRole="OrderList" />
-          <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
+          <NavigationProperty Name="OrderStatu" Relationship="Self.FK_Order_OrderStatus" FromRole="Order" ToRole="OrderStatus" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Order_Product" FromRole="Order" ToRole="Product" />
         </EntityType>
         <EntityType Name="OrderList">
@@ -526,17 +527,17 @@
           <Property Name="UserOrder" Type="Int32" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="NoteID" Type="Int32" />
-          <NavigationProperty Name="Notes" Relationship="Self.FK_OrderList_Notes" FromRole="OrderList" ToRole="Notes" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_OrderList" FromRole="OrderList" ToRole="Order" />
+          <NavigationProperty Name="Note" Relationship="Self.FK_OrderList_Notes" FromRole="OrderList" ToRole="Notes" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderList" FromRole="OrderList" ToRole="Order" />
         </EntityType>
-        <EntityType Name="OrderStatus">
+        <EntityType Name="OrderStatu">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_OrderStatus" FromRole="OrderStatus" ToRole="Order" />
         </EntityType>
         <EntityType Name="Price">
           <Key>
@@ -566,13 +567,13 @@
           <Property Name="DateCreate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
           <Property Name="StatusID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Product" FromRole="Product" ToRole="Comment" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
-          <NavigationProperty Name="Price" Relationship="Self.FK_Price_Product" FromRole="Product" ToRole="Price" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Product" FromRole="Product" ToRole="Comment" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_Product" FromRole="Product" ToRole="Order" />
+          <NavigationProperty Name="Prices" Relationship="Self.FK_Price_Product" FromRole="Product" ToRole="Price" />
           <NavigationProperty Name="ProductCategory" Relationship="Self.FK_Product_Category" FromRole="Product" ToRole="ProductCategory" />
-          <NavigationProperty Name="ProductStatus" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Product_Users" FromRole="Product" ToRole="Users" />
-          <NavigationProperty Name="Rating" Relationship="Self.FK_Rating_Product" FromRole="Product" ToRole="Rating" />
+          <NavigationProperty Name="ProductStatu" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Product_Users" FromRole="Product" ToRole="Users" />
+          <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Product" FromRole="Product" ToRole="Rating" />
         </EntityType>
         <EntityType Name="ProductCategory">
           <Key>
@@ -581,16 +582,16 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Category" FromRole="ProductCategory" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Category" FromRole="ProductCategory" ToRole="Product" />
         </EntityType>
-        <EntityType Name="ProductStatus">
+        <EntityType Name="ProductStatu">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Product_ProductStatus" FromRole="ProductStatus" ToRole="Product" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_ProductStatus" FromRole="ProductStatus" ToRole="Product" />
         </EntityType>
         <EntityType Name="Rating">
           <Key>
@@ -603,7 +604,7 @@
           <Property Name="Comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Rating_Product" FromRole="Rating" ToRole="Product" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_Rating_Users" FromRole="Rating" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Rating_Users" FromRole="Rating" ToRole="Users" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -612,7 +613,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="Users" />
-          <NavigationProperty Name="RoleDefine" Relationship="Self.Permission" FromRole="Role" ToRole="RoleDefine" />
+          <NavigationProperty Name="RoleDefines" Relationship="Self.Permission" FromRole="Role" ToRole="RoleDefine" />
         </EntityType>
         <EntityType Name="RoleDefine">
           <Key>
@@ -620,9 +621,9 @@
           </Key>
           <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Role" Relationship="Self.Permission" FromRole="RoleDefine" ToRole="Role" />
+          <NavigationProperty Name="Roles" Relationship="Self.Permission" FromRole="RoleDefine" ToRole="Role" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -642,9 +643,9 @@
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="FacultyID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Faculty" Relationship="Self.FK_UserInfo_Faculty" FromRole="UserInfo" ToRole="Faculty" />
-          <NavigationProperty Name="Users" Relationship="Self.FK_UserInfo_User" FromRole="UserInfo" ToRole="Users" />
+          <NavigationProperty Name="User" Relationship="Self.FK_UserInfo_User" FromRole="UserInfo" ToRole="Users" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -658,9 +659,9 @@
           <Property Name="ResetPasswordCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
           <Property Name="Role_ID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Comment" Relationship="Self.FK_Comment_Users" FromRole="Users" ToRole="Comment" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
-          <NavigationProperty Name="Rating" Relationship="Self.FK_Rating_Users" FromRole="Users" ToRole="Rating" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Users" FromRole="Users" ToRole="Comment" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_Users" FromRole="Users" ToRole="Product" />
+          <NavigationProperty Name="Ratings" Relationship="Self.FK_Rating_Users" FromRole="Users" ToRole="Rating" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="Users" ToRole="Role" />
           <NavigationProperty Name="UserInfo" Relationship="Self.FK_UserInfo_User" FromRole="Users" ToRole="UserInfo" />
         </EntityType>
@@ -677,7 +678,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Comment_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -701,7 +702,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OrderList_Notes">
-          <End Role="Notes" Type="Self.Notes" Multiplicity="0..1" />
+          <End Role="Notes" Type="Self.Note" Multiplicity="0..1" />
           <End Role="OrderList" Type="Self.OrderList" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Notes">
@@ -725,7 +726,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Order_OrderStatus">
-          <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+          <End Role="OrderStatus" Type="Self.OrderStatu" Multiplicity="1" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="OrderStatus">
@@ -773,7 +774,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_ProductStatus">
-          <End Role="ProductStatus" Type="Self.ProductStatus" Multiplicity="1" />
+          <End Role="ProductStatus" Type="Self.ProductStatu" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductStatus">
@@ -785,7 +786,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -809,7 +810,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Rating_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -822,7 +823,7 @@
         </Association>
         <Association Name="FK_User_Role">
           <End Role="Role" Type="Self.Role" Multiplicity="1" />
-          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <End Role="Users" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
               <PropertyRef Name="Id" />
@@ -833,7 +834,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UserInfo_User">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="UserInfo" Type="Self.UserInfo" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -849,85 +850,85 @@
           <End Role="RoleDefine" Type="Self.RoleDefine" Multiplicity="*" />
         </Association>
         <EntityContainer Name="VLUTradingDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Comment" EntityType="Self.Comment" />
-          <EntitySet Name="Faculty" EntityType="Self.Faculty" />
-          <EntitySet Name="Notes" EntityType="Self.Notes" />
-          <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="OrderList" EntityType="Self.OrderList" />
-          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
-          <EntitySet Name="Price" EntityType="Self.Price" />
-          <EntitySet Name="Product" EntityType="Self.Product" />
-          <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" />
-          <EntitySet Name="ProductStatus" EntityType="Self.ProductStatus" />
-          <EntitySet Name="Rating" EntityType="Self.Rating" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="RoleDefine" EntityType="Self.RoleDefine" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
-          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Faculties" EntityType="Self.Faculty" />
+          <EntitySet Name="Notes" EntityType="Self.Note" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="OrderLists" EntityType="Self.OrderList" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
+          <EntitySet Name="Prices" EntityType="Self.Price" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductCategories" EntityType="Self.ProductCategory" />
+          <EntitySet Name="ProductStatus" EntityType="Self.ProductStatu" />
+          <EntitySet Name="Ratings" EntityType="Self.Rating" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="RoleDefines" EntityType="Self.RoleDefine" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="UserInfoes" EntityType="Self.UserInfo" />
+          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Comment_Product" Association="Self.FK_Comment_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Comment" EntitySet="Comments" />
           </AssociationSet>
           <AssociationSet Name="FK_Comment_Users" Association="Self.FK_Comment_Users">
             <End Role="Users" EntitySet="Users" />
-            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment" EntitySet="Comments" />
           </AssociationSet>
           <AssociationSet Name="FK_UserInfo_Faculty" Association="Self.FK_UserInfo_Faculty">
-            <End Role="Faculty" EntitySet="Faculty" />
-            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
           </AssociationSet>
           <AssociationSet Name="FK_OrderList_Notes" Association="Self.FK_OrderList_Notes">
             <End Role="Notes" EntitySet="Notes" />
-            <End Role="OrderList" EntitySet="OrderList" />
+            <End Role="OrderList" EntitySet="OrderLists" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_OrderList" Association="Self.FK_Order_OrderList">
-            <End Role="OrderList" EntitySet="OrderList" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderList" EntitySet="OrderLists" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_OrderStatus" Association="Self.FK_Order_OrderStatus">
             <End Role="OrderStatus" EntitySet="OrderStatus" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_Product" Association="Self.FK_Order_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_Price_Product" Association="Self.FK_Price_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Price" EntitySet="Price" />
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Price" EntitySet="Prices" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Category" Association="Self.FK_Product_Category">
-            <End Role="ProductCategory" EntitySet="ProductCategory" />
-            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductCategory" EntitySet="ProductCategories" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_ProductStatus" Association="Self.FK_Product_ProductStatus">
             <End Role="ProductStatus" EntitySet="ProductStatus" />
-            <End Role="Product" EntitySet="Product" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Product_Users" Association="Self.FK_Product_Users">
             <End Role="Users" EntitySet="Users" />
-            <End Role="Product" EntitySet="Product" />
+            <End Role="Product" EntitySet="Products" />
           </AssociationSet>
           <AssociationSet Name="FK_Rating_Product" Association="Self.FK_Rating_Product">
-            <End Role="Product" EntitySet="Product" />
-            <End Role="Rating" EntitySet="Rating" />
+            <End Role="Product" EntitySet="Products" />
+            <End Role="Rating" EntitySet="Ratings" />
           </AssociationSet>
           <AssociationSet Name="FK_Rating_Users" Association="Self.FK_Rating_Users">
             <End Role="Users" EntitySet="Users" />
-            <End Role="Rating" EntitySet="Rating" />
+            <End Role="Rating" EntitySet="Ratings" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
+            <End Role="Role" EntitySet="Roles" />
             <End Role="Users" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="FK_UserInfo_User" Association="Self.FK_UserInfo_User">
             <End Role="Users" EntitySet="Users" />
-            <End Role="UserInfo" EntitySet="UserInfo" />
+            <End Role="UserInfo" EntitySet="UserInfoes" />
           </AssociationSet>
           <AssociationSet Name="Permission" Association="Self.Permission">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="RoleDefine" EntitySet="RoleDefine" />
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="RoleDefine" EntitySet="RoleDefines" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -935,9 +936,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="VLUTradingDBStoreContainer" CdmEntityContainer="VLUTradingDBEntities">
-          <EntitySetMapping Name="Comment">
-            <EntityTypeMapping TypeName="VLUTradingDB.Comment">
+        <EntityContainerMapping StorageEntityContainer="VLUTradingDBModelStoreContainer" CdmEntityContainer="VLUTradingDBEntities">
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Comment">
               <MappingFragment StoreEntitySet="Comment">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -947,8 +948,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Faculty">
-            <EntityTypeMapping TypeName="VLUTradingDB.Faculty">
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Faculty">
               <MappingFragment StoreEntitySet="Faculty">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FacultyName" ColumnName="FacultyName" />
@@ -956,17 +957,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Notes">
-            <EntityTypeMapping TypeName="VLUTradingDB.Notes">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Note">
               <MappingFragment StoreEntitySet="Notes">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
-                <ScalarProperty Name="Notes1" ColumnName="Notes" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="UserTrade" ColumnName="UserTrade" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="VLUTradingDB.Order">
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -981,8 +982,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="OrderList">
-            <EntityTypeMapping TypeName="VLUTradingDB.OrderList">
+          <EntitySetMapping Name="OrderLists">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.OrderList">
               <MappingFragment StoreEntitySet="OrderList">
                 <ScalarProperty Name="OrderCode" ColumnName="OrderCode" />
                 <ScalarProperty Name="UserOrder" ColumnName="UserOrder" />
@@ -992,7 +993,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderStatus">
-            <EntityTypeMapping TypeName="VLUTradingDB.OrderStatus">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.OrderStatu">
               <MappingFragment StoreEntitySet="OrderStatus">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -1000,8 +1001,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Price">
-            <EntityTypeMapping TypeName="VLUTradingDB.Price">
+          <EntitySetMapping Name="Prices">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Price">
               <MappingFragment StoreEntitySet="Price">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="DateUpdate" ColumnName="DateUpdate" />
@@ -1011,8 +1012,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="VLUTradingDB.Product">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Product">
               <MappingFragment StoreEntitySet="Product">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1030,8 +1031,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ProductCategory">
-            <EntityTypeMapping TypeName="VLUTradingDB.ProductCategory">
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.ProductCategory">
               <MappingFragment StoreEntitySet="ProductCategory">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1040,7 +1041,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="ProductStatus">
-            <EntityTypeMapping TypeName="VLUTradingDB.ProductStatus">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.ProductStatu">
               <MappingFragment StoreEntitySet="ProductStatus">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -1048,8 +1049,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Rating">
-            <EntityTypeMapping TypeName="VLUTradingDB.Rating">
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Rating">
               <MappingFragment StoreEntitySet="Rating">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
@@ -1060,16 +1061,16 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="VLUTradingDB.Role">
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RoleDefine">
-            <EntityTypeMapping TypeName="VLUTradingDB.RoleDefine">
+          <EntitySetMapping Name="RoleDefines">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.RoleDefine">
               <MappingFragment StoreEntitySet="RoleDefine">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
@@ -1077,7 +1078,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="VLUTradingDB.sysdiagrams">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1087,8 +1088,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserInfo">
-            <EntityTypeMapping TypeName="VLUTradingDB.UserInfo">
+          <EntitySetMapping Name="UserInfoes">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
@@ -1099,7 +1100,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="VLUTradingDB.Users">
+            <EntityTypeMapping TypeName="VLUTradingDBModel.User">
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -1114,7 +1115,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Permission" TypeName="VLUTradingDB.Permission" StoreEntitySet="Permission">
+          <AssociationSetMapping Name="Permission" TypeName="VLUTradingDBModel.Permission" StoreEntitySet="Permission">
             <EndProperty Name="Role">
               <ScalarProperty Name="Id" ColumnName="RoleID" />
             </EndProperty>
@@ -1136,7 +1137,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

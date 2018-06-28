@@ -7,7 +7,7 @@ using System.Web;
 namespace SEP_Demo.Models
 {
     [MetadataType(typeof(UserMetadata))]
-    public partial class Users
+    public partial class User
     {
         public string ConfirmPassword { get; set; }
     }

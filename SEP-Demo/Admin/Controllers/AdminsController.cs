@@ -47,7 +47,7 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users user = db.Users.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -68,7 +68,7 @@ namespace SEP_Demo.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Exclude = "IsEmailVerified,ActivationCode")] Users user)
+        public ActionResult Create([Bind(Exclude = "IsEmailVerified,ActivationCode")] User user)
         {
             bool Status = false;
             string message = "";
@@ -199,7 +199,7 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users user = db.Users.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -214,7 +214,7 @@ namespace SEP_Demo.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailID,DateOfBirth,Role_ID")] Users user)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,EmailID,DateOfBirth,Role_ID")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -233,7 +233,7 @@ namespace SEP_Demo.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users user = db.Users.Find(id);
+            User user = db.Users.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -246,7 +246,7 @@ namespace SEP_Demo.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Users user = db.Users.Find(id);
+            User user = db.Users.Find(id);
             db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");

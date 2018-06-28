@@ -4,39 +4,39 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="aa34ce9f06064f819bc256524506f5cf" Name="Diagram1">
-        <EntityTypeShape EntityType="VLUTradingDB.Comment" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Faculty" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Notes" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Order" Width="1.5" PointX="10.5" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.OrderList" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.OrderStatus" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Price" Width="1.5" PointX="10.5" PointY="15.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Product" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.ProductCategory" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.ProductStatus" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Rating" Width="1.5" PointX="13.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Role" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.RoleDefine" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.UserInfo" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="VLUTradingDB.Users" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <AssociationConnector Association="VLUTradingDB.FK_Comment_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Comment_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_UserInfo_Faculty" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_OrderList_Notes" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Order_OrderList" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Order_OrderStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Order_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Price_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Product_Category" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Product_ProductStatus" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Product_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Rating_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_Rating_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.FK_UserInfo_User" ManuallyRouted="false" />
-        <AssociationConnector Association="VLUTradingDB.Permission" ManuallyRouted="false" />
+      <Diagram DiagramId="462f90bfe3284a31a3ba2d6ebecf32e8" Name="Diagram1">
+        <EntityTypeShape EntityType="VLUTradingDBModel.Comment" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Faculty" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Note" Width="1.5" PointX="6" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Order" Width="1.5" PointX="10.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.OrderList" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.OrderStatu" Width="1.5" PointX="8.25" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Price" Width="1.5" PointX="10.5" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Product" Width="1.5" PointX="8.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.ProductCategory" Width="1.5" PointX="6" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.ProductStatu" Width="1.5" PointX="6" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Rating" Width="1.5" PointX="13.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.Role" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.RoleDefine" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.UserInfo" Width="1.5" PointX="5.25" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VLUTradingDBModel.User" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Comment_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Comment_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_UserInfo_Faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_OrderList_Notes" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Order_OrderList" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Order_OrderStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Order_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Price_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Product_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Product_ProductStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Product_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Rating_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_Rating_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.FK_UserInfo_User" ManuallyRouted="false" />
+        <AssociationConnector Association="VLUTradingDBModel.Permission" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

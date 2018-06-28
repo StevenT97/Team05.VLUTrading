@@ -25,21 +25,21 @@ namespace SEP_Demo.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Comment> Comment { get; set; }
-        public virtual DbSet<Faculty> Faculty { get; set; }
-        public virtual DbSet<Notes> Notes { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<OrderList> OrderList { get; set; }
-        public virtual DbSet<OrderStatus> OrderStatus { get; set; }
-        public virtual DbSet<Price> Price { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<ProductCategory> ProductCategory { get; set; }
-        public virtual DbSet<ProductStatus> ProductStatus { get; set; }
-        public virtual DbSet<Rating> Rating { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<RoleDefine> RoleDefine { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<UserInfo> UserInfo { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Faculty> Faculties { get; set; }
+        public virtual DbSet<Note> Notes { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderList> OrderLists { get; set; }
+        public virtual DbSet<OrderStatu> OrderStatus { get; set; }
+        public virtual DbSet<Price> Prices { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductCategory> ProductCategories { get; set; }
+        public virtual DbSet<ProductStatu> ProductStatus { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<RoleDefine> RoleDefines { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<UserInfo> UserInfoes { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

@@ -21,6 +21,6 @@ namespace SEP_Demo.Models
         public string FacultyID { get; set; }
     
         public virtual Faculty Faculty { get; set; }
-        public virtual Users User { get; set; }
+        public virtual User User { get; set; }
     }
 }
