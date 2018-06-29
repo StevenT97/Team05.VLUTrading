@@ -26,7 +26,9 @@ namespace SEP_Demo.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Product productDetail = db.Products.Find(id);
+            
             if (productDetail == null)
             {
                 return HttpNotFound();
@@ -141,11 +143,11 @@ namespace SEP_Demo.Controllers
                 P.UserID = User_ID;
                 //P.UnitPrice = 
                 //var datatest = (int)P.ProductCategory.ID;
-
                 db.Products.Add(P);
+
+                //Price of current product
                 Price nPr = new Price();
-
-
+                
                 nPr.ProductID = P.ID;
                 nPr.Price1 = gia;
                 nPr.Status = true;
@@ -169,11 +171,10 @@ namespace SEP_Demo.Controllers
                 {
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
-                    //filename = filename + DateTime.Now.ToString("yymmssff") + extension;
-                    filename = filename + extension;
-                    b = "~/ProductAvatar/" + filename;
+                    filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+                    b = "/Images/" + filename;
                     s = string.Concat(s, b, " ");
-                    filename = Path.Combine(Server.MapPath("~/ProductAvatar"), filename);
+                    filename = Path.Combine(Server.MapPath("/Images/"), filename);
                     file.SaveAs(filename);
                 }
 
@@ -194,7 +195,7 @@ namespace SEP_Demo.Controllers
             p.Image.SaveAs(filename);
             return s;
         }
-
-
+        
+        
     }
 }

@@ -129,6 +129,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreataProductUnitTest.cs" />
     <Compile Include="Sprint01UnitTest\ForgetPasswordUnitTest.cs" />
     <Compile Include="Sprint01UnitTest\LogInUnitTest.cs" />
     <Compile Include="Sprint01UnitTest\ChangePasswordUnitTest.cs" />
