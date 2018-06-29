@@ -49,7 +49,7 @@
         <ul id="suboutput"></ul>
         <ul>
             <li class="totalRow">
-                <a href="../Home/Index" class="checkout btn continue" style="border-radius:6px;height: 45px;">Checkout</a>
+                <a href="" class="checkout btn continue" style="border-radius:6px;height: 45px;">Checkout</a>
                 @*<button type="submit" class="btn btn-success btn-block" data-checkout="shopcart">Checkout</button>*@
                 @*<input type="submit" class="btn btn-primary continue" value="Checkout with PayPal">*@
                 <a href="../Home/Index" class="btn btn-default btn-block" style="background-color:#337ab7;border-radius:6px;font-family: inherit;font-size: 14px;">Continue Shopping</a>
@@ -91,13 +91,12 @@
         //})
         $('a.checkout').click(function () {
             saveCart();
-            alert("Suscess!");
-        })
+            
+        });
         function outputCart() {
             if (sessionStorage["sca"] != null) {
                 shopcart = JSON.parse(sessionStorage["sca"].toString());
             }
-            console.log(sessionStorage["sca"]);
             console.log(shopcart);
             var holderHTML = '';
             var SubholderHTML = '';
@@ -149,8 +148,6 @@
         }
         function formatUser() {
             var listuser = [];
-            console.log(sessionStorage["sca"]);
-            console.log(shopcart);
             $.each(shopcart, function (index, value) {
                 listuser[index] = value.usertrade;
 
@@ -180,9 +177,47 @@
             // Push the prepared data into localStorage
             console.log('Saving cart data...');
             localStorage.setItem("shoppingCart", JSON.stringify(shopcart));
+            cons
+            //Ajax Save
+            var Order_Detail = {}
+            Order_Detail.Order_Name = "";
+            Order_Detail.Order_Image = "";
+            Order_Detail.Order_UserTrade = "";
+            Order_Detail.Order_Price = "";
+            Order_Detail.Order_Quantity = "";
+            Order_Detail.Order_IdProduct = "";
+
+            for (i = 0; i < localStorage.length; i++) {
+                var obj = localStorage.getItem(localStorage.key(i));
+                var Order = JSON.parse(obj);
+                Order_Detail.Order_Name += Order["name"] + ",";
+                Order_Detail.Order_Image += Order["s"] + ",";
+                Order_Detail.Order_UserTrade += Order["usertrade"] + ",";
+                Order_Detail.Order_Price += Order["price"] + ",";
+                Order_Detail.Order_Quantity += Order["qty"] + ",";
+                Order_Detail.Order_IdProduct += Order["id"] + ",";
+
+            }
+            $.ajax({
+                type: "POST",
+                url: "Product/Cart",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(Order_Detail),
+                success: function () {
+                    alert("Data Has Inserted");
+                    localStorage.clear();
+                }
+            });
+
+
+
             shopcart = [];
             sessionStorage["sca"] = JSON.stringify(shopcart);
-            console.log('Cart data saved.');
-        }
+            //console.log('Cart data saved.');
+
+            
+             
+        };
     })
 </script>

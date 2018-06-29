@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Services;
 using SEP_Demo.Models;
 
 namespace SEP_Demo.Controllers
@@ -33,9 +34,38 @@ namespace SEP_Demo.Controllers
             return View(productDetail);
 
         }
+
+        [HttpGet]
         public ActionResult Cart()
         {
-            return View();
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login","Account");
+            }
+        }
+        [HttpPost]
+        [WebMethod]
+        public ActionResult Cart(List<string> Item)
+        {
+            if (ModelState.IsValid)
+            {
+                var orderCode = "VLUTrading-"+DateTime.Now.Millisecond + 5;
+                int User_ID = (int)Session["ID"];
+                OrderList ordList = new OrderList();
+                ordList.OrderCode = orderCode;
+                ordList.UserOrder = User_ID;
+                ordList.Date = DateTime.Now.Date;
+
+                db.OrderLists.Add(ordList);
+
+                db.SaveChanges();
+
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         //[HttpPost]
