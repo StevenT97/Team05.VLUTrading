@@ -50,12 +50,11 @@ namespace SEP_Demo.Controllers
             }
         }
         [HttpPost]
-        [WebMethod]
         public ActionResult Cart(List<string> Item)
         {
             if (ModelState.IsValid)
             {
-                var orderCode = "VLUTrading-"+DateTime.Now.Millisecond + 5;
+                var orderCode = "VLUTrading-" + DateTime.Now.Millisecond + 5;
                 int User_ID = (int)Session["ID"];
                 OrderList ordList = new OrderList();
                 ordList.OrderCode = orderCode;
@@ -63,6 +62,12 @@ namespace SEP_Demo.Controllers
                 ordList.Date = DateTime.Now.Date;
 
                 db.OrderLists.Add(ordList);
+                Order ord = new Order();
+                var count = Item.Count();
+                for (int i = 0; i < count; i++)
+                {
+                    ord.OrderID = orderCode;
+                }
 
                 db.SaveChanges();
 
