@@ -184,6 +184,7 @@
     <Compile Include="Models\Product.cs">
       <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product2.cs" />
     <Compile Include="Models\ProductCategory.cs">
       <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
