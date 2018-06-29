@@ -34,7 +34,7 @@ namespace SEP_Demo.Tests
                 FirstName = "nguyen",
                 LastName = "son",
                 DateOfBirth = DateTime.Parse("Jan ,01, 2009"),
-                EmailID = "thuannguyen444@vanlanguni.vn",
+                EmailID = "thuannguyen44@vanlanguni.vn",
                 Password = "456456456",
                 ConfirmPassword = "456456456"
             };

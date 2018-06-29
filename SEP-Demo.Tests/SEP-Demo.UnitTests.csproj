@@ -135,6 +135,8 @@
     <Compile Include="MockHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprint01UnitTest\SignUpUnitTesst.cs" />
+    <Compile Include="Sprint02UnitTest\CreataProductUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\DetailProductUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

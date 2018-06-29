@@ -124,7 +124,7 @@ namespace SEP_Demo.Controllers
                 db.SaveChanges();
 
             }
-            return RedirectToAction("Create", "Product");
+            return RedirectToAction("ViewProfile", "Account");
         }
         private string ImagesU(Product p)
         {
@@ -139,10 +139,11 @@ namespace SEP_Demo.Controllers
                 {
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
-                    filename = filename + DateTime.Now.ToString("yymmssff") + extension;
-                    b = "~/Avatar/" + filename;
+                    //filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+                    filename = filename + extension;
+                    b = "~/ProductAvatar/" + filename;
                     s = string.Concat(s, b, " ");
-                    filename = Path.Combine(Server.MapPath("~/Avatar"), filename);
+                    filename = Path.Combine(Server.MapPath("~/ProductAvatar"), filename);
                     file.SaveAs(filename);
                 }
 
@@ -157,11 +158,13 @@ namespace SEP_Demo.Controllers
             string extension;
             filename = Path.GetFileNameWithoutExtension(p.Image.FileName);
             extension = Path.GetExtension(p.Image.FileName);
-            filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
-            s = "~/Avatar/" + filename;
-            filename = Path.Combine(Server.MapPath("~/Avatar"), filename);
+            filename = filename + extension;
+            s = "/Images/ProductAvatar/" + filename;
+            filename = Path.Combine(Server.MapPath("~/ProductAvatar"), filename);
             p.Image.SaveAs(filename);
             return s;
         }
+
+
     }
 }

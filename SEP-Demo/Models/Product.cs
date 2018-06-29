@@ -11,6 +11,7 @@ namespace SEP_Demo.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Web;
     
     public partial class Product
     {
@@ -48,5 +49,7 @@ namespace SEP_Demo.Models
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rating> Ratings { get; set; }
+        public IEnumerable<HttpPostedFileBase> Image_Detail { get; set; }
+        public HttpPostedFileBase Image { get; set; }
     }
 }
