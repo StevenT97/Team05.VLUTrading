@@ -1,463 +1,185 @@
 ﻿@model SEP_Demo.Models.Product
+
 @using SEP_Demo.Models
 @{
-    Layout = "~/Views/Shared/_DetailLayout.cshtml";
-    ViewBag.Title = "Details";
+    Layout = null;
+    //ViewBag.Title = "Details";
 
     VLUTradingDBEntities db = new VLUTradingDBEntities();
-    var im = db.Products.FirstOrDefault(m => m.ID == Model.ID);
-    var lstPrice = db.Prices.FirstOrDefault(t => t.Status == true && t.ProductID == im.ID);
-    
-    
+    //var im = db.Products.FirstOrDefault(m => m.ID == Model.ID);
+    var lstPrice = db.Prices.FirstOrDefault(t => t.Status == true && t.ProductID == Model.ID).Price1;
+
+
 }
 
+<link href="~/Content/Product/detailProduct.css" rel="stylesheet" />
+@*<div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
 
-<div id="product">
-    <div class="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="breadcrumb clearfix">
-                        <ul>
-                            <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="home">
-                                <a title="Đến trang chủ" href="/" itemprop="url"><span itemprop="title">Trang chủ</span></a>
-                            </li>
-                            <li itemtype="http://data-vocabulary.org/Breadcrumb" itemscope="" class="category17 icon-li">
-                                <div class="link-site-more">
-                                    <a title="" href="/san-pham/thoi-trang-40412" itemprop="url">
-                                        <span itemprop="title">Thời trang</span>
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="productname icon-li"><strong>@im.Name</strong> </li>
-                        </ul>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture01)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Picture01)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture02)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Picture02)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture03)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Picture03)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture04)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Picture04)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Picture05)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Picture05)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DateCreate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateCreate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quantity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductCategory.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductCategory.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ProductStatu.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductStatu.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.FirstName)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.actionqLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.actionLink("Back to List", "Index")
+    </p>*@
+
+<div class="container" id="uniqueProduct">
+    <div class="card">
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">
+
+                    <div class="preview-pic tab-content">
+                        @* NHỚ THÊM ~ TRƯỚC PATH NẾU TRÊN HOST KHÔNG LOAD ĐƯỢC HÌNH *@
+                        <div class="tab-pane active" id="pic-1"><img src="@Html.DisplayFor(model => model.Picture01)" /></div>
+                        <div class="tab-pane" id="pic-2"><img src="@Html.DisplayFor(model => model.Picture02)" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="@Html.DisplayFor(model => model.Picture03)" /></div>
+                        <div class="tab-pane" id="pic-4"><img src="@Html.DisplayFor(model => model.Picture04)" /></div>
+                        <div class="tab-pane" id="pic-5"><img src="@Html.DisplayFor(model => model.Picture05)" /></div>
                     </div>
-                    <script type="text/javascript">
-                        $(".link-site-more").hover(function () { $(this).find(".s-c-n").show(); }, function () { $(this).find(".s-c-n").hide(); });
-                    </script>
+                    <ul class="preview-thumbnail nav nav-tabs">
+                        <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="@Html.DisplayFor(model => model.Picture01)" /></a></li>
+                        <li><a data-target="#pic-2" data-toggle="tab"><img src="@Html.DisplayFor(model => model.Picture02)" /></a></li>
+                        <li><a data-target="#pic-3" data-toggle="tab"><img src="@Html.DisplayFor(model => model.Picture03)" /></a></li>
+                        <li><a data-target="#pic-4" data-toggle="tab"><img src="@Html.DisplayFor(model => model.Picture04)" /></a></li>
+                        <li><a data-target="#pic-5" data-toggle="tab"><img src="@Html.DisplayFor(model => model.Picture05)" /></a></li>
+                    </ul>
 
-
-                    <div class="product-detail clearfix relative ng-scope">
-                        @*<span us-spinner="{radius:5, width:3, length: 3}" class="ng-scope ng-hide"><div class="spinner" role="progressbar" style="position: absolute; width: 0px; z-index: 2000000000; left: 50%; top: 50%;"><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-0-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(0deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-1-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(30deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-2-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(60deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-3-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(90deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-4-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(120deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-5-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(150deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-6-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(180deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-7-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(210deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-8-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(240deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-9-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(270deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-10-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(300deg) translate(5px, 0px); border-radius: 1px;"></div></div><div style="position: absolute; top: -1px; opacity: 0.25; animation: opacity-100-25-11-12 1s linear infinite;"><div style="position: absolute; width: 6px; height: 3px; background: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 1px; transform-origin: left center 0px; transform: rotate(330deg) translate(5px, 0px); border-radius: 1px;"></div></div></div></span>*@
-                        <!--Begin-->
-                        <div class="product-block clearfix">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6 col-xs-12 product-image clearfix">
-                                    <div class="sp-loading" style="display: none;"><img src="@im.Picture01" alt=""><br>LOADING IMAGES</div>
-                                    <div class="sp-wrap sp-non-touch" style="display: inline-block;">
-                                        <!-- ngRepeat: item in ProductImages --><!-- end ngRepeat: item in ProductImages -->
-                                        <div class="sp-large"><a href="/Uploads/Product/p49_large.jpg" class="ng-scope .sp-current-big"><img src="@im.Picture01"></a></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-12 clearfix">
-                                    <h2 class="ng-binding">@im.Name - @im.ID</h2>
-                                    <!-- ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) --><div class="price ng-scope">
-                                        <!-- ngIf: IsPromotion==true --><div class="ng-scope">
-                                            <span class="price-new ng-binding">@lstPrice.Price1</span>
-                                            <span class="price-old ng-binding">240,000đ</span>
-                                        </div><!-- end ngIf: IsPromotion==true -->
-                                        <!-- ngIf: IsPromotion==false -->
-                                        <span class="product-code ng-binding">Mã SP: </span>
-                                    </div><!-- end ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) -->
-                                    <!-- ngIf: IsTrackingInventory==true&&AllowPurchaseWhenSoldOut==false&&Quantity<=0 -->
-                                    <div class="des ng-binding">
-                                        <p>Phí vận chuyển &amp; thời gian nhận hàngPhí vận chuyển toàn&nbsp;:&nbsp;+ Đối với khu vực nội thành TPHCM :&nbsp;Miễn phí vận chuyển+ Đối với khu vực ngoại thành TPHCM&nbsp;&nbsp;( Q9, Q12, Thủ Đức, Bình Tân ) :&nbsp;...</p>
-                                    </div>
-                                    <div class="social">
-                                        <!-- AddThis Button BEGIN -->
-                                        <div class="addthis_toolbox addthis_default_style">
-                                            <a class="addthis_button_facebook_like at300b" fb:like:layout="button_count"><div class="fb-like fb_iframe_widget" style="height: 25px;"><span style="vertical-align: bottom; width: 106px; height: 20px;"><iframe name="fc64ae68905534" width="90px" height="25px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="https://www.facebook.com/v2.6/plugins/like.php?action=like&amp;app_id=227481454296289&amp;channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FFdM1l_dpErI.js%3Fversion%3D42%23cb%3Df115e4a24c965cc%26domain%3Dtradingvanlang.runtime.vn%26origin%3Dhttp%253A%252F%252Ftradingvanlang.runtime.vn%252Ff88ed6a8b736c4%26relation%3Dparent.parent&amp;container_width=106&amp;font=arial&amp;height=25&amp;href=http%3A%2F%2Ftradingvanlang.runtime.vn%2Fsan-pham%2Fdam-maxi-du-tiec-hoa-hong-nh028.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=false&amp;share=true&amp;show_faces=false&amp;width=90" style="border: none; visibility: visible; width: 106px; height: 20px;" class=""></iframe></span></div></a>
-                                            <a class="addthis_button_google_plusone at300b" g:plusone:size="medium"><div class="google_plusone_iframe_widget" style="width: 90px; height: 25px;"><span><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 32px; height: 20px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 32px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 20px;" tabindex="0" vspace="0" width="100%" id="I0_1523366440166" name="I0_1523366440166"  title="G+"></iframe></div></span></div></a>
-                                            @*<a class="addthis_counter addthis_pill_style " href="#" style="display: inline-block;"><a class="atc_s addthis_button_compact">Chia sẻ<span></span></a>
-                                                <a class="addthis_button_expanded" target="_blank" title="Thêm..." href="#"></a></a>*@
-                                            <div class="atclear"></div>
-                                        </div>
-                                        @*<script type="text/javascript" src="/scripts/addthis/addthis_widget.js#pubid=ra-5334d6387b03b532"></script>*@
-                                        <!-- AddThis Button END -->
-                                    </div>
-                                    <!-- ngRepeat: item in ProductOptions -->
-                                    <div class="quantity clearfix">
-                                        <label>Số lượng</label>
-                                        <div class="quantity-input">
-                                            <input type="number" value="@im.Quantity" class="text ng-pristine ng-untouched ng-valid">
-                                        </div>
-                                    </div>
-                                    <!-- ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) --><div class="action-cart ng-scope">
-                                        <a href="" class="productItem btn btn-default" data-name="@im.Name" data-s="@im.Picture01" data-usertrade="@im.UserID" data-price="@lstPrice.Price1" data-id="@im.ID"><i class="glyphicon glyphicon-shopping-cart"></i> Thêm giỏ hàng</a>
-                                        <a href="../Cart" class="btn btn-primary" ><i class="glyphicon glyphicon-ok"></i> Mua ngay</a>
-                                    </div><!-- end ngIf: IsTrackingInventory==false||AllowPurchaseWhenSoldOut==true || (IsTrackingInventory&&AllowPurchaseWhenSoldOut==false&&Quantity>0) -->
-                                    <!-- ngIf: IsTrackingInventory==true&&AllowPurchaseWhenSoldOut==false&&Quantity<=0 -->
-                                    <div class="call">
-                                        <p class="title">Để lại số điện thoại, chúng tôi sẽ tư vấn ngay sau từ 5 › 10 phút</p>
-                                        <div class="input">
-                                            <div class="input-group">
-                                                <input class="form-control ng-pristine ng-untouched ng-valid" onblur="if(this.value=='')this.value='Nhập số điện thoại...'" onfocus="if(this.value=='Nhập số điện thoại...')this.value=''" value="Nhập số điện thoại..." type="text">
-                                                <span class="input-group-btn">
-                                                    <button class="btn btn-primary" type="button"><i class="fa fa-phone"></i> Gọi lại cho tôi</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-tabs">
-                            <ul class="nav nav-tabs">
-                                <!-- ngRepeat: item in ProductTabs -->
-                                <li role="presentation" class="ng-scope active">
-                                    <a data-toggle="tab" href="#tab1" class="ng-binding">Chi tiết sản phẩm </a>
-                                </li><!-- end ngRepeat: item in ProductTabs -->
-                            </ul>
-                            <div class="tab-content">
-                                <!-- ngRepeat: item in ProductTabs --><div class="tab-pane fade in ng-scope active" id="tab1">
-                                    <div class="ng-binding">
-                                        <h3>Chi tiet</h3>
-                                        <p>@im.Description</p>
-                                        <h3>Phí vận chuyển &amp; thời gian nhận hàng</h3>
-
-                                        <p>- Thời&nbsp; gian giao sản phẩm :</p>
-
-                                        <p>+ Đối với khu vực TPHCM : 1 - 2 ngày làm việc.</p>
-
-                                        <p>+ Đối với các tỉnh thành khác : 3 - 7 ngày làm việc&nbsp;</p>
-
-                                        <p>- Hotline &nbsp;:&nbsp;<strong><span style="color:rgb(255, 0, 0)">0988.40.99.77</span></strong>&nbsp;(Đặt hàng 9h30 - 17h)</p>
-
-                                        <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="color:rgb(255, 0, 0)"><strong><span style="font-family:helvetica,arial,sans-serif">0938.679.247</span></strong></span>&nbsp;(Phản hồi 10h - 15h)</p>
-                                    </div>
-                                </div><!-- end ngRepeat: item in ProductTabs -->
-                            </div>
-                        </div>
-                        <!--End-->
-                        <div class="modal fade" id="modalMyCart" tabindex="-1" role="dialog" aria-labelledby="modalMyCartLabel" aria-hidden="true">
-                            <div class="modal-dialog  modal-lg">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                            ×
-                                        </button>
-                                        <h4 class="modal-title ng-binding" id="modalMyCartLabel">Bạn có  sản phẩm trong giỏ hàng.</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <table class="table" style="width:100%;">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>Tên sản phẩm</th>
-                                                    <th>Số lượng</th>
-                                                    <th>Giá tiền</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- ngRepeat: item in OrderDetails -->
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <div class="total-price-modal">
-                                                    Tổng cộng : <span class="item-total ng-binding">₫</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row margin-top-10">
-                                            <div class="col-lg-6">
-                                                <div class="comeback text-left">
-                                                    <a href="/san-pham.html">
-                                                        <i class="fa fa-chevron-circle-left "></i> Tiếp tục mua hàng
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 text-right">
-                                                <div class="buttons btn-modal-cart">
-                                                    <a class="btn btn-default" href="/thanh-toan.html">
-                                                        Đặt hàng
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="modalCallMe" tabindex="-1" role="dialog" aria-labelledby="modalCallMeLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-body">
-                                        <h2>Cám ơn Qúy Khách đã liên hệ đặt hàng</h2>
-                                        @*<p>sẽ gọi lại để tư vấn cho Quý khách hàng trong thời gian sớm nhất</p>*@
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">
-                                            OK
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="menu-product">
-                        <h3>
-                            <span>
-                                Sản phẩm
-                            </span>
-                        </h3>
-                        <ul class="level_0">
-                            <li class="child">
-                                <span><a class="active" href="/san-pham/thoi-trang-40412"><i class="fa fa-arrow-circle-right"></i> Thời trang</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
-                                    <li><span><a href="/san-pham/ao-so-mi-40422"><i class="fa fa-check"></i> Áo sơ mi</a></span></li>
-                                    <li><span><a href="/san-pham/ao-khoac-40423"><i class="fa fa-check"></i> Áo khoác</a></span></li>
-                                    <li><span><a href="/san-pham/ao-thun-40424"><i class="fa fa-check"></i> Áo thun</a></span></li>
-                                    <li><span><a href="/san-pham/quan-tay-cong-so-40425"><i class="fa fa-check"></i> Quần tây công sở</a></span></li>
-                                    <li><span><a href="/san-pham/quan-jean-40426"><i class="fa fa-check"></i> Quần jean</a></span></li>
-                                    <li><span><a href="/san-pham/dam-vay-nu-40427"><i class="fa fa-check"></i> Đầm, váy nữ</a></span></li>
-                                    <li><span><a href="/san-pham/chan-vay-40428"><i class="fa fa-check"></i> Chân váy</a></span></li>
-                                    <li><span><a href="/san-pham/quan-kaki-nam-40429"><i class="fa fa-check"></i> Quần kaki nam</a></span></li>
-                                    <li><span><a href="/san-pham/ao-vest-blazer-nam-40430"><i class="fa fa-check"></i> Áo vest, blazer nam</a></span></li>
-                                    <li><span><a href="/san-pham/quan-shorts-nam-40431"><i class="fa fa-check"></i> Quần shorts nam</a></span></li>
-                                    <li><span><a href="/san-pham/do-lot-do-ngu-40432"><i class="fa fa-check"></i> Đồ lót, đồ ngủ</a></span></li>
-                                    <li><span><a href="/san-pham/quan-thoi-trang-40433"><i class="fa fa-check"></i> Quần thời trang</a></span></li>
-                                    <li><span><a href="/san-pham/quan-legging-40434"><i class="fa fa-check"></i> Quần legging</a></span></li>
-                                    <li><span><a href="/san-pham/trang-phuc-cuoi-40435"><i class="fa fa-check"></i> Trang phục cưới</a></span></li>
-                                    <li><span><a href="/san-pham/do-boi-40436"><i class="fa fa-check"></i> Đồ bơi</a></span></li>
-                                    <li><span><a href="/san-pham/phu-kien-40437"><i class="fa fa-check"></i> Phụ kiện</a></span></li>
-                                </ul>
-                            </li>
-                            <li><span><a href="/san-pham/dien-thoai-ipad-40410"><i class="fa fa-arrow-circle-right"></i> Điện thoại &amp; Ipad</a></span></li>
-                            <li><span><a href="/san-pham/my-pham-40411"><i class="fa fa-arrow-circle-right"></i> Mỹ phẩm</a></span></li>
-                            <li class="child">
-                                <span><a href="/san-pham/the-thao-40397"><i class="fa fa-arrow-circle-right"></i> Thể thao</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
-                                    <li><span><a href="/san-pham/bong-da-40438"><i class="fa fa-check"></i> Bóng đá</a></span></li>
-                                    <li><span><a href="/san-pham/bong-chuyen-40439"><i class="fa fa-check"></i> Bòng chuyền</a></span></li>
-                                    <li><span><a href="/san-pham/bong-ban-40440"><i class="fa fa-check"></i> Bóng bàn</a></span></li>
-                                    <li><span><a href="/san-pham/bong-chay-40441"><i class="fa fa-check"></i> Bóng chày</a></span></li>
-                                    <li><span><a href="/san-pham/tennis-40442"><i class="fa fa-check"></i> Tennis</a></span></li>
-                                    <li><span><a href="/san-pham/boi-loi-40443"><i class="fa fa-check"></i> Bơi lội</a></span></li>
-                                    <li><span><a href="/san-pham/cau-long-40444"><i class="fa fa-check"></i> Cầu lông</a></span></li>
-                                    <li><span><a href="/san-pham/ao-the-thao-tap-gym-40445"><i class="fa fa-check"></i> Áo thể thao tập gym</a></span></li>
-                                    <li><span><a href="/san-pham/quan-tap-gym-40446"><i class="fa fa-check"></i> Quần tập gym</a></span></li>
-                                    <li><span><a href="/san-pham/may-tap-the-thao-40447"><i class="fa fa-check"></i> Máy tập thể thao</a></span></li>
-                                    <li><span><a href="/san-pham/giay-the-thao-40448"><i class="fa fa-check"></i> Giày thể thao</a></span></li>
-                                    <li><span><a href="/san-pham/mu-the-thao-40449"><i class="fa fa-check"></i> Mũ thể thao</a></span></li>
-                                    <li><span><a href="/san-pham/ao-khoac-the-thao-40450"><i class="fa fa-check"></i> Áo khoác thể thao</a></span></li>
-                                    <li><span><a href="/san-pham/ao-the-thao-40451"><i class="fa fa-check"></i> Áo thể thao</a></span></li>
-                                    <li><span><a href="/san-pham/tui-dung-do-40452"><i class="fa fa-check"></i> Túi đựng đồ</a></span></li>
-                                </ul>
-                            </li>
-                            <li><span><a href="/san-pham/me-va-be-40413"><i class="fa fa-arrow-circle-right"></i> Mẹ và bé</a></span></li>
-                            <li><span><a href="/san-pham/phu-kien-cong-nghe-40414"><i class="fa fa-arrow-circle-right"></i> Phụ kiện công nghệ</a></span></li>
-                            <li><span><a href="/san-pham/laptop-40415"><i class="fa fa-arrow-circle-right"></i> Laptop</a></span></li>
-                            <li class="child">
-                                <span><a href="/san-pham/trang-suc-40416"><i class="fa fa-arrow-circle-right"></i> Trang sức</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
-                                    <li><span><a href="/san-pham/trang-suc-cuoi-40485"><i class="fa fa-check"></i> Trang sức cưới</a></span></li>
-                                    <li><span><a href="/san-pham/trang-suc-vang-40486"><i class="fa fa-check"></i> Trang sức vàng</a></span></li>
-                                    <li><span><a href="/san-pham/trang-suc-kim-cuong-40487"><i class="fa fa-check"></i> Trang sức kim cương</a></span></li>
-                                    <li><span><a href="/san-pham/nhan-dinh-hon-40488"><i class="fa fa-check"></i> Nhẫn đính hôn</a></span></li>
-                                    <li><span><a href="/san-pham/mat-da-quy-40489"><i class="fa fa-check"></i> Mặt đá quý</a></span></li>
-                                    <li><span><a href="/san-pham/ngoc-trai-40490"><i class="fa fa-check"></i> Ngọc trai</a></span></li>
-                                    <li><span><a href="/san-pham/trang-suc-cz-40491"><i class="fa fa-check"></i> Trang sức CZ</a></span></li>
-                                    <li><span><a href="/san-pham/trang-suc-italy-40492"><i class="fa fa-check"></i> Trang sức Italy</a></span></li>
-                                    <li><span><a href="/san-pham/trang-suc-jemma-40493"><i class="fa fa-check"></i> Trang sức Jemma</a></span></li>
-                                    <li><span><a href="/san-pham/vong-tay-40494"><i class="fa fa-check"></i> Vòng tay</a></span></li>
-                                    <li><span><a href="/san-pham/vong-co-40495"><i class="fa fa-check"></i> Vòng cổ</a></span></li>
-                                    <li><span><a href="/san-pham/bong-tai-40496"><i class="fa fa-check"></i> Bông tai</a></span></li>
-                                    <li><span><a href="/san-pham/lac-tay-chan-40497"><i class="fa fa-check"></i> Lắc tay, chân</a></span></li>
-                                </ul>
-                            </li>
-                            <li class="child">
-                                <span><a href="/san-pham/dien-lanh-40418"><i class="fa fa-arrow-circle-right"></i> Điện lạnh</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
-                                    <li><span><a href="/san-pham/noi-com-dien-40453"><i class="fa fa-check"></i> Nồi cơm điện</a></span></li>
-                                    <li><span><a href="/san-pham/noi-ap-suat-40454"><i class="fa fa-check"></i> Nồi áp suất</a></span></li>
-                                    <li><span><a href="/san-pham/noi-da-nang-40455"><i class="fa fa-check"></i> Nồi đa năng</a></span></li>
-                                    <li><span><a href="/san-pham/bep-gas-40456"><i class="fa fa-check"></i> Bếp gas</a></span></li>
-                                    <li><span><a href="/san-pham/bep-dien-40457"><i class="fa fa-check"></i> Bếp điện</a></span></li>
-                                    <li><span><a href="/san-pham/lo-vi-song-40458"><i class="fa fa-check"></i> Lò vi sóng</a></span></li>
-                                    <li><span><a href="/san-pham/may-lanh-40459"><i class="fa fa-check"></i> Máy lạnh</a></span></li>
-                                    <li><span><a href="/san-pham/may-giat-40460"><i class="fa fa-check"></i> Máy giặt</a></span></li>
-                                    <li><span><a href="/san-pham/tu-lanh-40461"><i class="fa fa-check"></i> Tủ lạnh</a></span></li>
-                                    <li><span><a href="/san-pham/tu-dong-40462"><i class="fa fa-check"></i> Tủ đông</a></span></li>
-                                    <li><span><a href="/san-pham/may-loc-nuoc-40463"><i class="fa fa-check"></i> Máy lọc nước</a></span></li>
-                                    <li><span><a href="/san-pham/lau-dien-da-nang-40464"><i class="fa fa-check"></i> Lẩu điện đa năng</a></span></li>
-                                    <li><span><a href="/san-pham/may-xay-sinh-to-40465"><i class="fa fa-check"></i> Máy xay sinh tố</a></span></li>
-                                    <li><span><a href="/san-pham/may-ep-trai-cay-40466"><i class="fa fa-check"></i> Máy ép trái cây</a></span></li>
-                                    <li><span><a href="/san-pham/may-say-chen-40467"><i class="fa fa-check"></i> Máy sấy chén</a></span></li>
-                                    <li><span><a href="/san-pham/lo-nuong-vi-nuong-40468"><i class="fa fa-check"></i> Lò nướng, vĩ nướng</a></span></li>
-                                </ul>
-                            </li>
-                            <li class="child">
-                                <span><a href="/san-pham/noi-that-40419"><i class="fa fa-arrow-circle-right"></i> Nội thất</a></span><span class="open-close"><i class="fa fa-angle-down"></i></span><ul class="level_1 hidden-xs">
-                                    <li><span><a href="/san-pham/ghe-nhan-vien-40469"><i class="fa fa-check"></i> Ghế nhân viên</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-truong-phong-40470"><i class="fa fa-check"></i> Ghế trưởng phòng</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-giam-doc-40471"><i class="fa fa-check"></i> Ghế giám đốc</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-bang-cho-40472"><i class="fa fa-check"></i> Ghế băng chờ</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-phong-hop-40473"><i class="fa fa-check"></i> Ghế phòng họp</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-sofa-40474"><i class="fa fa-check"></i> Ghế sofa</a></span></li>
-                                    <li><span><a href="/san-pham/ghe-xep-ong-thep-40475"><i class="fa fa-check"></i> Ghế xếp, ống thép</a></span></li>
-                                    <li><span><a href="/san-pham/ban-giam-doc-40476"><i class="fa fa-check"></i> Bàn giám đốc</a></span></li>
-                                    <li><span><a href="/san-pham/ban-truong-phong-40477"><i class="fa fa-check"></i> Bàn trưởng phòng</a></span></li>
-                                    <li><span><a href="/san-pham/ban-nhan-vien-40478"><i class="fa fa-check"></i> Bàn nhân viên</a></span></li>
-                                    <li><span><a href="/san-pham/ban-tiep-tan-40479"><i class="fa fa-check"></i> Bàn tiếp tân</a></span></li>
-                                    <li><span><a href="/san-pham/ban-chan-sat-40480"><i class="fa fa-check"></i> Bàn chân sắt</a></span></li>
-                                    <li><span><a href="/san-pham/module-ban-lam-viec-40481"><i class="fa fa-check"></i> Module bàn làm việc</a></span></li>
-                                    <li><span><a href="/san-pham/ban-cao-cap-40482"><i class="fa fa-check"></i> Bàn cao cấp</a></span></li>
-                                    <li><span><a href="/san-pham/ban-ghe-hoa-phat-40483"><i class="fa fa-check"></i> Bàn ghế hòa phát</a></span></li>
-                                    <li><span><a href="/san-pham/ban-may-tinh-40484"><i class="fa fa-check"></i> Bàn máy tính</a></span></li>
-                                </ul>
-                            </li>
-                            <li><span><a href="/san-pham/may-anh-40421"><i class="fa fa-arrow-circle-right"></i> Máy ảnh</a></span></li>
-                        </ul>
+                <div class="details col-md-6">
+                    <h3 class="product-title">@Html.DisplayFor(model => model.Name)</h3>
+                    <h4 class="price">Giá: <span>@lstPrice VND</span> </h4>
+                    <hr style="height:1px; border-top-color: rgb(151, 172, 182); border-top-width: 1px; margin-top:-10px;">
+                    <div class="rating">
+                        <div class="stars">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                        <span class="review-no">41 reviews (DEMO)</span>
                     </div>
-                    <!--Begin-->
-                    <div class="box-sale-policy ng-scope">
-                        <h3><span>Chính sách bán hàng</span></h3>
-                        <div class="sale-policy-block">
-                            <ul>
-                                <li>Thanh toán khi <span>nhận hàng</span></li>
-                                <li>Chất lượng đảm bảo</li>
-                            </ul>
-                        </div>
-                        <div class="buy-guide">
-                            <h3>Hướng Dẫn Mua Hàng</h3>
-                            <ul>
-                                <li>
-                                    Mua hàng trực tiếp tại website
-                                    <b class="ng-binding"> http://www.trading.vanlanguni.vn</b>
-                                </li>
-                                <li>
-                                    Gọi điện thoại <strong class="ng-binding">
-                                        0185585935
-                                    </strong> để mua hàng
-                                </li>
-                                <li>
-                                    Mua sỉ/buôn xin gọi <strong class="ng-binding">
-                                        0185585935
-                                    </strong> để được
-                                    hỗ trợ.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--End-->
-                    <div id="left_column">
-                        <div class="block left-module">
-                            <p class="title_block">Sản phẩm Hot</p>
-                            <div class="block_content">
-                                <ul class="products-block best-sell">
-                                    <li class="clearfix">
-                                        <div class="products-block-left">
-                                            <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html"><img class="img-responsive" alt="Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung" src="~/Uploads/Product/p35_large.jpg"></a>
-                                        </div>
-                                        <div class="products-block-right">
-                                            <p class="product-name">
-                                                <a href="/san-pham/dam-body-ca-tinh-voi-nhieu-mau-sac-hien-dai-tre-trung.html">Đầm body cá tình với nhiều màu sắc hiện đại, trẻ trung</a>
-                                            </p>
-                                            <p class="product-price">
-                                                <span class="">620.000₫</span>
-                                                <span class="price old-price">400.000₫</span>
-                                            </p>
-                                            <p class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="products-block-left">
-                                            <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html"><img class="img-responsive" alt="Đầm maxi dự tiệc hoa hồng - NH028" src="~/Uploads/Product/p49_large.jpg"></a>
-                                        </div>
-                                        <div class="products-block-right">
-                                            <p class="product-name">
-                                                <a href="/san-pham/dam-maxi-du-tiec-hoa-hong-nh028.html">Đầm maxi dự tiệc hoa hồng - NH028</a>
-                                            </p>
-                                            <p class="product-price">
-                                                <span class="">240.000₫</span>
-                                                <span class="price old-price">190.000₫</span>
-                                            </p>
-                                            <p class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="products-block-left">
-                                            <a href="/san-pham/dam-body-lap-the-tay-dai.html"><img class="img-responsive" alt="Đầm body lập thể tay dài" src="~/Uploads/Product/p50_large.jpg"></a>
-                                        </div>
-                                        <div class="products-block-right">
-                                            <p class="product-name">
-                                                <a href="/san-pham/dam-body-lap-the-tay-dai.html">Đầm body lập thể tay dài</a>
-                                            </p>
-                                            <p class="product-price">
-                                                <span class="">560.000₫</span>
-                                                <span class="price old-price">310.000₫</span>
-                                            </p>
-                                            <p class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="products-block-left">
-                                            <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html"><img class="img-responsive" alt="Đầm mặc nhà tay lỡ NITIMO 2001" src="~/Uploads/Product/p51_large.jpg"></a>
-                                        </div>
-                                        <div class="products-block-right">
-                                            <p class="product-name">
-                                                <a href="/san-pham/dam-mac-nha-tay-lo-nitimo-2001.html">Đầm mặc nhà tay lỡ NITIMO 2001</a>
-                                            </p>
-                                            <p class="product-price">
-                                                <span class="">280.000₫</span>
-                                                <span class="price old-price">190.000₫</span>
-                                            </p>
-                                            <p class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="clearfix">
-                                        <div class="products-block-left">
-                                            <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html"><img class="img-responsive" alt="Đầm mặc nhà phối nơ xinh xắn Twins" src="~/Uploads/Product/p52_large.jpg"></a>
-                                        </div>
-                                        <div class="products-block-right">
-                                            <p class="product-name">
-                                                <a href="/san-pham/dam-mac-nha-phoi-no-xinh-xan-twins.html">Đầm mặc nhà phối nơ xinh xắn Twins</a>
-                                            </p>
-                                            <p class="product-price">
-                                                <span class="">0₫</span>
-                                            </p>
-                                            <p class="product-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star-half-o"></i>
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                    <hr style="height:1px; border-top-color: rgb(151, 172, 182); border-top-width: 1px;">
+                    <p class="product-description">@Html.DisplayFor(model => model.Description)</p>
+
+                    <p class="vote"><strong>48</strong> lượt xem! (DEMO)</p>
+                    <h5 class="sizes">
+                        sizes:
+                        <span class="size" data-toggle="tooltip" title="small">s</span>
+                        <span class="size" data-toggle="tooltip" title="medium">m</span>
+                        <span class="size" data-toggle="tooltip" title="large">l</span>
+                        <span class="size" data-toggle="tooltip" title="xtra large">xl</span>
+                    </h5>
+                    <h5 class="colors">
+                        colors:
+                        <span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
+                        <span class="color green"></span>
+                        <span class="color blue"></span>
+                    </h5>
+                    <div class="action">
+                        <button class="add-to-cart btn btn-default" type="button">add to cart</button>
+                        <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

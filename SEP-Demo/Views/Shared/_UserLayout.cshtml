@@ -45,21 +45,21 @@
                                 <li><i class="fa fa-phone"></i> <span>Hotline:0185585935</span></li>
                             </ul>
                             <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
-                                <li class="order-check"><a href="../Product/Cart"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
-                                <li class="order-cart"><a href="../Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                <li class="order-check"><a href="~/Product/Cart"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                <li class="order-cart"><a href="~/Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                 @if (Session["UserName"] == null)
                                 {
-                                    <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                                    <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+                                    <li class="account-login"><a href="~/Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                                    <li class="account-register"><a href="~/Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
 
                                 }
                                 else
                                 {
-                                    <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
-                                    <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
+                                    <li class="account-login"><a href="~/Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
+                                    <li class="account-register"><a href="~/Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
                                     if ((int)Session["RoleID"] == 2)
                                     {
-                                        <li><a href="../Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                        <li><a href="~/Service/Index"><i class="fa fa-list"></i>CMS </a></li>
                                     }
 
                                 }
@@ -72,10 +72,10 @@
                                     <div class="inner-toggle">
                                         <ul class="login links">
                                             <li>
-                                                <a href="../Account/SignUp"><i class="fa fa-sign-in"></i> Đăng ký</a>
+                                                <a href="~/Account/SignUp"><i class="fa fa-sign-in"></i> Đăng ký</a>
                                             </li>
                                             <li>
-                                                <a href="../Account/Login"><i class="fa fa-key"></i> Đăng nhập</a>
+                                                <a href="~/Account/Login"><i class="fa fa-key"></i> Đăng nhập</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -86,8 +86,8 @@
                                     </div>
                                     <div class="inner-toggle">
                                         <ul class="links">
-                                            <li><a id="mobile-wishlist-total" href="../Product/Cart" class="wishlist"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
-                                            <li><a href="../Product/Cart" class="shoppingcart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                            <li><a id="mobile-wishlist-total" href="~/Product/Cart" class="wishlist"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                            <li><a href="~/Product/Cart" class="shoppingcart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -125,18 +125,18 @@
                     <div class="col-xs-5 col-sm-2 group-button-header new-login">
                         @if (Session["ID"] == null)
                         {
-                            <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
+                            <a title="Đăng nhập" href="~/Account/Login" class="btn-heart"></a>
                             <div class="btn-cart" id="cart-block">
-                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <a title="My cart" href="~/Product/Cart">Giỏ hàng</a>
                                 <span class="text-show">Giỏ hàng</span>
                                 <span class="notify notify-right">0</span>
                             </div>
                         }
                         else
                         {
-                            <a title="Hồ Sơ" href="../Account/ViewProfile" class="btn-heart"></a>
+                            <a title="Hồ Sơ" href="~/Account/ViewProfile" class="btn-heart"></a>
                             <div class="btn-cart" id="cart-block">
-                                <a title="My cart" href="../Product/Cart">Giỏ hàng</a>
+                                <a title="My cart" href="~/Product/Cart">Giỏ hàng</a>
                                 <span class="text-show">Giỏ hàng</span>
                                 <span class="notify notify-right">0</span>
                             </div>
@@ -177,21 +177,21 @@
                                 <div class="vertical-menu-content is-home">
                                     <ul class="vertical-menu-list">
                                         <li class="has-child level0">
-                                            <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
+                                            <a class="dropdown-toggle has-category parent" href="~/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
                                         </li>
-                                        <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
-                                        <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
-                                        <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
+                                        <li class="level0"><a class="" href="~/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
+                                        <li class="level0"><a class="" href="~/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
+                                        <li class="level0"><a class="" href="~/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
                                         <li class="has-child level0">
-                                            <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
+                                            <a class="dropdown-toggle has-category parent" href="~/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
                                                 @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
                                             </ul>
                                         </li>
                                         <li class="has-child level0">
-                                            <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
+                                            <a class="dropdown-toggle has-category parent" href="~/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
                                         </li>
-                                        <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
-                                        <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
+                                        <li class="level0"><a class="" href="~/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
+                                        <li class="level0"><a class="" href="~/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -243,9 +243,9 @@
                                     <span>Xin chào, Khách!</span>
                                 </h3>
                                 <ul>
-                                    <li><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                                    <li><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
-                                    <li><a href="../Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
+                                    <li><a href="~/Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                    <li><a href="~/Account/SignUp"><i class="fa fa-key"></i> Đăng ký</a></li>
+                                    <li><a href="~/Account/ForgetPassword"><i class="fa fa-key"></i> Quên mật khẩu</a></li>
                                 </ul>
                             </div>
                         }
@@ -330,22 +330,22 @@
                                     <div class="introduce-title">Về chúng tôi</div>
                                     <ul class="introduce-list">
                                         <li class="item">
-                                            <a href="/gioi-thieu.html">
+                                            <a href="~/gioi-thieu.html">
                                                 Giới thiệu
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="/content/giao-hang-doi-tra.html">
+                                            <a href="~/content/giao-hang-doi-tra.html">
                                                 Giao hàng - Đổi trả
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="/content/chinh-sach-bao-mat.html">
+                                            <a href="~/content/chinh-sach-bao-mat.html">
                                                 Chính sách bảo mật
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="/lien-he.html">
+                                            <a href="~/lien-he.html">
                                                 Liên hệ
                                             </a>
                                         </li>
@@ -355,17 +355,17 @@
                                     <div class="introduce-title">Trợ giúp</div>
                                     <ul class="introduce-list">
                                         <li class="item">
-                                            <a href="/content/huong-dan-mua-hang.html">
+                                            <a href="~/content/huong-dan-mua-hang.html">
                                                 Hướng dẫn mua hàng
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="/content/huong-dan-thanh-toan.html">
+                                            <a href="~/content/huong-dan-thanh-toan.html">
                                                 Hướng dẫn thanh toán
                                             </a>
                                         </li>
                                         <li class="item">
-                                            <a href="/content/tai-khoan-giao-dich.html">
+                                            <a href="~/content/tai-khoan-giao-dich.html">
                                                 Tài khoản giao dịch
                                             </a>
                                         </li>

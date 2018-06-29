@@ -265,6 +265,7 @@
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
     <Content Include="Content\Product\bootstrap-table.css" />
+    <Content Include="Content\Product\detailProduct.css" />
     <Content Include="Content\Product\itemPerPage.css" />
     <Content Include="Content\Product\modalCreate.css" />
     <Content Include="Content\Product\reset.min.css" />
@@ -627,7 +628,9 @@
     <Content Include="Uploads\slider\banner_silder_3.jpg" />
     <Content Include="Uploads\slider\banner_silder_4.jpg" />
     <Content Include="Uploads\WebLOGO01.jpg" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -640,7 +643,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\DetailTest.cshtml" />
     <Content Include="Views\Shared\_DetailLayout.cshtml" />
     <Content Include="Views\Account\SignUp.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -675,10 +678,12 @@
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Product\CreatePartial.cshtml" />
+    <Content Include="Views\Product\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\ProductAvatar\" />
+    <Folder Include="Images\ProductDetails\" />
     <Folder Include="Images\UserAvatar\" />
   </ItemGroup>
   <ItemGroup>

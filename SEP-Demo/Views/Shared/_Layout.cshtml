@@ -555,21 +555,21 @@
                             <li><i class="fa fa-phone"></i> <span>Hotline:0185585935</span></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right topmenu  hidden-xs hidden-sm">
-                            <li class="order-check"><a href="../Product/Checkout"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
-                            <li class="order-cart"><a href="../Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                            <li class="order-check"><a href="~/Product/Checkout"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                            <li class="order-cart"><a href="~/Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 
 
                             @if (Session["UserName"] == null)
                             {
-                                <li class="account-login"><a href="../Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
-                                <li class="account-register"><a href="../Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
+                                <li class="account-login"><a href="~/Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
+                                <li class="account-register"><a href="~/Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
 
                             }
                             else
                             {
-                                <li class="account-login"><a href="../Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
-                                <li class="account-register"><a href="../Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
-                                <li><a href="../Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
+                                <li class="account-login"><a href="~/Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
+                                <li class="account-register"><a href="~/Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
+                                <li><a href="~/Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
                             }
                         </ul>
                         <div class="show-mobile hidden-lg hidden-md">
@@ -580,10 +580,10 @@
                                 <div class="inner-toggle">
                                     <ul class="login links">
                                         <li>
-                                            <a href="../Account/SignUp"><i class="fa fa-sign-in"></i> Đăng ký</a>
+                                            <a href="~/Account/SignUp"><i class="fa fa-sign-in"></i> Đăng ký</a>
                                         </li>
                                         <li>
-                                            <a href="../Account/Login"><i class="fa fa-key"></i> Đăng nhập</a>
+                                            <a href="~/Account/Login"><i class="fa fa-key"></i> Đăng nhập</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -594,8 +594,8 @@
                                 </div>
                                 <div class="inner-toggle">
                                     <ul class="links">
-                                        <li><a id="mobile-wishlist-total" href="../Product/Cart" class="wishlist"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
-                                        <li><a href="../Product/Cart" class="shoppingcart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+                                        <li><a id="mobile-wishlist-total" href="~/Product/Cart" class="wishlist"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                        <li><a href="~/Product/Cart" class="shoppingcart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -634,7 +634,7 @@
                     @if (Session["ID"] == null)
                     {
 
-                        <a title="Đăng nhập" href="../Account/Login" class="btn-heart"></a>
+                        <a title="Đăng nhập" href="~/Account/Login" class="btn-heart"></a>
                         <div class="btn-cart" id="cart-block">
                             <a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>
                             <span class="text-show">Giỏ hàng</span>
@@ -643,7 +643,7 @@
                     }
                     else
                     {
-                        <a title="Hồ Sơ" href="../Account/ViewProfile" class="btn-heart"></a>
+                        <a title="Hồ Sơ" href="~/Account/ViewProfile" class="btn-heart"></a>
                         <div class="btn-cart" id="cart-block">
                             <a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>
                             <span class="text-show">Giỏ hàng</span>
@@ -669,21 +669,21 @@
                             <div class="vertical-menu-content is-home">
                                 <ul class="vertical-menu-list">
                                     <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
+                                        <a class="dropdown-toggle has-category parent" href="~/san-pham/thoi-trang-40412"><img class="icon-menu" src="~/Uploads/icon/s5.png" alt="Thời trang"> <span>Thời trang</span></a><ul class="level1 drop-menu"></ul>
                                     </li>
-                                    <li class="level0"><a class="" href="/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
+                                    <li class="level0"><a class="" href="~/san-pham/dien-thoai-ipad-40410"><img class="icon-menu" src="~/Uploads/icon/s3.png" alt="Điện thoại &amp; Ipad"> <span>@*Điện thoại &amp; Ipad*@Phụ kiện công nghệ</span></a></li>
+                                    <li class="level0"><a class="" href="~/san-pham/laptop-40415"><img class="icon-menu" src="~/Uploads/icon/s8.png" alt="Laptop"> <span>Laptop</span></a></li>
+                                    <li class="level0"><a class="" href="~/san-pham/my-pham-40411"><img class="icon-menu" src="~/Uploads/icon/s4.png" alt="Mỹ phẩm"> <span>Mỹ phẩm</span></a></li>
                                     <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
-                                            @*<li class="level1"><a class="" href="/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
+                                        <a class="dropdown-toggle has-category parent" href="~/san-pham/trang-suc-40416"><img class="icon-menu" src="~/Uploads/icon/s9.png" alt="Trang sức"> <span>Trang sức</span></a><ul class="level1 drop-menu">
+                                            @*<li class="level1"><a class="" href="~/san-pham/trang-suc-cuoi-40485"><span>Trang sức cưới</span></a></li>*@
                                         </ul>
                                     </li>
                                     <li class="has-child level0">
-                                        <a class="dropdown-toggle has-category parent" href="/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
+                                        <a class="dropdown-toggle has-category parent" href="~/san-pham/the-thao-40397"><img class="icon-menu" src="~/Uploads/icon/s2.png" alt="Thể thao"> <span>Thể thao</span></a><ul class="level1 drop-menu"></ul>
                                     </li>
-                                    <li class="level0"><a class="" href="/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
-                                    <li class="level0"><a class="" href="/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
+                                    <li class="level0"><a class="" href="~/san-pham/me-va-be-40413"><img class="icon-menu" src="~/Uploads/icon/s6.png" alt="Mẹ và bé"> <span>Hàng tiêu dùng</span></a></li>
+                                    <li class="level0"><a class="" href="~/san-pham/phu-kien-cong-nghe-40414"><img class="icon-menu" src="~/Uploads/icon/s7.png" alt="Phụ kiện công nghệ"> <span>Hàng tươi sống</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -699,11 +699,11 @@
                                 </div>
                                 <div id="new-menu" class="navbar-collapse collapse">
                                     <ul class="menu t-menu nav">
-                                        <li class="level0 active"><a class="" href="../Home/Index"><span>Trang chủ</span></a></li>
-                                        <li class="level0"><a class="" href="../Home/AboutUS"><span>Giới thiệu</span></a></li>
-                                        <li class="level0"><a class="" href="/Product/Product"><span>Sản phẩm</span></a></li>
-                                        <li class="level0"><a class="" href="/tin-tuc.html"><span>Tin tức</span></a></li>
-                                        <li class="level0"><a class="" href="/lien-he.html"><span>Liên hệ</span></a></li>
+                                        <li class="level0 active"><a class="" href="~/Home/Index"><span>Trang chủ</span></a></li>
+                                        <li class="level0"><a class="" href="~/Home/AboutUS"><span>Giới thiệu</span></a></li>
+                                        <li class="level0"><a class="" href="~/Product/Product"><span>Sản phẩm</span></a></li>
+                                        <li class="level0"><a class="" href="~/tin-tuc.html"><span>Tin tức</span></a></li>
+                                        <li class="level0"><a class="" href="~/lien-he.html"><span>Liên hệ</span></a></li>
                                     </ul>
                                 </div><!--/.nav-collapse -->
                             </div>
@@ -713,7 +713,7 @@
                 <!-- CART ICON ON MMENU -->
                 @*<a title="My cart" data-toggle="modal" data-target="#cart">Giỏ hàng</a>*@
                 <div id="shopping-cart-box-ontop" style="display: block;" title="My cart" data-toggle="modal" data-target="#cart">
-                    <a @*href="/gio-hang.html"*@ data-toggle="modal" data-target="#cart"></a>
+                    <a @*href="~/gio-hang.html"*@ data-toggle="modal" data-target="#cart"></a>
                     <span class="icon-cart-ontop"></span>
                     <span style="color:#fff!important" class="items text-muted cart-items-count">0</span>
                     <span class="text">Giỏ hàng</span>
@@ -857,11 +857,11 @@
                                         <div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
+                                                    <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
+                                                        <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -870,18 +870,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
+                                                    <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
+                                                        <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -890,18 +890,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item active" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
+                                                    <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
+                                                        <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -910,18 +910,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
+                                                    <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
+                                                        <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -930,18 +930,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
+                                                    <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html"><img src="~/Uploads/New/blog1.jpg" alt="20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
+                                                        <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">20 bộ váy đẹp của các diễn viên từng đoạt giải Oscar</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -950,18 +950,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/20-bo-vay-dep-cua-cac-dien-vien-tung-doat-giai-oscar-10101.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
+                                                    <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html"><img src="~/Uploads/New/blog3.jpg" alt="Phối quần jeans cạp cao theo phong cách thập niên 1970"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
+                                                        <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Phối quần jeans cạp cao theo phong cách thập niên 1970</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -970,18 +970,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/phoi-quan-jeans-cap-cao-theo-phong-cach-thap-nien-1970-10100.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
+                                                    <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html"><img src="~/Uploads/New/blog4.jpg" alt="Diện váy xẻ cao quyến rũ như Miranda Kerr"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
+                                                        <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Diện váy xẻ cao quyến rũ như Miranda Kerr</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -990,18 +990,18 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/dien-vay-xe-cao-quyen-ru-nhu-miranda-kerr-10103.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
                                         </div><div class="owl-item cloned" style="width: 156px; margin-right: 30px;">
                                             <li>
                                                 <div class="post-thumb image-hover2">
-                                                    <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
+                                                    <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html"><img src="~/Uploads/New/blog2.jpg" alt="Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ"></a>
                                                 </div>
                                                 <div class="post-desc">
                                                     <h5 class="post-title">
-                                                        <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
+                                                        <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Những chiếc vòng cổ tạo đẳng cấp cho sao ngoại trên thảm đỏ</a>
                                                     </h5>
                                                     <div class="post-meta">
                                                         <span class="date">
@@ -1010,7 +1010,7 @@
                                                         <span class="comment">0<span> Bình luận</span></span>
                                                     </div>
                                                     <div class="readmore">
-                                                        <a href="/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
+                                                        <a href="~/tin-tuc/nhung-chiec-vong-co-tao-dang-cap-cho-sao-ngoai-tren-tham-do-10102.html">Xem thêm</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -1145,7 +1145,7 @@
                 <div id="introduce-box" class="row">
                     <div class="col-md-3">
                         <div id="address-box">
-                            <a href="/"><img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="logo"></a>
+                            <a href="~/"><img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="logo"></a>
                             <div id="address-list">
                                 <div class="tit-name">Địa chỉ:</div>
                                 <div class="tit-contain">1234/3443 đỗ dân lập</div>
@@ -1162,22 +1162,22 @@
                                 <div class="introduce-title">Về chúng tôi</div>
                                 <ul class="introduce-list">
                                     <li class="item">
-                                        <a href="/gioi-thieu.html">
+                                        <a href="~/gioi-thieu.html">
                                             Giới thiệu
                                         </a>
                                     </li>
                                     <li class="item">
-                                        <a href="/content/giao-hang-doi-tra.html">
+                                        <a href="~/content/giao-hang-doi-tra.html">
                                             Giao hàng - Đổi trả
                                         </a>
                                     </li>
                                     <li class="item">
-                                        <a href="/content/chinh-sach-bao-mat.html">
+                                        <a href="~/content/chinh-sach-bao-mat.html">
                                             Chính sách bảo mật
                                         </a>
                                     </li>
                                     <li class="item">
-                                        <a href="/lien-he.html">
+                                        <a href="~/lien-he.html">
                                             Liên hệ
                                         </a>
                                     </li>
@@ -1187,17 +1187,17 @@
                                 <div class="introduce-title">Trợ giúp</div>
                                 <ul class="introduce-list">
                                     <li class="item">
-                                        <a href="/content/huong-dan-mua-hang.html">
+                                        <a href="~/content/huong-dan-mua-hang.html">
                                             Hướng dẫn mua hàng
                                         </a>
                                     </li>
                                     <li class="item">
-                                        <a href="/content/huong-dan-thanh-toan.html">
+                                        <a href="~/content/huong-dan-thanh-toan.html">
                                             Hướng dẫn thanh toán
                                         </a>
                                     </li>
                                     <li class="item">
-                                        <a href="/content/tai-khoan-giao-dich.html">
+                                        <a href="~/content/tai-khoan-giao-dich.html">
                                             Tài khoản giao dịch
                                         </a>
                                     </li>
@@ -1244,7 +1244,7 @@
                         </table>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="~/Product/Cart" class="btn btn-primary">Proceed to checkout</a>
                     </div>
                 </div>
             </div>
