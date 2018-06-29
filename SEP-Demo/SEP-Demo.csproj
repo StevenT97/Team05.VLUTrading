@@ -160,77 +160,96 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Comment.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Extended\Users.cs" />
     <Compile Include="Models\Faculty.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Note.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderList.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OrderStatu.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Price.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductCategory.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductStatu.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rating.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\Role.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleDefine.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\VLUTradingDB.Context.cs">
+    <Compile Include="Models\VLUTradingDBEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.Context.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VLUTradingDB.cs">
+    <Compile Include="Models\VLUTradingDBEntities.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.tt</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\VLUTradingDB.Designer.cs">
+    <Compile Include="Models\VLUTradingDBEntities.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\fresh-bootstrap-table.css" />
+    <Content Include="assets\img\apple-icon.png" />
+    <Content Include="assets\img\cover.jpg" />
+    <Content Include="assets\img\faces\avatar.jpg" />
+    <Content Include="assets\img\faces\card-profile1-square.jpg" />
+    <Content Include="assets\img\faces\card-profile2-square.jpg" />
+    <Content Include="assets\img\faces\marc.jpg" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\mask.png" />
+    <Content Include="assets\img\new_logo.png" />
+    <Content Include="assets\img\sidebar-1.jpg" />
+    <Content Include="assets\img\sidebar-2.jpg" />
+    <Content Include="assets\img\sidebar-3.jpg" />
+    <Content Include="assets\img\sidebar-4.jpg" />
+    <Content Include="assets\js\bootstrap-table.js" />
+    <Content Include="assets\js\bootstrap.js" />
+    <Content Include="assets\js\jquery-1.11.2.min.js" />
     <Content Include="Content\Admin\demo.css" />
     <Content Include="Content\Admin\material-dashboard.css" />
     <Content Include="Content\Admin\material-dashboard.min.css" />
+    <Content Include="Content\Admin\paper-dashboard.min.css" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -245,6 +264,10 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
+    <Content Include="Content\Product\bootstrap-table.css" />
+    <Content Include="Content\Product\itemPerPage.css" />
+    <Content Include="Content\Product\modalCreate.css" />
+    <Content Include="Content\Product\reset.min.css" />
     <Content Include="Content\profileDashboard.css" />
     <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\reset.css" />
@@ -256,19 +279,20 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\VLUTradingDB.Context.tt">
+    <Content Include="Models\VLUTradingDBEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
-      <LastGenOutput>VLUTradingDB.Context.cs</LastGenOutput>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDBEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\VLUTradingDB.tt">
+    <Content Include="Models\VLUTradingDBEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
-      <LastGenOutput>VLUTradingDB.cs</LastGenOutput>
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
+      <LastGenOutput>VLUTradingDBEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\Admin\bootstrap-material-design.min.js" />
     <Content Include="Scripts\Admin\bootstrap-notify.js" />
     <Content Include="Scripts\Admin\chartist.min.js" />
+    <Content Include="Scripts\Admin\chartjs.min.js" />
     <Content Include="Scripts\Admin\demo.js" />
     <Content Include="Scripts\Admin\jquery.min.js" />
     <Content Include="Scripts\Admin\material-dashboard.js" />
@@ -292,13 +316,179 @@
     <Content Include="Content\Home\bootstrap.min.css.map" />
     <Content Include="Content\Admin\material-dashboard.css.map" />
     <Content Include="Scripts\Admin\material-dashboard.js.map" />
-    <EntityDeploy Include="Models\VLUTradingDB.edmx">
+    <Content Include="assets\scss\material-dashboard.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\bootstrap-grid.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\bootstrap-reboot.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\bootstrap.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_alert.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_background-variant.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_badge.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_border-radius.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_box-shadow.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_breakpoints.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_caret.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_clearfix.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_float.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_forms.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_gradients.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_grid-framework.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_grid.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_hover.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_image.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_list-group.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_lists.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_nav-divider.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_navbar-align.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_pagination.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_reset-text.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_resize.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_screen-reader.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_size.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_table-row.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_text-emphasis.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_text-hide.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_text-truncate.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_transition.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\mixins\_visibility.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_align.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_background.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_borders.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_clearfix.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_display.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_embed.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_flex.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_float.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_position.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_screenreaders.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_sizing.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_spacing.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_text.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\utilities\_visibility.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_alert.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_badge.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_breadcrumb.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_button-group.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_card.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_carousel.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_close.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_code.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_custom-forms.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_dropdown.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_forms.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_functions.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_grid.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_images.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_input-group.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_jumbotron.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_list-group.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_media.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_mixins.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_modal.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_nav.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_navbar.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_pagination.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_popover.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_print.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_progress.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_reboot.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_root.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_tables.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_tooltip.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_transitions.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_type.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_utilities.scss" />
+    <Content Include="assets\scss\material-dashboard\bootstrap\scss\_variables.scss" />
+    <Content Include="assets\scss\material-dashboard\cards\_card-plain.scss" />
+    <Content Include="assets\scss\material-dashboard\cards\_card-profile.scss" />
+    <Content Include="assets\scss\material-dashboard\cards\_card-stats.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_alert.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_animations.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_breakpoints.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_chartist.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_colored-shadows.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_drawer.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_forms.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_hover.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_layout.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_navbar-colors.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_navs.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_sidebar-color.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_transparency.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_type.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_utilities.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_variables.scss" />
+    <Content Include="assets\scss\material-dashboard\mixins\_vendor-prefixes.scss" />
+    <Content Include="assets\scss\material-dashboard\plugins\_animate.scss" />
+    <Content Include="assets\scss\material-dashboard\plugins\_chartist.scss" />
+    <Content Include="assets\scss\material-dashboard\plugins\_perfect-scrollbar.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_body.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_bootstrap-material-design-base.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_bootstrap-material-design.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_brand.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_card.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_code.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_colors-map.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_colors.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_custom-forms.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_drawer.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_dropdown.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_forms.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_layout.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_list-group.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_menu.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_modals.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_nav.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_pagination.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_shadow.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_snackbar.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_spacing.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_state.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_tables.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_tooltip.scss" />
+    <Content Include="assets\scss\material-dashboard\variables\_type.scss" />
+    <Content Include="assets\scss\material-dashboard\_alerts.scss" />
+    <Content Include="assets\scss\material-dashboard\_buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\_cards.scss" />
+    <Content Include="assets\scss\material-dashboard\_checkboxes.scss" />
+    <Content Include="assets\scss\material-dashboard\_core-bootstrap.scss" />
+    <Content Include="assets\scss\material-dashboard\_dropdown.scss" />
+    <Content Include="assets\scss\material-dashboard\_example-pages.scss" />
+    <Content Include="assets\scss\material-dashboard\_fixed-plugin.scss" />
+    <Content Include="assets\scss\material-dashboard\_footers.scss" />
+    <Content Include="assets\scss\material-dashboard\_forms.scss" />
+    <Content Include="assets\scss\material-dashboard\_headers.scss" />
+    <Content Include="assets\scss\material-dashboard\_images.scss" />
+    <Content Include="assets\scss\material-dashboard\_input-group.scss" />
+    <Content Include="assets\scss\material-dashboard\_misc.scss" />
+    <Content Include="assets\scss\material-dashboard\_mixins.scss" />
+    <Content Include="assets\scss\material-dashboard\_navbar.scss" />
+    <Content Include="assets\scss\material-dashboard\_popover.scss" />
+    <Content Include="assets\scss\material-dashboard\_popups.scss" />
+    <Content Include="assets\scss\material-dashboard\_radios.scss" />
+    <Content Include="assets\scss\material-dashboard\_responsive.scss" />
+    <Content Include="assets\scss\material-dashboard\_ripples.scss" />
+    <Content Include="assets\scss\material-dashboard\_sidebar-and-main-panel.scss" />
+    <Content Include="assets\scss\material-dashboard\_social-buttons.scss" />
+    <Content Include="assets\scss\material-dashboard\_tables.scss" />
+    <Content Include="assets\scss\material-dashboard\_tabs.scss" />
+    <Content Include="assets\scss\material-dashboard\_togglebutton.scss" />
+    <Content Include="assets\scss\material-dashboard\_tooltip.scss" />
+    <Content Include="assets\scss\material-dashboard\_type.scss" />
+    <Content Include="assets\scss\material-dashboard\_variables.scss" />
+    <Content Include="assets\css\.DS_Store" />
+    <Content Include="assets\js\.DS_Store" />
+    <EntityDeploy Include="Models\VLUTradingDBEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>VLUTradingDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>VLUTradingDBEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\VLUTradingDB.edmx.diagram">
-      <DependentUpon>VLUTradingDB.edmx</DependentUpon>
+    <Content Include="Models\VLUTradingDBEntities.edmx.diagram">
+      <DependentUpon>VLUTradingDBEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\Product\bootstrap.min.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fixheightproductv2.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -324,6 +514,9 @@
     <Content Include="Scripts\modernizr.min.js" />
     <Content Include="Scripts\mycard.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\Product\bootstrap-table.js" />
+    <Content Include="Scripts\Product\bootstrap3.min.js" />
+    <Content Include="Scripts\Product\uploadImage.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\select2.min.js" />
@@ -455,7 +648,7 @@
     <Content Include="Views\Home\AboutUS.cshtml" />
     <Content Include="Views\Product\Product.cshtml" />
     <Content Include="Views\Product\Cart.cshtml" />
-    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Admins\Dashboard.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Account\Registration.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
@@ -472,9 +665,21 @@
     <Content Include="Views\Shared\_CartLayout.cshtml" />
     <Content Include="Views\Product\History.cshtml" />
     <Content Include="Views\Home\HomeIndex.cshtml" />
+    <Content Include="Views\Admins\Icons.cshtml" />
+    <Content Include="Views\Admins\Map.cshtml" />
+    <Content Include="Views\Admins\Notifications.cshtml" />
+    <Content Include="Views\Admins\Tables.cshtml" />
+    <Content Include="Views\Admins\Typography.cshtml" />
+    <Content Include="Views\Admins\Update.cshtml" />
+    <Content Include="Views\Admins\User.cshtml" />
+    <Content Include="Views\Service\Index.cshtml" />
+    <Content Include="Views\Product\HistoryTrading.cshtml" />
+    <Content Include="Views\Product\CreatePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\ProductAvatar\" />
+    <Folder Include="Images\UserAvatar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

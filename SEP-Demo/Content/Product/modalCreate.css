@@ -18,7 +18,7 @@
     position: relative;
     left: 30px;
     top: auto;
-    bottom:180px;
+    vertical-align:middle;
 }
 
 .btn-file {
