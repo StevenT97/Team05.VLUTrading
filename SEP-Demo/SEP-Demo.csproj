@@ -684,6 +684,7 @@
     <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Product\CreatePartial.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
+    <Content Include="Views\Product\EditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

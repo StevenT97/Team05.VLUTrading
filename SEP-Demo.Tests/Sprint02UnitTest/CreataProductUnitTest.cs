@@ -31,7 +31,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
 
             //var httpContextMock = new Mock<HttpContextBase>();
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
             //var sut = new ProductController();
@@ -56,7 +56,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var actual = controller.Create(product, 12) as RedirectToRouteResult;
 
             // assert
-            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
+            file1Mock.Verify(x => x.SaveAs(@"D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\Images\ProductAvatar\1.jpg"));
 
             // Act
             // var redirectToRouteResult = controller.Create(product,12) as RedirectToRouteResult;
