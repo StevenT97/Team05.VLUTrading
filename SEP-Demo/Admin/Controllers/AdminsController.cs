@@ -303,9 +303,9 @@ namespace SEP_Demo.Admin.Controllers
         {
             return View();
         }
-        public ActionResult User()
-        {
-            return View();
-        }
+        //public ActionResult User()
+        //{
+        //    return View();
+        //}
     }
 }
