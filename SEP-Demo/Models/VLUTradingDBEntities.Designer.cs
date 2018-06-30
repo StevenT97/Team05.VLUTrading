@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\ngocs\OneDrive\Máy tính\Trading290618\SEP-Demo\Models\VLUTradingDBEntities.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\K21T_SEP\SEP_06302018\SEP-Demo\Models\VLUTradingDBEntities.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

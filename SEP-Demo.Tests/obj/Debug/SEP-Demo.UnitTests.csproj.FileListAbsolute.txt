@@ -845,3 +845,26 @@ C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo.Tests\bin\Debug\Micros
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.CSharp.xml
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo.Tests\bin\Debug\System.Collections.Immutable.xml
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo.Tests\bin\Debug\System.Reflection.Metadata.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Core.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Languages.ANTLRv3.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Languages.ExternalGenerators.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Objects.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.CSharp.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Paraiba.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Paraiba.Experiment.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\System.Collections.Immutable.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\System.Reflection.Metadata.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\System.Text.Encoding.CodePages.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\TreeDotNet.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Core.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Languages.ANTLRv3.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Languages.ExternalGenerators.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Code2Xml.Objects.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.CSharp.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\Microsoft.CodeAnalysis.CSharp.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\System.Collections.Immutable.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo.Tests\bin\Debug\System.Reflection.Metadata.xml
