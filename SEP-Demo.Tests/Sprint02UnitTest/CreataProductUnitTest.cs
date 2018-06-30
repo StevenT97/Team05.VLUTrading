@@ -26,16 +26,10 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var context = helper.MakeFakeContext();
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
-
-
-
-            //var httpContextMock = new Mock<HttpContextBase>();
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
-            //var sut = new ProductController();
-            //controller.ControllerContext = new ControllerContext(httpContextMock.Object, new RouteData(), controller);
 
             var file1Mock = new Mock<HttpPostedFileBase>();
             file1Mock.Setup(x => x.FileName).Returns("1.jpg");
@@ -54,12 +48,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
 
             // act
             var actual = controller.Create(product, 12) as RedirectToRouteResult;
-
-            // assert
             file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
-
-            // Act
-            // var redirectToRouteResult = controller.Create(product,12) as RedirectToRouteResult;
             // Assert
             Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
             Assert.AreEqual("Account", actual.RouteValues["controller"]);

@@ -177,49 +177,36 @@
             // Push the prepared data into localStorage
             console.log('Saving cart data...');
             localStorage.setItem("shoppingCart", JSON.stringify(shopcart));
-            //Ajax Save
 
+            //Ajax Save
             for (i = 0; i < localStorage.length; i++) {
                 var obj = localStorage.getItem(localStorage.key(i));
                 var Order = JSON.parse(obj);
-            }
-            console.log(Order);
-            //$.ajax({
-            //    type: "POST",
-            //    url: "Product/Cart",
-            //    dataType: "json",
-            //    contentType: "application/json; charset=utf-8",
-            //    data: JSON.stringify(Order),
-            //    complete: function () {
-            //        alert("Data Has Inserted");
-            //        localStorage.clear();
-            //        shopcart = [];
-            //        sessionStorage["sca"] = JSON.stringify(shopcart);
-            //        console.log('Cart data saved.');
-            //    },
-            //});
-            //
 
-            //var postdata = { Orders: Order };
+            }
+
+            console.log(Order);
+            $('#form').find('#Orders').val(JSON.stringify(Order));
             $.ajax({
                 type: "POST",
-                contentType: "application/json; charset=utf-8",
                 url: "Cart",
-                //dataType: "json",
-                data: JSON.stringify(Order),
-                success: function (data, status) {
-                    alert("Pass " + data);
-                },
-                error: function (ex) {
-                    alert("Fail "+ ex);
+                //contentType: "application/json; charset=utf-8",
+                data: "Orders=" + JSON.stringify(Order),
+                complete: function (data, status) {
+                    alert("Data Has Inserted");
+                    shopcart = [];
+                    sessionStorage["sca"] = JSON.stringify(shopcart);
                 }
             });
 
-            //localStorage.clear();
-            //shopcart = [];
-            //sessionStorage["sca"] = JSON.stringify(shopcart);
-            //alert("Data Has Inserted");
-            //return Order;
+            //    ,
+            //error: function (ex) {
+            //    alert("Fail " + ex);
+            //}
+
         };
     })
 </script>
+<form id="form">
+    <input type="hidden" id="Orders" name="Orders" />
+</form>
