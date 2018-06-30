@@ -377,7 +377,7 @@
     function auto_width_megamenu() {
         var full_width = parseInt($('.container').innerWidth());
         //full_width = $( document ).width();
-        var menu_width = parseInt($('.vertical-menu-content').actual('width'));
+        //var menu_width = parseInt($('.vertical-menu-content').actual('width'));
         $('.vertical-menu-content').find('.vertical-dropdown-menu').each(function () {
             $(this).width((full_width - menu_width) - 2);
         });

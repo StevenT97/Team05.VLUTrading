@@ -134,7 +134,6 @@ namespace SEP_Demo.Controllers
         [HttpPost]
         public ActionResult Create(Product P, int gia)
         {
-
             if (ModelState.IsValid)
             {
                 var path_Image = ImagesU(P).Trim();
@@ -185,6 +184,46 @@ namespace SEP_Demo.Controllers
             }
             return RedirectToAction("ViewProfile", "Account");
         }
+        public ActionResult Delete(int id)
+        {
+            Product delProduct = db.Products.Find(id);
+            if(delProduct != null)
+            {
+                
+                db.Products.Attach(delProduct);
+                var priceProduct = db.Prices.Where(m => m.ProductID == delProduct.ID).ToList();
+                if(priceProduct.Count() > 0)
+                {
+                    foreach(var item in priceProduct)
+                    {
+                        db.Prices.Remove(item);
+                    }
+                }
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+            db.Entry(delProduct).State = System.Data.Entity.EntityState.Deleted;
+            
+            db.SaveChanges();
+            return RedirectToAction("ViewProfile","Account", new { @id ="sanpham"});
+        }
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
+            Product currentP = db.Products.Find(id);
+            return PartialView("EditPartial");
+        }
+        [HttpPost]
+        public ActionResult Edit(Product P, int gia)
+        {
+            Product currentP = db.Products.Find(P.ID);
+
+            //If fail => change to RedirectToAction("ViewProfile","Account");
+            return RedirectToAction("Detail","Product");
+        }
         private string ImagesU(Product p)
         {
 
@@ -198,8 +237,8 @@ namespace SEP_Demo.Controllers
                 {
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
-                    filename = filename +  extension;
-                    b = "~/ProductAvatar/" + filename;
+                    filename = filename + DateTime.Now.ToString("yymmssff") + extension;
+                    b = "/Images/" + filename;
                     s = string.Concat(s, b, " ");
                     filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar"), filename);
                     file.SaveAs(filename);
@@ -217,8 +256,8 @@ namespace SEP_Demo.Controllers
             filename = Path.GetFileNameWithoutExtension(p.Image.FileName);
             extension = Path.GetExtension(p.Image.FileName);
             filename = filename + extension;
-            s = "~/ProductAvatar/" + filename;
-            filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar"), filename);
+            s = "/Images/ProductAvatar/" + filename;
+            filename = Path.Combine(Server.MapPath("~/ProductAvatar"), filename);
             p.Image.SaveAs(filename);
             return s;
         }

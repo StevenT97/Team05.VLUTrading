@@ -354,8 +354,8 @@
         <div class="tab-pane" id="sanpham">
 
             <!--Thuan's Code- Create New Product----------------------------------------->
-            <button type="button" onclick="Edit()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCreate">Tạo Sản Phẩm</button>
-            
+            <button type="button" onclick="Create()" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalCreate">Tạo Sản Phẩm</button>
+
 
             <div class="modal fade" id="myModalCreate" role="dialog">
                 <div class="modal-dialog" style="width:700px">
@@ -383,6 +383,21 @@
                             <h4 class="modal-title">Chi tiết sản phẩm</h4>
                         </div>
                         <div class="modal-body" id="myModalBodyDetail">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Thuan - Dialog for Edit Product with Product ID-->
+            <div class="modal fade" id="myModalEdit" role="dialog">
+                <div class="modal-dialog" style="width:auto; height:auto">
+
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Cập nhật sản phẩm</h4>
+                        </div>
+                        <div class="modal-body" id="myModalBodyEdit">
                         </div>
                     </div>
                 </div>
@@ -428,8 +443,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                   @foreach (var item in product)
-                   {
+                    @foreach (var item in product)
+            {
 
                 <tr>
 
@@ -450,14 +465,15 @@
                     </td>
                     <td>
                         @*@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-        @Html.ActionLink("Details", "Detail", new { htmlAttributes = new { @onclick = "Detail()"} } , new { id = item.Product.ID}) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })*@
-                        <button type="button" onclick="Detail(@item.ProductID)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalDetail">Details</button>
+                    @Html.ActionLink("Details", "Detail", new { htmlAttributes = new { @onclick = "Detail()"} } , new { id = item.Product.ID}) |*@
+                        <button type="button" onclick="Detail(@item.ProductID)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalDetail">Details</button> |
+                        <button type="button" onclick="Edit(@item.ProductID)" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModalEdit">Edit</button> |
+                        <button type="button" onclick="Delete(@item.ProductID)" class="btn btn-info btn-lg">Delete</button>
                     </td>
-        </tr>
-                   }
-        </tbody>
-        </table>
+                </tr>
+    }
+                </tbody>
+            </table>
 
 
 
@@ -540,7 +556,7 @@
 </div><!--/tab-content-->
 <!--Scripts for Create Product Dialog-->
 <script>
-    function Edit() {
+    function Create() {
         var url = "/Product/Create";
         $("#myModalBodyNote").load(url, function () {
             $("#myModalCreate").modal("show");
@@ -557,9 +573,26 @@
             $("#myModalDetail").modal("show");
         })
     }
+    function Delete(id) {
+        
+        var result = confirm("Are you want to delete this product?");
+        if (result) {
+            var url = "/Product/Delete/" + id;
+            document.location = url;
+        }
+    }
+    function Edit(id) {
+        var url = "/Product/Edit/" + id;
+        $("#myModalBodyEdit").load(url, function () {
+            $("#myModalEdit").modal("show");
+        })
+    }
 </script>
 <!--END Scripts for Detail Product Dialog-->
 <!--------------------------------------------->
+<!--Script for Confirm Delete Product-->
+
+<!-------------------------------->
 <script src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-b2a7b3fe212eaa732349046d8416e00a9dec26eb7fd347590fbced3ab38af52e.js"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
