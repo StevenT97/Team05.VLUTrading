@@ -50,10 +50,9 @@ namespace SEP_Demo.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Cart(List<string> Item)
+        public ActionResult Cart(List<string> Orders)
         {
-            if (ModelState.IsValid)
-            {
+            
                 var orderCode = "VLUTrading-" + DateTime.Now.Millisecond + 5;
                 int User_ID = (int)Session["ID"];
                 OrderList ordList = new OrderList();
@@ -63,16 +62,26 @@ namespace SEP_Demo.Controllers
 
                 db.OrderLists.Add(ordList);
                 Order ord = new Order();
-                var count = Item.Count();
-                for (int i = 0; i < count; i++)
-                {
-                    ord.OrderID = orderCode;
-                }
+            //var count = Item.Count();
+            //foreach(var item in Item)
+            //{
+            //    ord.OrderID = orderCode;
+            //    //ord.ProductID = item.
+            //}
+            //foreach (var item in Orders)
+            //{
+            //    item.
+            //}
 
                 db.SaveChanges();
 
-            }
-            return RedirectToAction("Index", "Home");
+            return Json("you cart:" + Orders.Count + " item .", JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Ajax(List<string> Orders)
+        {
+
+            return Json("you cart:" + Orders.Count  + " item .", JsonRequestBehavior.AllowGet);
         }
 
         //[HttpPost]
