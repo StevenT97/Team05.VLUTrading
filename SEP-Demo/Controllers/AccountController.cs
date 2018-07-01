@@ -154,6 +154,7 @@ namespace SEP_Demo.Controllers
             }
             return View();
         }
+
         public ActionResult LogOut()
         {
             //FormsAuthentication.SignOut();
@@ -161,6 +162,7 @@ namespace SEP_Demo.Controllers
 
             return RedirectToAction("HomeIndex", "Home");
         }
+
         public ActionResult ForgetPassword()
         {
             return View();

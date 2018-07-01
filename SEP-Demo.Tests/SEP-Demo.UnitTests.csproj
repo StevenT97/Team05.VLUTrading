@@ -250,9 +250,13 @@
     <Compile Include="MockHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sprint01UnitTest\SignUpUnitTesst.cs" />
+    <Compile Include="Sprint01UnitTest\ViewProfileUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\AdminControllerUnitTest.cs" />
     <Compile Include="Sprint02UnitTest\CartUnitTest.cs" />
     <Compile Include="Sprint02UnitTest\CreataProductUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\DeleteProductUnitTest.cs" />
     <Compile Include="Sprint02UnitTest\DetailProductUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\HomeControllerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

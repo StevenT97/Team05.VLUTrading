@@ -746,26 +746,18 @@
     <Content Include="Views\Shared\_UserLayout.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Admins\Create.cshtml" />
-    <Content Include="Views\Admins\Delete.cshtml" />
-    <Content Include="Views\Admins\Details.cshtml" />
-    <Content Include="Views\Admins\Edit.cshtml" />
-    <Content Include="Views\Admins\Index.cshtml" />
     <Content Include="Views\Account\ViewProfile.cshtml" />
     <Content Include="Views\Shared\_CartLayout.cshtml" />
     <Content Include="Views\Product\History.cshtml" />
     <Content Include="Views\Home\HomeIndex.cshtml" />
-    <Content Include="Views\Admins\Icons.cshtml" />
-    <Content Include="Views\Admins\Map.cshtml" />
-    <Content Include="Views\Admins\Notifications.cshtml" />
-    <Content Include="Views\Admins\Tables.cshtml" />
-    <Content Include="Views\Admins\Typography.cshtml" />
-    <Content Include="Views\Admins\Update.cshtml" />
+    <Content Include="Views\Admins\Listproduct.cshtml" />
     <Content Include="Views\Admins\User.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
-    <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Product\CreatePartial.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\EditPartial.cshtml" />
+    <Content Include="Views\Admins\HistoryTrading.cshtml" />
+    <Content Include="Views\Admins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

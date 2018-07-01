@@ -6,7 +6,7 @@
     //var product = db.Products.Where(p => p.UserID == sess);
     var product = db.Prices.Where(x => x.Product.UserID == sess && x.Status == true);
     //var price = db.Prices.Where(p => p.Status == true);
-    var productCate = db.ProductCategories.ToList();
+    var productCate = db.ProductCategories.ToList();    
     //
     ViewBag.Title = "ViewProfile";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -390,8 +390,6 @@
             <!-- Thuan - Dialog for Edit Product with Product ID-->
             <div class="modal fade" id="myModalEdit" role="dialog">
                 <div class="modal-dialog" style="width:auto; height:auto">
-
-
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>

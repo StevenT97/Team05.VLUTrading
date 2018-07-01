@@ -85,7 +85,7 @@ namespace SEP_Demo.Controllers
 
             //}
             return RedirectToAction("Index", "Home");
-            //return View();
+            //return View();    
         }   
         public class OrdersItem
         {
@@ -106,7 +106,25 @@ namespace SEP_Demo.Controllers
 
         public ActionResult History()
         {
-            return View();
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+        public ActionResult HistoryTrading()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
         //public JsonResult SaveCart(string[] cart)
@@ -127,7 +145,7 @@ namespace SEP_Demo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
+            //ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
             return PartialView("CreatePartial");
         }
 
@@ -257,7 +275,7 @@ namespace SEP_Demo.Controllers
             extension = Path.GetExtension(p.Image.FileName);
             filename = filename + extension;
             s = "/Images/ProductAvatar/" + filename;
-            filename = Path.Combine(Server.MapPath("~/ProductAvatar"), filename);
+            filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar"), filename);
             p.Image.SaveAs(filename);
             return s;
         }
