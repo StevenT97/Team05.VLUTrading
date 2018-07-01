@@ -30,19 +30,19 @@
         <div class="col-md-11">
             <h4>Bootstrap Snipp for Datatable</h4>
             @*<div class="modal fade" id="myModalDetail" role="dialog">
-                <div class="modal-dialog" style="width:auto; height:auto">
+                    <div class="modal-dialog" style="width:auto; height:auto">
 
 
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Chi tiết sản phẩm</h4>
-                        </div>
-                        <div class="modal-body" id="myModalBodyDetail">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Chi tiết sản phẩm</h4>
+                            </div>
+                            <div class="modal-body" id="myModalBodyDetail">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>*@
+                </div>*@
             <div class="table-responsive">
 
                 <table id="mytable" class="table table-bordred table-striped">
@@ -52,7 +52,16 @@
                     <th><input type="checkbox" id="checkall" /></th>
                     <th>Product Name</th>
                     <th>Description</th>
-                    <th>Status</th>
+                    <th>
+                        Status <select id='filterText' style='display:inline-block' onchange='filterText()'>
+                            <option disabled selected>Select</option>
+                            <option value='Activated'>Activated</option>
+                            <option value='Pending'>Pending</option>
+                            <option value='Blocked'>Blocked</option>
+                            <option value='NeedEdit'>NeedEdit</option>
+                            <option value='all'>All</option>
+                        </select>
+                    </th>
                     <th>Date Create</th>
                     <th>Detail</th>
                     <th>Active</th>
@@ -61,7 +70,7 @@
 
                         @foreach (var item in product)
                         {
-                            <tr>
+                            <tr class="content">
                                 <td><input type="checkbox" class="checkthis" /></td>
                                 <td>@item.Name</td>
                                 <td>@item.Description</td>
@@ -74,7 +83,7 @@
                     </tbody>
 
                 </table>
-                <div class="clearfix"></div>
+                @*<div class="clearfix"></div>
                 <ul class="pagination pull-right">
                     <li class="disabled"><a href="#"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
                     <li class="active"><a href="#">1</a></li>
@@ -83,7 +92,7 @@
                     <li><a href="#">4</a></li>
                     <li><a href="#">5</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
-                </ul>
+                </ul>*@
 
             </div>
 
@@ -92,72 +101,104 @@
 </div>
 
 
-    <div class="modal fade" id="myModalDetail" role="dialog">
-        <div class="modal-dialog" >
-            <div class="modal-content" style="height:600px;width:800px">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Chi tiết sản phẩm</h4>
-                </div>
-                <div class="modal-body" id="myModalBodyDetail">
-                </div>
+<div class="modal fade" id="myModalDetail" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content" style="height:600px;width:800px">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Chi tiết sản phẩm</h4>
             </div>
-            <!--- /.model content-->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
-
-
-
-    <div class="modal fade" id="active" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
-                    <h4 class="modal-title custom_align" id="Heading">Delete this entry</h4>
-                </div>
-                    <div class="modal-body" id="myModalBodyEdit">
-
-                       
-                    </div>
-                    
+            <div class="modal-body" id="myModalBodyDetail">
             </div>
-            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-dialog -->
+        <!--- /.model content-->
     </div>
+    <!-- /.modal-dialog -->
+</div>
 
-    <script>
-        $(document).ready(function () {
-            $("#mytable #checkall").click(function () {
-                if ($("#mytable #checkall").is(':checked')) {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", true);
-                    });
 
-                } else {
-                    $("#mytable input[type=checkbox]").each(function () {
-                        $(this).prop("checked", false);
-                    });
-                }
-            });
 
-            $("[data-toggle=tooltip]").tooltip();
+<div class="modal fade" id="active" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                <h4 class="modal-title custom_align" id="Heading">Change Status this entry</h4>
+            </div>
+            <div class="modal-body" id="myModalBodyEdit">
 
+
+            </div>
+
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap-table.js"></script>
+<script>
+    var $table = $('#mytable'),
+        full_screen = false;
+
+    $(document).ready(function () {
+        $("#mytable #checkall").click(function () {
+            if ($("#mytable #checkall").is(':checked')) {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", true);
+                });
+
+            } else {
+                $("#mytable input[type=checkbox]").each(function () {
+                    $(this).prop("checked", false);
+                });
+            }
         });
-    </script>
-    <script>
-        function Detail(id) {
-            var url = "../Product/Detail/" + id;
-            $("#myModalBodyDetail").load(url, function () {
-                $("#myModalDetail").modal("show");
-            })
+
+        $("[data-toggle=tooltip]").tooltip();
+        $table.bootstrapTable({
+           
+            showToggle: true,
+            showColumns: true,
+            pagination: true,
+            striped: true,
+            pageSize: 8,
+            pageList: [8, 10, 25, 50, 100],
+
+            formatShowingRows: function (pageFrom, pageTo, totalRows) {
+                //do nothing here, we don't want to show the text "showing x of y from..."
+            },
+            formatRecordsPerPage: function (pageNumber) {
+                return pageNumber + " rows visible";
+            }
+    });
+</script>
+<script>
+    function Detail(id) {
+        var url = "../Product/Detail/" + id;
+        $("#myModalBodyDetail").load(url, function () {
+            $("#myModalDetail").modal("show");
+        })
+    }
+    function Edit(id) {
+        var url = "../Admins/EditStatus/" + id;
+        $("#myModalBodyEdit").load(url, function () {
+            $("#active").modal("show");
+        })
+    }
+    function filterText() {
+        var rex = new RegExp($('#filterText').val());
+        if (rex == "/all/") { clearFilter() } else {
+            $('.content').hide();
+            $('.content').filter(function () {
+                return rex.test($(this).text());
+            }).show();
         }
-        function Edit(id) {
-            var url = "../Admins/EditStatus/" + id;
-            $("#myModalBodyEdit").load(url, function () {
-                $("#active").modal("show");
-            })
-        }
-    </script>
-    <script src="~/Scripts/Product/bootstrap3.min.js"></script>
+    }
+
+    function clearFilter() {
+        $('.filterText').val('');
+        $('.content').show();
+    }
+</script>
+<script src="~/Scripts/Product/bootstrap3.min.js"></script>
