@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SEP_Demo.Models.Users>
+﻿@model IEnumerable<SEP_Demo.Models.User>
 @using SEP_Demo.Models
 @{
     ViewBag.Title = "Index";
@@ -6,7 +6,7 @@
 }
 
 
-<div class="content" style="padding-top: 60px;">
+<div class="content" style="padding-top: 0px;">
     <p>
         <input type="button" value="Create New" class="buttonCreate btn btn-default" onclick="location.href='../Admins/Create'">
     </p>
@@ -136,7 +136,7 @@
                 '<i class="fa fa-remove"></i>',
                 '</a>'
             ].join('');
-        }
-
+    }
+    
 
 </script>

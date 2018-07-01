@@ -6,7 +6,7 @@
     //var product = db.Products.Where(p => p.UserID == sess);
     var product = db.Prices.Where(x => x.Product.UserID == sess && x.Status == true);
     //var price = db.Prices.Where(p => p.Status == true);
-    var productCate = db.ProductCategories.ToList();    
+    var productCate = db.ProductCategories.ToList();
     //
     ViewBag.Title = "ViewProfile";
     Layout = "~/Views/Shared/_UserLayout.cshtml";

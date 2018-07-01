@@ -84,22 +84,28 @@ namespace SEP_Demo.Controllers
 
         public ActionResult History()
         {
-            return View();
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        }
+        public ActionResult HistoryTrading()
+        {
+            if (Session["ID"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
         }
 
-        //public JsonResult SaveCart(string[] cart)
-        //{
-        //    var orderList = db.Orders;
-        //    foreach (var item in cart)
-        //    {
-        //        orderList.Add(item);
 
-        //    }
-
-        //    var message = "Success";
-
-        //    return message;
-        //}
         //Thuan Nguyen - Create New Product
 
         [HttpGet]

@@ -765,8 +765,9 @@
     <Content Include="Views\Product\CreatePartial.cshtml" />
     <Content Include="Views\Product\Detail.cshtml" />
     <Content Include="Views\Product\EditPartial.cshtml" />
-    <Content Include="Views\Admins\HistoryTrading.cshtml" />
+    <Content Include="Views\Product\HistoryTrading.cshtml" />
     <Content Include="Views\Admins\Index.cshtml" />
+    <Content Include="Views\Admins\EditStatusPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -38,33 +38,71 @@ namespace SEP_Demo.Admin.Controllers
         }
         public ActionResult Dashboard()
         {
-            var id = (int)Session["RoleID"];
-            if (id == 2 || id == 3)
+            if (Session["ID"] != null)
             {
-                return View();
+                var id = (int)Session["RoleID"];
+                if (id == 2 || id == 3)
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
                 return RedirectToAction("Login", "Account");
             }
+            
         }
 
         public ActionResult Listproduct()
         {
-            var id = (int)Session["RoleID"];
-            if (id ==2)
+            if (Session["ID"] != null)
             {
-                return View();
+                var id = (int)Session["RoleID"];
+                if (id == 2)
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
                 return RedirectToAction("Login", "Account");
             }
+            
         }
         public ActionResult Update()
         {
             return View();
         }
-       
+        [HttpGet]
+        public ActionResult EditStatus(int id)
+        {
+            var model = db.Products.Find(id);
+            ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
+            //Product currentP = db.Products.Find(id);
+            return PartialView("EditStatusPartial", model);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditStatus(Product Pr, int status)
+        {
+            Product currentP = db.Products.Find(Pr.ID);
+
+                    //Update new Infor
+                    currentP.StatusID = status;
+                    db.SaveChanges();
+              
+            //If fail => change to RedirectToAction("ViewProfile","Account");
+            return RedirectToAction("Listproduct", "Admins");
+        }
+
     }
 }
