@@ -105,7 +105,7 @@ namespace SEP_Demo.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
+            //ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
             return PartialView("CreatePartial");
         }
 
@@ -158,6 +158,7 @@ namespace SEP_Demo.Controllers
                 nPr.DateUpdate = DateTime.Now.Date;
                 db.Prices.Add(nPr);
                 db.SaveChanges();
+                
 
             }
             return RedirectToAction("ViewProfile", "Account");
@@ -185,22 +186,76 @@ namespace SEP_Demo.Controllers
             db.Entry(delProduct).State = System.Data.Entity.EntityState.Deleted;
             
             db.SaveChanges();
-            return RedirectToAction("ViewProfile","Account", new { @id ="sanpham"});
+            return RedirectToAction("ViewProfile","Account");
         }
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            var model = db.Products.Find(id);
             ViewBag.Category = new SelectList(db.ProductCategories, "ID", "Name");
-            Product currentP = db.Products.Find(id);
-            return PartialView("EditPartial");
+            //Product currentP = db.Products.Find(id);
+            return PartialView("EditPartial",model);
+            
         }
         [HttpPost]
-        public ActionResult Edit(Product P, int gia)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Product Pr,int gia)
         {
-            Product currentP = db.Products.Find(P.ID);
+            Product currentP = db.Products.Find(Pr.ID);
+            var prices = db.Prices.FirstOrDefault(x => x.ProductID == Pr.ID);
+            if (ModelState.IsValid)
+            {
+                if(currentP != null)
+                {
+                    var a = Pr.Image_Detail;
+                    
+                    if (Pr.Image_Detail != null)
+                    {
+                        var path_Image = ImagesU(Pr).Trim();
+                        var detail = path_Image.Split(' ');
+                        if (detail.Count() == 4)
+                        {
+                            currentP.Picture02 = detail[0];
+                            currentP.Picture03 = detail[1];
+                            currentP.Picture04 = detail[2];
+                            currentP.Picture05 = detail[3];
+                        }
+                        if (detail.Count() == 3)
+                        {
+                            currentP.Picture02 = detail[0];
+                            currentP.Picture03 = detail[1];
+                            currentP.Picture04 = detail[2];
+                        }
+                        if (detail.Count() == 2)
+                        {
+                            currentP.Picture02 = detail[0];
+                            currentP.Picture03 = detail[1];
+                        }
+                        if (detail.Count() == 1)
+                        {
+                            if (detail[0] != "")
+                            {
+                                currentP.Picture02 = detail[0];
+                            }
+                            
+                        }
 
+                    }
+                    //Update new Infor
+                    currentP.ID = Pr.ID;
+                    currentP.Picture01 = Pr.Picture01;
+                    currentP.Name = Pr.Name;
+                    currentP.CategoryID = Pr.CategoryID;
+                    currentP.Description = Pr.Description;
+                    currentP.Quantity = Pr.Quantity;
+                    //currentP.Picture01 = Images(Pr);
+                    currentP.StatusID = 4;
+                    prices.Price1 = gia;
+                    db.SaveChanges();
+                }
+            }
             //If fail => change to RedirectToAction("ViewProfile","Account");
-            return RedirectToAction("Detail","Product");
+            return RedirectToAction("ViewProfile","Account");
         }
         private string ImagesU(Product p)
         {
@@ -216,9 +271,9 @@ namespace SEP_Demo.Controllers
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
                     filename = filename  + extension;
-                    b = "~/Images/ProductAvatar" + filename;
+                    b = "/Images/ProductAvatar/" + filename;
                     s = string.Concat(s, b, " ");
-                    filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar"), filename);
+                    filename = Path.Combine(Server.MapPath("/Images/ProductAvatar/"), filename);
                     file.SaveAs(filename);
                 }
 
@@ -234,8 +289,8 @@ namespace SEP_Demo.Controllers
             filename = Path.GetFileNameWithoutExtension(p.Image.FileName);
             extension = Path.GetExtension(p.Image.FileName);
             filename = filename + extension;
-            s = "~/Images/ProductAvatar/" + filename;
-            filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar"), filename);
+            s = "/Images/ProductAvatar/" + filename;
+            filename = Path.Combine(Server.MapPath("/Images/ProductAvatar/"), filename);
             p.Image.SaveAs(filename);
             return s;
         }

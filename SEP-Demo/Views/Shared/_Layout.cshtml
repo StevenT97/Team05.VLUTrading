@@ -7,7 +7,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">*@
     <title>Shopping Cart </title>
     <!--Style CSS-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">*@
     <link href="~/Content/reset.css" rel="stylesheet" type="text/css" media="all" />
     <link href="~/Content/style.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
@@ -569,7 +569,10 @@
                             {
                                 <li class="account-login"><a href="~/Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
                                 <li class="account-register"><a href="~/Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
-                                <li><a href="~/Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
+                                if ((int)Session["RoleID"] == 2 || (int)Session["RoleID"] == 1)
+                                    {
+                                        <li><a href="~/Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                    }
                             }
                         </ul>
                         <div class="show-mobile hidden-lg hidden-md">
@@ -608,7 +611,7 @@
         <div class="container main-header">
             <div class="row">
                 <div class="col-xs-12 col-sm-3 logo">
-                    <a href="/" class="logo" title="Trading">
+                    <a href="~/Home/HomeIndex" class="logo" title="Trading">
                         @*<img src="~/Uploads/LogoSample_ByTailorBrands (2).jpg" alt="Trading" title="Trading">*@
                         <img src="https://preview.ibb.co/c0QQn8/Web_LOGO01.jpg" alt="VLUTrading" border="0" />
                     </a>

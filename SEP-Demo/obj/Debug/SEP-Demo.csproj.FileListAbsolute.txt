@@ -787,6 +787,7 @@ E:\K21T_SEP\SEP_06302018\SEP-Demo\obj\Debug\SEP-Demo.csproj.CoreCompileInputs.ca
 E:\K21T_SEP\SEP_06302018\SEP-Demo\obj\Debug\SEP-Demo.csproj.CopyComplete
 E:\K21T_SEP\SEP_06302018\SEP-Demo\obj\Debug\SEP-Demo.dll
 E:\K21T_SEP\SEP_06302018\SEP-Demo\obj\Debug\SEP-Demo.pdb
+D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.Mvc.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\ApplicationInsights.config
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\SEP-Demo.dll.config
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\SEP-Demo.dll
@@ -816,7 +817,6 @@ D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\EntityFramework.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\EntityFramework.SqlServer.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.Helpers.xml
-D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.Mvc.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.Optimization.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.Razor.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\System.Web.WebPages.xml
@@ -829,7 +829,6 @@ D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\Microsoft.AI.DependencyCol
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\Microsoft.AI.ServerTelemetryChannel.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\Microsoft.AI.WindowsServer.xml
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\bin\Microsoft.AI.Web.xml
-D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\obj\Debug\SEP-Demo.csprojResolveAssemblyReference.cache
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\obj\Debug\SEP-Demo.csproj.CoreCompileInputs.cache
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\obj\Debug\SEP-Demo.dll
 D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\obj\Debug\SEP-Demo.pdb

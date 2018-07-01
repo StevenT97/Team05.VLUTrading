@@ -1,12 +1,11 @@
 ﻿@model SEP_Demo.Models.Product
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit","Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
 <div class="form-horizontal">
-    <h4>Product</h4>
-    <hr />
+ 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
 
@@ -56,13 +55,9 @@
         <div class="col-md-10">
             <!--UPLOAD PRODUCT AVATAR-->
             <div class="input-group">
-                <input type="file" id="imgInp" name="Image" accept=".jpeg, .jpg, .png" required>
-                @*<span class="input-group-btn">
-                        <span class="btn btn-default btn-file">
 
-                        </span>
-                    </span>
-                    <input type="text" class="form-control" readonly>*@
+                <input type="file" id="imgInp" name="Image" accept=".jpeg, .jpg, .png">
+
             </div>
             <img id='img-upload' />
         </div>
@@ -113,11 +108,16 @@
                 @Html.ValidationMessageFor(model => model.DateCreate, "", new { @class = "text-danger" })
             </div>
         </div>*@
-
+    <div class="form-group">
+        <label class="control-label col-md-2">Số lượng:</label>
+        <div class="col-md-10">
+            <input type="number" name ="Quantity" class="form-control" value="@Model.Quantity.ToString()" required>
+        </div>
+    </div>
     <div class="form-group">
         <label class="control-label col-md-2">Giá:</label>
         <div class="col-md-10">
-            <input type="number" name="gia" class="form-control" required>
+            <input type="number" name="gia" class="form-control" value="@Model.Prices.FirstOrDefault(x => x.ProductID==Model.ID).Price1" required>
         </div>
     </div>
     @*<div class="form-group">

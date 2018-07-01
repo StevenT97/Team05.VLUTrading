@@ -11,97 +11,113 @@
     int j = 0;
 
 }
+<link href="~/Content/Home/ProductView.css" rel="stylesheet" />
+<link href="~/Content/Product/modalCreate.css" rel="stylesheet" />
+@*<link href="~/Content/Product/bootstrap.min.css" rel="stylesheet" />*@
+<!--JPList Core-->
+@*<link href="~/Content/Home/jplist.core.min.css" rel="stylesheet" media="all"/>*@
+<!--JPList Bundle-->
+@*<script src="~/Scripts/Home/jplist.pagination-bundle.min.js"></script>*@
+
+<!----------------------->
 
 
 <section class="product-content clearfix">
     <h1 class="title clearfix"><span>Sản phẩm</span></h1>
-    <nav class="navbar navbar-default product-filter">
-        <ul class="display">
-            <li id="grid" class="active grid"><a href="#" title="Grid"><i class="fa fa-th-large"></i></a></li>
-            <li id="list" class="list"><a href="#" title="List"><i class="fa fa-th-list"></i></a></li>
-        </ul>
-        <div class="limit">
-            <span>Sản phẩm/trang</span>
-            <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
-                <option value="?limit=10">10</option>
-                <option selected="selected" value="?limit=12">12</option>
-                <option value="?limit=20">20</option>
-                <option value="?limit=50">50</option>
-                <option value="?limit=100">100</option>
-                <option value="?limit=250">250</option>
-                <option value="?limit=500">500</option>
-            </select>
-        </div>
-        <div class="sort">
-            <span>Sắp xếp</span>
-            <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
-                <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
-                <option value="?sort=price&amp;order=asc">Giá tăng dần</option>
-                <option value="?sort=price&amp;order=desc">Giá giảm dần</option>
-                <option value="?sort=name&amp;order=asc">Tên sản phẩm: A to Z</option>
-                <option value="?sort=name&amp;order=desc">Tên sản phẩm: Z to A</option>
-            </select>
-        </div>
-    </nav>
-    <div >
-        <!-- content changes on each page -->
-
-        <div class="container">
-            @*<div class="row">*@
+    
+    <div>
+        <div class="container" id="containerGrid">
+            <div class="well well-sm">
+                <strong>Category Title</strong>
+                <div class="btn-group">
+                    <a href="#" id="list" class="btn btn-default btn-sm" style="background-color:#579992">
+                        <span class="glyphicon glyphicon-th-list">
+                        </span>List
+                    </a> <a href="#" id="grid" class="btn btn-default btn-sm" style="background-color:#579992">
+                        <span class="glyphicon glyphicon-th"></span>Grid
+                    </a>
+                </div>
+                <div class="limit" style="display:inline-block;position:static;vertical-align:middle;margin-left: 30px;margin-right: 40px;">
+                    <strong>Sản phẩm/trang</strong>
+                    <select id="lblimit" name="lblimit" class="nb_item" onchange="window.location.href = this.options[this.selectedIndex].value">
+                        <option value="?limit=10">10</option>
+                        <option selected="selected" value="?limit=12">12</option>
+                        <option value="?limit=20">20</option>
+                        <option value="?limit=50">50</option>
+                        <option value="?limit=100">100</option>
+                        <option value="?limit=250">250</option>
+                        <option value="?limit=500">500</option>
+                    </select>
+                </div>
+                            <div class="sort" style="display:inline-block;position:static;vertical-align:middle;margin-left: 30px;margin-right: 40px;">
+                    <strong>Sắp xếp</strong>
+                    <select class="selectProductSort" id="lbsort" onchange="window.location.href = this.options[this.selectedIndex].value">
+                        <option selected="selected" value="?sort=index&amp;order=asc">Mặc định</option>
+                        <option value="?sort=price&amp;order=asc">Giá tăng dần</option>
+                        <option value="?sort=price&amp;order=desc">Giá giảm dần</option>
+                        <option value="?sort=name&amp;order=asc">Tên sản phẩm: A to Z</option>
+                        <option value="?sort=name&amp;order=desc">Tên sản phẩm: Z to A</option>
+                    </select>
+            </div>
+            <div id="products" class="row list-group" style="margin-top:20px">
                 @foreach (var item in lstProduct)
-                {
-                    i++;
-                    var userName = lstUser.FirstOrDefault(t => t.Id == item.UserID);
-                    
-                        <div class="col-xs-2">
-                            <div class="card">
-                                @foreach (var price in lstPrice)
-                                {
-                                    if (price.ProductID == item.ID)
-                                    {
-                                        <div class="card-block">
-                                            <h3 class="card-title" ><a href="../Product/Detail/@item.ID">@item.Name</a></h3>
-                                            <h6 class="card-subtitle text-muted">@price.Price1</h6> <img href="../Product/Detail/@item.ID" src="@item.Picture01" class="img-fluid">
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="card-text">@item.Description</div>
-                                            <a href="#" class="card-link productItem btn btn-primary" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-username="@userName.FirstName @userName.LastName" data-price="@price.Price1" data-id="@item.ID">Add to Cart</a>
-                                        </div>
-                                    }
-                                }
-                            </div>
-                        </div>
-                }
-            @*</div>*@
-            @*<div class="row">
-                @foreach (var item in lstProduct)
-                {
-                    j++;
-
-                    if (j <= 8 && j > 4)
+            {
+                i++;
+                var userName = lstUser.FirstOrDefault(t => t.Id == item.UserID);
+                <div class="item  col-xs-4 col-lg-4">
+                    <div class="thumbnail">
+                        @foreach (var price in lstPrice)
                     {
-                        <div class="col-md-3">
-                            <div class="card">
-                                @foreach (var price in lstPrice)
-                                {
-                                    if (price.ProductID == item.ID)
-                                    {
-                                        <div class="card-block">
-                                            <h3 class="card-title" ><a href="../Product/Detail/@item.ID">@item.Name</a></h3>
-                                            <h6 class="card-subtitle text-muted">@price.Price1</h6> <img href="../Product/Detail/@item.ID" src="@item.Picture01" class="img-fluid">
-                                        </div>
-                                        <div class="card-block">
-                                            <div class="card-text">@item.Description</div>
-                                            <a href="#" class="card-link productItem btn btn-primary" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-price="@price.Price1" data-id="@item.ID">Add to Cart</a>
-                                        </div>
-                                    }
-                                }
+                        if (price.ProductID == item.ID)
+                        {
+                            <img class="group list-group-image" href="../Product/Detail/@item.ID" src="@item.Picture01" alt="" style="width:400px;height:205px" onerror="this.src ='../Uploads/Product/No-Image-back.jpg'" />
+                            <div class="caption">
+                                <h4 class="group inner list-group-item-heading">
+                                    @*<a href="../Product/Detail/@item.ID" >@item.Name</a>*@
+                                    @*<a onclick="Detail(@item.ID)" class="braise" data-toggle="modal" data-target="#myModalDetail">@item.Name</a>*@
+                                    <button type="button" onclick="Detail(@item.ID)" class="braise" data-toggle="modal" data-target="#myModalDetail" style="color:#0094ff">@item.Name</button>
+
+                                </h4>
+                                <p class="group inner list-group-item-text">
+                                    @item.Description
+                                </p>
+                                <div class="row">
+                                    <div class="col-xs-12 col-md-6">
+                                        <p class="lead">
+                                            @price.Price1 VND
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-12 col-md-6">
+
+                                        <a href="#" class="card-link productItem btn btn-primary" data-name="@item.Name" data-s="@item.Picture01" data-usertrade="@item.UserID" data-username="@userName.FirstName @userName.LastName" data-price="@price.Price1" data-id="@item.ID">Add to Cart</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
                     }
                 }
-            </div>*@
+                    </div>
+                </div>
+
+        }
+            </div>
         </div>
+        <!--Thuan - Dialog for Details Product with Product ID-->
+        <div class="modal fade" id="myModalDetail" role="dialog">
+            <div class="modal-dialog" style="width:auto; height:auto">
+
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Chi tiết sản phẩm</h4>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDetail">
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="navigation">
             <ul class="pagination">
                 <li>
@@ -125,5 +141,67 @@
             </ul>
         </div>
     </div>
-    
+        </div>
 </section>
+<script>
+    $(document).ready(function () {
+        $('#list').click(function (event) { event.preventDefault(); $('#products .item').addClass('list-group-item'); });
+        $('#grid').click(function (event) { event.preventDefault(); $('#products .item').removeClass('list-group-item'); $('#products .item').addClass('grid-group-item'); });
+    });
+</script>
+<!--Script for Item per page-->
+@*<script src="~/Scripts/Home/jplist.core-ajax.min.js"></script>*@
+@*<script>
+    $('document').ready(function () {
+        $('#demo').jplist({
+            itemsBox: '.list'
+            , itemPath: '.list-item'
+            , panelPath: '.jplist-panel'
+        });
+
+    });
+</script>*@
+<!------------------------->
+<!---Script for Detail Product Dialog-->
+<script>
+    function setModalMaxHeight(element) {
+        this.$element = $(element);
+        this.$content = this.$element.find('.modal-content');
+        var borderWidth = this.$content.outerHeight() - this.$content.innerHeight();
+        var dialogMargin = $(window).width() < 768 ? 20 : 60;
+        var contentHeight = $(window).height() - (dialogMargin + borderWidth);
+        var headerHeight = this.$element.find('.modal-header').outerHeight() || 0;
+        var footerHeight = this.$element.find('.modal-footer').outerHeight() || 0;
+        var maxHeight = contentHeight - (headerHeight + footerHeight);
+
+        this.$content.css({
+            'overflow': 'hidden'
+        });
+
+        this.$element
+            .find('.modal-body').css({
+                'max-height': maxHeight,
+                'overflow-y': 'auto'
+            });
+    }
+
+    $('.modal').on('show.bs.modal', function () {
+        $(this).show();
+        setModalMaxHeight(this);
+    });
+
+    $(window).resize(function () {
+        if ($('.modal.in').length != 0) {
+            setModalMaxHeight($('.modal.in'));
+        }
+    });
+</script>
+<script>
+    function Detail(id) {
+        var url = "../Product/Detail/" + id;
+        $("#myModalBodyDetail").load(url, function () {
+            $("#myModalDetail").modal("show");
+        })
+    }
+</script>
+<!--------------------->

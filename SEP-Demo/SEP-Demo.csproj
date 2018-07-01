@@ -262,6 +262,8 @@
     <Content Include="Content\Home\bootstrap.css" />
     <Content Include="Content\Home\bootstrap.min.css" />
     <Content Include="Content\Home\Home.css" />
+    <Content Include="Content\Home\jplist.core.min.css" />
+    <Content Include="Content\Home\ProductView.css" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery.fancybox.css" />
     <Content Include="Content\jquerybxslider.css" />
@@ -492,6 +494,8 @@
     </Content>
     <Content Include="Content\Product\bootstrap.min.css" />
     <Content Include="Scripts\fixheightproductv2.js" />
+    <Content Include="Scripts\Home\jplist.core-ajax.min.js" />
+    <Content Include="Scripts\Home\jplist.pagination-bundle.min.js" />
     <Content Include="Scripts\html5shiv.js" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -584,6 +588,11 @@
     <Content Include="Uploads\icon\scroll.png" />
     <Content Include="Uploads\icon\user.png" />
     <Content Include="Uploads\logopage.png" />
+    <Content Include="Uploads\Product\No-Image-back.jpg" />
+    <Content Include="Uploads\Product\No-image-back.png" />
+    <Content Include="Uploads\Product\no-image-icon.png" />
+    <Content Include="Uploads\Product\No-image.png" />
+    <Content Include="Uploads\Product\No-image.svg" />
     <Content Include="Uploads\vanlangunilogodarkblue.png" />
     <Content Include="Uploads\logo-trading.jpg" />
     <Content Include="Uploads\logo.png" />
