@@ -52,15 +52,25 @@
 
                                 @if (Session["UserName"] == null)
                                 {
+
+                                    <li class="order-cart"><a href="~/Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                     <li class="account-login"><a href="~/Account/Login"><i class="fa fa-sign-in"></i> Đăng nhập </a></li>
                                     <li class="account-register"><a href="~/Account/SignUp"><i class="fa fa-key"></i> Đăng ký </a></li>
 
                                 }
                                 else
                                 {
+                                    <li class="order-check"><a href="~/Product/HistoryTrading"><i class="fa fa-pencil-square-o"></i> Kiểm tra đơn hàng</a></li>
+                                    <li class="order-check"><a href="~/Product/History"><i class="fa fa-pencil-square-o"></i> Lịch sử đơn hàng</a></li>
+                                    <li class="order-cart"><a href="~/Product/Cart"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
                                     <li class="account-login"><a href="~/Account/ChangePassword"><i class="fa fa-sign-in"></i> Thay đổi mật khẩu </a></li>
-                                    <li class="account-register"><a href="~/Account/LogOut"><i class="fa fa-key"></i> Đăng xuất </a></li>
-                                    <li><a href="~/Service/Index"><i class="fa fa-list"></i>CMS </a></li>
+                                    <li class="account-register"><a href="~/Account/LogOut"><i class="fa fa-key"></i>@Session["UserName"]| Đăng xuất </a></li>
+
+                                    if ((int)Session["RoleID"] == 2)
+                                    {
+                                        <li><a href="~/Admins/Dashboard"><i class="fa fa-list"></i>CMS </a></li>
+                                    }
+
                                 }
                             </ul>
                             <div class="show-mobile hidden-lg hidden-md">
@@ -426,7 +436,7 @@
                     </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="~/Cart" class="btn btn-primary" >Proceed to checkout</a>
+                    <button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-top: 15px;">Continue Shopping</button><a href="~/Cart" class="btn btn-primary">Proceed to checkout</a>
                 </div>
             </div>
         </div>

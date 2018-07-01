@@ -17,26 +17,32 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
     public class CreataProductUnitTest
     {
         [TestMethod]
-        public void CreateProduct_Success()
+        public void View_CreateProduct()
         {
             // Arrange
-
-
             var helper = new MockHelper();
             var context = helper.MakeFakeContext();
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
-
-
-            //var httpContextMock = new Mock<HttpContextBase>();
+            // Act
+            var result = controller.Create() as ViewResult;
+            // Assert
+            Assert.AreEqual("CreatePartial", result.ViewName);
+        }
+        [TestMethod]
+        public void CreateProduct_Success()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
-            //var sut = new ProductController();
-            //controller.ControllerContext = new ControllerContext(httpContextMock.Object, new RouteData(), controller);
-
+            
             var file1Mock = new Mock<HttpPostedFileBase>();
             file1Mock.Setup(x => x.FileName).Returns("1.jpg");
 
@@ -54,16 +60,172 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
 
             // act
             var actual = controller.Create(product, 12) as RedirectToRouteResult;
-
-            // assert
-            file1Mock.Verify(x => x.SaveAs(@"D:\CMU\SEP\Sprint 02\Coding\ThuanCoding2\SEP-Demo\Images\ProductAvatar\1.jpg"));
-
-            // Act
-            // var redirectToRouteResult = controller.Create(product,12) as RedirectToRouteResult;
+            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
             // Assert
             Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
             Assert.AreEqual("Account", actual.RouteValues["controller"]);
         }
+        [TestMethod]
+        public void CreateProduct_Success_withTowPicture()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            var serverMock = new Mock<HttpServerUtilityBase>();
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
+            context.Setup(x => x.Server).Returns(serverMock.Object);
+
+            var file1Mock = new Mock<HttpPostedFileBase>();
+            var file2Mock = new Mock<HttpPostedFileBase>();
+            file1Mock.Setup(x => x.FileName).Returns("1.jpg");
+            file2Mock.Setup(x => x.FileName).Returns("2.jpg");
+
+            var image = new[] { file1Mock.Object, file2Mock.Object };
+            var image1 = file1Mock.Object;
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            var product = new Product
+            {
+                Name = "deplao1",
+                CategoryID = 4,
+                Description = "son ",
+                Image_Detail = image,
+                Image = image1
+            };
+
+            // act
+            var actual = controller.Create(product, 12) as RedirectToRouteResult;
+            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
+            // Assert
+            Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
+            Assert.AreEqual("Account", actual.RouteValues["controller"]);
+        }
+        [TestMethod]
+        public void CreateProduct_Success_withThreePicture()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            var serverMock = new Mock<HttpServerUtilityBase>();
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+
+            context.Setup(x => x.Server).Returns(serverMock.Object);
+
+            var file1Mock = new Mock<HttpPostedFileBase>();
+            var file2Mock = new Mock<HttpPostedFileBase>();
+            var file3Mock = new Mock<HttpPostedFileBase>();
+            file1Mock.Setup(x => x.FileName).Returns("1.jpg");
+            file2Mock.Setup(x => x.FileName).Returns("2.jpg");
+            file3Mock.Setup(x => x.FileName).Returns("3.jpg");
+
+            var image = new[] { file1Mock.Object, file2Mock.Object, file3Mock.Object };
+            var image1 = file1Mock.Object;
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            var product = new Product
+            {
+                Name = "deplao1",
+                CategoryID = 4,
+                Description = "son ",
+                Image_Detail = image,
+                Image = image1
+            };
+
+            // act
+            var actual = controller.Create(product, 12) as RedirectToRouteResult;
+            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
+            // Assert
+            Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
+            Assert.AreEqual("Account", actual.RouteValues["controller"]);
+        }
+        [TestMethod]
+        public void CreateProduct_Success_withFuorPicture()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            var serverMock = new Mock<HttpServerUtilityBase>();
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+
+            context.Setup(x => x.Server).Returns(serverMock.Object);
+
+            var file1Mock = new Mock<HttpPostedFileBase>();
+            var file2Mock = new Mock<HttpPostedFileBase>();
+            var file3Mock = new Mock<HttpPostedFileBase>();
+            var file4Mock = new Mock<HttpPostedFileBase>();
+
+            file1Mock.Setup(x => x.FileName).Returns("1.jpg");
+            file2Mock.Setup(x => x.FileName).Returns("2.jpg");
+            file3Mock.Setup(x => x.FileName).Returns("3.jpg");
+            file4Mock.Setup(x => x.FileName).Returns("4.jpg");
+
+            var image = new[] { file1Mock.Object, file2Mock.Object, file3Mock.Object, file4Mock.Object };
+            var image1 = file1Mock.Object;
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            var product = new Product
+            {
+                Name = "deplao1",
+                CategoryID = 4,
+                Description = "son ",
+                Image_Detail = image,
+                Image = image1
+            };
+
+            // act
+            var actual = controller.Create(product, 12) as RedirectToRouteResult;
+            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
+            // Assert
+            Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
+            Assert.AreEqual("Account", actual.RouteValues["controller"]);
+        }
+        [TestMethod]
+        public void CreateProduct_Success_withFivePicture()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            var serverMock = new Mock<HttpServerUtilityBase>();
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+
+            context.Setup(x => x.Server).Returns(serverMock.Object);
+
+            var file1Mock = new Mock<HttpPostedFileBase>();
+            var file2Mock = new Mock<HttpPostedFileBase>();
+            var file3Mock = new Mock<HttpPostedFileBase>();
+            var file4Mock = new Mock<HttpPostedFileBase>();
+            var file5Mock = new Mock<HttpPostedFileBase>();
+
+            file1Mock.Setup(x => x.FileName).Returns("1.jpg");
+            file2Mock.Setup(x => x.FileName).Returns("2.jpg");
+            file3Mock.Setup(x => x.FileName).Returns("3.jpg");
+            file4Mock.Setup(x => x.FileName).Returns("4.jpg");
+            file5Mock.Setup(x => x.FileName).Returns("4.jpg");
+
+            var image = new[] { file1Mock.Object, file2Mock.Object, file3Mock.Object, file4Mock.Object, file5Mock.Object };
+            var image1 = file1Mock.Object;
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            var product = new Product
+            {
+                Name = "deplao1",
+                CategoryID = 4,
+                Description = "son ",
+                Image_Detail = image,
+                Image = image1
+            };
+
+            // act
+            var actual = controller.Create(product, 12) as RedirectToRouteResult;
+            file1Mock.Verify(x => x.SaveAs(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar\1.jpg"));
+            // Assert
+            Assert.AreEqual("ViewProfile", actual.RouteValues["Action"]);
+            Assert.AreEqual("Account", actual.RouteValues["controller"]);
+        }
     }
 }

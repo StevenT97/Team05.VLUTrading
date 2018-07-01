@@ -20,7 +20,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             // Arrange
             ProductController controller = new ProductController();
             // Act
-            ViewResult result = controller.Detail(1) as ViewResult;
+            ViewResult result = controller.Detail(2) as ViewResult;
             // Assert
             Assert.IsNotNull(result);
         }

@@ -54,9 +54,9 @@
     <div class="div2 absolute">
         <nav class="animated fadeInDown">
             <a href=""><img src="~/Uploads/logopage.png" style="width:90px; height: 40px;" class="logo" /></a>
-            <a class="link-3" href="~/Home/HomeIndex">Trang chủ</a>
-            <a class="link-3" href="">Giới thiệu</a>
-            <a class="link-3" href="">Liên hệ</a>
+            <a class="link-3" href="~/Home/Index">Trang chủ</a>
+            <a class="link-3" href="~/Home/AboutUS">Giới thiệu</a>
+            <a class="link-3" href="~/Home/Contact">Liên hệ</a>
             <a class="link-3" href="~/Account/Login">Đăng nhập</a>
 
             @if (Session["EmailID"] != null)
@@ -70,11 +70,11 @@
             else if ((int)(Session["RoleID"]) == 2)
             {
             <a class="link-3" href="~/Admins/Index">Quản trị</a>
-            <a class="link-3" href="~/Account/Logout">Đăng tin</a>
+            <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
             }
             else if ((int)(Session["RoleID"]) == 3)
             {
-            <a class="link-3" href="~/Account/Logout">Đăng tin</a>
+            <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
             <a class="link-3" href="~/Account/Logout">Đăng xuất <span style="font-size:20px;">(@Session["UserName"])</span></a>
 
             }
@@ -124,7 +124,7 @@
                                         <div class="ch-info">
                                             <div class="ch-info-front ch-img-2"></div>
                                             <div class="ch-info-back">
-                                                <a href="" style="text-decoration: none;">
+                                                <a href="~/Account/ViewProfile" style="text-decoration: none;">
                                                     <h3>Bán liền tay</h3>
                                                     <p>Chúc bạn bán đắt</p>
                                                 </a>
