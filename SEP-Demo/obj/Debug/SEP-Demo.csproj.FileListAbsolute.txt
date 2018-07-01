@@ -867,3 +867,36 @@ C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo\bin\Microsoft.CodeAnal
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo\bin\Microsoft.CodeAnalysis.CSharp.xml
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo\bin\System.Collections.Immutable.xml
 C:\Users\ngocs\OneDrive\Máy tính\Trading300618\SEP-Demo\bin\System.Reflection.Metadata.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.CSharp.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.VisualStudio.CodeCoverage.Shim.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.AppContext.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Collections.Immutable.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Console.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Diagnostics.FileVersionInfo.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Diagnostics.StackTrace.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.IO.Compression.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.IO.FileSystem.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.IO.FileSystem.Primitives.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Net.Http.Formatting.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Reflection.Metadata.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Security.Cryptography.Algorithms.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Security.Cryptography.Encoding.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Security.Cryptography.Primitives.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Security.Cryptography.X509Certificates.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Text.Encoding.CodePages.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Threading.Thread.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.ValueTuple.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Web.Http.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Xml.ReaderWriter.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Xml.XmlDocument.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Xml.XPath.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Xml.XPath.XDocument.dll
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.CSharp.pdb
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\Microsoft.CodeAnalysis.CSharp.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Collections.Immutable.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Net.Http.Formatting.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Reflection.Metadata.xml
+E:\K21T_SEP\SEP_06302018\SEP-Demo\bin\System.Web.Http.xml

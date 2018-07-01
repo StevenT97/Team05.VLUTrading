@@ -49,8 +49,8 @@
         <ul id="suboutput"></ul>
         <ul>
             <li class="totalRow">
-                @*<a class="checkout btn continue btn-success btn-block" style="border-radius:6px;height: 45px;" >Checkout</a>*@
-                <button type="submit" class="checkout btn btn-success btn-block" data-checkout="shopcart" >Checkout</button>
+                <a href="../Home/Index" class="checkout btn continue btn-success btn-block" style="border-radius:6px;height: 45px;" >Checkout</a>
+                @*<button type="submit" class="checkout btn btn-success btn-block" data-checkout="shopcart">Checkout</button>*@
                 @*<input type="submit" class="btn btn-primary continue" value="Checkout with PayPal">*@
                 <a href="../Home/Index" class="btn btn-default btn-block" style="background-color:#337ab7;border-radius:6px;font-family: inherit;font-size: 14px;">Continue Shopping</a>
             </li>
@@ -89,7 +89,7 @@
         //    $(this).parent().parent().parent().hide(400);
 
         //})
-        $('button.checkout').click(function () {
+        $('a.checkout').click(function () {
             saveCart();
 
         });

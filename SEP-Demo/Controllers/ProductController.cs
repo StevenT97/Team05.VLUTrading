@@ -55,37 +55,36 @@ namespace SEP_Demo.Controllers
         public ActionResult Cart(string Orders)
         {
 
-            var cart = JsonConvert.DeserializeObject<List<OrdersItem>>(Orders); 
-
-            //if (ModelState.IsValid)
-            //{
-            var orderCode = "VLUTrading-" + DateTime.Now.Millisecond + 5;
-            int User_ID = (int)Session["ID"];
-            OrderList ordList = new OrderList();
-            ordList.OrderCode = orderCode;
-            ordList.UserOrder = User_ID;
-            ordList.Date = DateTime.Now.Date;
-
-            db.OrderLists.Add(ordList);
-            for (int i = 0; i < cart.Count; i++)
+            var cart = JsonConvert.DeserializeObject<List<OrdersItem>>(Orders);
+            Random rnd = new Random();
+            if (cart.Count > 0)
             {
-                Order itemord = new Order();
-                itemord.OrderID = orderCode;
-                itemord.ProductID = cart[i].id;
-                itemord.UserTrade = cart[i].usertrade;
-                itemord.Date = DateTime.Now.Date;
-                itemord.Quantity = cart[i].qty;
-                itemord.Price = cart[i].price;
-                itemord.SubPrice = cart[i].qty * cart[i].price;
-                itemord.Status = 1;
-                db.Orders.Add(itemord);
+                var orderCode = "VLUTrading-" + DateTime.Now + "-" + rnd.Next(0,999) +"-" + DateTime.Now.Millisecond + rnd.Next(0, 999);
+                int User_ID = (int)Session["ID"];
+                OrderList ordList = new OrderList();
+                ordList.OrderCode = orderCode;
+                ordList.UserOrder = User_ID;
+                ordList.Date = DateTime.Now.Date;
+
+                db.OrderLists.Add(ordList);
+                for (int i = 0; i < cart.Count; i++)
+                {
+                    Order itemord = new Order();
+                    itemord.OrderID = orderCode;
+                    itemord.ProductID = cart[i].id;
+                    itemord.UserTrade = cart[i].usertrade;
+                    itemord.Date = DateTime.Now.Date;
+                    itemord.Quantity = cart[i].qty;
+                    itemord.Price = cart[i].price;
+                    itemord.SubPrice = cart[i].qty * cart[i].price;
+                    itemord.Status = 1;
+                    db.Orders.Add(itemord);
+                }
+
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
             }
-
-            db.SaveChanges();
-
-            //}
             return RedirectToAction("Index", "Home");
-            //return View();    
         }   
         public class OrdersItem
         {
@@ -97,11 +96,7 @@ namespace SEP_Demo.Controllers
             public string username;
             public int price;
         }
-        //[HttpPost]
-        //public ActionResult Cart(Bind(Include= "ID,PropertyName,Avatar,Images,PropertyType_ID,Content,Street_ID,Ward_ID,District_ID,Price,UnitPrice,Area,BedRoom,BathRoom,PackingPlace,UserID,Created_at,Create_post,Status_ID,Note,Updated_at,Sale_ID")] Order oderList)
-        //{
-        //    return View();
-        //}
+        
 
 
         public ActionResult History()
@@ -127,19 +122,7 @@ namespace SEP_Demo.Controllers
             }
         }
 
-        //public JsonResult SaveCart(string[] cart)
-        //{
-        //    var orderList = db.Orders;
-        //    foreach (var item in cart)
-        //    {
-        //        orderList.Add(item);
-
-        //    }
-
-        //    var message = "Success";
-
-        //    return message;
-        //}
+     
         //Thuan Nguyen - Create New Product
 
         [HttpGet]
