@@ -256,7 +256,12 @@
     <Compile Include="Sprint02UnitTest\CreataProductUnitTest.cs" />
     <Compile Include="Sprint02UnitTest\DeleteProductUnitTest.cs" />
     <Compile Include="Sprint02UnitTest\DetailProductUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\EditProductUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\EditStatusAccountUnitTest .cs" />
+    <Compile Include="Sprint02UnitTest\EditStatusUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\HistoryUnitTes.cs" />
     <Compile Include="Sprint02UnitTest\HomeControllerUnitTest.cs" />
+    <Compile Include="Sprint02UnitTest\ServiceControllerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

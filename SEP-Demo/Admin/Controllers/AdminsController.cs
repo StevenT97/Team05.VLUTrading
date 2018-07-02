@@ -19,16 +19,18 @@ namespace SEP_Demo.Admin.Controllers
         // GET: Admins
         public ActionResult Index()
         {
-            //var users = db.Users.Include(u => u.Role).Include(u => u.UserInfo);
-            //return View(users.ToList());
-
-            var movies = from m in db.Users
-                         select m;
-
            
             if (Session["ID"] != null)
             {
-                return View(movies);
+                var id = (int)Session["RoleID"];
+                if (id == 1)
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
             else
             {
@@ -100,8 +102,36 @@ namespace SEP_Demo.Admin.Controllers
                     currentP.StatusID = status;
                     db.SaveChanges();
               
-            //If fail => change to RedirectToAction("ViewProfile","Account");
             return RedirectToAction("Listproduct", "Admins");
+        }
+        [HttpGet]
+        public ActionResult EditStatusAccount(int id)
+        {
+            var model = db.Users.Find(id);
+            return PartialView("EditStatusAccountPartial", model);
+
+        }
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult EditStatusAccount(User user, int status)
+        {
+            VLUTradingDBEntities dbs = new VLUTradingDBEntities();
+            var currentU = dbs.Users.Find(user.Id);
+
+            //Update new Infor
+            currentU.Role_ID = status;
+            currentU.ConfirmPassword = currentU.Password;
+          
+            try
+            {
+                dbs.Entry(currentU).State = EntityState.Modified;
+                dbs.SaveChanges();
+            } catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return RedirectToAction("Index", "Admins");
         }
 
     }

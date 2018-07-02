@@ -6,6 +6,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Services;
+using Newtonsoft.Json;
 using SEP_Demo.Models;
 
 namespace SEP_Demo.Controllers
@@ -50,11 +51,15 @@ namespace SEP_Demo.Controllers
             }
         }
         [HttpPost]
-        public ActionResult Cart(List<string> Item)
+        //[WebMethod]
+        public ActionResult Cart(string Orders)
         {
-            if (ModelState.IsValid)
+
+            var cart = JsonConvert.DeserializeObject<List<OrdersItem>>(Orders);
+            Random rnd = new Random();
+            if (cart.Count > 1)
             {
-                var orderCode = "VLUTrading-" + DateTime.Now.Millisecond + 5;
+                var orderCode = "VLUTrading-" + DateTime.Now + "-" + rnd.Next(0, 999) + "-" + DateTime.Now.Millisecond + rnd.Next(0, 999);
                 int User_ID = (int)Session["ID"];
                 OrderList ordList = new OrderList();
                 ordList.OrderCode = orderCode;
@@ -62,18 +67,62 @@ namespace SEP_Demo.Controllers
                 ordList.Date = DateTime.Now.Date;
 
                 db.OrderLists.Add(ordList);
-                Order ord = new Order();
-                var count = Item.Count();
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < cart.Count; i++)
                 {
-                    ord.OrderID = orderCode;
+                    Order itemord = new Order();
+                    itemord.OrderID = orderCode;
+                    itemord.ProductID = cart[i].id;
+                    itemord.UserTrade = cart[i].usertrade;
+                    itemord.Date = DateTime.Now.Date;
+                    itemord.Quantity = cart[i].qty;
+                    itemord.Price = cart[i].price;
+                    itemord.SubPrice = cart[i].qty * cart[i].price;
+                    itemord.Status = 1;
+                    db.Orders.Add(itemord);
                 }
 
                 db.SaveChanges();
-
+                return RedirectToAction("Index", "Home");
             }
             return RedirectToAction("Index", "Home");
         }
+        public class OrdersItem
+        {
+            public int id;
+            public string name;
+            public string s;
+            public int qty;
+            public int usertrade;
+            public string username;
+            public int price;
+        }
+
+
+        //[HttpPost]
+        //public ActionResult Cart(List<string> Item)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var orderCode = "VLUTrading-" + DateTime.Now.Millisecond + 5;
+        //        int User_ID = (int)Session["ID"];
+        //        OrderList ordList = new OrderList();
+        //        ordList.OrderCode = orderCode;
+        //        ordList.UserOrder = User_ID;
+        //        ordList.Date = DateTime.Now.Date;
+
+        //        db.OrderLists.Add(ordList);
+        //        Order ord = new Order();
+        //        var count = Item.Count();
+        //        for (int i = 0; i < count; i++)
+        //        {
+        //            ord.OrderID = orderCode;
+        //        }
+
+        //        db.SaveChanges();
+
+        //    }
+        //    return RedirectToAction("Index", "Home");
+        //}
 
         //[HttpPost]
         //public ActionResult Cart(Bind(Include= "ID,PropertyName,Avatar,Images,PropertyType_ID,Content,Street_ID,Ward_ID,District_ID,Price,UnitPrice,Area,BedRoom,BathRoom,PackingPlace,UserID,Created_at,Create_post,Status_ID,Note,Updated_at,Sale_ID")] Order oderList)
@@ -277,9 +326,9 @@ namespace SEP_Demo.Controllers
                     filename = Path.GetFileNameWithoutExtension(file.FileName);
                     extension = Path.GetExtension(file.FileName);
                     filename = filename  + extension;
-                    b = "/Images/ProductAvatar/" + filename;
+                    b = "~/Images/ProductAvatar/" + filename;
                     s = string.Concat(s, b, " ");
-                    filename = Path.Combine(Server.MapPath("/Images/ProductAvatar/"), filename);
+                    filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar/"), filename);
                     file.SaveAs(filename);
                 }
 
@@ -295,8 +344,8 @@ namespace SEP_Demo.Controllers
             filename = Path.GetFileNameWithoutExtension(p.Image.FileName);
             extension = Path.GetExtension(p.Image.FileName);
             filename = filename + extension;
-            s = "/Images/ProductAvatar/" + filename;
-            filename = Path.Combine(Server.MapPath("/Images/ProductAvatar/"), filename);
+            s = "~/Images/ProductAvatar/" + filename;
+            filename = Path.Combine(Server.MapPath("~/Images/ProductAvatar/"), filename);
             p.Image.SaveAs(filename);
             return s;
         }

@@ -49,15 +49,43 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var context = helper.MakeFakeContext();
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
-            var listOrders = new OrderList
+     
+            var lisst = new OrdersItem
             {
-               OrderCode = "VLUTrading-195",
-               UserOrder = 6,
-               Date = DateTime.Parse("Jan ,01, 2009")
+                name = "sdf",
+                s = "fsaf",
+                username = "dsf",
+                usertrade = 1,
+                price = 1232,
+                qty = 36,
+                id = 36
+                
             };
-           // var cart = JsonConvert.DeserializeObject<List<OrdersItem>>(listOrders);
+          
+            var cart1 = JsonConvert.SerializeObject(new[] { lisst });
             context.SetupGet(x => x.Session["ID"]).Returns(6);
-            var redirectToRouteResult = controller.Cart() as RedirectToRouteResult;
+            var redirectToRouteResult = controller.Cart(cart1) as RedirectToRouteResult;
+            Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
+            Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
+        }
+        [TestMethod]
+        public void CartOrder_invalidInput()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Controllers.ProductController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+
+            var lisst = new OrdersItem
+            {
+               
+
+            };
+
+            var cart1 = JsonConvert.SerializeObject(new[] { lisst });
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            var redirectToRouteResult = controller.Cart(cart1) as RedirectToRouteResult;
             Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
             Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
         }

@@ -57,27 +57,28 @@
             <a class="link-3" href="~/Home/Index">Trang chủ</a>
             <a class="link-3" href="~/Home/AboutUS">Giới thiệu</a>
             <a class="link-3" href="~/Home/Contact">Liên hệ</a>
-            <a class="link-3" href="~/Account/Login">Đăng nhập</a>
+            @if (Session["EmailID"] == null)
+            {
+                <a class="link-3" href="~/Account/Login">Đăng nhập</a>
+            }
+
 
             @if (Session["EmailID"] != null)
-             {
-             if ((int)(Session["RoleID"]) == 1)
             {
-            <a class="link-3" href="~/Admins/Index">Quản trị</a>
-
-            }
-
-            else if ((int)(Session["RoleID"]) == 2)
-            {
-            <a class="link-3" href="~/Admins/Index">Quản trị</a>
-            <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
-            }
-            else if ((int)(Session["RoleID"]) == 3)
-            {
-            <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
-            <a class="link-3" href="~/Account/Logout">Đăng xuất <span style="font-size:20px;">(@Session["UserName"])</span></a>
-
-            }
+                if ((int)(Session["RoleID"]) == 1)
+                {
+                    <a class="link-3" href="~/Admins/Index">Quản trị</a>
+                }
+                else if ((int)(Session["RoleID"]) == 2)
+                {
+                    <a class="link-3" href="~/Admins/Index">Quản trị</a>
+                    <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
+                }
+                else if ((int)(Session["RoleID"]) == 3)
+                {
+                    <a class="link-3" href="~/Account/ViewProfile">Đăng tin</a>
+                    <a class="link-3" href="~/Account/Logout">Đăng xuất <span style="font-size:20px;">(@Session["UserName"])</span></a>
+                }
             }
 
         </nav>
@@ -143,21 +144,21 @@
     </div>
     <div style="position: relative; top:-50px;">
         @foreach (var item in Model)
-    {
-        <figure class="snip1206">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg" alt="sample74" />
-            <figcaption>
-                <h2>@item.Name</h2>
-            </figcaption>
-            <a href="#"></a>
-        </figure>
-    }
+        {
+            <figure class="snip1206">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample74.jpg" alt="sample74" />
+                <figcaption>
+                    <h2>@item.Name</h2>
+                </figcaption>
+                <a href="#"></a>
+            </figure>
+        }
     </div>
     <script>
         $(".hover").mouseleave(
             function () {
                 $(this).removeClass("hover");
-    }
+            }
         );
     </script>
     <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Fira+Sans" rel="stylesheet">

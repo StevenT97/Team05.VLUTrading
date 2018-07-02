@@ -22,7 +22,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             // Arrange
             ProductController controller = new ProductController();
             // Act
-            var redirectToRouteResult = controller.Delete(51) as RedirectToRouteResult;
+            var redirectToRouteResult = controller.Delete(56) as RedirectToRouteResult;
             // Assert
             Assert.AreEqual("ViewProfile", redirectToRouteResult.RouteValues["Action"]);
             Assert.AreEqual("Account",redirectToRouteResult.RouteValues["controller"]);

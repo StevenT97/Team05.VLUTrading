@@ -27,12 +27,30 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             context.SetupGet(x => x.Session["ID"]).Returns(6);
+            context.SetupGet(x => x.Session["RoleID"]).Returns(1);
             //act
             ViewResult result = controller.Index() as ViewResult;
             //assert
             Assert.AreEqual("", result.ViewName);
             //Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
             //Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
+        }
+        [TestMethod]
+        public void View_ListUser_withinvalidRoleID()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Admin.Controllers.AdminsController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
+            context.SetupGet(x => x.Session["RoleID"]).Returns(2);
+            //act
+            var result = controller.Index() as RedirectToRouteResult;
+            //assert
+
+            Assert.AreEqual("Index", result.RouteValues["Action"]);
+            Assert.AreEqual("Home", result.RouteValues["controller"]);
         }
         [TestMethod]
         public void View_ListUser_withNull_UserID()
@@ -50,6 +68,22 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             Assert.AreEqual("Account", redirectToRouteResult.RouteValues["controller"]);
         }
         [TestMethod]
+        public void View_Dashboard_withNullUserID()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Admin.Controllers.AdminsController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            context.SetupGet(x => x.Session["RoleID"]).Returns(1);
+           
+            //act
+            var redirectToRouteResult = controller.Dashboard() as RedirectToRouteResult;
+            //assert
+            Assert.AreEqual("Login", redirectToRouteResult.RouteValues["Action"]);
+            Assert.AreEqual("Account", redirectToRouteResult.RouteValues["controller"]);
+        }
+        [TestMethod]
         public void View_Dashboard_with_RoleID_1()
         {
             // Arrange
@@ -58,11 +92,12 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             context.SetupGet(x => x.Session["RoleID"]).Returns(1);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
             //act
             var redirectToRouteResult = controller.Dashboard() as RedirectToRouteResult;
             //assert
-            Assert.AreEqual("Login", redirectToRouteResult.RouteValues["Action"]);
-            Assert.AreEqual("Account", redirectToRouteResult.RouteValues["controller"]);
+            Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
+            Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
         }
         [TestMethod]
         public void View_Dashboard_with_RoleID_2()
@@ -73,6 +108,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             context.SetupGet(x => x.Session["RoleID"]).Returns(2);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
             //act
             ViewResult result = controller.Dashboard() as ViewResult;
             //assert
@@ -87,13 +123,14 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             context.SetupGet(x => x.Session["RoleID"]).Returns(3);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
             //act
             ViewResult result = controller.Dashboard() as ViewResult;
             //assert
             Assert.AreEqual("", result.ViewName);
         }
         [TestMethod]
-        public void View_ListProduct()
+        public void View_ListProduct_withValidRoallIDandUserID()
         {
             // Arrange
             var helper = new MockHelper();
@@ -101,10 +138,27 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             context.SetupGet(x => x.Session["RoleID"]).Returns(2);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
             //act
             ViewResult result = controller.Listproduct() as ViewResult;
             //assert
             Assert.AreEqual("", result.ViewName);
+        }
+        [TestMethod]
+        public void View_ListProduct_withUserIDisNull()
+        {
+            // Arrange
+            var helper = new MockHelper();
+            var context = helper.MakeFakeContext();
+            var controller = new Admin.Controllers.AdminsController();
+            controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
+            context.SetupGet(x => x.Session["RoleID"]).Returns(2);
+
+            //act
+            var redirectToRouteResult = controller.Listproduct() as RedirectToRouteResult;
+            //assert
+            Assert.AreEqual("Login", redirectToRouteResult.RouteValues["Action"]);
+            Assert.AreEqual("Account", redirectToRouteResult.RouteValues["controller"]);
         }
         [TestMethod]
         public void View_ListProduct_withInvaliedRoleID()
@@ -114,12 +168,13 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var context = helper.MakeFakeContext();
             var controller = new Admin.Controllers.AdminsController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
-            context.SetupGet(x => x.Session["RoleID"]).Returns(1);
+            context.SetupGet(x => x.Session["RoleID"]).Returns(3);
+            context.SetupGet(x => x.Session["ID"]).Returns(6);
             //act
             var redirectToRouteResult = controller.Listproduct() as RedirectToRouteResult;
             //assert
-            Assert.AreEqual("Login", redirectToRouteResult.RouteValues["Action"]);
-            Assert.AreEqual("Account", redirectToRouteResult.RouteValues["controller"]);
+            Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
+            Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
         }
         [TestMethod]
         public void Update()

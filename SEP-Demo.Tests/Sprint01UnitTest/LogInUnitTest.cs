@@ -33,7 +33,7 @@ namespace SEP_Demo.Tests
             var context = helper.MakeFakeContext();
             var controller = new Controllers.AccountController();
             var EmailID = "sonnguyen66@vanlanguni.vn";
-            var password = "456456";
+            var password = "123123";
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
             var redirectRoute = controller.Login(EmailID, password) as RedirectToRouteResult;

@@ -39,7 +39,7 @@ namespace SEP_Demo.Tests
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             // Act
             context.SetupGet(x => x.Session["ID"]).Returns(6);
-            var redirectToRouteResult = controller.ChangePassword("456456456", "456456", "456456") as RedirectToRouteResult;
+            var redirectToRouteResult = controller.ChangePassword("123123", "456456", "456456") as RedirectToRouteResult;
             //  Assert
             Assert.AreEqual("Index", redirectToRouteResult.RouteValues["Action"]);
             Assert.AreEqual("Home", redirectToRouteResult.RouteValues["controller"]);
@@ -54,7 +54,7 @@ namespace SEP_Demo.Tests
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             // Act
             context.SetupGet(x => x.Session["ID"]).Returns(6);
-            var redirectToRouteResult = controller.ChangePassword("123123", "456456", "456456") as ViewResult;
+            var redirectToRouteResult = controller.ChangePassword("456456", "123123", "123123") as ViewResult;
             //  Assert
             Assert.AreEqual("", redirectToRouteResult.ViewName);
         }

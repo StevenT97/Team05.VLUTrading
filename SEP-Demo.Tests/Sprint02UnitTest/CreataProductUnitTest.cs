@@ -17,6 +17,16 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
     public class CreataProductUnitTest
     {
         [TestMethod]
+        public void View_Product()
+        {
+            // Arrange
+            ProductController controller = new ProductController();
+            // Act
+            ViewResult result = controller.Product() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
+        [TestMethod]
         public void View_CreateProduct()
         {
             // Arrange
@@ -26,7 +36,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
 
             // Act
-            var result = controller.Create() as ViewResult;
+            PartialViewResult result = controller.Create() as PartialViewResult;
             // Assert
             Assert.AreEqual("CreatePartial", result.ViewName);
         }
@@ -39,7 +49,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar/")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
             
@@ -74,7 +84,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar/")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
 
@@ -111,7 +121,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar/")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
 
@@ -150,7 +160,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar/")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
 
@@ -192,7 +202,7 @@ namespace SEP_Demo.Tests.Sprint02UnitTest
             var controller = new Controllers.ProductController();
             controller.ControllerContext = new ControllerContext(context.Object, new RouteData(), controller);
             var serverMock = new Mock<HttpServerUtilityBase>();
-            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
+            serverMock.Setup(x => x.MapPath("~/Images/ProductAvatar/")).Returns(@"C:\Users\ngocs\OneDrive\Máy tính\Trading280618\SEP-Demo\Images\ProductAvatar");
 
             context.Setup(x => x.Server).Returns(serverMock.Object);
 

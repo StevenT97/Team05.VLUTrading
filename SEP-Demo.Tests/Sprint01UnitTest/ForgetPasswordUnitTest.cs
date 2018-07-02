@@ -49,7 +49,7 @@ namespace SEP_Demo.Tests
             // Arrange
             AccountController controller = new AccountController();
             // Act
-            var result = controller.ResetPassword("7380646e-6e39-4b14-8d72-b41b527ad498") as ViewResult;
+            var result = controller.ResetPassword("578bb6adc-21b1-40f5-90f1-080c183ef108") as ViewResult;
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual("", result.ViewName);
@@ -61,7 +61,7 @@ namespace SEP_Demo.Tests
             AccountController controller = new AccountController();
             var model = new ResetPasswordModel
             {
-                ResetCode = "424f78a0-20b1-430b-9516-27a10e8b07e8",
+                ResetCode = "14dee28e-42c1-4e8f-a616-47bd6c721258",
                 NewPassword = "123123",
                 ConfirmPassword = "123123"
             };
